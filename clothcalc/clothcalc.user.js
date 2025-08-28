@@ -10,8 +10,8 @@
 // @include https://*.the-west.*/game.php*
 // @include http://*.tw.innogames.*/game.php*
 // @include https://*.tw.innogames.*/game.php*
-// @downloadURL https://tw-db.info/cache/userscripts/clothcalc/clothcalc_gr.user.js
-// @updateURL https://tw-db.info/cache/userscripts/clothcalc/clothcalc_gr.meta.js
+// @downloadURL https://raw.githubusercontent.com/BelleBernice/userscripts/refs/heads/main/clothcalc/clothcalc.user.js
+// @updateURL https://raw.githubusercontent.com/BelleBernice/userscripts/refs/heads/main/clothcalc/clothcalc.user.js
 // ==/UserScript==
 (function (f) {
     var d = document,
@@ -32,8 +32,8 @@
     } else {
         TWDB = {};
         TWDB.script = new Object({
-            version: 10,
-            revision: 2,
+            version: 20,
+            revision: 0,
             name: "The West - TW-DB.info Cloth Calc",
             update: "raw.githubusercontent.com/BelleBernice/userscripts/refs/heads/main/clothcalc/clothcalc.user.js",
             check: "raw.githubusercontent.com/BelleBernice/userscripts/refs/heads/main/clothcalc/version",
@@ -44,7 +44,7 @@
         });
         try {
             TWDB.script.notes = jQuery.parseJSON(
-                '[{"version":"1","notes":"[main] Updater fixed <br>\\n[chestAnalyser] Compatibility with TWToolkit <br>\\n[bugfix] Silver jobs reset fixed <br>\\n[bugfix] Bonusjob checkboxes at minimap fixed <br>\\n[bugifx] Experience bar fixed <br>\\n[bugifx] Forum last post fixed <br>\\n[misc] Only link quest, which are on tw-db.info <br>\\n[misc] Ready for jQuery v3 <br>"},{"version":"0","notes":"** please enter some notes for this version **"}]'
+                '[{"version":"20","notes":"[bugifx] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"10","notes":"** Δημιουργία userscript από το clothcalc_sk **"}]'
             );
         } catch (e) {}
         TheWestApi.version = Game.version = parseInt(Game.version, 10) ? Game.version : TWDB.script.gameversion;
@@ -509,9 +509,9 @@
                 });
                 this.gui.copyright = jQuery(
                     '<div style="position:absolute;bottom:0px;left:0px;height:15px;display:block;font-size:10px;color:#000000;">.:powered by TW-DB Team:. | <a href="https://tw-db.info" style="font-weight:normal;color:#000000;" target="_blank">.:TW-DB.info:.</a> | ' +
-                        TWDB.script.version / 100 +
-                        "." +
                         TWDB.script.revision +
+                        "." +
+                        TWDB.script.version / 100 +
                         " | BB</div>"
                 );
                 this.gui.cache = jQuery('<div style="position:absolute;top:10px;right:8px;width:20px;height:20px;cursor:pointer;" />');
@@ -3084,7 +3084,7 @@
                     r.appendToContentPane(
                         e(
                             '<div style="width:100%;text-align:center;position:absolute;bottom:0px;left:0px;height:15px;display:block;font-size:12px;color:#000000;">.:powered by TW-DB Team:. | <a href="https://tw-db.info" style="font-weight:normal;color:#000000;" target="_blank">.:TW-DB.info:.</a> | ' +
-                                (Script.version / 100 + "." + Script.revision) +
+                                (Script.revision + "." + Script.version / 100) +
                                 " | BB</div>"
                         )
                     );
@@ -3761,7 +3761,7 @@
                     var n = "Το UserScript χρειάζεται ανανέωση";
                     var r = '<div class="txcenter">Μια νέα έκδοση είναι διαθέσιμη για το UserScript =1=, παρακαλώ κάντε κλικ στο OK για να το ανανεώσετε.</div>';
                     r = r.replace("=1=", "<b>" + Script.name + "</b>");
-                    r += "<div><br />Τρέχουσα έκδοση: " + Script.version / 100 + "." + Script.revision + "<br />Νέα έκδοση: " + e / 100 + "." + t + "</div>";
+                    r += "<div><br />Τρέχουσα έκδοση: " + Script.revision + "." + Script.version / 100 + "<br />Νέα έκδοση: " + t + "." + e / 100 +"</div>";
                     var i = Script.protocol + "://" + Script.update;
                     var s = function () {
                         window.open(i);
@@ -3778,7 +3778,7 @@
                     e(t.getMainDiv()).css("height", "335px");
                     var n = false;
                     for (var i = 0; i < Script.notes.length; i++) {
-                        var s = e("<h3><a>Version " + String(Script.notes[i].version / 100) + "." + Script.revision + "</a></h3>")
+                        var s = e("<h3><a>Version " + Script.revision + "." + String(Script.notes[i].version / 100) + "</a></h3>")
                             .css("border-bottom", "1px solid black")
                             .click(function () {
                                 e(this).next().toggle();
