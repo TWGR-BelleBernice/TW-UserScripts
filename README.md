@@ -9,7 +9,7 @@
 <img src="https://tomrobert.github.io/TWIR/docs/icons/opera.png"> [Tampermonkey](https://addons.opera.com/extensions/details/tampermonkey-beta/) <br />
 <img src="https://tomrobert.github.io/TWIR/docs/icons/msedge.png"> [Tampermonkey](https://www.tampermonkey.net/?ext=dhdg&browser=edge) <br />
 
-> Βήμα 20:
+> Βήμα 2o:
 ### Userscript
 
-[Κάντε κλικ εδώ για εγκατάσταση](https://bellebernice.github.io/userscripts/clothcalc/clothcalc.user.js) 
+[Κάντε κλικ εδώ για εγκατάσταση](https://bellebernice.github.io/userscripts/clothcalc/clothcalc.user.js)
