@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name The West - TW-DB.info Cloth Calc [gr] - BB
-// @version 0.0.4
+// @version 0.0.5
 // @description The West Script: Cloth Calculation for game version 1.34 or higher
 // @author Bluep, scoobydoo, Dun, Petee [tw-db.info], Belle Bernice
 // @namespace http://tw-db.info
@@ -32,7 +32,7 @@
     } else {
         TWDB = {};
         TWDB.script = new Object({
-            version: 40,
+            version: 50,
             revision: 0,
             name: "The West - TW-DB.info Cloth Calc",
             folder_url: "raw.githubusercontent.com/BelleBernice/userscripts/refs/heads/main/clothcalc/",
@@ -45,7 +45,7 @@
         });
         try {
             TWDB.script.notes = jQuery.parseJSON(
-                '[{"version":"40","notes":"[main] Διόρθωση για την προηγούμενη αφαίρεση χαρακτηριστικών"},{"version":"30","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"20","notes":"[bugifx] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"10","notes":"** Δημιουργία userscript από το clothcalc_sk **"}]'
+                '[{"version":"50","notes":"[bugifx] Ουπς! Διόρθωση του userscript"},{"version":"40","notes":"[bugifx] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"30","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"20","notes":"[bugifx] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"10","notes":"** Δημιουργία userscript από το clothcalc_sk **"}]'
             );
         } catch (e) {}
         TheWestApi.version = Game.version = parseInt(Game.version, 10) ? Game.version : TWDB.script.gameversion;
@@ -3600,25 +3600,25 @@
                             a.append(h);
                         }
                     }
-                    // var m = new west.gui.Combobox();
+                    var m = new west.gui.Combobox();
                     // m.addItem("left", "Αριστερά").addItem("right", "Δεξιά").addItem("custom", "Αποθηκευμένη θέση");
                     // m.select(String(n["clothPos"]));
                     // e("tr.placeholder_clothPos", a).removeClass("placeholder_clothPos").append(e('<td colspan="2" />').append(m.getMainDiv(), "<span>&nbsp;Δεξιά</span>"));
-                    // a.append(e("<tr><td>&nbsp;</td></tr>"));
-                    // var g = new west.gui.Button("Αποθήκευση", function () {
-                    //     switch (m.getValue()) {
-                    //         case "left":
-                    //             n["clothPos"] = "left";
-                    //             break;
-                    //         case "right":
-                    //             n["clothPos"] = "right";
-                    //             break;
-                    //         default:
-                    //             n["clothPos"] = "custom";
-                    //             break;
-                    //     }
-                    //     u(o);
-                    // });
+                    a.append(e("<tr><td>&nbsp;</td></tr>"));
+                    var g = new west.gui.Button("Αποθήκευση", function () {
+                        // switch (m.getValue()) {
+                        //     case "left":
+                        //         n["clothPos"] = "left";
+                        //         break;
+                        //     case "right":
+                        //         n["clothPos"] = "right";
+                        //         break;
+                        //     default:
+                        //         n["clothPos"] = "custom";
+                        //         break;
+                        // }
+                        u(o);
+                    });
                     var y = e('<div style="width:100%;text-align:right;" />').append(
                         e('<img style="position:relative;top:-20px;cursor:pointer;" title=" Επαναφορά Local Storage" src="' + Images.iconReset + '" />').click(function () {
                             Cache.reset();
@@ -8289,16 +8289,16 @@
                         f += "</form>";
                         f += '<script type="text/javascript">document.forms.TWDB_CC_Form.submit();</script>';
                         f += "</body>";
-                        Support.addKey("world", window.location.host);
-                        Support.addKey("version", TheWestApi.version);
-                        Support.addKey("name", Character.name);
-                        Support.addKey("level", Number(Character.level));
-                        Support.addKey("class", Number(TWDB.ClothCalc._class2id[Character.charClass]));
-                        Support.addKey("premium", JSON.stringify(a).replace(/'/g, "\\'"));
-                        Support.addKey("items", JSON.stringify(t).replace(/'/g, "\\'"));
-                        Support.addKey("setitems", JSON.stringify(n).replace(/'/g, "\\'"));
-                        Support.addKey("skill", JSON.stringify(s).replace(/'/g, "\\'"));
-                        Support.addKey("custom", JSON.stringify(Customs.getCustoms()).replace(/'/g, "\\'"));
+                        // Support.addKey("world", window.location.host);
+                        // Support.addKey("version", TheWestApi.version);
+                        // Support.addKey("name", Character.name);
+                        // Support.addKey("level", Number(Character.level));
+                        // Support.addKey("class", Number(TWDB.ClothCalc._class2id[Character.charClass]));
+                        // Support.addKey("premium", JSON.stringify(a).replace(/'/g, "\\'"));
+                        // Support.addKey("items", JSON.stringify(t).replace(/'/g, "\\'"));
+                        // Support.addKey("setitems", JSON.stringify(n).replace(/'/g, "\\'"));
+                        // Support.addKey("skill", JSON.stringify(s).replace(/'/g, "\\'"));
+                        // Support.addKey("custom", JSON.stringify(Customs.getCustoms()).replace(/'/g, "\\'"));
                         if (isDefined(l)) {
                             e(l).remove();
                         }
