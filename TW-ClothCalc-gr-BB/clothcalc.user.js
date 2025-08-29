@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name The West - TW-DB.info Cloth Calc [gr] - BB
-// @version 0.0.8
+// @version 0.0.9
 // @description The West Script: Cloth Calculation for game version 1.34 or higher
 // @author Bluep, scoobydoo, Dun, Petee [tw-db.info], Belle Bernice
 // @namespace http://tw-db.info
@@ -33,7 +33,7 @@
   } else {
     TWDB = {};
     TWDB.script = new Object({
-      version: 80,
+      version: 90,
       revision: 0,
       name: "The West - TW-DB.info Cloth Calc",
       folder_url: "bellebernice.github.io/TW-Userscripts/TW-ClothCalc-gr-BB/",
@@ -46,7 +46,7 @@
     });
     try {
       TWDB.script.notes = jQuery.parseJSON(
-        '[{"version":"80","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"70","notes":"[bugifx] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"60","notes":"[bugifx] Αλλαγή μερικών υπερσυνδέσμων"},{"version":"50","notes":"[bugifx] Ουπς! Διόρθωση του userscript"},{"version":"40","notes":"[bugifx] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"30","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"20","notes":"[bugifx] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"10","notes":"** Δημιουργία userscript από το clothcalc_sk **"}]',
+        '[{"version":"90","notes":"[main] Καθαρισμός κώδικα - part 2"},{"version":"80","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"70","notes":"[bugifx] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"60","notes":"[bugifx] Αλλαγή μερικών υπερσυνδέσμων"},{"version":"50","notes":"[bugifx] Ουπς! Διόρθωση του userscript"},{"version":"40","notes":"[bugifx] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"30","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"20","notes":"[bugifx] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"10","notes":"** Δημιουργία userscript από το clothcalc_sk **"}]',
       );
     } catch (e) {}
     TheWestApi.version = Game.version = parseInt(Game.version, 10)
@@ -7776,109 +7776,6 @@
           d();
           if (e === true) {
             v();
-          }
-        };
-        var v = function () {
-          try {
-            var t = {};
-            var n = {};
-            for (var r in i) {
-              var o = ItemManager.get(r);
-              var u = Number(TWDB.ClothCalc._type2id[o.type]);
-              if (!isDefined(t[u])) {
-                t[u] = [];
-              }
-              t[u].push(r);
-              if (isDefined(o.set)) {
-                if (!isDefined(n[u])) {
-                  n[u] = [];
-                }
-                n[u].push(r);
-              }
-            }
-            var a = {
-              0: Number(Premium.hasBonus("regen")),
-              1: Number(Premium.hasBonus("automation")),
-              2: Number(Premium.hasBonus("money")),
-              3: Number(Premium.hasBonus("character")),
-            };
-            // var f =
-            //   '<form name="TWDB_CC_Form" action="' +
-            //   Script.protocol +
-            //   "://" +
-            //   Script.url +
-            //   '/ingame_calc_2.php" method="post">';
-            // f +=
-            //   '<input style="display:none" type="text" name="worldfull" value="' +
-            //   window.location.host +
-            //   '" />';
-            // f +=
-            //   '<input style="display:none" type="text" name="protocol" value="' +
-            //   Script.protocol +
-            //   '" />';
-            // f +=
-            //   '<input style="display:none" type="text" name="version" value="' +
-            //   TheWestApi.version +
-            //   '" />';
-            // f +=
-            //   '<input style="display:none" type="text" name="after_000_migration" value="' +
-            //   TWDB.Util.isNewIDsystem() +
-            //   '" />';
-            // f +=
-            //   '<input style="display:none" type="text" name="nick" value="' +
-            //   Character.name +
-            //   '" />';
-            // f +=
-            //   '<input style="display:none" type="text" name="level" value="' +
-            //   Number(Character.level) +
-            //   '" />';
-            // f +=
-            //   '<input style="display:none" type="text" name="class" value="' +
-            //   Number(TWDB.ClothCalc._class2id[Character.charClass]) +
-            //   '" />';
-            // f +=
-            //   '<input style="display:none" type="text" name="premium" value=\'' +
-            //   JSON.stringify(a).replace(/'/g, "\\'") +
-            //   "' />";
-            // f +=
-            //   '<input style="display:none" type="text" name="items" value=\'' +
-            //   JSON.stringify(t).replace(/'/g, "\\'") +
-            //   "' />";
-            // f +=
-            //   '<input style="display:none" type="text" name="setitems" value=\'' +
-            //   JSON.stringify(n).replace(/'/g, "\\'") +
-            //   "' />";
-            // f +=
-            //   '<input style="display:none" type="text" name="skill" value=\'' +
-            //   JSON.stringify(s).replace(/'/g, "\\'") +
-            //   "' />";
-            // f +=
-            //   '<input style="display:none" type="text" name="custom" value=\'' +
-            //   JSON.stringify(Customs.getCustoms()).replace(/'/g, "\\'") +
-            //   "' />";
-            // if (Analyser.getExtra()) {
-            //   f +=
-            //     '<input style="display:none" type="text" name="report" value=\'' +
-            //     JSON.stringify(Analyser.getExtra()).replace(/'/g, "\\'") +
-            //     "' />";
-            // }
-            // f += "</form>";
-            // f +=
-            //   '<script type="text/javascript">document.forms.TWDB_CC_Form.submit();</script>';
-            // f += "</body>";
-            if (isDefined(l)) {
-              e(l).remove();
-            }
-            l = e(
-              '<iframe width="1px" height="1px" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no" allowtransparency="false" style="display:none;" />',
-            );
-            e("body").append(l);
-            var c = l.get(0);
-            var h = c.contentWindow || c.contentDocument;
-            if (h.document) h = h.document;
-            h.write(f);
-          } catch (p) {
-            Error.report(p, "DataManager sendForm");
           }
         };
         t.aktuell = f;
