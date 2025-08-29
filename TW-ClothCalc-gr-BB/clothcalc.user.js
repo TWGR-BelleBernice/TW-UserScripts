@@ -25,7 +25,7 @@
   if (isDefined(window.TWDB)) {
     new west.gui.Dialog(
       TWDB.script.name,
-      '<div class="txcenter"><b><br>Το UserScript ClothCalc έχει εγκατασταθεί δυο φορές, με δυο διαφορετικές γλώσσες. Θα πρέπει να απενεργοποιήσετε μια από τις δυο γλώσσες για να λειτουργήσει το σκριπτ κανονικά.</br></b></div>',
+      '<div class="txcenter"><b><br>Το UserScript ClothCalc έχει εγκατασταθεί δυο φορές, με δυο διαφορετικές γλώσσες. Θα πρέπει να απενεργοποιήσετε μία από τις δυο γλώσσες για να λειτουργήσει το σκριπτ κανονικά.</br></b></div>',
       west.gui.Dialog.SYS_WARNING,
     )
       .addButton("OK")
