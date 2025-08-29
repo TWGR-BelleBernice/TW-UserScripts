@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name The West - TW-DB.info Cloth Calc [gr] - BB
-// @version 0.0.2
+// @version 0.0.3
 // @description The West Script: Cloth Calculation for game version 1.34 or higher
 // @author Bluep, scoobydoo, Dun, Petee [tw-db.info], Belle Bernice
 // @namespace http://tw-db.info
@@ -32,11 +32,12 @@
     } else {
         TWDB = {};
         TWDB.script = new Object({
-            version: 20,
+            version: 30,
             revision: 0,
             name: "The West - TW-DB.info Cloth Calc",
-            update: "raw.githubusercontent.com/BelleBernice/userscripts/refs/heads/main/clothcalc/clothcalc.user.js",
-            check: "raw.githubusercontent.com/BelleBernice/userscripts/refs/heads/main/clothcalc/version",
+            folder_url: "raw.githubusercontent.com/BelleBernice/userscripts/refs/heads/main/clothcalc/",
+            update: "clothcalc.user.js",
+            check: "version",
             url: "tw-db.info",
             protocol: location.protocol.match(/^(.+):$/)[1],
             gameversion: 2.252,
@@ -44,7 +45,7 @@
         });
         try {
             TWDB.script.notes = jQuery.parseJSON(
-                '[{"version":"20","notes":"[bugifx] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"10","notes":"** Δημιουργία userscript από το clothcalc_sk **"}]'
+                '[{"version":"30","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"20","notes":"[bugifx] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"10","notes":"** Δημιουργία userscript από το clothcalc_sk **"}]'
             );
         } catch (e) {}
         TheWestApi.version = Game.version = parseInt(Game.version, 10) ? Game.version : TWDB.script.gameversion;
@@ -461,7 +462,17 @@
             },
             _class2id: { greenhorn: 1, adventurer: 2, duelist: 3, worker: 4, soldier: 5 },
             data: { skills: {}, items: {}, jobs: {}, custom: {} },
-            calcdata: { skills: {}, items: {}, jobs: {}, custom: {}, animals: [], buyTip: {}, jobBoni: {}, used: {}, loaded: false },
+            calcdata: { 
+                skills: {}, 
+                items: {}, 
+                jobs: {}, 
+                custom: {}, 
+                animals: [], 
+                // buyTip: {}, 
+                // jobBoni: {}, 
+                used: {}, 
+                loaded: false 
+            },
             ready: false,
             loaded: false,
             up2date: true,
@@ -560,634 +571,634 @@
                     }
                 }
             },
-            addButton: function () {
-                if (this.ready === false) {
-                    return;
-                }
-                var e = this;
-            },
-            isBetterItem: function (e) {
-                var t = ItemManager.get(e);
-                if (isDefined(t) && isDefined(t.set)) {
-                    debLog("isBetterItem - ID", e, t, "is seen as new set item");
-                    return true;
-                }
-                var n, r, i, s;
-                for (n in this.calcdata.jobs) {
-                    var o = this.getClothForJob(n);
-                    if (!isDefined(o)) {
-                        debLog("isBetterItem - job ID", n, "has no Calc data");
-                        return true;
-                    }
-                    r = 0;
-                    i = TWDB.Calc.getItemBonusForJob(e, n);
-                    if (isDefined(o[TWDB.ClothCalc._type2id[t.type]])) {
-                        s = ItemManager.get(o[TWDB.ClothCalc._type2id[t.type]].id);
-                        if (isDefined(s) && isDefined(s.set)) {
-                            continue;
-                        }
-                        r = TWDB.Calc.getItemBonusForJob(s.item_id, n);
-                    }
-                    if (i > r) {
-                        debLog("isBetterItem - ID", e, t, "is seen as better than ID", s.item_id, ItemManager.get(s.item_id), "for job ID", n);
-                        return true;
-                    }
-                }
-                return false;
-            },
-            checkSkill: function () {
-                var e;
-                for (e in this.data.skills) {
-                    if (typeof this.calcdata.skills[e] === "undefined") {
-                        return true;
-                    }
-                    if (this.data.skills[e].val !== this.calcdata.skills[e].val) {
-                        return true;
-                    }
-                }
-                return false;
-            },
-            checkItems: function () {
-                var e;
-                for (e in this.data.items) {
-                    if (typeof this.calcdata.items[e] === "undefined") {
-                        if (this.isBetterItem(this.data.items[e].id)) {
-                            debLog("checkItems -", this.data.items[e].id, "causes update");
-                            return true;
-                        }
-                    }
-                }
-                for (e in this.calcdata.items) {
-                    if (typeof this.data.items[e] === "undefined") {
-                        if (!isDefined(ItemManager.get(e))) {
-                            console.log("Item ID=" + e + " seems to be no more defined...");
-                        }
-                        return true;
-                    }
-                }
-                return false;
-            },
-            checkCustom: function () {
-                var e, t;
-                for (e in this.data.custom) {
-                    if (typeof this.calcdata.custom[e] === "undefined") {
-                        return true;
-                    }
-                    if (this.calcdata.custom[e].name !== this.data.custom[e].name) {
-                        return true;
-                    }
-                    for (t in this.data.custom[e].para) {
-                        if (typeof this.calcdata.custom[e].para[t] === "undefined") {
-                            return true;
-                        }
-                        if (this.calcdata.custom[e].para[t] !== this.data.custom[e].para[t]) {
-                            return true;
-                        }
-                    }
-                }
-                if (typeof this.calcdata.custom[Number(e) + 1] !== "undefined") {
-                    return true;
-                }
-                return false;
-            },
-            checkCache: function () {
-                var e = this.checkItems(),
-                    t = false,
-                    n = this.checkCustom(),
-                    r;
-                this.gui.cache.children().remove();
-                if (e || t || n) {
-                    var i = "Τα δεδομένα είναι ξεπερασμένα, κάντε κλικ για ενημέρωση";
-                    if (e) {
-                        i += " [Αποθέματα]";
-                    }
-                    if (t) {
-                        i += " [Ικανότητες]";
-                    }
-                    if (n) {
-                        i += " [Προσαρμογή των ικανοτήτων]";
-                    }
-                    r = jQuery('<div title="' + i + '" style="position:absolute;top:0px;right:0px;width:20px;height:20px;background: url(' + TWDB.images.iconData + ')no-repeat 0px 0px;" />');
-                    this.up2date = false;
-                } else {
-                    r = jQuery('<div title="Τα δεδομένα είναι ενημερωμένα" style="position:absolute;top:0px;right:0px;width:20px;height:20px;background: url(' + TWDB.images.iconData + ')no-repeat -20px 0px;" /></div>');
-                    this.up2date = true;
-                }
-                this.gui.cache.append(r);
-                r.click(function () {
-                    TWDB.DataManager.loadData(true);
-                });
-            },
-            openWear: function () {
-                var e,
-                    t = wman.getById(Inventory.uid);
-                if (TWDB.Settings.get("wear_openmin", false)) {
-                    if (!isDefined(wman.getById(Wear.uid))) {
-                        Wear.open();
-                        wman.minimize(Wear.uid, true);
-                    }
-                } else {
-                    if (!isDefined(wman.getById(Wear.uid))) {
-                        Wear.open();
-                    } else {
-                        wman.reopen(Wear.uid);
-                    }
-                }
-                e = wman.getById(Inventory.uid);
-                if (typeof t === "undefined" && typeof e !== "undefined") {
-                    e.fireEvent(TWE("WINDOW_CLOSE"), e);
-                }
-            },
-            open: function (e, t) {
-                var n = this;
-                if (this.ready === false) {
-                    if (isDefined(e) && isDefined(t)) {
-                        this.open_param = [e, t];
-                    }
-                    return;
-                }
-                if (wman.getById(this.uid)) {
-                    wman.reopen(this.uid);
-                    this.openWear();
-                    if (isDefined(e) && isDefined(t)) {
-                        var r;
-                        switch (t) {
-                            case "job":
-                                r = TWDB.Jobs.getJobById(e);
-                                r = isDefined(r) ? r.name : null;
-                                break;
-                            case "item":
-                                r = e;
-                                break;
-                            case "default":
-                                r = null;
-                                break;
-                        }
-                        if (r !== null) {
-                            n.showTab(e, "Jobs");
-                            n.joblist.open(r);
-                        }
-                    }
-                    return;
-                }
-                if (typeof this.eventOpen !== "undefined") {
-                    TWDB.Eventer.remove("getGameData", this.eventOpen);
-                }
-                var i = 0,
-                    s;
-                for (s in this.calcdata.jobs) {
-                    i++;
-                    break;
-                }
-                if (i === 0) {
-                    this.eventOpen = TWDB.Eventer.set(
-                        "getGameData",
-                        function () {
-                            TWDB.DataManager.loadData(true);
-                        },
-                        1
-                    );
-                    this.up2date = false;
-                    this.getGameData();
-                } else {
-                    this.eventOpen = TWDB.Eventer.set(
-                        "getGameData",
-                        function () {
-                            n.finishOpening();
-                        },
-                        1
-                    );
-                    this.getGameData();
-                }
-                this.openWear();
-                this.jobs.selected = 0;
-                this.gui.job.sort = jQuery('<div style="position:absolute;top:10px;left:0px;height:20px;" />')
-                    .append('<img src="' + TWDB.images.iconName + '" title=" Ταξινόμηση ανά όνομα " alt=" Ταξινόμηση ανά όνομα " onclick="javascript:TWDB.ClothCalc.joblist.order(\'name\')" style="margin:0px 2px 0px 2px;cursor:pointer;" />')
-                    .append(
-                        '<img src="' +
-                            TWDB.images.iconExperience +
-                            '" title=" Ταξινόμηση ανά εμπειρία " alt=" Ταξινόμηση ανά εμπειρία " onclick="javascript:TWDB.ClothCalc.joblist.order(\'experience\')" style="margin:0px 2px 0px 2px;cursor:pointer;" />'
-                    )
-                    .append(
-                        '<img src="' + TWDB.images.iconDollar + '" title=" Ταξινόμηση ανά χρήματα " alt=" Ταξινόμηση ανά χρήματα " onclick="javascript:TWDB.ClothCalc.joblist.order(\'wages\')" style="margin:0px 2px 0px 2px;cursor:pointer;" />'
-                    )
-                    .append(
-                        '<img src="' + TWDB.images.iconLuck + '" title=" Ταξινόμηση ανά τύχη " alt=" Ταξινόμηση ανά τύχη " onclick="javascript:TWDB.ClothCalc.joblist.order(\'luck1\')" style="margin:0px 2px 0px 2px;cursor:pointer;" />'
-                    )
-                    .append(
-                        '<img src="' +
-                            TWDB.images.iconLaborpoints +
-                            '" title=" Κατάταξη ανα πόντους εργασίας " alt=" Κατάταξη ανα πόντους εργασίας " onclick="javascript:TWDB.ClothCalc.joblist.order(\'laborpoints\')" style="margin:0px 2px 0px 2px;cursor:pointer;" />'
-                    )
-                    .append(
-                        '<img src="' +
-                            TWDB.images.iconMoti +
-                            '" title=" Ταξινόμιση ανα κίνητρο " alt=" Ταξινόμιση ανα κίνητρο " onclick="javascript:TWDB.ClothCalc.joblist.order(\'motivation\')" style="margin:0px 2px 0px 2px;cursor:pointer;" />'
-                    )
-                    .append(
-                        '<img src="' +
-                            TWDB.images.iconDanger +
-                            '" title=" Κατάταξη ανα κίνδυνο " alt=" Κατάταξη ανα κίνδυνο " onclick="javascript:TWDB.ClothCalc.joblist.order(\'danger\')" style="margin:0px 2px 0px 2px;cursor:pointer;" />'
-                    );
-                this.gui.job.title = jQuery('<div style="position:absolute;top:37px;left:0px;width:187px;height:19px;font-weight:bold;text-align:center;white-space: nowrap;">Επιλέξτε εργασία εδώ >></div>');
-                this.gui.job.mode = jQuery(
-                    "<div style=\"position:absolute;top:10px;right:30px;width:20px;height:20px;background:url('" + TWDB.images.jobTime + '\') no-repeat scroll 0 0 transparent;cursor:pointer;display:block;" title=" Χρόνος εργασίας " />'
-                );
-                this.gui.job.search = jQuery(
-                    "<div style=\"position:absolute;top:35px;right:50px;width:20px;height:20px;background:url('" +
-                        TWDB.images.iconSearch +
-                        '\') no-repeat scroll 0 0 transparent;cursor:pointer;display:none;" title=" Αναζήτηση εργασίας στον χάρτη " />'
-                );
-                this.gui.job.checkbox = new west.gui.Checkbox("", this.joblist.all ? "" : "tw2gui_checkbox_checked", function () {
-                    n.joblist.all = !this.isSelected();
-                    n.joblist.update();
-                });
-                this.gui.job.checkbox.setTooltip("Απόκρυψη εργασίων που δεν μπορώ να κάνω");
-                this.gui.job.checkbox.getMainDiv().css({ position: "absolute", top: "35px", right: "30px" });
-                this.gui.job.button = jQuery(
-                    '<div style="position:absolute;top:35px;right:4px;width:26px;height:20px;background:url(\'/images/window/character/title_editbtn.jpg\') no-repeat scroll 0 0 transparent;cursor:pointer;" title=" Επιλέξτε εργασία εδώ " />'
-                );
-                this.gui.job.skills = jQuery('<div style="position:absolute;top:60px;left:1px;width:170px;height:30px;display:block;" />');
-                this.gui.job.mainDiv = jQuery('<div style="position:absolute;top:0px;left:0px;height:100%;width:100%;" />');
-                this.gui.job.mainDiv.append(this.gui.job.sort);
-                this.gui.job.mainDiv.append(this.gui.job.title);
-                this.gui.job.mainDiv.append(this.gui.job.mode);
-                this.gui.job.mainDiv.append(this.gui.job.search);
-                this.gui.job.mainDiv.append(this.gui.job.checkbox.getMainDiv());
-                this.gui.job.mainDiv.append(this.gui.job.button);
-                this.gui.job.mainDiv.append(this.joblist.getMainDiv());
-                this.gui.job.mainDiv.append(this.gui.job.skills);
-                this.gui.job.calc = $('<div title=" Τρέχουσες ανταμοιβές " style="position:absolute;top:60px;width:100px;right:1px;height:30px;display:block;;font-weight:bold;text-align:center;" />');
-                this.gui.job.mainDiv.append(this.gui.job.calc);
-                this.gui.job.button.click(
-                    function () {
-                        if (n.joblist.getMainDiv().is(":visible")) {
-                            n.joblist.close();
-                        } else {
-                            n.joblist.open();
-                            n.joblist.gui.input.focus();
-                        }
-                    }.bind(this)
-                );
-                this.gui.job.search.click(
-                    function () {
-                        n.jobSearch();
-                    }.bind(this)
-                );
-                this.gui.job.searchDiv = jQuery("<div />");
-                if (n.joblist.getMainDiv().is(":visible")) {
-                    n.joblist.close();
-                }
-                n.joblist.name = null;
-                if (isDefined(e) && isDefined(t)) {
-                    var r;
-                    switch (t) {
-                        case "job":
-                            r = TWDB.Jobs.getJobById(e);
-                            r = isDefined(r) ? r.name : null;
-                            break;
-                        case "item":
-                            r = e;
-                            break;
-                        case "default":
-                            r = null;
-                            break;
-                    }
-                    if (r !== null) {
-                        n.joblist.name = r;
-                    }
-                }
-                this.customs.selected = 0;
-                this.gui.custom.title = jQuery('<div style="position:absolute;top:36px;left:0px;width:210px;height:19px;font-weight:bold;text-align:center;">Επιλέξτε εργασία εδώ >></div>');
-                this.gui.custom.settings = jQuery('<div title="Ρυθμίσεις" style="position:absolute;top:35px;right:30px;width:20px;height:20px;background:url(' + TWDB.images.iconSetting + ');cursor:pointer;" />');
-                this.gui.custom.settings.click(function () {
-                    n.customs.showConfig();
-                });
-                this.gui.custom.button = jQuery(
-                    '<div style="position:absolute;top:35px;right:4px;width:26px;height:20px;background:url(\'/images/window/character/title_editbtn.jpg\') no-repeat scroll 0 0 transparent;cursor:pointer;" title=" Επιλέξτε εργασία εδώ " />'
-                );
-                this.gui.custom.selectbox = new west.gui.Selectbox();
-                this.gui.custom.selectbox.elContent.css("max-height", "660px");
-                this.gui.custom.selectbox.setWidth(300).addListener(function (e) {
-                    n.customs.switchCustomJob(e);
-                });
-                this.gui.custom.skills = jQuery('<div style="position:absolute;top:60px;left:1px;width:252px;height:30px;display:block;" />');
-                this.gui.custom.mainDiv = jQuery('<div style="position:absolute;top:0px;left:0px;height:100%;width:100%;" />').hide();
-                this.gui.custom.mainDiv.append(this.gui.custom.title);
-                this.gui.custom.mainDiv.append(this.gui.custom.settings);
-                this.gui.custom.mainDiv.append(this.gui.custom.button);
-                this.gui.custom.mainDiv.append(this.gui.custom.skills);
-                this.gui.custom.mainDiv.append(this.gui.custom.calc);
-                this.gui.custom.button.click(function (e) {
-                    n.gui.custom.selectbox.show(e);
-                });
-                this.gui.bag.children().remove();
-                var o = function (e, t) {
-                    n.showTab(e, t);
-                };
-                this.gui.window = wman
-                    .open(this.uid, null, "noreload")
-                    .setMiniTitle("TWDB Cloth Calc")
-                    .setTitle("TW-DB.info - Cloth Calc")
-                    .addTab("Δουλεία", "Jobs", o)
-                    .addTab("Προσαρμογή των ικανοτήτων", "Custom", o)
-                    .appendToContentPane(this.gui.job.mainDiv)
-                    .appendToContentPane(this.gui.custom.mainDiv)
-                    .appendToContentPane(this.gui.cache)
-                    .appendToContentPane(this.gui.bag)
-                    .appendToContentPane(this.gui.copyright);
-                this.gui.window.showLoader();
-                var u = $(
-                    '<div title="Αποθήκευση θέσης" style="width:20px;height:20px;position:absolute;left:0px;top:0px;background:url(\'' + TWDB.images.iconSave + "') no-repeat scroll 0px -20px transparent;cursor:pointer;display:block;\" />"
-                )
-                    .hover(
-                        function () {
-                            $(this).css("background-position", "0px 0px");
-                        },
-                        function () {
-                            $(this).css("background-position", "0px -20px");
-                        }
-                    )
-                    .click(function () {
-                        TWDB.Settings.set("clothPos", "custom");
-                        var e = n.gui.window.saveAppearance();
-                        TWDB.Settings.set("clothPosition", { x: e.x, y: e.y });
-                        new UserMessage("Αποθήκευση επιτυχής", UserMessage.TYPE_SUCCESS).show();
-                    });
-                $(this.gui.window.divMain).find(".tw2gui_window_buttons").append(u);
-                $(this.gui.window.divMain).children(".tw2gui_window_tabbar").css("right", "22px");
-                var a = this.gui.window.saveAppearance();
-                switch (TWDB.Settings.get("clothPos", "left")) {
-                    case "left":
-                        a.x = Wear.window.divMain.offsetLeft - 295;
-                        break;
-                    case "custom":
-                        a = TWDB.Settings.get("clothPosition", { x: 0, y: 0 });
-                        break;
-                    case "default":
-                        a.x = Wear.window.divMain.offsetLeft + Wear.window.divMain.offsetWidth - 15;
-                        break;
-                }
-                if (a.x < -20) {
-                    a.x = 0;
-                } else if (a.x > $("body").width() - 150) {
-                    a.x = $("body").width() - 150;
-                }
-                this.gui.window.restoreAppearance({ h: 410, w: 310, x: a.x, y: a.y });
-                return;
-            },
-            finishOpening: function () {
-                this.jobs.mode(2);
-                this.joblist.init(this);
-                this.customs.createSelectbox();
-                if (typeof this.gui.window !== "undefined") {
-                    this.checkCache();
-                    delete this.eventOpen;
-                    var e = function (e) {
-                        TWDB.ClothCalc.jobs.update();
-                    };
-                    EventHandler.unlisten("wear_changed", e);
-                    EventHandler.listen("wear_changed", e);
-                    this.gui.window.hideLoader();
-                }
-            },
-            showTab: function (e, t) {
-                this.gui.window.activateTab(t);
-                this.gui.window.showLoader();
-                this.gui.bag.children().remove();
-                switch (t) {
-                    case "Jobs":
-                        this.gui.custom.mainDiv.hide();
-                        if (this.jobs.selected !== 0) {
-                            this.jobs.switchJob(this.jobs.selected);
-                        }
-                        this.gui.job.mainDiv.show();
-                        break;
-                    case "Custom":
-                        this.gui.job.mainDiv.hide();
-                        if (this.customs.selected !== 0) {
-                            this.customs.switchCustomJob(this.customs.selected);
-                        }
-                        this.gui.custom.mainDiv.show();
-                        break;
-                }
-                this.gui.window.hideLoader();
-            },
-            getGameData: function (e) {
-                var t = this;
-                if (typeof e === "undefined") {
-                    this.getState = { skill: false, items: false, jobs: false };
-                    TWDB.Eventer.set(
-                        "getSkill",
-                        function () {
-                            t.getGameData("skill");
-                        },
-                        1
-                    );
-                    TWDB.Eventer.set(
-                        "getItems",
-                        function () {
-                            t.getGameData("items");
-                        },
-                        1
-                    );
-                    TWDB.Eventer.set(
-                        "getJobs",
-                        function () {
-                            t.getGameData("jobs");
-                        },
-                        1
-                    );
-                    TWDB.DataManager.loadData();
-                    this.getSkill();
-                    this.getJobs();
-                    this.getItems();
-                } else {
-                    this.getState[e] = true;
-                    var n = true,
-                        r;
-                    for (r in this.getState) {
-                        if (!this.getState[r]) {
-                            n = false;
-                            break;
-                        }
-                    }
-                    if (n) {
-                        delete this.getState;
-                        TWDB.Eventer.trigger("getGameData");
-                    }
-                }
-            },
-            getSkill: function (e) {
-                if (typeof e === "undefined") {
-                    var t = this;
-                    setTimeout(function () {
-                        t.getSkill(CharacterSkills.skills);
-                    }, 10);
-                    return;
-                } else {
-                    this.data.skills = {};
-                    var n, r;
-                    for (n in e) {
-                        r = TWDB.ClothCalc._skill2id[n];
-                        this.data.skills[r] = { id: r, val: e[n].points };
-                    }
-                    TWDB.Eventer.trigger("getSkill");
-                }
-            },
-            getItems: function (e) {
-                if (typeof e === "undefined") {
-                    var t = this;
-                    jQuery.post(
-                        "game.php?window=inventory",
-                        {},
-                        function (e) {
-                            t.getItems(e);
-                        },
-                        "json"
-                    );
-                    return;
-                } else {
-                    this.data.items = {};
-                    var n, r;
-                    for (n = 0; n < e.wear.length; n++) {
-                        r = ItemManager.get(e.wear[n]);
-                        if (!this.isItemUsable(r.item_id)) {
-                            continue;
-                        }
-                        this.data.items[r.item_id] = { id: r.item_id };
-                    }
-                    for (n in Bag.items_by_id) {
-                        r = Bag.items_by_id[n].obj;
-                        if (!this.isItemUsable(r.item_id)) {
-                            continue;
-                        }
-                        this.data.items[r.item_id] = { id: r.item_id };
-                    }
-                    TWDB.Eventer.trigger("getItems");
-                }
-            },
-            getJobs: function (e) {
-                if (typeof e === "undefined") {
-                    var t = this;
-                    jQuery.post(
-                        "game.php?window=work&mode=index",
-                        {},
-                        function (e) {
-                            t.getJobs(e);
-                        },
-                        "json"
-                    );
-                    return;
-                } else {
-                    this.data.jobs = e;
-                    TWDB.Eventer.trigger("getJobs");
-                }
-            },
-            isItemUsable: function (e, t) {
-                var n = ItemManager.get(e);
-                if (typeof n === "undefined") {
-                    return false;
-                }
-                var r = false;
-                if (!this.itemHasBonus(n)) {
-                    return false;
-                }
-                if (n.characterClass !== null && n.characterClass !== Character.charClass) {
-                    return false;
-                }
-                if (n.characterSex !== null && n.characterSex !== Character.charSex) {
-                    return false;
-                }
-                if (n.level !== null && n.level > Character.level + Character.itemLevelRequirementDecrease.all + (typeof Character.itemLevelRequirementDecrease[n.type] !== "undefined" ? Character.itemLevelRequirementDecrease[n.type] : 0)) {
-                    return isDefined(t) && t;
-                }
-                return true;
-            },
-            itemHasBonus: function (e) {
-                if (e.type === "left_arm" || e.type === "right_arm") {
-                    return true;
-                }
-                if (typeof e.set !== "undefined" && e.set !== null) {
-                    return true;
-                }
-                if (typeof e.speed !== "undefined" && e.speed !== null) {
-                    return true;
-                }
-                if (typeof e.bonus === "undefined") {
-                    return false;
-                }
-                var t;
-                if (typeof e.bonus.skills !== "undefined") {
-                    for (t in e.bonus.skills) {
-                        if (!jQuery.isFunction(e.bonus.skills[t])) {
-                            return true;
-                        }
-                    }
-                }
-                if (typeof e.bonus.attributes !== "undefined") {
-                    for (t in e.bonus.attributes) {
-                        if (!jQuery.isFunction(e.bonus.attributes[t])) {
-                            return true;
-                        }
-                    }
-                }
-                if (typeof e.bonus.item !== "undefined") {
-                    for (t in e.bonus.item) {
-                        if (!jQuery.isFunction(e.bonus.item[t])) {
-                            return true;
-                        }
-                    }
-                }
-                if (typeof e.bonus.fortbattle !== "undefined") {
-                    for (t in e.bonus.fortbattle) {
-                        if (e.bonus.fortbattle[t] > 0) {
-                            return true;
-                        }
-                    }
-                }
-                if (typeof e.bonus.fortbattlesector !== "undefined") {
-                    for (t in e.bonus.fortbattlesector) {
-                        if (e.bonus.fortbattle[t] > 0) {
-                            return true;
-                        }
-                    }
-                }
-                return false;
-            },
-            handleTWDBData: function () {
-                var e = TWDB.DataManager.getData("twdb");
-                var t = this;
-                this.calcdata.items = jQuery.extend(true, {}, t.data.items);
-                this.calcdata.skills = jQuery.extend(true, {}, t.data.skills);
-                this.calcdata.time = e.time;
-                this.calcdata.jobs = e.jobs;
-                this.calcdata.custom = e.custom;
-                this.calcdata.loaded = true;
-                this.calcdata.used = {};
-                try {
-                    this.jobs.init();
-                } catch (n) {
-                    TWDB.Error.report(n, "GENERICERROR#; handle Jobs");
-                }
-                try {
-                    this.joblist.reset();
-                } catch (n) {
-                    TWDB.Error.report(n, "GENERICERROR#; handle Jobslist");
-                }
-                try {
-                    this.customs.init();
-                } catch (n) {
-                    TWDB.Error.report(n, "GENERICERROR#; handle Customs");
-                }
-                try {
-                    this.setUsedItems();
-                } catch (n) {
-                    TWDB.Error.report(n, "GENERICERROR#; setUsedItems");
-                }
-                TWDB.Cache.save("calcdata", this.calcdata);
-                this.finishOpening();
-            },
+            // addButton: function () {
+            //     if (this.ready === false) {
+            //         return;
+            //     }
+            //     var e = this;
+            // },
+            // isBetterItem: function (e) {
+            //     var t = ItemManager.get(e);
+            //     if (isDefined(t) && isDefined(t.set)) {
+            //         debLog("isBetterItem - ID", e, t, "is seen as new set item");
+            //         return true;
+            //     }
+            //     var n, r, i, s;
+            //     for (n in this.calcdata.jobs) {
+            //         var o = this.getClothForJob(n);
+            //         if (!isDefined(o)) {
+            //             debLog("isBetterItem - job ID", n, "has no Calc data");
+            //             return true;
+            //         }
+            //         r = 0;
+            //         i = TWDB.Calc.getItemBonusForJob(e, n);
+            //         if (isDefined(o[TWDB.ClothCalc._type2id[t.type]])) {
+            //             s = ItemManager.get(o[TWDB.ClothCalc._type2id[t.type]].id);
+            //             if (isDefined(s) && isDefined(s.set)) {
+            //                 continue;
+            //             }
+            //             r = TWDB.Calc.getItemBonusForJob(s.item_id, n);
+            //         }
+            //         if (i > r) {
+            //             debLog("isBetterItem - ID", e, t, "is seen as better than ID", s.item_id, ItemManager.get(s.item_id), "for job ID", n);
+            //             return true;
+            //         }
+            //     }
+            //     return false;
+            // },
+            // checkSkill: function () {
+            //     var e;
+            //     for (e in this.data.skills) {
+            //         if (typeof this.calcdata.skills[e] === "undefined") {
+            //             return true;
+            //         }
+            //         if (this.data.skills[e].val !== this.calcdata.skills[e].val) {
+            //             return true;
+            //         }
+            //     }
+            //     return false;
+            // },
+            // checkItems: function () {
+            //     var e;
+            //     for (e in this.data.items) {
+            //         if (typeof this.calcdata.items[e] === "undefined") {
+            //             if (this.isBetterItem(this.data.items[e].id)) {
+            //                 debLog("checkItems -", this.data.items[e].id, "causes update");
+            //                 return true;
+            //             }
+            //         }
+            //     }
+            //     for (e in this.calcdata.items) {
+            //         if (typeof this.data.items[e] === "undefined") {
+            //             if (!isDefined(ItemManager.get(e))) {
+            //                 console.log("Item ID=" + e + " seems to be no more defined...");
+            //             }
+            //             return true;
+            //         }
+            //     }
+            //     return false;
+            // },
+            // checkCustom: function () {
+            //     var e, t;
+            //     for (e in this.data.custom) {
+            //         if (typeof this.calcdata.custom[e] === "undefined") {
+            //             return true;
+            //         }
+            //         if (this.calcdata.custom[e].name !== this.data.custom[e].name) {
+            //             return true;
+            //         }
+            //         for (t in this.data.custom[e].para) {
+            //             if (typeof this.calcdata.custom[e].para[t] === "undefined") {
+            //                 return true;
+            //             }
+            //             if (this.calcdata.custom[e].para[t] !== this.data.custom[e].para[t]) {
+            //                 return true;
+            //             }
+            //         }
+            //     }
+            //     if (typeof this.calcdata.custom[Number(e) + 1] !== "undefined") {
+            //         return true;
+            //     }
+            //     return false;
+            // },
+            // // checkCache: function () {
+            // //     var e = this.checkItems(),
+            // //         t = false,
+            // //         n = this.checkCustom(),
+            // //         r;
+            // //     this.gui.cache.children().remove();
+            // //     if (e || t || n) {
+            // //         var i = "Τα δεδομένα είναι ξεπερασμένα, κάντε κλικ για ενημέρωση";
+            // //         if (e) {
+            // //             i += " [Αποθέματα]";
+            // //         }
+            // //         if (t) {
+            // //             i += " [Ικανότητες]";
+            // //         }
+            // //         if (n) {
+            // //             i += " [Προσαρμογή των ικανοτήτων]";
+            // //         }
+            // //         r = jQuery('<div title="' + i + '" style="position:absolute;top:0px;right:0px;width:20px;height:20px;background: url(' + TWDB.images.iconData + ')no-repeat 0px 0px;" />');
+            // //         this.up2date = false;
+            // //     } else {
+            // //         r = jQuery('<div title="Τα δεδομένα είναι ενημερωμένα" style="position:absolute;top:0px;right:0px;width:20px;height:20px;background: url(' + TWDB.images.iconData + ')no-repeat -20px 0px;" /></div>');
+            // //         this.up2date = true;
+            // //     }
+            // //     this.gui.cache.append(r);
+            // //     r.click(function () {
+            // //         TWDB.DataManager.loadData(true);
+            // //     });
+            // // },
+            // // openWear: function () {
+            // //     var e,
+            // //         t = wman.getById(Inventory.uid);
+            // //     if (TWDB.Settings.get("wear_openmin", false)) {
+            // //         if (!isDefined(wman.getById(Wear.uid))) {
+            // //             Wear.open();
+            // //             wman.minimize(Wear.uid, true);
+            // //         }
+            // //     } else {
+            // //         if (!isDefined(wman.getById(Wear.uid))) {
+            // //             Wear.open();
+            // //         } else {
+            // //             wman.reopen(Wear.uid);
+            // //         }
+            // //     }
+            // //     e = wman.getById(Inventory.uid);
+            // //     if (typeof t === "undefined" && typeof e !== "undefined") {
+            // //         e.fireEvent(TWE("WINDOW_CLOSE"), e);
+            // //     }
+            // // },
+            // // open: function (e, t) {
+            // //     var n = this;
+            // //     if (this.ready === false) {
+            // //         if (isDefined(e) && isDefined(t)) {
+            // //             this.open_param = [e, t];
+            // //         }
+            // //         return;
+            // //     }
+            // //     if (wman.getById(this.uid)) {
+            // //         wman.reopen(this.uid);
+            // //         this.openWear();
+            // //         if (isDefined(e) && isDefined(t)) {
+            // //             var r;
+            // //             switch (t) {
+            // //                 case "job":
+            // //                     r = TWDB.Jobs.getJobById(e);
+            // //                     r = isDefined(r) ? r.name : null;
+            // //                     break;
+            // //                 case "item":
+            // //                     r = e;
+            // //                     break;
+            // //                 case "default":
+            // //                     r = null;
+            // //                     break;
+            // //             }
+            // //             if (r !== null) {
+            // //                 n.showTab(e, "Jobs");
+            // //                 n.joblist.open(r);
+            // //             }
+            // //         }
+            // //         return;
+            // //     }
+            // //     if (typeof this.eventOpen !== "undefined") {
+            // //         TWDB.Eventer.remove("getGameData", this.eventOpen);
+            // //     }
+            // //     var i = 0,
+            // //         s;
+            // //     for (s in this.calcdata.jobs) {
+            // //         i++;
+            // //         break;
+            // //     }
+            // //     if (i === 0) {
+            // //         this.eventOpen = TWDB.Eventer.set(
+            // //             "getGameData",
+            // //             function () {
+            // //                 TWDB.DataManager.loadData(true);
+            // //             },
+            // //             1
+            // //         );
+            // //         this.up2date = false;
+            // //         this.getGameData();
+            // //     } else {
+            // //         this.eventOpen = TWDB.Eventer.set(
+            // //             "getGameData",
+            // //             function () {
+            // //                 n.finishOpening();
+            // //             },
+            // //             1
+            // //         );
+            // //         this.getGameData();
+            // //     }
+            // //     this.openWear();
+            // //     this.jobs.selected = 0;
+            // //     // this.gui.job.sort = jQuery('<div style="position:absolute;top:10px;left:0px;height:20px;" />')
+            // //     //     .append('<img src="' + TWDB.images.iconName + '" title=" Ταξινόμηση ανά όνομα " alt=" Ταξινόμηση ανά όνομα " onclick="javascript:TWDB.ClothCalc.joblist.order(\'name\')" style="margin:0px 2px 0px 2px;cursor:pointer;" />')
+            // //     //     .append(
+            // //     //         '<img src="' +
+            // //     //             TWDB.images.iconExperience +
+            // //     //             '" title=" Ταξινόμηση ανά εμπειρία " alt=" Ταξινόμηση ανά εμπειρία " onclick="javascript:TWDB.ClothCalc.joblist.order(\'experience\')" style="margin:0px 2px 0px 2px;cursor:pointer;" />'
+            // //     //     )
+            // //     //     .append(
+            // //     //         '<img src="' + TWDB.images.iconDollar + '" title=" Ταξινόμηση ανά χρήματα " alt=" Ταξινόμηση ανά χρήματα " onclick="javascript:TWDB.ClothCalc.joblist.order(\'wages\')" style="margin:0px 2px 0px 2px;cursor:pointer;" />'
+            // //     //     )
+            // //     //     .append(
+            // //     //         '<img src="' + TWDB.images.iconLuck + '" title=" Ταξινόμηση ανά τύχη " alt=" Ταξινόμηση ανά τύχη " onclick="javascript:TWDB.ClothCalc.joblist.order(\'luck1\')" style="margin:0px 2px 0px 2px;cursor:pointer;" />'
+            // //     //     )
+            // //     //     .append(
+            // //     //         '<img src="' +
+            // //     //             TWDB.images.iconLaborpoints +
+            // //     //             '" title=" Κατάταξη ανα πόντους εργασίας " alt=" Κατάταξη ανα πόντους εργασίας " onclick="javascript:TWDB.ClothCalc.joblist.order(\'laborpoints\')" style="margin:0px 2px 0px 2px;cursor:pointer;" />'
+            // //     //     )
+            // //     //     .append(
+            // //     //         '<img src="' +
+            // //     //             TWDB.images.iconMoti +
+            // //     //             '" title=" Ταξινόμιση ανα κίνητρο " alt=" Ταξινόμιση ανα κίνητρο " onclick="javascript:TWDB.ClothCalc.joblist.order(\'motivation\')" style="margin:0px 2px 0px 2px;cursor:pointer;" />'
+            // //     //     )
+            // //     //     .append(
+            // //     //         '<img src="' +
+            // //     //             TWDB.images.iconDanger +
+            // //     //             '" title=" Κατάταξη ανα κίνδυνο " alt=" Κατάταξη ανα κίνδυνο " onclick="javascript:TWDB.ClothCalc.joblist.order(\'danger\')" style="margin:0px 2px 0px 2px;cursor:pointer;" />'
+            // //     //     );
+            // //     // this.gui.job.title = jQuery('<div style="position:absolute;top:37px;left:0px;width:187px;height:19px;font-weight:bold;text-align:center;white-space: nowrap;">Επιλέξτε εργασία εδώ >></div>');
+            // //     // this.gui.job.mode = jQuery(
+            // //     //     "<div style=\"position:absolute;top:10px;right:30px;width:20px;height:20px;background:url('" + TWDB.images.jobTime + '\') no-repeat scroll 0 0 transparent;cursor:pointer;display:block;" title=" Χρόνος εργασίας " />'
+            // //     // );
+            // //     // this.gui.job.search = jQuery(
+            // //     //     "<div style=\"position:absolute;top:35px;right:50px;width:20px;height:20px;background:url('" +
+            // //     //         TWDB.images.iconSearch +
+            // //     //         '\') no-repeat scroll 0 0 transparent;cursor:pointer;display:none;" title=" Αναζήτηση εργασίας στον χάρτη " />'
+            // //     // );
+            // //     // this.gui.job.checkbox = new west.gui.Checkbox("", this.joblist.all ? "" : "tw2gui_checkbox_checked", function () {
+            // //     //     n.joblist.all = !this.isSelected();
+            // //     //     n.joblist.update();
+            // //     // });
+            // //     // this.gui.job.checkbox.setTooltip("Απόκρυψη εργασίων που δεν μπορώ να κάνω");
+            // //     // this.gui.job.checkbox.getMainDiv().css({ position: "absolute", top: "35px", right: "30px" });
+            // //     // this.gui.job.button = jQuery(
+            // //     //     '<div style="position:absolute;top:35px;right:4px;width:26px;height:20px;background:url(\'/images/window/character/title_editbtn.jpg\') no-repeat scroll 0 0 transparent;cursor:pointer;" title=" Επιλέξτε εργασία εδώ " />'
+            // //     // );
+            // //     // this.gui.job.skills = jQuery('<div style="position:absolute;top:60px;left:1px;width:170px;height:30px;display:block;" />');
+            // //     // this.gui.job.mainDiv = jQuery('<div style="position:absolute;top:0px;left:0px;height:100%;width:100%;" />');
+            // //     // this.gui.job.mainDiv.append(this.gui.job.sort);
+            // //     // this.gui.job.mainDiv.append(this.gui.job.title);
+            // //     // this.gui.job.mainDiv.append(this.gui.job.mode);
+            // //     // this.gui.job.mainDiv.append(this.gui.job.search);
+            // //     // this.gui.job.mainDiv.append(this.gui.job.checkbox.getMainDiv());
+            // //     // this.gui.job.mainDiv.append(this.gui.job.button);
+            // //     // this.gui.job.mainDiv.append(this.joblist.getMainDiv());
+            // //     // this.gui.job.mainDiv.append(this.gui.job.skills);
+            // //     // this.gui.job.calc = $('<div title=" Τρέχουσες ανταμοιβές " style="position:absolute;top:60px;width:100px;right:1px;height:30px;display:block;;font-weight:bold;text-align:center;" />');
+            // //     // this.gui.job.mainDiv.append(this.gui.job.calc);
+            // //     // this.gui.job.button.click(
+            // //     //     function () {
+            // //     //         if (n.joblist.getMainDiv().is(":visible")) {
+            // //     //             n.joblist.close();
+            // //     //         } else {
+            // //     //             n.joblist.open();
+            // //     //             n.joblist.gui.input.focus();
+            // //     //         }
+            // //     //     }.bind(this)
+            // //     // );
+            // //     // this.gui.job.search.click(
+            // //     //     function () {
+            // //     //         n.jobSearch();
+            // //     //     }.bind(this)
+            // //     // );
+            // //     // this.gui.job.searchDiv = jQuery("<div />");
+            // //     // if (n.joblist.getMainDiv().is(":visible")) {
+            // //     //     n.joblist.close();
+            // //     // }
+            // //     // n.joblist.name = null;
+            // //     // if (isDefined(e) && isDefined(t)) {
+            // //     //     var r;
+            // //     //     switch (t) {
+            // //     //         case "job":
+            // //     //             r = TWDB.Jobs.getJobById(e);
+            // //     //             r = isDefined(r) ? r.name : null;
+            // //     //             break;
+            // //     //         case "item":
+            // //     //             r = e;
+            // //     //             break;
+            // //     //         case "default":
+            // //     //             r = null;
+            // //     //             break;
+            // //     //     }
+            // //     //     if (r !== null) {
+            // //     //         n.joblist.name = r;
+            // //     //     }
+            // //     // }
+            // //     // this.customs.selected = 0;
+            // //     // this.gui.custom.title = jQuery('<div style="position:absolute;top:36px;left:0px;width:210px;height:19px;font-weight:bold;text-align:center;">Επιλέξτε εργασία εδώ >></div>');
+            // //     // this.gui.custom.settings = jQuery('<div title="Ρυθμίσεις" style="position:absolute;top:35px;right:30px;width:20px;height:20px;background:url(' + TWDB.images.iconSetting + ');cursor:pointer;" />');
+            // //     // this.gui.custom.settings.click(function () {
+            // //     //     n.customs.showConfig();
+            // //     // });
+            // //     // this.gui.custom.button = jQuery(
+            // //     //     '<div style="position:absolute;top:35px;right:4px;width:26px;height:20px;background:url(\'/images/window/character/title_editbtn.jpg\') no-repeat scroll 0 0 transparent;cursor:pointer;" title=" Επιλέξτε εργασία εδώ " />'
+            // //     // );
+            // //     // this.gui.custom.selectbox = new west.gui.Selectbox();
+            // //     // this.gui.custom.selectbox.elContent.css("max-height", "660px");
+            // //     // this.gui.custom.selectbox.setWidth(300).addListener(function (e) {
+            // //     //     n.customs.switchCustomJob(e);
+            // //     // });
+            // //     // this.gui.custom.skills = jQuery('<div style="position:absolute;top:60px;left:1px;width:252px;height:30px;display:block;" />');
+            // //     // this.gui.custom.mainDiv = jQuery('<div style="position:absolute;top:0px;left:0px;height:100%;width:100%;" />').hide();
+            // //     // this.gui.custom.mainDiv.append(this.gui.custom.title);
+            // //     // this.gui.custom.mainDiv.append(this.gui.custom.settings);
+            // //     // this.gui.custom.mainDiv.append(this.gui.custom.button);
+            // //     // this.gui.custom.mainDiv.append(this.gui.custom.skills);
+            // //     // this.gui.custom.mainDiv.append(this.gui.custom.calc);
+            // //     // this.gui.custom.button.click(function (e) {
+            // //     //     n.gui.custom.selectbox.show(e);
+            // //     // });
+            // //     // this.gui.bag.children().remove();
+            // //     // var o = function (e, t) {
+            // //     //     n.showTab(e, t);
+            // //     // };
+            // //     // this.gui.window = wman
+            // //     //     .open(this.uid, null, "noreload")
+            // //     //     .setMiniTitle("TWDB Cloth Calc")
+            // //     //     .setTitle("TW-DB.info - Cloth Calc")
+            // //     //     .addTab("Δουλειά", "Jobs", o)
+            // //     //     .addTab("Προσαρμογή των ικανοτήτων", "Custom", o)
+            // //     //     .appendToContentPane(this.gui.job.mainDiv)
+            // //     //     .appendToContentPane(this.gui.custom.mainDiv)
+            // //     //     .appendToContentPane(this.gui.cache)
+            // //     //     .appendToContentPane(this.gui.bag)
+            // //     //     .appendToContentPane(this.gui.copyright);
+            // //     // this.gui.window.showLoader();
+            // //     // var u = $(
+            // //     //     '<div title="Αποθήκευση θέσης" style="width:20px;height:20px;position:absolute;left:0px;top:0px;background:url(\'' + TWDB.images.iconSave + "') no-repeat scroll 0px -20px transparent;cursor:pointer;display:block;\" />"
+            // //     // )
+            // //     //     .hover(
+            // //     //         function () {
+            // //     //             $(this).css("background-position", "0px 0px");
+            // //     //         },
+            // //     //         function () {
+            // //     //             $(this).css("background-position", "0px -20px");
+            // //     //         }
+            // //     //     )
+            // //     //     .click(function () {
+            // //     //         TWDB.Settings.set("clothPos", "custom");
+            // //     //         var e = n.gui.window.saveAppearance();
+            // //     //         TWDB.Settings.set("clothPosition", { x: e.x, y: e.y });
+            // //     //         new UserMessage("Αποθήκευση επιτυχής", UserMessage.TYPE_SUCCESS).show();
+            // //     //     });
+            // //     // $(this.gui.window.divMain).find(".tw2gui_window_buttons").append(u);
+            // //     // $(this.gui.window.divMain).children(".tw2gui_window_tabbar").css("right", "22px");
+            // //     // var a = this.gui.window.saveAppearance();
+            // //     // switch (TWDB.Settings.get("clothPos", "left")) {
+            // //     //     case "left":
+            // //     //         a.x = Wear.window.divMain.offsetLeft - 295;
+            // //     //         break;
+            // //     //     case "custom":
+            // //     //         a = TWDB.Settings.get("clothPosition", { x: 0, y: 0 });
+            // //     //         break;
+            // //     //     case "default":
+            // //     //         a.x = Wear.window.divMain.offsetLeft + Wear.window.divMain.offsetWidth - 15;
+            // //     //         break;
+            // //     // }
+            // //     // if (a.x < -20) {
+            // //     //     a.x = 0;
+            // //     // } else if (a.x > $("body").width() - 150) {
+            // //     //     a.x = $("body").width() - 150;
+            // //     // }
+            // //     // this.gui.window.restoreAppearance({ h: 410, w: 310, x: a.x, y: a.y });
+            // //     // return;
+            // // },
+            // finishOpening: function () {
+            //     this.jobs.mode(2);
+            //     this.joblist.init(this);
+            //     this.customs.createSelectbox();
+            //     if (typeof this.gui.window !== "undefined") {
+            //         this.checkCache();
+            //         delete this.eventOpen;
+            //         var e = function (e) {
+            //             TWDB.ClothCalc.jobs.update();
+            //         };
+            //         EventHandler.unlisten("wear_changed", e);
+            //         EventHandler.listen("wear_changed", e);
+            //         this.gui.window.hideLoader();
+            //     }
+            // },
+            // showTab: function (e, t) {
+            //     this.gui.window.activateTab(t);
+            //     this.gui.window.showLoader();
+            //     this.gui.bag.children().remove();
+            //     switch (t) {
+            //         case "Jobs":
+            //             this.gui.custom.mainDiv.hide();
+            //             if (this.jobs.selected !== 0) {
+            //                 this.jobs.switchJob(this.jobs.selected);
+            //             }
+            //             this.gui.job.mainDiv.show();
+            //             break;
+            //         case "Custom":
+            //             this.gui.job.mainDiv.hide();
+            //             if (this.customs.selected !== 0) {
+            //                 this.customs.switchCustomJob(this.customs.selected);
+            //             }
+            //             this.gui.custom.mainDiv.show();
+            //             break;
+            //     }
+            //     this.gui.window.hideLoader();
+            // },
+            // getGameData: function (e) {
+            //     var t = this;
+            //     if (typeof e === "undefined") {
+            //         this.getState = { skill: false, items: false, jobs: false };
+            //         TWDB.Eventer.set(
+            //             "getSkill",
+            //             function () {
+            //                 t.getGameData("skill");
+            //             },
+            //             1
+            //         );
+            //         TWDB.Eventer.set(
+            //             "getItems",
+            //             function () {
+            //                 t.getGameData("items");
+            //             },
+            //             1
+            //         );
+            //         TWDB.Eventer.set(
+            //             "getJobs",
+            //             function () {
+            //                 t.getGameData("jobs");
+            //             },
+            //             1
+            //         );
+            //         TWDB.DataManager.loadData();
+            //         this.getSkill();
+            //         this.getJobs();
+            //         this.getItems();
+            //     } else {
+            //         this.getState[e] = true;
+            //         var n = true,
+            //             r;
+            //         for (r in this.getState) {
+            //             if (!this.getState[r]) {
+            //                 n = false;
+            //                 break;
+            //             }
+            //         }
+            //         if (n) {
+            //             delete this.getState;
+            //             TWDB.Eventer.trigger("getGameData");
+            //         }
+            //     }
+            // },
+            // getSkill: function (e) {
+            //     if (typeof e === "undefined") {
+            //         var t = this;
+            //         setTimeout(function () {
+            //             t.getSkill(CharacterSkills.skills);
+            //         }, 10);
+            //         return;
+            //     } else {
+            //         this.data.skills = {};
+            //         var n, r;
+            //         for (n in e) {
+            //             r = TWDB.ClothCalc._skill2id[n];
+            //             this.data.skills[r] = { id: r, val: e[n].points };
+            //         }
+            //         TWDB.Eventer.trigger("getSkill");
+            //     }
+            // },
+            // getItems: function (e) {
+            //     if (typeof e === "undefined") {
+            //         var t = this;
+            //         jQuery.post(
+            //             "game.php?window=inventory",
+            //             {},
+            //             function (e) {
+            //                 t.getItems(e);
+            //             },
+            //             "json"
+            //         );
+            //         return;
+            //     } else {
+            //         this.data.items = {};
+            //         var n, r;
+            //         for (n = 0; n < e.wear.length; n++) {
+            //             r = ItemManager.get(e.wear[n]);
+            //             if (!this.isItemUsable(r.item_id)) {
+            //                 continue;
+            //             }
+            //             this.data.items[r.item_id] = { id: r.item_id };
+            //         }
+            //         for (n in Bag.items_by_id) {
+            //             r = Bag.items_by_id[n].obj;
+            //             if (!this.isItemUsable(r.item_id)) {
+            //                 continue;
+            //             }
+            //             this.data.items[r.item_id] = { id: r.item_id };
+            //         }
+            //         TWDB.Eventer.trigger("getItems");
+            //     }
+            // },
+            // getJobs: function (e) {
+            //     if (typeof e === "undefined") {
+            //         var t = this;
+            //         jQuery.post(
+            //             "game.php?window=work&mode=index",
+            //             {},
+            //             function (e) {
+            //                 t.getJobs(e);
+            //             },
+            //             "json"
+            //         );
+            //         return;
+            //     } else {
+            //         this.data.jobs = e;
+            //         TWDB.Eventer.trigger("getJobs");
+            //     }
+            // },
+            // isItemUsable: function (e, t) {
+            //     var n = ItemManager.get(e);
+            //     if (typeof n === "undefined") {
+            //         return false;
+            //     }
+            //     var r = false;
+            //     if (!this.itemHasBonus(n)) {
+            //         return false;
+            //     }
+            //     if (n.characterClass !== null && n.characterClass !== Character.charClass) {
+            //         return false;
+            //     }
+            //     if (n.characterSex !== null && n.characterSex !== Character.charSex) {
+            //         return false;
+            //     }
+            //     if (n.level !== null && n.level > Character.level + Character.itemLevelRequirementDecrease.all + (typeof Character.itemLevelRequirementDecrease[n.type] !== "undefined" ? Character.itemLevelRequirementDecrease[n.type] : 0)) {
+            //         return isDefined(t) && t;
+            //     }
+            //     return true;
+            // },
+            // itemHasBonus: function (e) {
+            //     if (e.type === "left_arm" || e.type === "right_arm") {
+            //         return true;
+            //     }
+            //     if (typeof e.set !== "undefined" && e.set !== null) {
+            //         return true;
+            //     }
+            //     if (typeof e.speed !== "undefined" && e.speed !== null) {
+            //         return true;
+            //     }
+            //     if (typeof e.bonus === "undefined") {
+            //         return false;
+            //     }
+            //     var t;
+            //     if (typeof e.bonus.skills !== "undefined") {
+            //         for (t in e.bonus.skills) {
+            //             if (!jQuery.isFunction(e.bonus.skills[t])) {
+            //                 return true;
+            //             }
+            //         }
+            //     }
+            //     if (typeof e.bonus.attributes !== "undefined") {
+            //         for (t in e.bonus.attributes) {
+            //             if (!jQuery.isFunction(e.bonus.attributes[t])) {
+            //                 return true;
+            //             }
+            //         }
+            //     }
+            //     if (typeof e.bonus.item !== "undefined") {
+            //         for (t in e.bonus.item) {
+            //             if (!jQuery.isFunction(e.bonus.item[t])) {
+            //                 return true;
+            //             }
+            //         }
+            //     }
+            //     if (typeof e.bonus.fortbattle !== "undefined") {
+            //         for (t in e.bonus.fortbattle) {
+            //             if (e.bonus.fortbattle[t] > 0) {
+            //                 return true;
+            //             }
+            //         }
+            //     }
+            //     if (typeof e.bonus.fortbattlesector !== "undefined") {
+            //         for (t in e.bonus.fortbattlesector) {
+            //             if (e.bonus.fortbattle[t] > 0) {
+            //                 return true;
+            //             }
+            //         }
+            //     }
+            //     return false;
+            // },
+            // handleTWDBData: function () {
+            //     var e = TWDB.DataManager.getData("twdb");
+            //     var t = this;
+            //     this.calcdata.items = jQuery.extend(true, {}, t.data.items);
+            //     this.calcdata.skills = jQuery.extend(true, {}, t.data.skills);
+            //     this.calcdata.time = e.time;
+            //     this.calcdata.jobs = e.jobs;
+            //     this.calcdata.custom = e.custom;
+            //     this.calcdata.loaded = true;
+            //     this.calcdata.used = {};
+            //     try {
+            //         this.jobs.init();
+            //     } catch (n) {
+            //         TWDB.Error.report(n, "GENERICERROR#; handle Jobs");
+            //     }
+            //     try {
+            //         this.joblist.reset();
+            //     } catch (n) {
+            //         TWDB.Error.report(n, "GENERICERROR#; handle Jobslist");
+            //     }
+            //     try {
+            //         this.customs.init();
+            //     } catch (n) {
+            //         TWDB.Error.report(n, "GENERICERROR#; handle Customs");
+            //     }
+            //     try {
+            //         this.setUsedItems();
+            //     } catch (n) {
+            //         TWDB.Error.report(n, "GENERICERROR#; setUsedItems");
+            //     }
+            //     TWDB.Cache.save("calcdata", this.calcdata);
+            //     this.finishOpening();
+            // },
             jobs: {
                 selected: 0,
                 base: 1,
@@ -2203,140 +2214,140 @@
                     }
                 },
             },
-            getSkillImg: function (e, t) {
-                var n = 1;
-                var r = 1;
-                var i = 0;
-                switch (e) {
-                    case "build":
-                        var s = Game.cdnURL + "/images/skill/skills_strength.png";
-                        r = 2;
-                        break;
-                    case "punch":
-                        var s = Game.cdnURL + "/images/skill/skills_strength.png";
-                        i = 1;
-                        r = 2;
-                        break;
-                    case "tough":
-                        var s = Game.cdnURL + "/images/skill/skills_strength.png";
-                        i = 2;
-                        r = 2;
-                        break;
-                    case "endurance":
-                        var s = Game.cdnURL + "/images/skill/skills_strength.png";
-                        i = 3;
-                        r = 2;
-                        break;
-                    case "health":
-                        var s = Game.cdnURL + "/images/skill/skills_strength.png";
-                        i = 4;
-                        r = 2;
-                        break;
-                    case "ride":
-                        var s = Game.cdnURL + "/images/skill/skills_flexibility.png";
-                        r = 2;
-                        break;
-                    case "reflex":
-                        var s = Game.cdnURL + "/images/skill/skills_flexibility.png";
-                        i = 1;
-                        r = 2;
-                        break;
-                    case "dodge":
-                        var s = Game.cdnURL + "/images/skill/skills_flexibility.png";
-                        i = 2;
-                        r = 2;
-                        break;
-                    case "hide":
-                        var s = Game.cdnURL + "/images/skill/skills_flexibility.png";
-                        i = 3;
-                        r = 2;
-                        break;
-                    case "swim":
-                        var s = Game.cdnURL + "/images/skill/skills_flexibility.png";
-                        i = 4;
-                        r = 2;
-                        break;
-                    case "aim":
-                        var s = Game.cdnURL + "/images/skill/skills_dexterity.png";
-                        r = 2;
-                        break;
-                    case "shot":
-                        var s = Game.cdnURL + "/images/skill/skills_dexterity.png";
-                        i = 1;
-                        r = 2;
-                        break;
-                    case "pitfall":
-                        var s = Game.cdnURL + "/images/skill/skills_dexterity.png";
-                        i = 2;
-                        r = 2;
-                        break;
-                    case "finger_dexterity":
-                        var s = Game.cdnURL + "/images/skill/skills_dexterity.png";
-                        i = 3;
-                        r = 2;
-                        break;
-                    case "repair":
-                        var s = Game.cdnURL + "/images/skill/skills_dexterity.png";
-                        i = 4;
-                        r = 2;
-                        break;
-                    case "leadership":
-                        var s = Game.cdnURL + "/images/skill/skills_charisma.png";
-                        r = 2;
-                        break;
-                    case "tactic":
-                        var s = Game.cdnURL + "/images/skill/skills_charisma.png";
-                        i = 1;
-                        r = 2;
-                        break;
-                    case "trade":
-                        var s = Game.cdnURL + "/images/skill/skills_charisma.png";
-                        i = 2;
-                        r = 2;
-                        break;
-                    case "animal":
-                        var s = Game.cdnURL + "/images/skill/skills_charisma.png";
-                        i = 3;
-                        r = 2;
-                        break;
-                    case "appearance":
-                        var s = Game.cdnURL + "/images/skill/skills_charisma.png";
-                        i = 4;
-                        r = 2;
-                        break;
-                    case "strength":
-                        var s = Game.cdnURL + "/images/window/skills/circle_strength.png";
-                        break;
-                    case "flexibility":
-                        var s = Game.cdnURL + "/images/window/skills/circle_flexibility.png";
-                        break;
-                    case "dexterity":
-                        var s = Game.cdnURL + "/images/window/skills/circle_dexterity.png";
-                        break;
-                    case "charisma":
-                        var s = Game.cdnURL + "/images/window/skills/circle_charisma.png";
-                        break;
-                    case "attacker":
-                        var s = TWDB.images.attacker;
-                        break;
-                    case "defender":
-                        var s = TWDB.images.defender;
-                        break;
-                    default:
-                        return jQuery("<div />");
-                }
-                var o = "";
-                if (typeof CharacterSkills.skills[e] !== "undefined") {
-                    var o = CharacterSkills.skills[e].name;
-                } else if (typeof CharacterSkills.attributes[e] !== "undefined") {
-                    var o = CharacterSkills.attributes[e].name;
-                }
-                s = '<img src="' + s + '" height="' + t * r + '" title="' + o + '" style="margin-left:-' + i * t + 'px" />';
-                s = jQuery(s);
-                var u = '<div style="display:block;overflow:hidden;width:' + t * n + "px;height:" + t + 'px;"/>';
-                u = jQuery(u);
-                return u.append(s);
-            },
+            // getSkillImg: function (e, t) {
+            //     var n = 1;
+            //     var r = 1;
+            //     var i = 0;
+            //     switch (e) {
+            //         case "build":
+            //             var s = Game.cdnURL + "/images/skill/skills_strength.png";
+            //             r = 2;
+            //             break;
+            //         case "punch":
+            //             var s = Game.cdnURL + "/images/skill/skills_strength.png";
+            //             i = 1;
+            //             r = 2;
+            //             break;
+            //         case "tough":
+            //             var s = Game.cdnURL + "/images/skill/skills_strength.png";
+            //             i = 2;
+            //             r = 2;
+            //             break;
+            //         case "endurance":
+            //             var s = Game.cdnURL + "/images/skill/skills_strength.png";
+            //             i = 3;
+            //             r = 2;
+            //             break;
+            //         case "health":
+            //             var s = Game.cdnURL + "/images/skill/skills_strength.png";
+            //             i = 4;
+            //             r = 2;
+            //             break;
+            //         case "ride":
+            //             var s = Game.cdnURL + "/images/skill/skills_flexibility.png";
+            //             r = 2;
+            //             break;
+            //         case "reflex":
+            //             var s = Game.cdnURL + "/images/skill/skills_flexibility.png";
+            //             i = 1;
+            //             r = 2;
+            //             break;
+            //         case "dodge":
+            //             var s = Game.cdnURL + "/images/skill/skills_flexibility.png";
+            //             i = 2;
+            //             r = 2;
+            //             break;
+            //         case "hide":
+            //             var s = Game.cdnURL + "/images/skill/skills_flexibility.png";
+            //             i = 3;
+            //             r = 2;
+            //             break;
+            //         case "swim":
+            //             var s = Game.cdnURL + "/images/skill/skills_flexibility.png";
+            //             i = 4;
+            //             r = 2;
+            //             break;
+            //         case "aim":
+            //             var s = Game.cdnURL + "/images/skill/skills_dexterity.png";
+            //             r = 2;
+            //             break;
+            //         case "shot":
+            //             var s = Game.cdnURL + "/images/skill/skills_dexterity.png";
+            //             i = 1;
+            //             r = 2;
+            //             break;
+            //         case "pitfall":
+            //             var s = Game.cdnURL + "/images/skill/skills_dexterity.png";
+            //             i = 2;
+            //             r = 2;
+            //             break;
+            //         case "finger_dexterity":
+            //             var s = Game.cdnURL + "/images/skill/skills_dexterity.png";
+            //             i = 3;
+            //             r = 2;
+            //             break;
+            //         case "repair":
+            //             var s = Game.cdnURL + "/images/skill/skills_dexterity.png";
+            //             i = 4;
+            //             r = 2;
+            //             break;
+            //         case "leadership":
+            //             var s = Game.cdnURL + "/images/skill/skills_charisma.png";
+            //             r = 2;
+            //             break;
+            //         case "tactic":
+            //             var s = Game.cdnURL + "/images/skill/skills_charisma.png";
+            //             i = 1;
+            //             r = 2;
+            //             break;
+            //         case "trade":
+            //             var s = Game.cdnURL + "/images/skill/skills_charisma.png";
+            //             i = 2;
+            //             r = 2;
+            //             break;
+            //         case "animal":
+            //             var s = Game.cdnURL + "/images/skill/skills_charisma.png";
+            //             i = 3;
+            //             r = 2;
+            //             break;
+            //         case "appearance":
+            //             var s = Game.cdnURL + "/images/skill/skills_charisma.png";
+            //             i = 4;
+            //             r = 2;
+            //             break;
+            //         case "strength":
+            //             var s = Game.cdnURL + "/images/window/skills/circle_strength.png";
+            //             break;
+            //         case "flexibility":
+            //             var s = Game.cdnURL + "/images/window/skills/circle_flexibility.png";
+            //             break;
+            //         case "dexterity":
+            //             var s = Game.cdnURL + "/images/window/skills/circle_dexterity.png";
+            //             break;
+            //         case "charisma":
+            //             var s = Game.cdnURL + "/images/window/skills/circle_charisma.png";
+            //             break;
+            //         case "attacker":
+            //             var s = TWDB.images.attacker;
+            //             break;
+            //         case "defender":
+            //             var s = TWDB.images.defender;
+            //             break;
+            //         default:
+            //             return jQuery("<div />");
+            //     }
+            //     var o = "";
+            //     if (typeof CharacterSkills.skills[e] !== "undefined") {
+            //         var o = CharacterSkills.skills[e].name;
+            //     } else if (typeof CharacterSkills.attributes[e] !== "undefined") {
+            //         var o = CharacterSkills.attributes[e].name;
+            //     }
+            //     s = '<img src="' + s + '" height="' + t * r + '" title="' + o + '" style="margin-left:-' + i * t + 'px" />';
+            //     s = jQuery(s);
+            //     var u = '<div style="display:block;overflow:hidden;width:' + t * n + "px;height:" + t + 'px;"/>';
+            //     u = jQuery(u);
+            //     return u.append(s);
+            // },
             bag: {
                 stack: {},
                 interval: false,
@@ -2356,7 +2367,8 @@
                                     n.click(r, e, t);
                                 };
                             })(e);
-                            jQuery(i).removeAttr("id").children(".TWDBbuyTip, .TWDBsellTip, .TWDBcollector").remove().end().children("img:first-child").removeAttr("id").end().click(s).appendTo(n.parent.gui.bag);
+                            //.children(".TWDBbuyTip, .TWDBsellTip, .TWDBcollector")
+                            jQuery(i).removeAttr("id").children(".TWDBcollector").remove().end().children("img:first-child").removeAttr("id").end().click(s).appendTo(n.parent.gui.bag);
                             n.items[e] = jQuery(i);
                         },
                         s,
@@ -2442,118 +2454,118 @@
                     }
                 },
             },
-            setUsedItems: function () {
-                for (var e in this.calcdata.jobs) {
-                    for (var t in this.calcdata.jobs[e].cloth) {
-                        var n = this.calcdata.jobs[e].cloth[t].id;
-                        if (typeof (this.calcdata.used[n] == "undefined")) {
-                            this.calcdata.used[n] = 1;
-                        } else {
-                            this.calcdata.used[n]++;
-                        }
-                    }
-                }
-                for (var r in this.calcdata.custom) {
-                    for (var t in this.calcdata.custom[r].cloth) {
-                        var n = this.calcdata.custom[r].cloth[t].id;
-                        if (typeof (this.calcdata.used[n] == "undefined")) {
-                            this.calcdata.used[n] = 1;
-                        } else {
-                            this.calcdata.used[n]++;
-                        }
-                    }
-                }
-            },
-            jobSearch: function () {
-                var e = this;
-                if (this.jobs.selected == 0) {
-                    return;
-                }
-                if (this.gui.job.searchDiv.parent().length) {
-                    this.jobs.switchJob(this.jobs.selected);
-                    return;
-                }
-                this.gui.bag.children().remove();
-                var t = TWDB.Map.getNearestJob(this.jobs.selected);
-                var n = 4;
-                var r = jQuery("<table />");
-                for (var i = 0; i < t.length; i++) {
-                    if (i === n) {
-                        break;
-                    }
-                    var s = t[i];
-                    var o = "rotate(" + s.angle + "deg);";
-                    var u = jQuery("<tr />");
-                    u.append('<td style="text-align:left;vertical-align:middle">' + s.time.formatDuration() + "</td>");
-                    u.append(
-                        jQuery('<td style="text-align:left;vertical-align:middle">').append(
-                            jQuery(
-                                '<img src="' + TWDB.images.arrow + '" title="Κατεύθυνση" style="cursor:pointer;-moz-transform: ' + o + "-webkit-transform:" + o + "-rotat-transform:" + o + "-ms-transform:" + o + "transform:" + o + '" />'
-                            ).click(
-                                (function (e, t) {
-                                    return function () {
-                                        GameMap.center(e, t);
-                                    };
-                                })(s.x, s.y)
-                            )
-                        )
-                    );
-                    var a = jQuery("<td />");
-                    var f = new west.gui.Button(
-                        "Άνοιξε",
-                        (function (e, t, n) {
-                            return function () {
-                                TWDB.Jobs.openJob(e, t, n);
-                            };
-                        })(e.jobs.selected, s.x, s.y)
-                    );
-                    jQuery(f.divMain).css({ "min-width": "50px", "max-width": "80px" });
-                    jQuery(f.divMain).find(".textart_title").css({ overflow: "hidden" });
-                    f.appendTo(a);
-                    u.append(a);
-                    if (Premium.hasBonus("automation")) {
-                        var a = jQuery("<td />");
-                        var f = new west.gui.Button(
-                            "default",
-                            (function (t, n, r) {
-                                return function () {
-                                    TWDB.Jobs.startJob(t, n, r, Number(e.jobs.basetime));
-                                };
-                            })(e.jobs.selected, s.x, s.y)
-                        );
-                        jQuery(f.divMain).css({ "min-width": "50px", "max-width": "80px" });
-                        jQuery(f.divMain).find(".textart_title").css({ overflow: "hidden" });
-                        f.appendTo(a);
-                        u.append(a);
-                    }
-                    r.append(u);
-                }
-                this.gui.job.searchDiv.children().remove();
-                this.gui.job.searchDiv.append(r);
-                this.gui.bag.append(this.gui.job.searchDiv);
-            },
-            isUsedItem: function (e) {
-                if (this.calcdata.used[e]) {
-                    return true;
-                } else {
-                    return false;
-                }
-            },
-            getClothForJob: function (e) {
-                if (!isDefined(this.calcdata.jobs[e]) || !isDefined(this.calcdata.jobs[e].cloth)) {
-                    return null;
-                }
-                return this.calcdata.jobs[e].cloth;
-            },
+            // setUsedItems: function () {
+            //     for (var e in this.calcdata.jobs) {
+            //         for (var t in this.calcdata.jobs[e].cloth) {
+            //             var n = this.calcdata.jobs[e].cloth[t].id;
+            //             if (typeof (this.calcdata.used[n] == "undefined")) {
+            //                 this.calcdata.used[n] = 1;
+            //             } else {
+            //                 this.calcdata.used[n]++;
+            //             }
+            //         }
+            //     }
+            //     for (var r in this.calcdata.custom) {
+            //         for (var t in this.calcdata.custom[r].cloth) {
+            //             var n = this.calcdata.custom[r].cloth[t].id;
+            //             if (typeof (this.calcdata.used[n] == "undefined")) {
+            //                 this.calcdata.used[n] = 1;
+            //             } else {
+            //                 this.calcdata.used[n]++;
+            //             }
+            //         }
+            //     }
+            // },
+            // jobSearch: function () {
+            //     var e = this;
+            //     if (this.jobs.selected == 0) {
+            //         return;
+            //     }
+            //     if (this.gui.job.searchDiv.parent().length) {
+            //         this.jobs.switchJob(this.jobs.selected);
+            //         return;
+            //     }
+            //     this.gui.bag.children().remove();
+            //     var t = TWDB.Map.getNearestJob(this.jobs.selected);
+            //     var n = 4;
+            //     var r = jQuery("<table />");
+            //     for (var i = 0; i < t.length; i++) {
+            //         if (i === n) {
+            //             break;
+            //         }
+            //         var s = t[i];
+            //         var o = "rotate(" + s.angle + "deg);";
+            //         var u = jQuery("<tr />");
+            //         u.append('<td style="text-align:left;vertical-align:middle">' + s.time.formatDuration() + "</td>");
+            //         u.append(
+            //             jQuery('<td style="text-align:left;vertical-align:middle">').append(
+            //                 jQuery(
+            //                     '<img src="' + TWDB.images.arrow + '" title="Κατεύθυνση" style="cursor:pointer;-moz-transform: ' + o + "-webkit-transform:" + o + "-rotat-transform:" + o + "-ms-transform:" + o + "transform:" + o + '" />'
+            //                 ).click(
+            //                     (function (e, t) {
+            //                         return function () {
+            //                             GameMap.center(e, t);
+            //                         };
+            //                     })(s.x, s.y)
+            //                 )
+            //             )
+            //         );
+            //         var a = jQuery("<td />");
+            //         var f = new west.gui.Button(
+            //             "Άνοιξε",
+            //             (function (e, t, n) {
+            //                 return function () {
+            //                     TWDB.Jobs.openJob(e, t, n);
+            //                 };
+            //             })(e.jobs.selected, s.x, s.y)
+            //         );
+            //         jQuery(f.divMain).css({ "min-width": "50px", "max-width": "80px" });
+            //         jQuery(f.divMain).find(".textart_title").css({ overflow: "hidden" });
+            //         f.appendTo(a);
+            //         u.append(a);
+            //         if (Premium.hasBonus("automation")) {
+            //             var a = jQuery("<td />");
+            //             var f = new west.gui.Button(
+            //                 "default",
+            //                 (function (t, n, r) {
+            //                     return function () {
+            //                         TWDB.Jobs.startJob(t, n, r, Number(e.jobs.basetime));
+            //                     };
+            //                 })(e.jobs.selected, s.x, s.y)
+            //             );
+            //             jQuery(f.divMain).css({ "min-width": "50px", "max-width": "80px" });
+            //             jQuery(f.divMain).find(".textart_title").css({ overflow: "hidden" });
+            //             f.appendTo(a);
+            //             u.append(a);
+            //         }
+            //         r.append(u);
+            //     }
+            //     this.gui.job.searchDiv.children().remove();
+            //     this.gui.job.searchDiv.append(r);
+            //     this.gui.bag.append(this.gui.job.searchDiv);
+            // },
+            // isUsedItem: function (e) {
+            //     if (this.calcdata.used[e]) {
+            //         return true;
+            //     } else {
+            //         return false;
+            //     }
+            // },
+            // getClothForJob: function (e) {
+            //     if (!isDefined(this.calcdata.jobs[e]) || !isDefined(this.calcdata.jobs[e].cloth)) {
+            //         return null;
+            //     }
+            //     return this.calcdata.jobs[e].cloth;
+            // },
             getLPForJob: function (e) {
                 if (!isDefined(this.calcdata.jobs[e]) || !isDefined(this.calcdata.jobs[e].laborpoints)) {
                     return null;
                 }
                 return this.calcdata.jobs[e].laborpoints;
             },
-            getSelectedJob: function () {
-                return this.jobs.selected;
-            },
+            // getSelectedJob: function () {
+            //     return this.jobs.selected;
+            // },
             isLoaded: function () {
                 if (isDefined(this.calcdata.loaded)) {
                     return this.calcdata.loaded;
@@ -3141,31 +3153,31 @@
                 return t;
             })($);
             Debugger.Window = Window;
-            var Support = (function (e) {
-                var t = {};
-                var n = "twdb_support";
-                var r = {};
-                t.addKey = function (e, t) {
-                    r[e] = t;
-                };
-                t.open = function () {
-                    var t = e(
-                        '<p style="margin:10px;">Παρακαλούμε συμπεριλάβετε το κείμενο που εμφανίζεται παρακάτω σε μια αναφορά σφάλματος που αποστέλλεται μέσω της <a href="https://tw-db.info/?strana=contact" target="_blank">φόρμας επικοινωνίας μας</a> και προσπαθήστε επίσης να περιγράψετε πώς να αναπαράγετε αυτό το σφάλμα (τι κάνατε όταν εμφανίστηκε). Ευχαριστούμε!</p>'
-                    );
-                    var i = e('<div style="margin:10px;"/>');
-                    var s = "[CODE]";
-                    for (var o in r) {
-                        s += String(o) + "\n";
-                        s += String(r[o]) + "\n";
-                        s += "----------" + "\n";
-                    }
-                    s += "[/CODE]";
-                    i.append(new west.gui.Textarea().setContent(s).setWidth(600).setHeight(250).setReadonly().getMainDiv());
-                    wman.open(n, null).setMiniTitle("TWDB Υποστήριξη").setTitle("TW-DB.info - Υποστήριξη").appendToContentPane(t).appendToContentPane(i);
-                };
-                return t;
-            })($);
-            Debugger.Support = Support;
+            // var Support = (function (e) {
+            //     var t = {};
+            //     var n = "twdb_support";
+            //     var r = {};
+            //     t.addKey = function (e, t) {
+            //         r[e] = t;
+            //     };
+            //     t.open = function () {
+            //         var t = e(
+            //             '<p style="margin:10px;">Παρακαλούμε συμπεριλάβετε το κείμενο που εμφανίζεται παρακάτω σε μια αναφορά σφάλματος που αποστέλλεται μέσω της <a href="https://tw-db.info/?strana=contact" target="_blank">φόρμας επικοινωνίας μας</a> και προσπαθήστε επίσης να περιγράψετε πώς να αναπαράγετε αυτό το σφάλμα (τι κάνατε όταν εμφανίστηκε). Ευχαριστούμε!</p>'
+            //         );
+            //         var i = e('<div style="margin:10px;"/>');
+            //         var s = "[CODE]";
+            //         for (var o in r) {
+            //             s += String(o) + "\n";
+            //             s += String(r[o]) + "\n";
+            //             s += "----------" + "\n";
+            //         }
+            //         s += "[/CODE]";
+            //         i.append(new west.gui.Textarea().setContent(s).setWidth(600).setHeight(250).setReadonly().getMainDiv());
+            //         wman.open(n, null).setMiniTitle("TWDB Υποστήριξη").setTitle("TW-DB.info - Υποστήριξη").appendToContentPane(t).appendToContentPane(i);
+            //     };
+            //     return t;
+            // })($);
+            // Debugger.Support = Support;
             var Timer = (function (e) {
                 var t = {};
                 var n = 0;
@@ -3245,212 +3257,212 @@
             })($);
             _base.Eventer = Eventer;
             Debugger.Eventer = Eventer;
-            var Calc = (function (e) {
-                var t = {};
-                var n = false;
-                var r = { sets: {} };
-                var i = { sets: {}, items: {} };
-                var s = {};
-                var o = function (e) {
-                    for (set in e) {
-                        var t = e[set];
-                        var n = {};
-                        var i = {},
-                            s = {},
-                            o = {};
-                        var u = 0;
-                        for (level in t.bonus) {
-                            if (!t.bonus.hasOwnProperty(level)) continue;
-                            n[level] = { jobs: {}, attributes: [], skills: [] };
-                            if (u > 0) {
-                                for (var a = parseInt(u, 10) + 1; a <= level; ++a) {
-                                    n[a] = JSON.parse(JSON.stringify(n[u]));
-                                }
-                            }
-                            for (bonus in t.bonus[level]) {
-                                if (!t.bonus[level].hasOwnProperty(bonus)) continue;
-                                var f = t.bonus[level][bonus];
-                                var l = TWDB.ClothCalc._skill2id[f.name];
-                                switch (f.type) {
-                                    case "job":
-                                        if (!isDefined(n[level]["jobs"][f.job])) n[level]["jobs"][f.job] = 0;
-                                        n[level]["jobs"][f.job] += f.value;
-                                        break;
-                                    case "attribute":
-                                        if (!isDefined(i[l])) i[l] = 0;
-                                        i[l] += f.value;
-                                        n[level]["attributes"][l] = i[l];
-                                        for (iT = 0; iT < TWDB.ClothCalc._sk4attr[f.name].length; iT++) {
-                                            var c = TWDB.ClothCalc._sk4attr[f.name][iT];
-                                            if (!isDefined(s[c])) s[c] = 0;
-                                            s[c] += f.value;
-                                            n[level]["skills"][c] = s[c];
-                                        }
-                                        break;
-                                    case "skill":
-                                        if (!isDefined(s[l])) s[l] = 0;
-                                        s[l] += f.value;
-                                        n[level]["skills"][l] = s[l];
-                                        break;
-                                    /*case "character":
-                                        if (f.bonus && f.key === "level") {
-                                            var h = f.roundingMethod;
-                                            if (f.bonus.type === "skill") {
-                                                var p = TWDB.ClothCalc._skill2id[f.bonus.name];
-                                                if (!isDefined(s[p])) s[p] = 0;
-                                                s[p] += Math[h](Character.level * f.bonus.value);
-                                                n[level]["skills"][p] = s[p];
-                                            } else if (f.bonus.type == "attribute") {
-                                                for (iT = 0; iT < TWDB.ClothCalc._sk4attr[f.bonus.name].length; iT++) {
-                                                    var c = TWDB.ClothCalc._sk4attr[f.bonus.name][iT];
-                                                    if (!isDefined(s[c])) s[c] = 0;
-                                                    s[c] += Math[h](Character.level * f.bonus.value);
-                                                    n[level]["skills"][c] = s[c];
-                                                }
-                                            } else if (f.bonus.type == "job") {
-                                                if (!isDefined(n[level]["jobs"][f.bonus.job])) n[level]["jobs"][f.bonus.job] = 0;
-                                                n[level]["jobs"][f.bonus.job] += Math[h](Character.level * f.bonus.value);
-                                            }
-                                        }
-                                        break;*/
-                                    default:
-                                        break;
-                                }
-                            }
-                            u = level;
-                        }
-                        r.sets[set] = n;
-                    }
-                    return r.sets;
-                };
-                var u = function () {
-                    if (s.ready) {
-                        return;
-                    }
-                    Worker.add(
-                        (function () {
-                            return function () {
-                                r = o(west.storage.ItemSetManager._setList);
-                                s.ready = true;
-                                n = true;
-                            };
-                        })()
-                    );
-                };
-                s = Loader.add("Calc", "tw-db Calculator", u, {});
-                t.getCcCache = function () {
-                    return i;
-                };
-                t.getSetCache = function () {
-                    return r;
-                };
-                t.getSetBonusForJob = function (e, t, n) {
-                    if (isDefined(i.sets[e]) && isDefined(i.sets[e][t]) && isDefined(i.sets[e][t][n])) {
-                        return i.sets[e][t][n];
-                    }
-                    try {
-                        return a(e, t, n);
-                    } catch (r) {
-                        Error.report(r, "calcSetBonusForJob (" + e + " " + t + " " + n + ")");
-                    }
-                    return 0;
-                };
-                t.getItemBonusForJob = function (e, t) {
-                    try {
-                        if (isDefined(i) && isDefined(i.items) && isDefined(i.items[e]) && isDefined(i.items[e][t])) {
-                            return i.items[e][t];
-                        }
-                        return f(e, t);
-                    } catch (n) {
-                        Error.report(n, "calcItemBonusForJob (" + e + " " + t + ")");
-                    }
-                    return 0;
-                };
-                t.isCached = function (e, t) {
-                    if (isDefined(i.items[e]) && isDefined(i.items[e][t])) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                };
-                var a = function (e, t, n) {
-                    if (!isDefined(r[e])) {
-                        console.log({ message: "unknown set " + e }, "calcSetBonusForJob");
-                        return 0;
-                    }
-                    if (!isDefined(r[e][t])) {
-                        return 0;
-                    }
-                    var s = r[e][t];
-                    var o = Jobs.getJobById(n);
-                    if (!o) {
-                        return 0;
-                    }
-                    var u = 0;
-                    if (isDefined(s.jobs["all"])) {
-                        u += s.jobs["all"];
-                    }
-                    if (isDefined(s.jobs[n])) {
-                        u += s.jobs[n];
-                    }
-                    for (var a in o.skills) {
-                        var f = o.skills[a];
-                        if (isDefined(s.skills[TWDB.ClothCalc._skill2id[a]])) {
-                            u += s.skills[TWDB.ClothCalc._skill2id[a]] * f;
-                        }
-                    }
-                    if (!isDefined(i.sets[e])) {
-                        i.sets[e] = {};
-                    }
-                    if (!isDefined(i.sets[e][t])) {
-                        i.sets[e][t] = {};
-                    }
-                    i.sets[e][t][n] = u;
-                    return u;
-                };
-                var f = function (e, t) {
-                    var n = ItemManager.get(e);
-                    if (!n) {
-                        return 0;
-                    }
-                    var r = Jobs.getJobById(t);
-                    if (!r) {
-                        return 0;
-                    }
-                    var s = n.getValue(r.skills, t);
-                    if (!isDefined(i.items[e])) {
-                        i.items[e] = {};
-                    }
-                    i.items[e][t] = s;
-                    return s;
-                };
-                return t;
-            })($);
-            _base.Calc = Calc;
-            Debugger.Calc = Calc;
-            var Importer = (function (e) {
-                var t = {};
-                var n = {};
-                t.div = null;
-                var r = function () {
-                    if (n.ready) {
-                        return;
-                    }
-                    t.div = Window.addTab("importer", "Importer", "", function () {
-                        i();
-                    });
-                    n.ready = true;
-                };
-                n = Loader.add("Importer", "tw-db Importersystem", r, { Window: true });
-                var i = function () {
-                    t.div.children().remove();
-                    Window.hideLoader();
-                    e.getScript(Script.protocol + "://" + Script.url + "/cache/js/sDoImport_" + Script.lang + ".js");
-                };
-                return t;
-            })($);
-            _base.Importer = Importer;
-            Debugger.Importer = Importer;
+            // var Calc = (function (e) {
+            //     var t = {};
+            //     var n = false;
+            //     var r = { sets: {} };
+            //     var i = { sets: {}, items: {} };
+            //     var s = {};
+            //     var o = function (e) {
+            //         for (set in e) {
+            //             var t = e[set];
+            //             var n = {};
+            //             var i = {},
+            //                 s = {},
+            //                 o = {};
+            //             var u = 0;
+            //             for (level in t.bonus) {
+            //                 if (!t.bonus.hasOwnProperty(level)) continue;
+            //                 n[level] = { jobs: {}, attributes: [], skills: [] };
+            //                 if (u > 0) {
+            //                     for (var a = parseInt(u, 10) + 1; a <= level; ++a) {
+            //                         n[a] = JSON.parse(JSON.stringify(n[u]));
+            //                     }
+            //                 }
+            //                 for (bonus in t.bonus[level]) {
+            //                     if (!t.bonus[level].hasOwnProperty(bonus)) continue;
+            //                     var f = t.bonus[level][bonus];
+            //                     var l = TWDB.ClothCalc._skill2id[f.name];
+            //                     switch (f.type) {
+            //                         case "job":
+            //                             if (!isDefined(n[level]["jobs"][f.job])) n[level]["jobs"][f.job] = 0;
+            //                             n[level]["jobs"][f.job] += f.value;
+            //                             break;
+            //                         case "attribute":
+            //                             if (!isDefined(i[l])) i[l] = 0;
+            //                             i[l] += f.value;
+            //                             n[level]["attributes"][l] = i[l];
+            //                             for (iT = 0; iT < TWDB.ClothCalc._sk4attr[f.name].length; iT++) {
+            //                                 var c = TWDB.ClothCalc._sk4attr[f.name][iT];
+            //                                 if (!isDefined(s[c])) s[c] = 0;
+            //                                 s[c] += f.value;
+            //                                 n[level]["skills"][c] = s[c];
+            //                             }
+            //                             break;
+            //                         case "skill":
+            //                             if (!isDefined(s[l])) s[l] = 0;
+            //                             s[l] += f.value;
+            //                             n[level]["skills"][l] = s[l];
+            //                             break;
+            //                         /*case "character":
+            //                             if (f.bonus && f.key === "level") {
+            //                                 var h = f.roundingMethod;
+            //                                 if (f.bonus.type === "skill") {
+            //                                     var p = TWDB.ClothCalc._skill2id[f.bonus.name];
+            //                                     if (!isDefined(s[p])) s[p] = 0;
+            //                                     s[p] += Math[h](Character.level * f.bonus.value);
+            //                                     n[level]["skills"][p] = s[p];
+            //                                 } else if (f.bonus.type == "attribute") {
+            //                                     for (iT = 0; iT < TWDB.ClothCalc._sk4attr[f.bonus.name].length; iT++) {
+            //                                         var c = TWDB.ClothCalc._sk4attr[f.bonus.name][iT];
+            //                                         if (!isDefined(s[c])) s[c] = 0;
+            //                                         s[c] += Math[h](Character.level * f.bonus.value);
+            //                                         n[level]["skills"][c] = s[c];
+            //                                     }
+            //                                 } else if (f.bonus.type == "job") {
+            //                                     if (!isDefined(n[level]["jobs"][f.bonus.job])) n[level]["jobs"][f.bonus.job] = 0;
+            //                                     n[level]["jobs"][f.bonus.job] += Math[h](Character.level * f.bonus.value);
+            //                                 }
+            //                             }
+            //                             break;*/
+            //                         default:
+            //                             break;
+            //                     }
+            //                 }
+            //                 u = level;
+            //             }
+            //             r.sets[set] = n;
+            //         }
+            //         return r.sets;
+            //     };
+            //     var u = function () {
+            //         if (s.ready) {
+            //             return;
+            //         }
+            //         Worker.add(
+            //             (function () {
+            //                 return function () {
+            //                     r = o(west.storage.ItemSetManager._setList);
+            //                     s.ready = true;
+            //                     n = true;
+            //                 };
+            //             })()
+            //         );
+            //     };
+            //     s = Loader.add("Calc", "tw-db Calculator", u, {});
+            //     t.getCcCache = function () {
+            //         return i;
+            //     };
+            //     t.getSetCache = function () {
+            //         return r;
+            //     };
+            //     t.getSetBonusForJob = function (e, t, n) {
+            //         if (isDefined(i.sets[e]) && isDefined(i.sets[e][t]) && isDefined(i.sets[e][t][n])) {
+            //             return i.sets[e][t][n];
+            //         }
+            //         try {
+            //             return a(e, t, n);
+            //         } catch (r) {
+            //             Error.report(r, "calcSetBonusForJob (" + e + " " + t + " " + n + ")");
+            //         }
+            //         return 0;
+            //     };
+            //     t.getItemBonusForJob = function (e, t) {
+            //         try {
+            //             if (isDefined(i) && isDefined(i.items) && isDefined(i.items[e]) && isDefined(i.items[e][t])) {
+            //                 return i.items[e][t];
+            //             }
+            //             return f(e, t);
+            //         } catch (n) {
+            //             Error.report(n, "calcItemBonusForJob (" + e + " " + t + ")");
+            //         }
+            //         return 0;
+            //     };
+            //     t.isCached = function (e, t) {
+            //         if (isDefined(i.items[e]) && isDefined(i.items[e][t])) {
+            //             return true;
+            //         } else {
+            //             return false;
+            //         }
+            //     };
+            //     var a = function (e, t, n) {
+            //         if (!isDefined(r[e])) {
+            //             console.log({ message: "unknown set " + e }, "calcSetBonusForJob");
+            //             return 0;
+            //         }
+            //         if (!isDefined(r[e][t])) {
+            //             return 0;
+            //         }
+            //         var s = r[e][t];
+            //         var o = Jobs.getJobById(n);
+            //         if (!o) {
+            //             return 0;
+            //         }
+            //         var u = 0;
+            //         if (isDefined(s.jobs["all"])) {
+            //             u += s.jobs["all"];
+            //         }
+            //         if (isDefined(s.jobs[n])) {
+            //             u += s.jobs[n];
+            //         }
+            //         for (var a in o.skills) {
+            //             var f = o.skills[a];
+            //             if (isDefined(s.skills[TWDB.ClothCalc._skill2id[a]])) {
+            //                 u += s.skills[TWDB.ClothCalc._skill2id[a]] * f;
+            //             }
+            //         }
+            //         if (!isDefined(i.sets[e])) {
+            //             i.sets[e] = {};
+            //         }
+            //         if (!isDefined(i.sets[e][t])) {
+            //             i.sets[e][t] = {};
+            //         }
+            //         i.sets[e][t][n] = u;
+            //         return u;
+            //     };
+            //     var f = function (e, t) {
+            //         var n = ItemManager.get(e);
+            //         if (!n) {
+            //             return 0;
+            //         }
+            //         var r = Jobs.getJobById(t);
+            //         if (!r) {
+            //             return 0;
+            //         }
+            //         var s = n.getValue(r.skills, t);
+            //         if (!isDefined(i.items[e])) {
+            //             i.items[e] = {};
+            //         }
+            //         i.items[e][t] = s;
+            //         return s;
+            //     };
+            //     return t;
+            // })($);
+            // _base.Calc = Calc;
+            // Debugger.Calc = Calc;
+            // var Importer = (function (e) {
+            //     var t = {};
+            //     var n = {};
+            //     t.div = null;
+            //     var r = function () {
+            //         if (n.ready) {
+            //             return;
+            //         }
+            //         t.div = Window.addTab("importer", "Importer", "", function () {
+            //             i();
+            //         });
+            //         n.ready = true;
+            //     };
+            //     n = Loader.add("Importer", "tw-db Importersystem", r, { Window: true });
+            //     var i = function () {
+            //         t.div.children().remove();
+            //         Window.hideLoader();
+            //         e.getScript(Script.protocol + "://" + Script.url + "/cache/js/sDoImport_" + Script.lang + ".js");
+            //     };
+            //     return t;
+            // })($);
+            // _base.Importer = Importer;
+            // Debugger.Importer = Importer;
             var Settings = (function (e) {
                 var t = {};
                 var n = {};
@@ -3478,15 +3490,15 @@
                     r.append(i.getMainDiv());
                     var s = [
                         [9, "", "Αποθέματα", false],
-                        [0, "jobBoniTooltip", "Εμφανίση πληροφοριών σχετικά με τους πόντους εργασίας στο παράθυρο αποθεμάτων για την επιλεγμένη εργασία&nbsp;-&nbsp;[Δεν έχω ιδέα]", false],
+                        // [0, "jobBoniTooltip", "Εμφανίση πληροφοριών σχετικά με τους πόντους εργασίας στο παράθυρο αποθεμάτων για την επιλεγμένη εργασία&nbsp;-&nbsp;[Δεν έχω ιδέα]", false],
                         [0, "collector", "Σημείωση αντικειμένων στον Έμπορο και την Αγορά που δεν έχετε ακόμα στα αποθέματά σας", false],
-                        [0, "buyTip", "Ε̶μ̶φ̶ά̶ν̶ι̶σ̶η̶ ̶σ̶υ̶μ̶β̶ο̶υ̶λ̶ή̶ς̶ ̶α̶γ̶ο̶ρ̶ά̶ς̶ ̶σ̶τ̶ο̶ν̶ ̶Έ̶μ̶π̶ο̶ρ̶ο̶ &nbsp;&nbsp;[Δεν λειτουργεί;]", false],
-                        [0, "sellTip", "Ε̶μ̶φ̶ά̶ν̶ι̶σ̶η̶ ̶σ̶υ̶μ̶β̶ο̶υ̶λ̶ή̶ς̶ ̶π̶ώ̶λ̶η̶σ̶η̶ς̶ ̶σ̶τ̶ο̶ ̶π̶α̶ρ̶ά̶θ̶υ̶ρ̶ο̶ ̶Α̶π̶ο̶θ̶ε̶μ̶ά̶τ̶ω̶ν̶ &nbsp;&nbsp;[Δεν λειτουργεί;]", false],
-                        [0, "sellTip1", "Π̶ώ̶λ̶η̶σ̶η̶ ̶α̶ν̶τ̶ι̶κ̶ε̶ι̶μ̶έ̶ν̶ω̶ν̶ ̶π̶ο̶υ̶ ̶έ̶χ̶ε̶τ̶ε̶ ̶π̶ε̶ρ̶ι̶σ̶σ̶ό̶τ̶ε̶ρ̶ο̶ ̶α̶π̶ο̶ ̶μ̶ι̶α̶ ̶φ̶ο̶ρ̶ά̶ &nbsp;&nbsp;[Δεν λειτουργεί;]", "Ρυθμίσεις για τις συμβουλές πώλησης"],
-                        [0, "sellTip2", "Π̶ώ̶λ̶η̶σ̶η̶ ̶α̶ν̶τ̶ι̶κ̶ε̶ι̶μ̶έ̶ν̶ω̶ν̶ ̶π̶ο̶υ̶ ̶δ̶ε̶ν̶ ̶ε̶ί̶ν̶α̶ι̶ ̶χ̶ρ̶ή̶σ̶ι̶μ̶α̶ ̶σ̶ε̶ ̶κ̶α̶μ̶ί̶α̶ ̶Δ̶ο̶υ̶λ̶ε̶ι̶ά̶ &nbsp;&nbsp;[Δεν λειτουργεί;]", "Ρυθμίσεις για τις συμβουλές πώλησης"],
-                        [0, "sellTip3", "Α̶π̶ο̶φ̶υ̶γ̶ή̶ ̶π̶ώ̶λ̶η̶σ̶η̶ς̶,̶ ̶α̶ν̶τ̶ι̶κ̶ε̶ι̶μ̶έ̶ν̶ω̶ν̶ ̶μ̶ε̶ ̶Ο̶ν̶ο̶μ̶α̶σ̶ί̶ε̶ς̶ &nbsp;&nbsp;[Δεν λειτουργεί;]", "Ρυθμίσεις για τις συμβουλές πώλησης"],
-                        [0, "sellTip4", "Α̶π̶ο̶φ̶υ̶γ̶ή̶ ̶π̶ώ̶λ̶η̶σ̶η̶ς̶,̶ ̶Σ̶π̶ά̶ν̶ι̶ω̶ν̶ ̶α̶ν̶τ̶ι̶κ̶ε̶ι̶μ̶έ̶ν̶ω̶ν̶ &nbsp;&nbsp;[Δεν λειτουργεί;]", "Ρυθμίσεις για τις συμβουλές πώλησης"],
-                        [0, "sellTip5", "Α̶π̶ο̶φ̶υ̶γ̶ή̶ ̶π̶ώ̶λ̶η̶σ̶η̶ς̶,̶ ̶α̶ν̶τ̶ι̶κ̶ε̶ι̶μ̶έ̶ν̶ω̶ν̶ ̶α̶π̶ό̶ ̶Σ̶ε̶τ̶ &nbsp;&nbsp;[Δεν λειτουργεί;]", "Ρυθμίσεις για τις συμβουλές πώλησης"],
+                        // [0, "buyTip", "Ε̶μ̶φ̶ά̶ν̶ι̶σ̶η̶ ̶σ̶υ̶μ̶β̶ο̶υ̶λ̶ή̶ς̶ ̶α̶γ̶ο̶ρ̶ά̶ς̶ ̶σ̶τ̶ο̶ν̶ ̶Έ̶μ̶π̶ο̶ρ̶ο̶ &nbsp;&nbsp;[Δεν λειτουργεί;]", false],
+                        // [0, "sellTip", "Ε̶μ̶φ̶ά̶ν̶ι̶σ̶η̶ ̶σ̶υ̶μ̶β̶ο̶υ̶λ̶ή̶ς̶ ̶π̶ώ̶λ̶η̶σ̶η̶ς̶ ̶σ̶τ̶ο̶ ̶π̶α̶ρ̶ά̶θ̶υ̶ρ̶ο̶ ̶Α̶π̶ο̶θ̶ε̶μ̶ά̶τ̶ω̶ν̶ &nbsp;&nbsp;[Δεν λειτουργεί;]", false],
+                        // [0, "sellTip1", "Π̶ώ̶λ̶η̶σ̶η̶ ̶α̶ν̶τ̶ι̶κ̶ε̶ι̶μ̶έ̶ν̶ω̶ν̶ ̶π̶ο̶υ̶ ̶έ̶χ̶ε̶τ̶ε̶ ̶π̶ε̶ρ̶ι̶σ̶σ̶ό̶τ̶ε̶ρ̶ο̶ ̶α̶π̶ο̶ ̶μ̶ι̶α̶ ̶φ̶ο̶ρ̶ά̶ &nbsp;&nbsp;[Δεν λειτουργεί;]", "Ρυθμίσεις για τις συμβουλές πώλησης"],
+                        // [0, "sellTip2", "Π̶ώ̶λ̶η̶σ̶η̶ ̶α̶ν̶τ̶ι̶κ̶ε̶ι̶μ̶έ̶ν̶ω̶ν̶ ̶π̶ο̶υ̶ ̶δ̶ε̶ν̶ ̶ε̶ί̶ν̶α̶ι̶ ̶χ̶ρ̶ή̶σ̶ι̶μ̶α̶ ̶σ̶ε̶ ̶κ̶α̶μ̶ί̶α̶ ̶Δ̶ο̶υ̶λ̶ε̶ι̶ά̶ &nbsp;&nbsp;[Δεν λειτουργεί;]", "Ρυθμίσεις για τις συμβουλές πώλησης"],
+                        // [0, "sellTip3", "Α̶π̶ο̶φ̶υ̶γ̶ή̶ ̶π̶ώ̶λ̶η̶σ̶η̶ς̶,̶ ̶α̶ν̶τ̶ι̶κ̶ε̶ι̶μ̶έ̶ν̶ω̶ν̶ ̶μ̶ε̶ ̶Ο̶ν̶ο̶μ̶α̶σ̶ί̶ε̶ς̶ &nbsp;&nbsp;[Δεν λειτουργεί;]", "Ρυθμίσεις για τις συμβουλές πώλησης"],
+                        // [0, "sellTip4", "Α̶π̶ο̶φ̶υ̶γ̶ή̶ ̶π̶ώ̶λ̶η̶σ̶η̶ς̶,̶ ̶Σ̶π̶ά̶ν̶ι̶ω̶ν̶ ̶α̶ν̶τ̶ι̶κ̶ε̶ι̶μ̶έ̶ν̶ω̶ν̶ &nbsp;&nbsp;[Δεν λειτουργεί;]", "Ρυθμίσεις για τις συμβουλές πώλησης"],
+                        // [0, "sellTip5", "Α̶π̶ο̶φ̶υ̶γ̶ή̶ ̶π̶ώ̶λ̶η̶σ̶η̶ς̶,̶ ̶α̶ν̶τ̶ι̶κ̶ε̶ι̶μ̶έ̶ν̶ω̶ν̶ ̶α̶π̶ό̶ ̶Σ̶ε̶τ̶ &nbsp;&nbsp;[Δεν λειτουργεί;]", "Ρυθμίσεις για τις συμβουλές πώλησης"],
                         [0, "pinitems", "Καρφίτσωμα αντικειμένων στο παράθυρο των Αποθεμάτων", false],
                         [0, "collectorsell", "Προσθήκη ενός κουμπιού για ταυτόχρονες πωλήσεις επιλεγμένων αντικειμένων στον Έμπορο", false],
                         [9, "", "Αποστολές", false],
@@ -3499,7 +3511,7 @@
                         [0, "marketreminder", "Προσθήκη μιας υπενθύμισης για τις δημοπρασίες της Αγοράς", false],
                         [0, "marketselldialog", "Βελτίωση του παραθύρου πωλήσεων στην Αγορά", false],
                         [9, "", "Δουλειές", false],
-                        [0, "jobwin_ccbutton", "Π̶ρ̶ο̶σ̶θ̶ή̶κ̶η̶ ̶τ̶ο̶υ̶ ̶C̶l̶o̶t̶h̶C̶a̶l̶c̶ ̶σ̶τ̶ο̶ ̶π̶α̶ρ̶ά̶θ̶υ̶ρ̶ο̶ ̶Δ̶ο̶υ̶λ̶ε̶ι̶ώ̶ν̶ &nbsp;&nbsp;[Μην το ενεργοποιείτε]", false],
+                        // [0, "jobwin_ccbutton", "Π̶ρ̶ο̶σ̶θ̶ή̶κ̶η̶ ̶τ̶ο̶υ̶ ̶C̶l̶o̶t̶h̶C̶a̶l̶c̶ ̶σ̶τ̶ο̶ ̶π̶α̶ρ̶ά̶θ̶υ̶ρ̶ο̶ ̶Δ̶ο̶υ̶λ̶ε̶ι̶ώ̶ν̶ &nbsp;&nbsp;[Μην το ενεργοποιείτε]", false],
                         [0, "jobwin_showlp", "Προσθήκη των Πόντων εργασίας στα παράθυρα δουλειών", false],
                         [9, "", "Λίστα εργασιών", false],
                         [0, "tasklistpoints", "Προσθήκη ένδειξης Πόντων εργασίας και συμβουλές πόντων ζωής στην Λίστα εργασιών&nbsp;-&nbsp;[Κάτω δεξιά]", false],
@@ -3648,39 +3660,39 @@
                     if (n.ready) {
                         return;
                     }
-                    if (Settings.get("jobwin_ccbutton", false)) {
-                        i();
-                    }
+                    // if (Settings.get("jobwin_ccbutton", false)) {
+                    //     i();
+                    // }
                     if (Settings.get("jobwin_showlp", true)) {
                         s();
                     }
                     n.ready = true;
                 };
-                var i = function () {
-                    try {
-                        JobWindow.prototype.__twdb__getBestWearButton = JobWindow.prototype.__twdb__getBestWearButton || JobWindow.prototype.getBestWearButton;
-                        JobWindow.prototype.getBestWearButton = function () {
-                            var t = JobWindow.prototype.__twdb__getBestWearButton.apply(this, arguments);
-                            var n = this;
-                            return t.append(
-                                e('<div class="twdb_bestwear" title="Εμφάνιση δουλειάς στο παράθυρο ClothCalc">').click(function (e) {
-                                    e.stopImmediatePropagation();
-                                    TWDB.ClothCalc.open(n.job.id, "job");
-                                })
-                            );
-                        };
-                        var t =
-                            "div.job_bestwearbutton {left: 15px!important; width: 210px;}\n" +
-                            "div.twdb_bestwear {background: url('" +
-                            TWDB.images.bestwear +
-                            "') no-repeat top; " +
-                            "height: 55px; width: 55px; position: relative; left: 195px; top: -15px;}\n" +
-                            "div.job_bestwearbutton:hover .twdb_bestwear {background-position: bottom;}";
-                        TWDB.Util.addCss(t, "bestwear");
-                    } catch (n) {
-                        Error.report(n, "manipulate JobWindow.prototype.getBestWearButton");
-                    }
-                };
+                // var i = function () {
+                //     try {
+                //         JobWindow.prototype.__twdb__getBestWearButton = JobWindow.prototype.__twdb__getBestWearButton || JobWindow.prototype.getBestWearButton;
+                //         JobWindow.prototype.getBestWearButton = function () {
+                //             var t = JobWindow.prototype.__twdb__getBestWearButton.apply(this, arguments);
+                //             var n = this;
+                //             return t.append(
+                //                 e('<div class="twdb_bestwear" title="Εμφάνιση δουλειάς στο παράθυρο ClothCalc">').click(function (e) {
+                //                     e.stopImmediatePropagation();
+                //                     TWDB.ClothCalc.open(n.job.id, "job");
+                //                 })
+                //             );
+                //         };
+                //         var t =
+                //             "div.job_bestwearbutton {left: 15px!important; width: 210px;}\n" +
+                //             "div.twdb_bestwear {background: url('" +
+                //             TWDB.images.bestwear +
+                //             "') no-repeat top; " +
+                //             "height: 55px; width: 55px; position: relative; left: 195px; top: -15px;}\n" +
+                //             "div.job_bestwearbutton:hover .twdb_bestwear {background-position: bottom;}";
+                //         TWDB.Util.addCss(t, "bestwear");
+                //     } catch (n) {
+                //         Error.report(n, "manipulate JobWindow.prototype.getBestWearButton");
+                //     }
+                // };
                 var s = function () {
                     try {
                         JobWindow.prototype.__twdb__initView = JobWindow.prototype.__twdb__initView || JobWindow.prototype.initView;
@@ -3697,37 +3709,37 @@
                 n = Loader.add("JobWindowCC", "tw-db Job window", r, { Settings: true, ClothCalc: true });
                 return t;
             })($);
-            var Tools = (function (e) {
-                var t = {};
-                var n = {};
-                var r;
-                var i = function () {
-                    if (n.ready) {
-                        return;
-                    }
-                    r = Window.addTab("tools", "Εργαλεία", "", function () {
-                        s();
-                    });
-                    n.ready = true;
-                };
-                n = Loader.add("Tools", "tw-db Toolsystem", i, { Window: true });
-                var s = function () {
-                    r.children().remove();
-                    new west.gui.Button("Χάρτης Συμμαχίας", function () {
-                        w.open("https://" + Script.url + "/?strana=politic_map&world=" + location.hostname.split(".")[0]);
-                    }).appendTo(r);
-                    var t = new west.gui.Button();
-                    t.setCaption("Ανανέωση Χάρτη".escapeHTML())
-                        .click(function () {
-                            t.disable();
-                            e.getScript(Script.protocol + "://" + Script.url + "/js/sDoAllianceImport.js");
-                        })
-                        .appendTo(r);
-                    Window.hideLoader();
-                };
-                return t;
-            })($);
-            Debugger.Tools = Tools;
+            // var Tools = (function (e) {
+            //     var t = {};
+            //     var n = {};
+            //     var r;
+            //     var i = function () {
+            //         if (n.ready) {
+            //             return;
+            //         }
+            //         r = Window.addTab("tools", "Εργαλεία", "", function () {
+            //             s();
+            //         });
+            //         n.ready = true;
+            //     };
+            //     n = Loader.add("Tools", "tw-db Toolsystem", i, { Window: true });
+            //     var s = function () {
+            //         r.children().remove();
+            //         new west.gui.Button("Χάρτης Συμμαχίας", function () {
+            //             w.open("https://" + Script.url + "/?strana=politic_map&world=" + location.hostname.split(".")[0]);
+            //         }).appendTo(r);
+            //         var t = new west.gui.Button();
+            //         t.setCaption("Ανανέωση Χάρτη".escapeHTML())
+            //             .click(function () {
+            //                 t.disable();
+            //                 e.getScript(Script.protocol + "://" + Script.url + "/js/sDoAllianceImport.js");
+            //             })
+            //             .appendTo(r);
+            //         Window.hideLoader();
+            //     };
+            //     return t;
+            // })($);
+            // Debugger.Tools = Tools;
             var Updater = (function (e) {
                 var t = {};
                 var n = {};
@@ -3762,7 +3774,7 @@
                     var r = '<div class="txcenter">Μια νέα έκδοση είναι διαθέσιμη για το UserScript =1=, παρακαλώ κάντε κλικ στο OK για να το ανανεώσετε.</div>';
                     r = r.replace("=1=", "<b>" + Script.name + "</b>");
                     r += "<div><br />Τρέχουσα έκδοση: " + Script.revision + "." + Script.version / 100 + "<br />Νέα έκδοση: " + t + "." + e / 100 +"</div>";
-                    var i = Script.protocol + "://" + Script.update;
+                    var i = Script.protocol + "://" + Script.folder_url + Script.update;
                     var s = function () {
                         window.open(i);
                         new west.gui.Dialog(Script.name, "Φορτώστε ξανά το παιχνίδι μετά την εγκατάσταση.", "warning").setModal(true, false, true).show();
@@ -3795,7 +3807,7 @@
                 };
                 t.query = function () {
                     setTimeout(function () {
-                        e.getScript(Script.protocol + "://" + Script.check + "?" + new Date().getTime());
+                        e.getScript(Script.protocol + "://" + Script.folder_url + Script.check + "?" + new Date().getTime());
                     }, 500);
                 };
                 t.check = function (e, t, n) {
@@ -6022,78 +6034,78 @@
                 return t;
             })(jQuery);
             Debugger.Chat = Chat;
-            var SellTip = (function (e) {
-                var t = {};
-                var n = false;
-                var r = {};
-                var i = function () {
-                    if (r.ready) {
-                        return;
-                    }
-                    if (Settings.get("sellTip", false)) {
-                        GameInject.injectItem("Inventory", "sellTip", function (e) {
-                            setTimeout(function () {
-                                return s(e);
-                            }, 0);
-                        });
-                    }
-                    r.ready = true;
-                };
-                r = Loader.add("sellTip", "tw-db sellTip", i, { Settings: true, ClothCalc: true });
-                var s = function (e) {
-                    var t = e.obj.item_id;
-                    var n = w.ItemManager.get(t);
-                    var r = false;
-                    var i = "";
-                    if (!n.sellable && !n.auctionable) {
-                        return;
-                    }
-                    if (Settings.get("sellTip1", false)) {
-                        var s = w.Bag.getItemByItemId(n.item_id);
-                        var o = w.Wear.wear[n.type];
-                        if (s || (o && o.obj.item_id == n.item_id)) {
-                            var u = (s !== undefined ? s.count : 0) + (o !== undefined && o.obj.item_id == n.item_id ? 1 : 0);
-                            if (u > 1) {
-                                r = true;
-                                i = "Αυτό το αντικείμενο το έχετε περισσότερες από μία φορά".escapeHTML();
-                            }
-                        }
-                    }
-                    if (Settings.get("sellTip2", false) && ClothCalc.isLoaded()) {
-                        if (!ClothCalc.isUsedItem(n.item_id)) {
-                            r = true;
-                            i = "Αυτό το αντικείμενο δεν χρησιμοποιείται για καμία δουλειά ή προσαρμοσμένη δραστηριότητα (ClothCalc)".escapeHTML();
-                        }
-                    }
-                    if (Settings.get("sellTip3", false)) {
-                        if (n.named) {
-                            r = false;
-                        }
-                    }
-                    if (Settings.get("sellTip4", false)) {
-                        if (n.traderlevel === null || n.traderlevel > 20) {
-                            r = false;
-                        }
-                    }
-                    if (Settings.get("sellTip5", false)) {
-                        if (n.set) {
-                            r = false;
-                        }
-                    }
-                    e.divMain.find(".TWDBsellTip").remove();
-                    if (r) {
-                        e.divMain.append(
-                            '<img src="' +
-                                Images.iconSell +
-                                '" class="TWDBsellTip" title="' +
-                                i +
-                                '" title=" Δεν έχετε ακόμα αυτό το αντικείμενο " style="position:absolute;bottom:4px;right:0px;width:19px;height:19px;padding:0px;border:0px;margin:0px;" />'
-                        );
-                    }
-                };
-                return t;
-            })($);
-            Debugger.SellTip = SellTip;
+            // var SellTip = (function (e) {
+            //     var t = {};
+            //     var n = false;
+            //     var r = {};
+            //     var i = function () {
+            //         if (r.ready) {
+            //             return;
+            //         }
+            //         if (Settings.get("sellTip", false)) {
+            //             GameInject.injectItem("Inventory", "sellTip", function (e) {
+            //                 setTimeout(function () {
+            //                     return s(e);
+            //                 }, 0);
+            //             });
+            //         }
+            //         r.ready = true;
+            //     };
+            //     r = Loader.add("sellTip", "tw-db sellTip", i, { Settings: true, ClothCalc: true });
+            //     var s = function (e) {
+            //         var t = e.obj.item_id;
+            //         var n = w.ItemManager.get(t);
+            //         var r = false;
+            //         var i = "";
+            //         if (!n.sellable && !n.auctionable) {
+            //             return;
+            //         }
+            //         if (Settings.get("sellTip1", false)) {
+            //             var s = w.Bag.getItemByItemId(n.item_id);
+            //             var o = w.Wear.wear[n.type];
+            //             if (s || (o && o.obj.item_id == n.item_id)) {
+            //                 var u = (s !== undefined ? s.count : 0) + (o !== undefined && o.obj.item_id == n.item_id ? 1 : 0);
+            //                 if (u > 1) {
+            //                     r = true;
+            //                     i = "Αυτό το αντικείμενο το έχετε περισσότερες από μία φορά".escapeHTML();
+            //                 }
+            //             }
+            //         }
+            //         if (Settings.get("sellTip2", false) && ClothCalc.isLoaded()) {
+            //             if (!ClothCalc.isUsedItem(n.item_id)) {
+            //                 r = true;
+            //                 i = "Αυτό το αντικείμενο δεν χρησιμοποιείται για καμία δουλειά ή προσαρμοσμένη δραστηριότητα (ClothCalc)".escapeHTML();
+            //             }
+            //         }
+            //         if (Settings.get("sellTip3", false)) {
+            //             if (n.named) {
+            //                 r = false;
+            //             }
+            //         }
+            //         if (Settings.get("sellTip4", false)) {
+            //             if (n.traderlevel === null || n.traderlevel > 20) {
+            //                 r = false;
+            //             }
+            //         }
+            //         if (Settings.get("sellTip5", false)) {
+            //             if (n.set) {
+            //                 r = false;
+            //             }
+            //         }
+            //         e.divMain.find(".TWDBsellTip").remove();
+            //         if (r) {
+            //             e.divMain.append(
+            //                 '<img src="' +
+            //                     Images.iconSell +
+            //                     '" class="TWDBsellTip" title="' +
+            //                     i +
+            //                     '" title=" Δεν έχετε ακόμα αυτό το αντικείμενο " style="position:absolute;bottom:4px;right:0px;width:19px;height:19px;padding:0px;border:0px;margin:0px;" />'
+            //             );
+            //         }
+            //     };
+            //     return t;
+            // })($);
+            // Debugger.SellTip = SellTip;
             var Collector = (function (e) {
                 var t = {};
                 var n = false;
@@ -6150,318 +6162,328 @@
                 return t;
             })($);
             Debugger.Collector = Collector;
-            var BuyTip = (function (e) {
-                var t = {};
-                var n = false;
-                var r = {};
-                var i = 0;
-                var s = {};
-                var o = {};
-                var u = function () {
-                    if (o.ready) {
-                        return;
-                    }
-                    if (Settings.get("buyTip", false)) {
-                        GameInject.injectItem("Trader", "buytip", function (e) {
-                            return f(e, "trader");
-                        });
-                        GameInject.injectTrader("buytip", function (e) {
-                            return a(e);
-                        });
-                        GameInject.injectMarket("buytip", function (e) {
-                            return f(e, "market");
-                        });
-                    }
-                    Eventer.set("TWDBdataLoaded", function () {
-                        t.reset();
-                    });
-                    if (!Updater.wasUpdated()) {
-                        r = Cache.load("betteritems");
-                        if (r == null || typeof r !== "object") {
-                            r = {};
-                        }
-                    }
-                    o.ready = true;
-                };
-                o = Loader.add("BuyTip", "tw-db BuyTip", u, { Settings: true, Cache: true, Collector: true, ClothCalc: true, Calc: true });
-                t.reset = function () {
-                    r = {};
-                    Cache.save("betteritems", r);
-                };
-                var a = function (e) {
-                    n = e.item_id;
-                    if (!Collector.isNewItem(n) || (isDefined(r[n]) && r[n].length == 0)) {
-                        return "";
-                    }
-                    if (isDefined(r[n])) {
-                        var t = h(n);
-                        if (isDefined(t)) {
-                            t.css({ bottom: "45px", right: "11px" });
-                        }
-                        return t;
-                    }
-                    l(n);
-                    var t = h(n);
-                    if (isDefined(t)) {
-                        t.css({ bottom: "45px", right: "11px" });
-                    }
-                    return t;
-                };
-                var f = function (e, t) {
-                    if (t == "shop") {
-                        n = e.item_id;
-                    } else {
-                        n = t == "market" ? e : e.obj.item_id;
-                    }
-                    if (!Collector.isNewItem(n) || (isDefined(r[n]) && r[n].length == 0)) {
-                        return "";
-                    }
-                    if (t == "market") {
-                        if (isDefined(r[n])) {
-                            return c(n);
-                        }
-                        i++;
-                        Worker.add(
-                            (function (e, t) {
-                                return function () {
-                                    l(t);
-                                    var n = w.MarketWindow.DOM.find("#TWDBbuyTip" + e);
-                                    n.after(c(t));
-                                    n.remove();
-                                };
-                            })(i, n)
-                        );
-                        return '<img id="TWDBbuyTip' + i + '" src="' + Images["iconStar3"] + '" class="TWDBbuyTip" width="18px" height="18px" title="Υπολογισμός, παρακαλώ περιμένετε ..." style="padding:0px;border:0px;margin:0px;" />';
-                    }
-                    if (isDefined(r[n])) {
-                        if (t == "shop") {
-                            var s = h(n);
-                            s.css({ bottom: "45px", right: "11px" });
-                            return s;
-                        } else {
-                            e.divMain.find(".TWDBbuyTip").remove();
-                            e.divMain.append(h(n));
-                        }
-                        return;
-                    }
-                    if (isDefined(e.divMain)) {
-                        e.divMain.find(".TWDBbuyTip").remove();
-                    }
-                    e.divMain.append(
-                        '<img src="' +
-                            Images["iconStar3"] +
-                            '" class="TWDBbuyTip" width="25px" height="25px"     title="Υπολογισμός, παρακαλώ περιμένετε ..."  style="position:absolute;bottom:-8px;right:-5px;padding:0px;border:0px;margin:0px;" />'
-                    );
-                    Worker.add(
-                        (function (e, t) {
-                            return function () {
-                                l(t);
-                                if (t == "shop") {
-                                    var n = h(t);
-                                    n.css({ bottom: "45px", right: "11px" });
-                                    return n;
-                                } else {
-                                    e.divMain.find(".TWDBbuyTip").remove();
-                                    e.divMain.append(h(t));
-                                }
-                            };
-                        })(e, n)
-                    );
-                };
-                var l = function (e) {
-                    if (!ClothCalc.isLoaded()) {
-                        return;
-                    }
-                    if (!ClothCalc.isItemUsable(e, true)) {
-                        return;
-                    }
-                    if (isDefined(r[e])) {
-                        return;
-                    }
-                    r[e] = [];
-                    var t = ItemManager.get(e);
-                    var n = Jobs.getAllJobs();
-                    for (var i = 0; i < n.length; i++) {
-                        var s = n[i];
-                        var o = ClothCalc.getClothForJob(s);
-                        if (!isDefined(o)) {
-                            continue;
-                        }
-                        var u = 0;
-                        var a = Calc.getItemBonusForJob(e, s);
-                        if (isDefined(o[TWDB.ClothCalc._type2id[t.type]])) {
-                            var f = ItemManager.get(o[TWDB.ClothCalc._type2id[t.type]].id);
-                            u += Calc.getItemBonusForJob(f.item_id, s);
-                        }
-                        if ((isDefined(f) && isDefined(f.set)) || isDefined(t.set)) {
-                            var l = isDefined(f) && isDefined(f.set) ? f.set : null;
-                            var c = isDefined(t.set) ? t.set : null;
-                            var h = {};
-                            h[l] = 0;
-                            h[c] = 0;
-                            for (var p in o) {
-                                var d = ItemManager.get(o[p].id);
-                                if (!isDefined(d)) {
-                                    continue;
-                                }
-                                if (d.set) {
-                                    if (d.set == l) {
-                                        h[l]++;
-                                    }
-                                    if (d.set == c && l !== c) {
-                                        h[c]++;
-                                    }
-                                }
-                            }
-                            if (l) {
-                                u += Calc.getSetBonusForJob(l, h[l], s);
-                                u -= Calc.getSetBonusForJob(l, h[l] - 1, s);
-                            }
-                            if (c) {
-                                a += Calc.getSetBonusForJob(c, h[c] + 1, s);
-                                a -= Calc.getSetBonusForJob(c, h[c], s);
-                            }
-                        }
-                        if (a > u) {
-                            var v = ClothCalc.getLPForJob(s);
-                            if (isDefined(v)) {
-                                var m = v.sum - u + a;
-                                r[e].push({ job: s, newlp: m, more: m - v.sum });
-                            } else {
-                                r[e].push({ job: s, newlp: a, more: a });
-                            }
-                        }
-                    }
-                    Cache.save("betteritems", r);
-                };
-                var c = function (e) {
-                    if (!isDefined(r[e])) {
-                        return "";
-                    }
-                    if (r[e].length == 0) {
-                        return "";
-                    }
-                    s[e] = false;
-                    var t = p(e).escapeHTML();
-                    return (
-                        "<img onload=\"$(this).next('.TWDBcollector').remove();$(this).addMousePopup('" +
-                        t +
-                        '\');" src="' +
-                        Images["iconStar" + (s[e] ? "2" : "")] +
-                        '" class="TWDBbuyTip" width="18px" height="18px" style="padding:0px;border:0px;margin:0px;" />'
-                    );
-                };
-                var h = function (t) {
-                    if (!isDefined(r[t])) {
-                        return;
-                    }
-                    if (r[t].length == 0) {
-                        return;
-                    }
-                    s[t] = false;
-                    var n = p(t);
-                    return e(
-                        '<img src="' + Images["iconStar" + (s[t] ? "2" : "")] + '" class="TWDBbuyTip" width="25px" height="25px" title=\'' + n + '\' style="position:absolute;bottom:-8px;right:-5px;padding:0px;border:0px;margin:0px;" />'
-                    );
-                };
-                var p = function (e) {
-                    if (!isDefined(r[e])) {
-                        return "";
-                    }
-                    var t = '<table border="0" cellspacing="0" cellpadding="0"><tr>';
-                    if (!ClothCalc.isItemUsable(e)) {
-                        var n = ItemManager.get(e);
-                        t += '<td colspan="2" style="text-align:center; font-weight:bold;">Επίπεδο ' + n.level + "</td></tr><tr>";
-                    }
-                    for (var i = 0; i < r[e].length; i++) {
-                        var o = r[e][i];
-                        var u = Jobs.getJobById(o.job);
-                        var a = " +" + o.more + " " + u.name.escapeHTML() + " [" + o.newlp + "]";
-                        if (o.job == ClothCalc.getSelectedJob()) {
-                            a = "<b>" + a + "</b>";
-                            s[e] = true;
-                        }
-                        if (o.newlp < 0) {
-                            var f = "#FF0000";
-                        } else {
-                            if (o.newlp - o.more < 0) {
-                                var f = "#0000FF";
-                            } else {
-                                var f = "#008000";
-                            }
-                        }
-                        t += '<td style="color:' + f + ';">' + a + "</td>";
-                        if (i % 2) {
-                            t += "</tr><tr>";
-                        }
-                    }
-                    if (i % 2) {
-                        t += "<td></td></tr>";
-                    } else {
-                        t = t.substring(0, t.length - 4);
-                    }
-                    t += "</table>";
-                    return t;
-                };
-                return t;
-            })($);
-            Debugger.BuyTip = BuyTip;
-            var LpInfo = (function (e) {
-                var t = {};
-                var n = false;
-                var r = {};
-                var i = function () {
-                    if (r.ready) {
-                        return;
-                    }
-                    if (Settings.get("jobBoniTooltip", false)) {
-                        GameInject.injectItem("Inventory", "lpInfo", function (e) {
-                            return s(e);
-                        });
-                    }
-                    r.ready = true;
-                };
-                r = Loader.add("LpInfo", "tw-db LpInfo", i, { Settings: true, Jobs: true, Calc: true });
-                var s = function (e) {
-                    e.divMain.find(".TWDBlpInfo").remove();
-                    var t = ClothCalc.getSelectedJob();
-                    if (!isDefined(t)) {
-                        return;
-                    }
-                    var n = e.obj.item_id;
-                    e.divMain.find(".TWDBlpInfo").remove();
-                    if (Calc.isCached(n, t)) {
-                        e.divMain.append(o(n, t));
-                    } else {
-                        Worker.add(
-                            (function (e, t, n) {
-                                return function () {
-                                    e.divMain.find(".TWDBlpInfo").remove();
-                                    e.divMain.append(o(t, n));
-                                };
-                            })(e, n, t)
-                        );
-                    }
-                };
-                var o = function (e, t) {
-                    var n = Calc.getItemBonusForJob(e, t);
-                    if (isNaN(n) || n <= 0) {
-                        return;
-                    }
-                    var t = Jobs.getJobById(t);
-                    return (
-                        '<img src="' +
-                        Images.iconLaborpoints +
-                        '" title="+' +
-                        n +
-                        " " +
-                        t.name.escapeHTML() +
-                        '" class="TWDBlpInfo" style="position: absolute; top: 2px; right: 2px; width: 15px; height: 15px; border: 0px none; margin: 0px;"/>'
-                    );
-                };
-                return t;
-            })($);
-            Debugger.LpInfo = LpInfo;
+            // var BuyTip = (function (e) {
+            //     var t = {};
+            //     var n = false;
+            //     var r = {};
+            //     var i = 0;
+            //     var s = {};
+            //     var o = {};
+            //     var u = function () {
+            //         if (o.ready) {
+            //             return;
+            //         }
+            //         if (Settings.get("buyTip", false)) {
+            //             GameInject.injectItem("Trader", "buytip", function (e) {
+            //                 return f(e, "trader");
+            //             });
+            //             GameInject.injectTrader("buytip", function (e) {
+            //                 return a(e);
+            //             });
+            //             GameInject.injectMarket("buytip", function (e) {
+            //                 return f(e, "market");
+            //             });
+            //         }
+            //         Eventer.set("TWDBdataLoaded", function () {
+            //             t.reset();
+            //         });
+            //         if (!Updater.wasUpdated()) {
+            //             r = Cache.load("betteritems");
+            //             if (r == null || typeof r !== "object") {
+            //                 r = {};
+            //             }
+            //         }
+            //         o.ready = true;
+            //     };
+            //     o = Loader.add("BuyTip", "tw-db BuyTip", u, { 
+            //         Settings: true, 
+            //         Cache: true, 
+            //         Collector: true, 
+            //         ClothCalc: true, 
+            //         // Calc: true 
+            //     });
+            //     t.reset = function () {
+            //         r = {};
+            //         Cache.save("betteritems", r);
+            //     };
+            //     var a = function (e) {
+            //         n = e.item_id;
+            //         if (!Collector.isNewItem(n) || (isDefined(r[n]) && r[n].length == 0)) {
+            //             return "";
+            //         }
+            //         if (isDefined(r[n])) {
+            //             var t = h(n);
+            //             if (isDefined(t)) {
+            //                 t.css({ bottom: "45px", right: "11px" });
+            //             }
+            //             return t;
+            //         }
+            //         l(n);
+            //         var t = h(n);
+            //         if (isDefined(t)) {
+            //             t.css({ bottom: "45px", right: "11px" });
+            //         }
+            //         return t;
+            //     };
+            //     var f = function (e, t) {
+            //         if (t == "shop") {
+            //             n = e.item_id;
+            //         } else {
+            //             n = t == "market" ? e : e.obj.item_id;
+            //         }
+            //         if (!Collector.isNewItem(n) || (isDefined(r[n]) && r[n].length == 0)) {
+            //             return "";
+            //         }
+            //         if (t == "market") {
+            //             if (isDefined(r[n])) {
+            //                 return c(n);
+            //             }
+            //             i++;
+            //             Worker.add(
+            //                 (function (e, t) {
+            //                     return function () {
+            //                         l(t);
+            //                         var n = w.MarketWindow.DOM.find("#TWDBbuyTip" + e);
+            //                         n.after(c(t));
+            //                         n.remove();
+            //                     };
+            //                 })(i, n)
+            //             );
+            //             return '<img id="TWDBbuyTip' + i + '" src="' + Images["iconStar3"] + '" class="TWDBbuyTip" width="18px" height="18px" title="Υπολογισμός, παρακαλώ περιμένετε ..." style="padding:0px;border:0px;margin:0px;" />';
+            //         }
+            //         if (isDefined(r[n])) {
+            //             if (t == "shop") {
+            //                 var s = h(n);
+            //                 s.css({ bottom: "45px", right: "11px" });
+            //                 return s;
+            //             } else {
+            //                 e.divMain.find(".TWDBbuyTip").remove();
+            //                 e.divMain.append(h(n));
+            //             }
+            //             return;
+            //         }
+            //         if (isDefined(e.divMain)) {
+            //             e.divMain.find(".TWDBbuyTip").remove();
+            //         }
+            //         e.divMain.append(
+            //             '<img src="' +
+            //                 Images["iconStar3"] +
+            //                 '" class="TWDBbuyTip" width="25px" height="25px"     title="Υπολογισμός, παρακαλώ περιμένετε ..."  style="position:absolute;bottom:-8px;right:-5px;padding:0px;border:0px;margin:0px;" />'
+            //         );
+            //         Worker.add(
+            //             (function (e, t) {
+            //                 return function () {
+            //                     l(t);
+            //                     if (t == "shop") {
+            //                         var n = h(t);
+            //                         n.css({ bottom: "45px", right: "11px" });
+            //                         return n;
+            //                     } else {
+            //                         e.divMain.find(".TWDBbuyTip").remove();
+            //                         e.divMain.append(h(t));
+            //                     }
+            //                 };
+            //             })(e, n)
+            //         );
+            //     };
+            //     // var l = function (e) {
+            //     //     if (!ClothCalc.isLoaded()) {
+            //     //         return;
+            //     //     }
+            //     //     if (!ClothCalc.isItemUsable(e, true)) {
+            //     //         return;
+            //     //     }
+            //     //     if (isDefined(r[e])) {
+            //     //         return;
+            //     //     }
+            //     //     r[e] = [];
+            //     //     var t = ItemManager.get(e);
+            //     //     var n = Jobs.getAllJobs();
+            //     //     for (var i = 0; i < n.length; i++) {
+            //     //         var s = n[i];
+            //     //         var o = ClothCalc.getClothForJob(s);
+            //     //         if (!isDefined(o)) {
+            //     //             continue;
+            //     //         }
+            //     //         var u = 0;
+            //     //         var a = Calc.getItemBonusForJob(e, s);
+            //     //         if (isDefined(o[TWDB.ClothCalc._type2id[t.type]])) {
+            //     //             var f = ItemManager.get(o[TWDB.ClothCalc._type2id[t.type]].id);
+            //     //             u += Calc.getItemBonusForJob(f.item_id, s);
+            //     //         }
+            //     //         if ((isDefined(f) && isDefined(f.set)) || isDefined(t.set)) {
+            //     //             var l = isDefined(f) && isDefined(f.set) ? f.set : null;
+            //     //             var c = isDefined(t.set) ? t.set : null;
+            //     //             var h = {};
+            //     //             h[l] = 0;
+            //     //             h[c] = 0;
+            //     //             for (var p in o) {
+            //     //                 var d = ItemManager.get(o[p].id);
+            //     //                 if (!isDefined(d)) {
+            //     //                     continue;
+            //     //                 }
+            //     //                 if (d.set) {
+            //     //                     if (d.set == l) {
+            //     //                         h[l]++;
+            //     //                     }
+            //     //                     if (d.set == c && l !== c) {
+            //     //                         h[c]++;
+            //     //                     }
+            //     //                 }
+            //     //             }
+            //     //             if (l) {
+            //     //                 u += Calc.getSetBonusForJob(l, h[l], s);
+            //     //                 u -= Calc.getSetBonusForJob(l, h[l] - 1, s);
+            //     //             }
+            //     //             if (c) {
+            //     //                 a += Calc.getSetBonusForJob(c, h[c] + 1, s);
+            //     //                 a -= Calc.getSetBonusForJob(c, h[c], s);
+            //     //             }
+            //     //         }
+            //     //         if (a > u) {
+            //     //             var v = ClothCalc.getLPForJob(s);
+            //     //             if (isDefined(v)) {
+            //     //                 var m = v.sum - u + a;
+            //     //                 r[e].push({ job: s, newlp: m, more: m - v.sum });
+            //     //             } else {
+            //     //                 r[e].push({ job: s, newlp: a, more: a });
+            //     //             }
+            //     //         }
+            //     //     }
+            //     //     Cache.save("betteritems", r);
+            //     // };
+            //     var c = function (e) {
+            //         if (!isDefined(r[e])) {
+            //             return "";
+            //         }
+            //         if (r[e].length == 0) {
+            //             return "";
+            //         }
+            //         s[e] = false;
+            //         var t = p(e).escapeHTML();
+            //         return (
+            //             "<img onload=\"$(this).next('.TWDBcollector').remove();$(this).addMousePopup('" +
+            //             t +
+            //             '\');" src="' +
+            //             Images["iconStar" + (s[e] ? "2" : "")] +
+            //             '" class="TWDBbuyTip" width="18px" height="18px" style="padding:0px;border:0px;margin:0px;" />'
+            //         );
+            //     };
+            //     var h = function (t) {
+            //         if (!isDefined(r[t])) {
+            //             return;
+            //         }
+            //         if (r[t].length == 0) {
+            //             return;
+            //         }
+            //         s[t] = false;
+            //         var n = p(t);
+            //         return e(
+            //             '<img src="' + Images["iconStar" + (s[t] ? "2" : "")] + '" class="TWDBbuyTip" width="25px" height="25px" title=\'' + n + '\' style="position:absolute;bottom:-8px;right:-5px;padding:0px;border:0px;margin:0px;" />'
+            //         );
+            //     };
+            //     var p = function (e) {
+            //         if (!isDefined(r[e])) {
+            //             return "";
+            //         }
+            //         var t = '<table border="0" cellspacing="0" cellpadding="0"><tr>';
+            //         if (!ClothCalc.isItemUsable(e)) {
+            //             var n = ItemManager.get(e);
+            //             t += '<td colspan="2" style="text-align:center; font-weight:bold;">Επίπεδο ' + n.level + "</td></tr><tr>";
+            //         }
+            //         for (var i = 0; i < r[e].length; i++) {
+            //             var o = r[e][i];
+            //             var u = Jobs.getJobById(o.job);
+            //             var a = " +" + o.more + " " + u.name.escapeHTML() + " [" + o.newlp + "]";
+            //             if (o.job == ClothCalc.getSelectedJob()) {
+            //                 a = "<b>" + a + "</b>";
+            //                 s[e] = true;
+            //             }
+            //             if (o.newlp < 0) {
+            //                 var f = "#FF0000";
+            //             } else {
+            //                 if (o.newlp - o.more < 0) {
+            //                     var f = "#0000FF";
+            //                 } else {
+            //                     var f = "#008000";
+            //                 }
+            //             }
+            //             t += '<td style="color:' + f + ';">' + a + "</td>";
+            //             if (i % 2) {
+            //                 t += "</tr><tr>";
+            //             }
+            //         }
+            //         if (i % 2) {
+            //             t += "<td></td></tr>";
+            //         } else {
+            //             t = t.substring(0, t.length - 4);
+            //         }
+            //         t += "</table>";
+            //         return t;
+            //     };
+            //     return t;
+            // })($);
+            // Debugger.BuyTip = BuyTip;
+            // var LpInfo = (function (e) {
+            //     var t = {};
+            //     var n = false;
+            //     var r = {};
+            //     var i = function () {
+            //         if (r.ready) {
+            //             return;
+            //         }
+            //         if (Settings.get("jobBoniTooltip", false)) {
+            //             GameInject.injectItem("Inventory", "lpInfo", function (e) {
+            //                 return s(e);
+            //             });
+            //         }
+            //         r.ready = true;
+            //     };
+            //     r = Loader.add("LpInfo", "tw-db LpInfo", i, { 
+            //         Settings: true, 
+            //         Jobs: true, 
+            //         // Calc: true 
+            //     });
+            //     var s = function (e) {
+            //         e.divMain.find(".TWDBlpInfo").remove();
+            //         var t = ClothCalc.getSelectedJob();
+            //         if (!isDefined(t)) {
+            //             return;
+            //         }
+            //         var n = e.obj.item_id;
+            //         e.divMain.find(".TWDBlpInfo").remove();
+            //         if (Calc.isCached(n, t)) {
+            //             e.divMain.append(o(n, t));
+            //         } else {
+            //             Worker.add(
+            //                 (function (e, t, n) {
+            //                     return function () {
+            //                         e.divMain.find(".TWDBlpInfo").remove();
+            //                         e.divMain.append(o(t, n));
+            //                     };
+            //                 })(e, n, t)
+            //             );
+            //         }
+            //     };
+            //     var o = function (e, t) {
+            //         var n = Calc.getItemBonusForJob(e, t);
+            //         if (isNaN(n) || n <= 0) {
+            //             return;
+            //         }
+            //         var t = Jobs.getJobById(t);
+            //         return (
+            //             '<img src="' +
+            //             Images.iconLaborpoints +
+            //             '" title="+' +
+            //             n +
+            //             " " +
+            //             t.name.escapeHTML() +
+            //             '" class="TWDBlpInfo" style="position: absolute; top: 2px; right: 2px; width: 15px; height: 15px; border: 0px none; margin: 0px;"/>'
+            //         );
+            //     };
+            //     return t;
+            // })($);
+            // Debugger.LpInfo = LpInfo;
             var Snippets = (function ($) {
                 var _self = {};
                 var timeout = null;
@@ -6481,9 +6503,9 @@
                     if (Settings.get("noscrollbars", false)) {
                         disableScrollbars();
                     }
-                    if (Settings.get("instanthotel", false)) {
-                        InstantHotel();
-                    }
+                    // if (Settings.get("instanthotel", false)) {
+                    //     InstantHotel();
+                    // }
                     if (Settings.get("qbswitch", false)) {
                         QuestbookSwitch();
                     }
@@ -6691,44 +6713,44 @@
                     n(e);
                     t(e);
                 };
-                var InstantHotel = function () {
-                    try {
-                        w.GameMap.Component.Town.prototype.__twdb__getContent = w.GameMap.Component.Town.prototype.__twdb__getContent || w.GameMap.Component.Town.prototype.getContent;
-                        w.GameMap.Component.Town.prototype.getContent = function () {
-                            var e = this.__twdb__getContent();
-                            if (e === "") {
-                                return e;
-                            } else {
-                                return e.replace(/\<\/div\>$/, "<div class='instanthotel needslistener' title='Ξενοδοχείο' tid='" + this.data[1].town_id + "'></div></div>");
-                            }
-                        };
-                        w.GameMap.Draw.__twdb__checkDouble = w.GameMap.Draw.__twdb__checkDouble || w.GameMap.Draw.checkDouble;
-                        w.GameMap.Draw.checkDouble = function () {
-                            $("#map div.instanthotel.needslistener").each(function (e, t) {
-                                var n = $(t);
-                                var r = parseInt(n.attr("tid"), 10);
-                                n.click(function (e) {
-                                    e.stopPropagation();
-                                    HotelWindow.open(r);
-                                    return false;
-                                })
-                                    .removeClass("needslistener")
-                                    .removeAttr("tid");
-                            });
-                            return w.GameMap.Draw.__twdb__checkDouble();
-                        };
-                        var e =
-                            "div.instanthotel { background-image: url('" +
-                            TWDB.images.instanthotel +
-                            "'); width: 20px; height: 20px; " +
-                            "position: absolute; right: 10px; top: -8px; cursor: pointer; display: none; }\n" +
-                            "div.townname:hover .instanthotel { z-index: 2; display: block; }";
-                        TWDB.Util.addCss(e);
-                        w.GameMap.refresh(true);
-                    } catch (t) {
-                        Error.report(t, "manipulate town signs");
-                    }
-                };
+                // var InstantHotel = function () {
+                //     try {
+                //         w.GameMap.Component.Town.prototype.__twdb__getContent = w.GameMap.Component.Town.prototype.__twdb__getContent || w.GameMap.Component.Town.prototype.getContent;
+                //         w.GameMap.Component.Town.prototype.getContent = function () {
+                //             var e = this.__twdb__getContent();
+                //             if (e === "") {
+                //                 return e;
+                //             } else {
+                //                 return e.replace(/\<\/div\>$/, "<div class='instanthotel needslistener' title='Ξενοδοχείο' tid='" + this.data[1].town_id + "'></div></div>");
+                //             }
+                //         };
+                //         w.GameMap.Draw.__twdb__checkDouble = w.GameMap.Draw.__twdb__checkDouble || w.GameMap.Draw.checkDouble;
+                //         w.GameMap.Draw.checkDouble = function () {
+                //             $("#map div.instanthotel.needslistener").each(function (e, t) {
+                //                 var n = $(t);
+                //                 var r = parseInt(n.attr("tid"), 10);
+                //                 n.click(function (e) {
+                //                     e.stopPropagation();
+                //                     HotelWindow.open(r);
+                //                     return false;
+                //                 })
+                //                     .removeClass("needslistener")
+                //                     .removeAttr("tid");
+                //             });
+                //             return w.GameMap.Draw.__twdb__checkDouble();
+                //         };
+                //         var e =
+                //             "div.instanthotel { background-image: url('" +
+                //             TWDB.images.instanthotel +
+                //             "'); width: 20px; height: 20px; " +
+                //             "position: absolute; right: 10px; top: -8px; cursor: pointer; display: none; }\n" +
+                //             "div.townname:hover .instanthotel { z-index: 2; display: block; }";
+                //         TWDB.Util.addCss(e);
+                //         w.GameMap.refresh(true);
+                //     } catch (t) {
+                //         Error.report(t, "manipulate town signs");
+                //     }
+                // };
                 var fastSkillChange = function () {
                     try {
                         west.gui.Plusminusfield.prototype.__twdb__init = west.gui.Plusminusfield.prototype.init;
@@ -8302,90 +8324,90 @@
                     if (n.ready) {
                         return;
                     }
-                    if (Settings.get("questwiki", false)) {
-                        i();
-                    }
+                    // if (Settings.get("questwiki", false)) {
+                    //     i();
+                    // }
                     if (Settings.get("questcancle", true)) {
                         s();
                     }
                     n.ready = true;
                 };
                 n = Loader.add("Quests", "tw-db Quests", r, { Settings: true });
-                var i = function () {
-                    try {
-                        window.Quest.CCopen = function (e, t) {
-                            try {
-                                ClothCalc.open(e, t);
-                            } catch (n) {
-                                Error.report(n, "ClothCalc.open ");
-                            }
-                        };
-                    } catch (t) {
-                        Error.report(t, "open ClothCalc from Quest");
-                    }
-                    var n = function (t) {
-                        if (t.requirements.length !== 0) {
-                            t.el.find(".quest_requirement").each(function (n) {
-                                if (isDefined(t.requirements[n])) {
-                                    var r = t.requirements[n];
-                                    if (isDefined(r.jsInfo) && isDefined(r.jsInfo.id)) {
-                                        if (r.jsInfo.type == "inventory_changed") {
-                                            var i = Bag.getItemByItemId(r.jsInfo.id);
-                                            if (i) {
-                                                e(this)
-                                                    .children(":last")
-                                                    .before("<span> [" + i.count + "]</span>");
-                                            }
-                                            var s = ItemManager.get(r.jsInfo.id);
-                                            if (s) {
-                                                e(this)
-                                                    .children(".quest_mmaplink")
-                                                    .after(
-                                                        '<span title="Εμφάνιση δουλειάς στο παράθυρο ClothCalc" class="quest_mmaplink" title="" onclick="javascript:void(Quest.CCopen(\'' +
-                                                            s.name +
-                                                            "','item'))\"><img src=\"" +
-                                                            Images.iconLight +
-                                                            '" /></span>'
-                                                    );
-                                            }
-                                        } else if (r.jsInfo.type == "task-finish-job") {
-                                            var o = Jobs.getJobById(r.jsInfo.id);
-                                            if (o) {
-                                                e(this)
-                                                    .children(".quest_mmaplink")
-                                                    .after(
-                                                        '<span title="Εμφάνιση δουλειάς στο παράθυρο ClothCalc" class="quest_mmaplink" title="" onclick="javascript:void(Quest.CCopen(\'' +
-                                                            o.id +
-                                                            "','job'))\"><img src=\"" +
-                                                            Images.iconLight +
-                                                            '" /></span>'
-                                                    );
-                                            }
-                                        }
-                                    }
-                                }
-                            });
-                        }
-                        if ((t.group < 142 && (t.group != 69 || t.id >= 2e4)) || [200, 201].indexOf(t.group) > -1) {
-                            t.el
-                                .find(".questRequirementHelp")
-                                .append(
-                                    '<a target="_blank" title="Εμφάνιση αποστολής στο tw-db.info" href="' +
-                                        Script.protocol +
-                                        "://" +
-                                        Script.url +
-                                        "/quest_redirect.php?id=" +
-                                        t.id +
-                                        '" style="margin-left:10px;"><img src="' +
-                                        Images.questwiki +
-                                        '" /></a>'
-                                );
-                        }
-                    };
-                    GameInject.injectQuest(function (e) {
-                        n(e);
-                    });
-                };
+                // var i = function () {
+                //     try {
+                //         window.Quest.CCopen = function (e, t) {
+                //             try {
+                //                 ClothCalc.open(e, t);
+                //             } catch (n) {
+                //                 Error.report(n, "ClothCalc.open ");
+                //             }
+                //         };
+                //     } catch (t) {
+                //         Error.report(t, "open ClothCalc from Quest");
+                //     }
+                //     var n = function (t) {
+                //         if (t.requirements.length !== 0) {
+                //             t.el.find(".quest_requirement").each(function (n) {
+                //                 if (isDefined(t.requirements[n])) {
+                //                     var r = t.requirements[n];
+                //                     if (isDefined(r.jsInfo) && isDefined(r.jsInfo.id)) {
+                //                         if (r.jsInfo.type == "inventory_changed") {
+                //                             var i = Bag.getItemByItemId(r.jsInfo.id);
+                //                             if (i) {
+                //                                 e(this)
+                //                                     .children(":last")
+                //                                     .before("<span> [" + i.count + "]</span>");
+                //                             }
+                //                             var s = ItemManager.get(r.jsInfo.id);
+                //                             if (s) {
+                //                                 e(this)
+                //                                     .children(".quest_mmaplink")
+                //                                     .after(
+                //                                         '<span title="Εμφάνιση δουλειάς στο παράθυρο ClothCalc" class="quest_mmaplink" title="" onclick="javascript:void(Quest.CCopen(\'' +
+                //                                             s.name +
+                //                                             "','item'))\"><img src=\"" +
+                //                                             Images.iconLight +
+                //                                             '" /></span>'
+                //                                     );
+                //                             }
+                //                         } else if (r.jsInfo.type == "task-finish-job") {
+                //                             var o = Jobs.getJobById(r.jsInfo.id);
+                //                             if (o) {
+                //                                 e(this)
+                //                                     .children(".quest_mmaplink")
+                //                                     .after(
+                //                                         '<span title="Εμφάνιση δουλειάς στο παράθυρο ClothCalc" class="quest_mmaplink" title="" onclick="javascript:void(Quest.CCopen(\'' +
+                //                                             o.id +
+                //                                             "','job'))\"><img src=\"" +
+                //                                             Images.iconLight +
+                //                                             '" /></span>'
+                //                                     );
+                //                             }
+                //                         }
+                //                     }
+                //                 }
+                //             });
+                //         }
+                //         if ((t.group < 142 && (t.group != 69 || t.id >= 2e4)) || [200, 201].indexOf(t.group) > -1) {
+                //             t.el
+                //                 .find(".questRequirementHelp")
+                //                 .append(
+                //                     '<a target="_blank" title="Εμφάνιση αποστολής στο tw-db.info" href="' +
+                //                         Script.protocol +
+                //                         "://" +
+                //                         Script.url +
+                //                         "/quest_redirect.php?id=" +
+                //                         t.id +
+                //                         '" style="margin-left:10px;"><img src="' +
+                //                         Images.questwiki +
+                //                         '" /></a>'
+                //                 );
+                //         }
+                //     };
+                //     GameInject.injectQuest(function (e) {
+                //         n(e);
+                //     });
+                // };
                 var s = function () {
                     try {
                         var e = QuestWindow.cancelQuest;
@@ -8406,300 +8428,300 @@
                 return t;
             })($);
             Debugger.Quests = Quests;
-            var Customs = (function (e) {
-                var t = {};
-                var n = {};
-                var r = false;
-                var i = null;
-                var s = {};
-                var o = function () {
-                    if (s.ready) {
-                        return;
-                    }
-                    Eventer.set("TWDBdataLoaded", function () {
-                        a();
-                    });
-                    var e = Cache.load("customs");
-                    if (!e || typeof e !== "object") {
-                        var e = Settings.get("custom");
-                        if (!e || typeof e !== "object") {
-                            u();
-                            var e = n;
-                        } else {
-                            for (var t in e) {
-                                if (!e.hasOwnProperty(t)) {
-                                    continue;
-                                }
-                                e[t].cloth = {};
-                                e[t].ready = false;
-                            }
-                        }
-                    }
-                    n = e;
-                    if (Updater.wasUpdated()) {
-                        for (var t in e) {
-                            if (!e.hasOwnProperty(t)) {
-                                continue;
-                            }
-                            e[t].cloth = {};
-                            e[t].ready = false;
-                        }
-                    }
-                    s.ready = true;
-                };
-                s = Loader.add("Customs", "tw-db Customs", o, { Settings: true, Cache: true });
-                var u = function () {
-                    n = {
-                        1: { id: 1, type: "speed", para: {}, name: "Speed", cloth: {}, ready: false },
-                        2: { id: 2, type: "custom", para: { 9: 1 }, name: "max Health", cloth: {}, ready: false },
-                        3: { id: 3, type: "regen", para: {}, name: "Health Regeneration", cloth: {}, ready: false },
-                        4: { id: 4, type: "fort", para: { att: 200, def: 20, health: 100, type: 0 }, name: "Fortbattle Attacker (Att)", cloth: {}, ready: false },
-                        5: { id: 5, type: "fort", para: { att: 20, def: 200, health: 100, type: 0 }, name: "Fortbattle Attacker (Def)", cloth: {}, ready: false },
-                        6: { id: 6, type: "fort", para: { att: 200, def: 20, health: 100, type: 1 }, name: "Fortbattle Defender (Att)", cloth: {}, ready: false },
-                        7: { id: 7, type: "fort", para: { att: 20, def: 200, health: 100, type: 1 }, name: "Fortbattle Defender (Def)", cloth: {}, ready: false },
-                        8: { id: 8, type: "duel", para: { 12: 1, 15: 1, 16: 1, 24: 1 }, name: "Range Dueler (Att)", cloth: {}, ready: false },
-                        9: { id: 9, type: "duel", para: { 12: 1, 15: 1, 16: 1, 21: 1 }, name: "Range Dueler (Def)", cloth: {}, ready: false },
-                        10: { id: 10, type: "duel", para: { 6: 1, 7: 1, 11: 1, 15: 1 }, name: "Melee Dueler", cloth: {}, ready: false },
-                    };
-                };
-                t.isUp2Date = function () {
-                    var e = true;
-                    for (var t in n) {
-                        if (!n.hasOwnProperty(t)) {
-                            continue;
-                        }
-                        if (!n[t].ready) {
-                            update = false;
-                            break;
-                        }
-                    }
-                    return e;
-                };
-                var a = function () {
-                    var e = DataManager.getData("custom");
-                    for (var t in e) {
-                        try {
-                            if (!e.hasOwnProperty(t)) {
-                                continue;
-                            }
-                            if (!isDefined(n[t])) {
-                                continue;
-                            }
-                            n[t].cloth = e[t].cloth;
-                            n[t].boni = e[t].boni;
-                            var r = n[t];
-                            switch (r.type) {
-                                case "speed":
-                                    r.skills = ["ride"];
-                                    if (!r.laborpoints) {
-                                        var i = (r.cloth && r.cloth[1] && r.cloth[1].other && r.cloth[1].other[1]) || 0;
-                                        var r = (r.boni && r.boni.other && r.boni.other[1]) || 0;
-                                        r -= i;
-                                        i += (r.boni && r.boni.skill && r.boni.skill[2]) || 0;
-                                        i += (r.boni && r.boni.skill && r.boni.skill[10]) || 0;
-                                        i += CharacterSkills.skills.ride.points;
-                                        r.laborpoints = Math.round((100 + i) * (1 + r / 100));
-                                    }
-                                    r.laborpoints += "%";
-                                    break;
-                                case "regen":
-                                    r.skills = ["health"];
-                                    r.laborpoints = "";
-                                    break;
-                                case "fort":
-                                    var s = {},
-                                        o = Character.charClass == "soldier" ? (Premium.hasBonus("character") ? 1.5 : 1.25) : 1,
-                                        u = Character.charClass == "worker" ? (Premium.hasBonus("character") ? 1.4 : 1.2) : 1,
-                                        a = (Number(r.boni.other[11]) || 0) + (Number(r.boni.other[17]) || 0),
-                                        f = (Number(r.boni.other[12]) || 0) + (Number(r.boni.other[18]) || 0);
-                                    if (r.para.type == 0) {
-                                        s.aim = CharacterSkills.skills.aim.points + (isDefined(r.boni.skill[3]) ? r.boni.skill[3] : 0) + (isDefined(r.boni.skill[15]) ? r.boni.skill[15] : 0);
-                                        s.hide = CharacterSkills.skills.hide.points + (isDefined(r.boni.skill[2]) ? r.boni.skill[2] : 0) + (isDefined(r.boni.skill[13]) ? r.boni.skill[13] : 0);
-                                        s.dodge = CharacterSkills.skills.dodge.points + (isDefined(r.boni.skill[2]) ? r.boni.skill[2] : 0) + (isDefined(r.boni.skill[12]) ? r.boni.skill[12] : 0);
-                                        s.leadership = CharacterSkills.skills.leadership.points + (isDefined(r.boni.skill[4]) ? r.boni.skill[4] : 0) + (isDefined(r.boni.skill[20]) ? r.boni.skill[20] : 0);
-                                        s.health = CharacterSkills.skills.health.points + (isDefined(r.boni.skill[1]) ? r.boni.skill[1] : 0) + (isDefined(r.boni.skill[9]) ? r.boni.skill[9] : 0);
-                                        var l = 100 + (Character.level - 1) * Character.lifePointPerHealthSkill + s.health * (Character.lifePointPerHealthSkill + Character.lifePointPerHealthSkillBonus);
-                                        var c = Number((25 + Math.pow(s.leadership * o, 0.5) + Math.pow(s.aim, 0.5) + Math.pow(s.hide, 0.6) + a) * u).round(2);
-                                        var h = Number((10 + Math.pow(s.leadership * o, 0.5) + Math.pow(s.dodge, 0.5) + Math.pow(s.hide, 0.6) + f) * u).round(2);
-                                    } else {
-                                        s.aim = CharacterSkills.skills.aim.points + (isDefined(r.boni.skill[3]) ? r.boni.skill[3] : 0) + (isDefined(r.boni.skill[15]) ? r.boni.skill[15] : 0);
-                                        s.pitfall = CharacterSkills.skills.pitfall.points + (isDefined(r.boni.skill[3]) ? r.boni.skill[3] : 0) + (isDefined(r.boni.skill[17]) ? r.boni.skill[17] : 0);
-                                        s.dodge = CharacterSkills.skills.dodge.points + (isDefined(r.boni.skill[2]) ? r.boni.skill[2] : 0) + (isDefined(r.boni.skill[12]) ? r.boni.skill[12] : 0);
-                                        s.leadership = CharacterSkills.skills.leadership.points + (isDefined(r.boni.skill[4]) ? r.boni.skill[4] : 0) + (isDefined(r.boni.skill[20]) ? r.boni.skill[20] : 0);
-                                        s.health = CharacterSkills.skills.health.points + (isDefined(r.boni.skill[1]) ? r.boni.skill[1] : 0) + (isDefined(r.boni.skill[9]) ? r.boni.skill[9] : 0);
-                                        var l = 100 + (Character.level - 1) * Character.lifePointPerHealthSkill + s.health * (Character.lifePointPerHealthSkill + Character.lifePointPerHealthSkillBonus);
-                                        var c = Number((25 + Math.pow(s.leadership * o, 0.5) + Math.pow(s.aim, 0.5) + Math.pow(s.pitfall, 0.6) + a) * u).round(2);
-                                        var h = Number((10 + Math.pow(s.leadership * o, 0.5) + Math.pow(s.dodge, 0.5) + Math.pow(s.pitfall, 0.6) + f) * u).round(2);
-                                    }
-                                    r.skills = ["health", "attacker", "defender"];
-                                    r.laborpoints = l + " | " + c + " | " + h;
-                                    break;
-                                case "duel":
-                                    r.skills = [];
-                                    var p = 0;
-                                    for (var d in r.para) {
-                                        var v = Math.floor(d / 5);
-                                        p += (r.boni && r.boni.skill && r.boni.skill[d]) || 0;
-                                        p += (r.boni && r.boni.skill && r.boni.skill[v]) || 0;
-                                        if (isDefined(TWDB.ClothCalc._id2skill[d])) {
-                                            r.skills.push(TWDB.ClothCalc._id2skill[d]);
-                                            if (isDefined(CharacterSkills.skills[TWDB.ClothCalc._id2skill[d]])) {
-                                                p += CharacterSkills.skills[TWDB.ClothCalc._id2skill[d]].points;
-                                            } else if (isDefined(CharacterSkills.attributes[TWDB.ClothCalc._id2skill[d]])) {
-                                                p += CharacterSkills.attributes[TWDB.ClothCalc._id2skill[d]].points;
-                                            }
-                                        }
-                                    }
-                                    r.laborpoints = p;
-                                    break;
-                                case "custom":
-                                    r.skills = [];
-                                    var p = 0;
-                                    for (var d in r.para) {
-                                        var v = Math.floor(d / 5);
-                                        p += (r.boni && r.boni.skill && r.boni.skill[d]) || 0;
-                                        p += (r.boni && r.boni.skill && r.boni.skill[v]) || 0;
-                                        if (isDefined(TWDB.ClothCalc._id2skill[d])) {
-                                            r.skills.push(TWDB.ClothCalc._id2skill[d]);
-                                            if (isDefined(CharacterSkills.skills[TWDB.ClothCalc._id2skill[d]])) {
-                                                p += CharacterSkills.skills[TWDB.ClothCalc._id2skill[d]].points;
-                                            } else if (isDefined(CharacterSkills.attributes[TWDB.ClothCalc._id2skill[d]])) {
-                                                p += CharacterSkills.attributes[TWDB.ClothCalc._id2skill[d]].points;
-                                            }
-                                        }
-                                    }
-                                    r.laborpoints = p;
-                                    break;
-                                default:
-                                    return;
-                                    break;
-                            }
-                            r.ready = true;
-                        } catch (m) {
-                            Error.report(m, "GENERICERROR#; handle Customs");
-                        }
-                    }
-                };
-                t.open = function () {
-                    var t = e("<div />");
-                    var r = 0;
-                    for (var s in n) {
-                        if (!n.hasOwnProperty(s)) {
-                            continue;
-                        }
-                        var o = n[s];
-                        var u = e(
-                            '<div title="Επεξεργασία" style="display:inline-block;vertical-align:top;height:16px;width:16px;cursor:pointer;background:url(\'' +
-                                Game.cdnURL +
-                                "/images/window/messages/head-icons.png') repeat scroll 0 16px transparent;\" />"
-                        ).click(
-                            (function (e) {
-                                return function () {
-                                    c(e);
-                                };
-                            })(s)
-                        );
-                        var a = e(
-                            '<div title="Διαγραφή" style="display:inline-block;vertical-align:top;height:16px;width:16px;cursor:pointer;background:url(\'' + Game.cdnURL + "/images/icons/delete.png') repeat scroll 0px 0px transparent;\" />"
-                        ).click(
-                            (function (e) {
-                                return function () {
-                                    f(e);
-                                };
-                            })(s)
-                        );
-                        t.append(
-                            e('<div style="display:block;height:18px;padding: 3px 0px 0px 0px;border-bottom: 1px solid #666" />')
-                                .append('<div style="display:inline-block;vertical-align:top;height:16px;width:300px;overflow:hidden;" title="' + String(o.name).escapeHTML() + '" >' + String(o.name).escapeHTML() + "</div>")
-                                .append(u)
-                                .append(a)
-                        );
-                        r++;
-                    }
-                    if (r < 15) {
-                        t.append(
-                            e(
-                                '<div title="Προσθήκη" style="display:block;margin-top:2px;vertical-align:top;height:20px;width:25px;cursor:pointer;background:url(\'' +
-                                    Game.cdnURL +
-                                    "/images/window/messages/icons.png') repeat scroll 72px -5px transparent;\" />"
-                            ).click(function () {
-                                l();
-                            })
-                        );
-                    }
-                    i = new west.gui.Dialog("Προσαρμογή των ικανοτήτων", t)
-                        .addButton("ΟΚ", function () {
-                            DataManager.loadData();
-                        })
-                        .show();
-                };
-                var f = function (e) {
-                    if (!isDefined(n[e])) {
-                        return;
-                    }
-                    var r = function () {
-                        var r = n;
-                        var s = 0;
-                        n = {};
-                        for (var o in r) {
-                            if (!r.hasOwnProperty(o)) {
-                                continue;
-                            }
-                            if (o == e) {
-                                continue;
-                            }
-                            s++;
-                            n[s] = r[o];
-                            n[s].id = s;
-                        }
-                        i.hide();
-                        t.open();
-                    };
-                    new west.gui.Dialog("Διαγραφή - Προσαρμογή των ικανοτήτων", "Διαγραφή: " + String(n[e].name).escapeHTML() + "?").addButton("ΟΚ", r).addButton("Ακύρωση").show();
-                };
-                var l = function () {
-                    var e = 0;
-                    for (var t in n) {
-                        if (!n.hasOwnProperty(t)) {
-                            continue;
-                        }
-                        e++;
-                    }
-                    if (e >= 15) {
-                        new UserMessage("Πάρα πολλές καταχωρήσεις, επιτρέπονται μόνο δέκα (10)", UserMessage.TYPE_ERROR).show();
-                    } else {
-                        e++;
-                        c(e);
-                    }
-                };
-                var c = function (t) {
-                    if (isDefined(n[t])) {
-                        var r = n[t].name;
-                        var i = JSON.stringify({ type: n[t].type, para: n[t].para });
-                        var s = "Επεξεργασία - Προσαρμογή των ικανοτήτων";
-                    } else {
-                        var r = "";
-                        var i = "";
-                        var s = "Προσθήκη - Προσαρμογή των ικανοτήτων";
-                    }
-                    var o = new west.gui.Textfield("twdb_cc_custom_name").setSize(30).setValue(r);
-                    var u = new west.gui.Textfield("twdb_cc_custom_name").setSize(30).setValue(i);
-                    var a = function () {};
-                    var f = e('<table width="400px" />')
-                        .append(e("<tr />").append('<td style="vertical-align:middle">Όνομα:</td>').append(e("<td />").append(o.getMainDiv())))
-                        .append(e("<tr />").append('<td style="vertical-align:middle">Κωδικός:</td>').append(e("<td />").append(u.getMainDiv())))
-                        .append(e('<tr><td colspan="2">Παρακαλούμε, μεταβείτε στο tw-db.info και αντιγράψτε εδώ τον κωδικό που λαμβάνετε από τον <a href="https://' + Script.url + '/?strana=calc" target="_blank">TW-DB.info Υπολογιστή</a></td></tr>'));
-                    new west.gui.Dialog(s, f).addButton("ΟΚ", a).addButton("Ακύρωση").show();
-                };
-                t.getCustoms = function () {
-                    return ClothCalc.data.custom;
-                };
-                t.debug = function () {
-                    return n;
-                };
-                return t;
-            })($);
-            Debugger.Customs = Customs;
+            // var Customs = (function (e) {
+            //     var t = {};
+            //     var n = {};
+            //     var r = false;
+            //     var i = null;
+            //     var s = {};
+            //     var o = function () {
+            //         if (s.ready) {
+            //             return;
+            //         }
+            //         Eventer.set("TWDBdataLoaded", function () {
+            //             a();
+            //         });
+            //         var e = Cache.load("customs");
+            //         if (!e || typeof e !== "object") {
+            //             var e = Settings.get("custom");
+            //             if (!e || typeof e !== "object") {
+            //                 u();
+            //                 var e = n;
+            //             } else {
+            //                 for (var t in e) {
+            //                     if (!e.hasOwnProperty(t)) {
+            //                         continue;
+            //                     }
+            //                     e[t].cloth = {};
+            //                     e[t].ready = false;
+            //                 }
+            //             }
+            //         }
+            //         n = e;
+            //         if (Updater.wasUpdated()) {
+            //             for (var t in e) {
+            //                 if (!e.hasOwnProperty(t)) {
+            //                     continue;
+            //                 }
+            //                 e[t].cloth = {};
+            //                 e[t].ready = false;
+            //             }
+            //         }
+            //         s.ready = true;
+            //     };
+            //     s = Loader.add("Customs", "tw-db Customs", o, { Settings: true, Cache: true });
+            //     var u = function () {
+            //         n = {
+            //             1: { id: 1, type: "speed", para: {}, name: "Speed", cloth: {}, ready: false },
+            //             2: { id: 2, type: "custom", para: { 9: 1 }, name: "max Health", cloth: {}, ready: false },
+            //             3: { id: 3, type: "regen", para: {}, name: "Health Regeneration", cloth: {}, ready: false },
+            //             4: { id: 4, type: "fort", para: { att: 200, def: 20, health: 100, type: 0 }, name: "Fortbattle Attacker (Att)", cloth: {}, ready: false },
+            //             5: { id: 5, type: "fort", para: { att: 20, def: 200, health: 100, type: 0 }, name: "Fortbattle Attacker (Def)", cloth: {}, ready: false },
+            //             6: { id: 6, type: "fort", para: { att: 200, def: 20, health: 100, type: 1 }, name: "Fortbattle Defender (Att)", cloth: {}, ready: false },
+            //             7: { id: 7, type: "fort", para: { att: 20, def: 200, health: 100, type: 1 }, name: "Fortbattle Defender (Def)", cloth: {}, ready: false },
+            //             8: { id: 8, type: "duel", para: { 12: 1, 15: 1, 16: 1, 24: 1 }, name: "Range Dueler (Att)", cloth: {}, ready: false },
+            //             9: { id: 9, type: "duel", para: { 12: 1, 15: 1, 16: 1, 21: 1 }, name: "Range Dueler (Def)", cloth: {}, ready: false },
+            //             10: { id: 10, type: "duel", para: { 6: 1, 7: 1, 11: 1, 15: 1 }, name: "Melee Dueler", cloth: {}, ready: false },
+            //         };
+            //     };
+            //     t.isUp2Date = function () {
+            //         var e = true;
+            //         for (var t in n) {
+            //             if (!n.hasOwnProperty(t)) {
+            //                 continue;
+            //             }
+            //             if (!n[t].ready) {
+            //                 update = false;
+            //                 break;
+            //             }
+            //         }
+            //         return e;
+            //     };
+            //     var a = function () {
+            //         var e = DataManager.getData("custom");
+            //         for (var t in e) {
+            //             try {
+            //                 if (!e.hasOwnProperty(t)) {
+            //                     continue;
+            //                 }
+            //                 if (!isDefined(n[t])) {
+            //                     continue;
+            //                 }
+            //                 n[t].cloth = e[t].cloth;
+            //                 n[t].boni = e[t].boni;
+            //                 var r = n[t];
+            //                 switch (r.type) {
+            //                     case "speed":
+            //                         r.skills = ["ride"];
+            //                         if (!r.laborpoints) {
+            //                             var i = (r.cloth && r.cloth[1] && r.cloth[1].other && r.cloth[1].other[1]) || 0;
+            //                             var r = (r.boni && r.boni.other && r.boni.other[1]) || 0;
+            //                             r -= i;
+            //                             i += (r.boni && r.boni.skill && r.boni.skill[2]) || 0;
+            //                             i += (r.boni && r.boni.skill && r.boni.skill[10]) || 0;
+            //                             i += CharacterSkills.skills.ride.points;
+            //                             r.laborpoints = Math.round((100 + i) * (1 + r / 100));
+            //                         }
+            //                         r.laborpoints += "%";
+            //                         break;
+            //                     case "regen":
+            //                         r.skills = ["health"];
+            //                         r.laborpoints = "";
+            //                         break;
+            //                     case "fort":
+            //                         var s = {},
+            //                             o = Character.charClass == "soldier" ? (Premium.hasBonus("character") ? 1.5 : 1.25) : 1,
+            //                             u = Character.charClass == "worker" ? (Premium.hasBonus("character") ? 1.4 : 1.2) : 1,
+            //                             a = (Number(r.boni.other[11]) || 0) + (Number(r.boni.other[17]) || 0),
+            //                             f = (Number(r.boni.other[12]) || 0) + (Number(r.boni.other[18]) || 0);
+            //                         if (r.para.type == 0) {
+            //                             s.aim = CharacterSkills.skills.aim.points + (isDefined(r.boni.skill[3]) ? r.boni.skill[3] : 0) + (isDefined(r.boni.skill[15]) ? r.boni.skill[15] : 0);
+            //                             s.hide = CharacterSkills.skills.hide.points + (isDefined(r.boni.skill[2]) ? r.boni.skill[2] : 0) + (isDefined(r.boni.skill[13]) ? r.boni.skill[13] : 0);
+            //                             s.dodge = CharacterSkills.skills.dodge.points + (isDefined(r.boni.skill[2]) ? r.boni.skill[2] : 0) + (isDefined(r.boni.skill[12]) ? r.boni.skill[12] : 0);
+            //                             s.leadership = CharacterSkills.skills.leadership.points + (isDefined(r.boni.skill[4]) ? r.boni.skill[4] : 0) + (isDefined(r.boni.skill[20]) ? r.boni.skill[20] : 0);
+            //                             s.health = CharacterSkills.skills.health.points + (isDefined(r.boni.skill[1]) ? r.boni.skill[1] : 0) + (isDefined(r.boni.skill[9]) ? r.boni.skill[9] : 0);
+            //                             var l = 100 + (Character.level - 1) * Character.lifePointPerHealthSkill + s.health * (Character.lifePointPerHealthSkill + Character.lifePointPerHealthSkillBonus);
+            //                             var c = Number((25 + Math.pow(s.leadership * o, 0.5) + Math.pow(s.aim, 0.5) + Math.pow(s.hide, 0.6) + a) * u).round(2);
+            //                             var h = Number((10 + Math.pow(s.leadership * o, 0.5) + Math.pow(s.dodge, 0.5) + Math.pow(s.hide, 0.6) + f) * u).round(2);
+            //                         } else {
+            //                             s.aim = CharacterSkills.skills.aim.points + (isDefined(r.boni.skill[3]) ? r.boni.skill[3] : 0) + (isDefined(r.boni.skill[15]) ? r.boni.skill[15] : 0);
+            //                             s.pitfall = CharacterSkills.skills.pitfall.points + (isDefined(r.boni.skill[3]) ? r.boni.skill[3] : 0) + (isDefined(r.boni.skill[17]) ? r.boni.skill[17] : 0);
+            //                             s.dodge = CharacterSkills.skills.dodge.points + (isDefined(r.boni.skill[2]) ? r.boni.skill[2] : 0) + (isDefined(r.boni.skill[12]) ? r.boni.skill[12] : 0);
+            //                             s.leadership = CharacterSkills.skills.leadership.points + (isDefined(r.boni.skill[4]) ? r.boni.skill[4] : 0) + (isDefined(r.boni.skill[20]) ? r.boni.skill[20] : 0);
+            //                             s.health = CharacterSkills.skills.health.points + (isDefined(r.boni.skill[1]) ? r.boni.skill[1] : 0) + (isDefined(r.boni.skill[9]) ? r.boni.skill[9] : 0);
+            //                             var l = 100 + (Character.level - 1) * Character.lifePointPerHealthSkill + s.health * (Character.lifePointPerHealthSkill + Character.lifePointPerHealthSkillBonus);
+            //                             var c = Number((25 + Math.pow(s.leadership * o, 0.5) + Math.pow(s.aim, 0.5) + Math.pow(s.pitfall, 0.6) + a) * u).round(2);
+            //                             var h = Number((10 + Math.pow(s.leadership * o, 0.5) + Math.pow(s.dodge, 0.5) + Math.pow(s.pitfall, 0.6) + f) * u).round(2);
+            //                         }
+            //                         r.skills = ["health", "attacker", "defender"];
+            //                         r.laborpoints = l + " | " + c + " | " + h;
+            //                         break;
+            //                     case "duel":
+            //                         r.skills = [];
+            //                         var p = 0;
+            //                         for (var d in r.para) {
+            //                             var v = Math.floor(d / 5);
+            //                             p += (r.boni && r.boni.skill && r.boni.skill[d]) || 0;
+            //                             p += (r.boni && r.boni.skill && r.boni.skill[v]) || 0;
+            //                             if (isDefined(TWDB.ClothCalc._id2skill[d])) {
+            //                                 r.skills.push(TWDB.ClothCalc._id2skill[d]);
+            //                                 if (isDefined(CharacterSkills.skills[TWDB.ClothCalc._id2skill[d]])) {
+            //                                     p += CharacterSkills.skills[TWDB.ClothCalc._id2skill[d]].points;
+            //                                 } else if (isDefined(CharacterSkills.attributes[TWDB.ClothCalc._id2skill[d]])) {
+            //                                     p += CharacterSkills.attributes[TWDB.ClothCalc._id2skill[d]].points;
+            //                                 }
+            //                             }
+            //                         }
+            //                         r.laborpoints = p;
+            //                         break;
+            //                     case "custom":
+            //                         r.skills = [];
+            //                         var p = 0;
+            //                         for (var d in r.para) {
+            //                             var v = Math.floor(d / 5);
+            //                             p += (r.boni && r.boni.skill && r.boni.skill[d]) || 0;
+            //                             p += (r.boni && r.boni.skill && r.boni.skill[v]) || 0;
+            //                             if (isDefined(TWDB.ClothCalc._id2skill[d])) {
+            //                                 r.skills.push(TWDB.ClothCalc._id2skill[d]);
+            //                                 if (isDefined(CharacterSkills.skills[TWDB.ClothCalc._id2skill[d]])) {
+            //                                     p += CharacterSkills.skills[TWDB.ClothCalc._id2skill[d]].points;
+            //                                 } else if (isDefined(CharacterSkills.attributes[TWDB.ClothCalc._id2skill[d]])) {
+            //                                     p += CharacterSkills.attributes[TWDB.ClothCalc._id2skill[d]].points;
+            //                                 }
+            //                             }
+            //                         }
+            //                         r.laborpoints = p;
+            //                         break;
+            //                     default:
+            //                         return;
+            //                         break;
+            //                 }
+            //                 r.ready = true;
+            //             } catch (m) {
+            //                 Error.report(m, "GENERICERROR#; handle Customs");
+            //             }
+            //         }
+            //     };
+            //     t.open = function () {
+            //         var t = e("<div />");
+            //         var r = 0;
+            //         for (var s in n) {
+            //             if (!n.hasOwnProperty(s)) {
+            //                 continue;
+            //             }
+            //             var o = n[s];
+            //             var u = e(
+            //                 '<div title="Επεξεργασία" style="display:inline-block;vertical-align:top;height:16px;width:16px;cursor:pointer;background:url(\'' +
+            //                     Game.cdnURL +
+            //                     "/images/window/messages/head-icons.png') repeat scroll 0 16px transparent;\" />"
+            //             ).click(
+            //                 (function (e) {
+            //                     return function () {
+            //                         c(e);
+            //                     };
+            //                 })(s)
+            //             );
+            //             var a = e(
+            //                 '<div title="Διαγραφή" style="display:inline-block;vertical-align:top;height:16px;width:16px;cursor:pointer;background:url(\'' + Game.cdnURL + "/images/icons/delete.png') repeat scroll 0px 0px transparent;\" />"
+            //             ).click(
+            //                 (function (e) {
+            //                     return function () {
+            //                         f(e);
+            //                     };
+            //                 })(s)
+            //             );
+            //             t.append(
+            //                 e('<div style="display:block;height:18px;padding: 3px 0px 0px 0px;border-bottom: 1px solid #666" />')
+            //                     .append('<div style="display:inline-block;vertical-align:top;height:16px;width:300px;overflow:hidden;" title="' + String(o.name).escapeHTML() + '" >' + String(o.name).escapeHTML() + "</div>")
+            //                     .append(u)
+            //                     .append(a)
+            //             );
+            //             r++;
+            //         }
+            //         if (r < 15) {
+            //             t.append(
+            //                 e(
+            //                     '<div title="Προσθήκη" style="display:block;margin-top:2px;vertical-align:top;height:20px;width:25px;cursor:pointer;background:url(\'' +
+            //                         Game.cdnURL +
+            //                         "/images/window/messages/icons.png') repeat scroll 72px -5px transparent;\" />"
+            //                 ).click(function () {
+            //                     l();
+            //                 })
+            //             );
+            //         }
+            //         i = new west.gui.Dialog("Προσαρμογή των ικανοτήτων", t)
+            //             .addButton("ΟΚ", function () {
+            //                 DataManager.loadData();
+            //             })
+            //             .show();
+            //     };
+            //     var f = function (e) {
+            //         if (!isDefined(n[e])) {
+            //             return;
+            //         }
+            //         var r = function () {
+            //             var r = n;
+            //             var s = 0;
+            //             n = {};
+            //             for (var o in r) {
+            //                 if (!r.hasOwnProperty(o)) {
+            //                     continue;
+            //                 }
+            //                 if (o == e) {
+            //                     continue;
+            //                 }
+            //                 s++;
+            //                 n[s] = r[o];
+            //                 n[s].id = s;
+            //             }
+            //             i.hide();
+            //             t.open();
+            //         };
+            //         new west.gui.Dialog("Διαγραφή - Προσαρμογή των ικανοτήτων", "Διαγραφή: " + String(n[e].name).escapeHTML() + "?").addButton("ΟΚ", r).addButton("Ακύρωση").show();
+            //     };
+            //     var l = function () {
+            //         var e = 0;
+            //         for (var t in n) {
+            //             if (!n.hasOwnProperty(t)) {
+            //                 continue;
+            //             }
+            //             e++;
+            //         }
+            //         if (e >= 15) {
+            //             new UserMessage("Πάρα πολλές καταχωρήσεις, επιτρέπονται μόνο δέκα (10)", UserMessage.TYPE_ERROR).show();
+            //         } else {
+            //             e++;
+            //             c(e);
+            //         }
+            //     };
+            //     var c = function (t) {
+            //         if (isDefined(n[t])) {
+            //             var r = n[t].name;
+            //             var i = JSON.stringify({ type: n[t].type, para: n[t].para });
+            //             var s = "Επεξεργασία - Προσαρμογή των ικανοτήτων";
+            //         } else {
+            //             var r = "";
+            //             var i = "";
+            //             var s = "Προσθήκη - Προσαρμογή των ικανοτήτων";
+            //         }
+            //         var o = new west.gui.Textfield("twdb_cc_custom_name").setSize(30).setValue(r);
+            //         var u = new west.gui.Textfield("twdb_cc_custom_name").setSize(30).setValue(i);
+            //         var a = function () {};
+            //         var f = e('<table width="400px" />')
+            //             .append(e("<tr />").append('<td style="vertical-align:middle">Όνομα:</td>').append(e("<td />").append(o.getMainDiv())))
+            //             .append(e("<tr />").append('<td style="vertical-align:middle">Κωδικός:</td>').append(e("<td />").append(u.getMainDiv())))
+            //             .append(e('<tr><td colspan="2">Παρακαλούμε, μεταβείτε στο tw-db.info και αντιγράψτε εδώ τον κωδικό που λαμβάνετε από τον <a href="https://' + Script.url + '/?strana=calc" target="_blank">TW-DB.info Υπολογιστή</a></td></tr>'));
+            //         new west.gui.Dialog(s, f).addButton("ΟΚ", a).addButton("Ακύρωση").show();
+            //     };
+            //     t.getCustoms = function () {
+            //         return ClothCalc.data.custom;
+            //     };
+            //     t.debug = function () {
+            //         return n;
+            //     };
+            //     return t;
+            // })($);
+            // Debugger.Customs = Customs;
             var Forum = (function (e) {
                 var t = {};
                 var n = {};
