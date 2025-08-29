@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name The West - TW-DB.info Cloth Calc [gr] - BB
-// @version 0.0.6
+// @version 0.0.7
 // @description The West Script: Cloth Calculation for game version 1.34 or higher
 // @author Bluep, scoobydoo, Dun, Petee [tw-db.info], Belle Bernice
 // @namespace http://tw-db.info
@@ -9,9 +9,10 @@
 // @include https://*.the-west.*/game.php*
 // @include http://*.tw.innogames.*/game.php*
 // @include https://*.tw.innogames.*/game.php*
-// @downloadURL https://bellebernice.github.io/TW-Userscripts/TW-ClothCalc-gr-BB/clothcalc.user.js
-// @updateURL https://bellebernice.github.io/TW-Userscripts/TW-ClothCalc-gr-BB/version
-// @website https://bellebernice.github.io/TW-Userscripts
+// @homepage     https://bellebernice.github.io/TW-Userscripts/
+// @downloadURL  https://bellebernice.github.io/TW-Userscripts/TW-ClothCalc-gr-BB/clothcalc.user.js
+// @updateURL    https://bellebernice.github.io/TW-Userscripts/TW-ClothCalc-gr-BB/clothcalc.user.js
+// @supportURL   https://bellebernice.github.io/TW-Userscripts/issues
 // ==/UserScript==
 (function (f) {
   var d = document,
@@ -32,9 +33,9 @@
   } else {
     TWDB = {};
     TWDB.script = new Object({
-      version: 60,
+      version: 70,
       revision: 0,
-      name: "The West - TW-DB.info Cloth Calc [gr] - BB",
+      name: "The West - TW-DB.info Cloth Calc",
       folder_url: "bellebernice.github.io/TW-Userscripts/TW-ClothCalc-gr-BB/",
       update: "clothcalc.user.js",
       check: "version",
@@ -45,7 +46,7 @@
     });
     try {
       TWDB.script.notes = jQuery.parseJSON(
-        '[{"version":"60","notes":"[bugifx] Αλλαγή μερικών υπερσυνδέσμων"},{"version":"50","notes":"[bugifx] Ουπς! Διόρθωση του userscript"},{"version":"40","notes":"[bugifx] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"30","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"20","notes":"[bugifx] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"10","notes":"** Δημιουργία userscript από το clothcalc_sk **"}]',
+        '[{"version":"70","notes":"[bugifx] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"60","notes":"[bugifx] Αλλαγή μερικών υπερσυνδέσμων"},{"version":"50","notes":"[bugifx] Ουπς! Διόρθωση του userscript"},{"version":"40","notes":"[bugifx] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"30","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"20","notes":"[bugifx] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"10","notes":"** Δημιουργία userscript από το clothcalc_sk **"}]',
       );
     } catch (e) {}
     TheWestApi.version = Game.version = parseInt(Game.version, 10)
