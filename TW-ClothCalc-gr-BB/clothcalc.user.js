@@ -5,13 +5,13 @@
 // @author Bluep, scoobydoo, Dun, Petee [tw-db.info], Belle Bernice
 // @namespace http://tw-db.info
 // @grant none
-// @website http://tw-db.info
 // @include http://*.the-west.*/game.php*
 // @include https://*.the-west.*/game.php*
 // @include http://*.tw.innogames.*/game.php*
 // @include https://*.tw.innogames.*/game.php*
-// @downloadURL https://raw.githubusercontent.com/BelleBernice/userscripts/refs/heads/main/clothcalc/clothcalc.user.js
-// @updateURL https://raw.githubusercontent.com/BelleBernice/userscripts/refs/heads/main/clothcalc/clothcalc.user.js
+// @downloadURL https://bellebernice.github.io/TW-Userscripts/TW-ClothCalc-gr-BB/clothcalc.user.js
+// @updateURL https://bellebernice.github.io/TW-Userscripts/TW-ClothCalc-gr-BB/version
+// @website https://bellebernice.github.io/TW-Userscripts
 // ==/UserScript==
 (function (f) {
   var d = document,
@@ -34,9 +34,8 @@
     TWDB.script = new Object({
       version: 50,
       revision: 0,
-      name: "The West - TW-DB.info Cloth Calc",
-      folder_url:
-        "raw.githubusercontent.com/BelleBernice/userscripts/refs/heads/main/clothcalc/",
+      name: "The West - TW-DB.info Cloth Calc [gr] - BB",
+      folder_url: "bellebernice.github.io/TW-Userscripts/TW-ClothCalc-gr-BB/",
       update: "clothcalc.user.js",
       check: "version",
       url: "tw-db.info",
