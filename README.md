@@ -12,7 +12,7 @@
 
 > Βήμα 2o:
 ### Userscripts
-Κάντε κλικ στους παρακάτω συνδέσμους για να εγκαταστήσετε το `userscript` που επιθυμείτε.
+> Κάντε κλικ στους παρακάτω συνδέσμους για να εγκαταστήσετε το `userscript` που επιθυμείτε.
 
 1. [TW-DB.info Cloth Calc [gr] - BB](https://bellebernice.github.io/userscripts/TW-ClothCalc-gr-BB/clothcalc.user.js)
 2. soon™
