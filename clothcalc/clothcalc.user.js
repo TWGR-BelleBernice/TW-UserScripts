@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name The West - TW-DB.info Cloth Calc [gr] - BB
-// @version 0.0.3
+// @version 0.0.4
 // @description The West Script: Cloth Calculation for game version 1.34 or higher
 // @author Bluep, scoobydoo, Dun, Petee [tw-db.info], Belle Bernice
 // @namespace http://tw-db.info
@@ -32,7 +32,7 @@
     } else {
         TWDB = {};
         TWDB.script = new Object({
-            version: 30,
+            version: 40,
             revision: 0,
             name: "The West - TW-DB.info Cloth Calc",
             folder_url: "raw.githubusercontent.com/BelleBernice/userscripts/refs/heads/main/clothcalc/",
@@ -45,7 +45,7 @@
         });
         try {
             TWDB.script.notes = jQuery.parseJSON(
-                '[{"version":"30","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"20","notes":"[bugifx] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"10","notes":"** Δημιουργία userscript από το clothcalc_sk **"}]'
+                '[{"version":"40","notes":"[main] Διόρθωση για την προηγούμενη αφαίρεση χαρακτηριστικών"},{"version":"30","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"20","notes":"[bugifx] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"10","notes":"** Δημιουργία userscript από το clothcalc_sk **"}]'
             );
         } catch (e) {}
         TheWestApi.version = Game.version = parseInt(Game.version, 10) ? Game.version : TWDB.script.gameversion;
@@ -3100,13 +3100,13 @@
                                 " | BB</div>"
                         )
                     );
-                    r.appendToContentPane(
-                        e('<div title=" tw-db support " style="width:19px;height:19px;position:absolute;bottom:-5px;right:5px;display:block;cursor:pointer;" />')
-                            .append('<img src="' + Images.iconSupport + '" />')
-                            .click(function () {
-                                Support.open();
-                            })
-                    );
+                    // r.appendToContentPane(
+                    //     e('<div title=" tw-db support " style="width:19px;height:19px;position:absolute;bottom:-5px;right:5px;display:block;cursor:pointer;" />')
+                    //         .append('<img src="' + Images.iconSupport + '" />')
+                    //         .click(function () {
+                    //             Support.open();
+                    //         })
+                    // );
                     var o;
                     for (var u in s) {
                         if (!isDefined(o)) {
@@ -3500,12 +3500,12 @@
                         // [0, "sellTip4", "Α̶π̶ο̶φ̶υ̶γ̶ή̶ ̶π̶ώ̶λ̶η̶σ̶η̶ς̶,̶ ̶Σ̶π̶ά̶ν̶ι̶ω̶ν̶ ̶α̶ν̶τ̶ι̶κ̶ε̶ι̶μ̶έ̶ν̶ω̶ν̶ &nbsp;&nbsp;[Δεν λειτουργεί;]", "Ρυθμίσεις για τις συμβουλές πώλησης"],
                         // [0, "sellTip5", "Α̶π̶ο̶φ̶υ̶γ̶ή̶ ̶π̶ώ̶λ̶η̶σ̶η̶ς̶,̶ ̶α̶ν̶τ̶ι̶κ̶ε̶ι̶μ̶έ̶ν̶ω̶ν̶ ̶α̶π̶ό̶ ̶Σ̶ε̶τ̶ &nbsp;&nbsp;[Δεν λειτουργεί;]", "Ρυθμίσεις για τις συμβουλές πώλησης"],
                         [0, "pinitems", "Καρφίτσωμα αντικειμένων στο παράθυρο των Αποθεμάτων", false],
-                        [0, "collectorsell", "Προσθήκη ενός κουμπιού για ταυτόχρονες πωλήσεις επιλεγμένων αντικειμένων στον Έμπορο", false],
+                        // [0, "collectorsell", "Προσθήκη ενός κουμπιού για ταυτόχρονες πωλήσεις επιλεγμένων αντικειμένων στον Έμπορο", false],
                         [9, "", "Αποστολές", false],
-                        [0, "questwiki", "Π̶ρ̶ο̶σ̶θ̶ή̶κ̶η̶ ̶σ̶υ̶ν̶δ̶έ̶σ̶μ̶ο̶υ̶ ̶π̶ρ̶ο̶ς̶ ̶τ̶ο̶ ̶t̶w̶-̶d̶b̶ ̶κ̶α̶ι̶ ̶τ̶ο̶ ̶C̶l̶o̶t̶h̶C̶a̶l̶c̶ ̶σ̶τ̶ι̶ς̶ ̶Α̶π̶ο̶σ̶τ̶ο̶λ̶έ̶ς̶ &nbsp;&nbsp;[Μην το ενεργοποιείτε]", false],
+                        // [0, "questwiki", "Π̶ρ̶ο̶σ̶θ̶ή̶κ̶η̶ ̶σ̶υ̶ν̶δ̶έ̶σ̶μ̶ο̶υ̶ ̶π̶ρ̶ο̶ς̶ ̶τ̶ο̶ ̶t̶w̶-̶d̶b̶ ̶κ̶α̶ι̶ ̶τ̶ο̶ ̶C̶l̶o̶t̶h̶C̶a̶l̶c̶ ̶σ̶τ̶ι̶ς̶ ̶Α̶π̶ο̶σ̶τ̶ο̶λ̶έ̶ς̶ &nbsp;&nbsp;[Μην το ενεργοποιείτε]", false],
                         [0, "questcancle", "Επιβεβαίωση ακύρωσης αποστολής", false],
-                        [0, "qbswitch", "Ε̶ν̶α̶λ̶λ̶α̶γ̶ή̶ ̶μ̶ε̶τ̶α̶ξ̶ύ̶ ̶κ̶ε̶ι̶μ̶έ̶ν̶ο̶υ̶ ̶ε̶ι̶σ̶α̶γ̶ω̶γ̶ή̶ς̶ ̶κ̶α̶ι̶ ̶ο̶λ̶ο̶κ̶λ̶η̶ρ̶ω̶μ̶έ̶ν̶ο̶υ̶ ̶κ̶ε̶ι̶μ̶έ̶ν̶ο̶υ̶ ̶σ̶τ̶ι̶ς̶ ̶Α̶π̶ο̶σ̶τ̶ο̶λ̶έ̶ς̶ &nbsp;&nbsp;[Υπάρχει στο παιχνίδι]", false],
-                        [0, "qfulltext", "Εμφάνιση μόνο ολοκληρωμένου κειμένου στις Αποστολές", false],
+                        // [0, "qbswitch", "Ε̶ν̶α̶λ̶λ̶α̶γ̶ή̶ ̶μ̶ε̶τ̶α̶ξ̶ύ̶ ̶κ̶ε̶ι̶μ̶έ̶ν̶ο̶υ̶ ̶ε̶ι̶σ̶α̶γ̶ω̶γ̶ή̶ς̶ ̶κ̶α̶ι̶ ̶ο̶λ̶ο̶κ̶λ̶η̶ρ̶ω̶μ̶έ̶ν̶ο̶υ̶ ̶κ̶ε̶ι̶μ̶έ̶ν̶ο̶υ̶ ̶σ̶τ̶ι̶ς̶ ̶Α̶π̶ο̶σ̶τ̶ο̶λ̶έ̶ς̶ &nbsp;&nbsp;[Υπάρχει στο παιχνίδι]", false],
+                        // [0, "qfulltext", "Εμφάνιση μόνο ολοκληρωμένου κειμένου στις Αποστολές", false],
                         [9, "", "Αγορά", false],
                         [0, "marketmap", "Προσθήκη παραθύρου Χάρτη Αγοράς", false],
                         [0, "marketreminder", "Προσθήκη μιας υπενθύμισης για τις δημοπρασίες της Αγοράς", false],
@@ -3534,17 +3534,17 @@
                         [0, "chat", "Ενεργοποίηση της βελτίωσης συνομοιλίας - [Χρώματα στο chat]", false],
                         [0, "notes", "Προσθήκη των Σημειώσεων στο παράθυρο Τηλεγραφείου/Αναφορών", false],
                         [0, "forumlastpage", "Προσθήκη ενός κουμιού για την μετάβαση στην τελευταία ανάρτηση του Φόρουμ Πόλης", false],
-                        [0, "fastskillchange", "Ενεργοποίηση γρήγορης αλλαγής Ικανοτήτων στο παράθυρο ικανοτήτων (Κρατήστε πατημένο το κουμπί του ποντικιού) - [Δεν δουλεύει στις Ιδιότητες]", false],
+                        // [0, "fastskillchange", "Ενεργοποίηση γρήγορης αλλαγής Ικανοτήτων στο παράθυρο ικανοτήτων (Κρατήστε πατημένο το κουμπί του ποντικιού) - [Δεν δουλεύει στις Ιδιότητες]", false],
                         [0, "autodeposit", "Προσθήκη ειδοποίησης για κατάθεση, εάν φτάσετε στην πόλη σας με χρήματα", false],
                         [0, "chestanalyser", "Προσθήκη του Αναλητή Θηκών στο παράθυρο Τηλεγραφείου/Αναφορών", false],
                         [0, "weeklycrafting", "Προσθήκη ειδοποίησης για την λήξη περιόδου αναμονής των δημιουργειών", false],
                         [0, "noworkqueuepa", "Ανενεργοποίηση ειδοποιήσεων για την αγορά Premium Αυτοματισμού", "Premium ρυθμίσεις"],
                         [0, "nofetchallpa", "Απενεργοποίηση Premium προτροπής όταν λαμβάνεις αντικείμενα από την αγορά", "Premium ρυθμίσεις"],
                         [0, "nowofnuggets", "Απενεργοποίηση Σβόλων ως προεπιλεγμένο μέσο πληρωμών σε εκδηλώσεις (όταν είναι διαθέσιμο)", "Premium ρυθμίσεις"],
-                        [0, "instanthotel", "Προσθήκη ενός κουμπιού για άμεσο άνοιγμα του Ξενοδοχείου, στα ονόματα πόλεων στον χάρτη", false],
+                        // [0, "instanthotel", "Προσθήκη ενός κουμπιού για άμεσο άνοιγμα του Ξενοδοχείου, στα ονόματα πόλεων στον χάρτη", false],
                         [0, "telegramsource", "Προσθήκη ενός κουμπιού για να αλλαγή σε μη μορφοποιημένο κείμενο στα τηλεγραφήματα", false],
-                        [8, "clothPos"],
-                        [0, "wear_openmin", "Ενεργοποίηση της ελαχιστοποίησης του ανοικτού παραθύρου (Εξοπλισμός) κατά το άνοιγμα του ClothCalc", false],
+                        // [8, "clothPos"],
+                        // [0, "wear_openmin", "Ενεργοποίηση της ελαχιστοποίησης του ανοικτού παραθύρου (Εξοπλισμός) κατά το άνοιγμα του ClothCalc", false],
                     ];
                     var o = {};
                     var a = e("<table />");
@@ -3600,25 +3600,25 @@
                             a.append(h);
                         }
                     }
-                    var m = new west.gui.Combobox();
-                    m.addItem("left", "Αριστερά").addItem("right", "Δεξιά").addItem("custom", "Αποθηκευμένη θέση");
-                    m.select(String(n["clothPos"]));
-                    e("tr.placeholder_clothPos", a).removeClass("placeholder_clothPos").append(e('<td colspan="2" />').append(m.getMainDiv(), "<span>&nbsp;Δεξιά</span>"));
-                    a.append(e("<tr><td>&nbsp;</td></tr>"));
-                    var g = new west.gui.Button("Αποθήκευση", function () {
-                        switch (m.getValue()) {
-                            case "left":
-                                n["clothPos"] = "left";
-                                break;
-                            case "right":
-                                n["clothPos"] = "right";
-                                break;
-                            default:
-                                n["clothPos"] = "custom";
-                                break;
-                        }
-                        u(o);
-                    });
+                    // var m = new west.gui.Combobox();
+                    // m.addItem("left", "Αριστερά").addItem("right", "Δεξιά").addItem("custom", "Αποθηκευμένη θέση");
+                    // m.select(String(n["clothPos"]));
+                    // e("tr.placeholder_clothPos", a).removeClass("placeholder_clothPos").append(e('<td colspan="2" />').append(m.getMainDiv(), "<span>&nbsp;Δεξιά</span>"));
+                    // a.append(e("<tr><td>&nbsp;</td></tr>"));
+                    // var g = new west.gui.Button("Αποθήκευση", function () {
+                    //     switch (m.getValue()) {
+                    //         case "left":
+                    //             n["clothPos"] = "left";
+                    //             break;
+                    //         case "right":
+                    //             n["clothPos"] = "right";
+                    //             break;
+                    //         default:
+                    //             n["clothPos"] = "custom";
+                    //             break;
+                    //     }
+                    //     u(o);
+                    // });
                     var y = e('<div style="width:100%;text-align:right;" />').append(
                         e('<img style="position:relative;top:-20px;cursor:pointer;" title=" Επαναφορά Local Storage" src="' + Images.iconReset + '" />').click(function () {
                             Cache.reset();
@@ -6494,9 +6494,9 @@
                         return;
                     }
                     trustTWDB();
-                    if (Settings.get("collectorsell", false)) {
-                        GameInject.injectWanderingTraderSellDialog();
-                    }
+                    // if (Settings.get("collectorsell", false)) {
+                    //     GameInject.injectWanderingTraderSellDialog();
+                    // }
                     if (Settings.get("customcounterpos", true)) {
                         repositionEventCounters();
                     }
@@ -6506,15 +6506,15 @@
                     // if (Settings.get("instanthotel", false)) {
                     //     InstantHotel();
                     // }
-                    if (Settings.get("qbswitch", false)) {
-                        QuestbookSwitch();
-                    }
-                    if (Settings.get("qfulltext", false)) {
-                        QuestFullText();
-                    }
-                    if (Settings.get("fastskillchange", false)) {
-                        fastSkillChange();
-                    }
+                    // if (Settings.get("qbswitch", false)) {
+                    //     QuestbookSwitch();
+                    // }
+                    // if (Settings.get("qfulltext", false)) {
+                    //     QuestFullText();
+                    // }
+                    // if (Settings.get("fastskillchange", false)) {
+                    //     fastSkillChange();
+                    // }
                     if (Settings.get("fortrecruitment", true)) {
                         activateFortRecruitment();
                     }
@@ -6751,87 +6751,87 @@
                 //         Error.report(t, "manipulate town signs");
                 //     }
                 // };
-                var fastSkillChange = function () {
-                    try {
-                        west.gui.Plusminusfield.prototype.__twdb__init = west.gui.Plusminusfield.prototype.init;
-                        west.gui.Plusminusfield.prototype.init = function (e, t, n, r, i, s, o, u) {
-                            this.__twdb__init.apply(this, arguments);
-                            var a = this;
-                            var f = { minus: $("span.butMinus", a.divMain), plus: $("span.butPlus", a.divMain) };
-                            $(this.divMain)
-                                .off("mousewheel")
-                                .on("mousewheel", function (e, t) {
-                                    f[t < 0 ? "minus" : "plus"].click();
-                                    e.stopPropagation();
-                                    return false;
-                                });
-                            $.each(f, function (e, t) {
-                                var n = 400,
-                                    r = -1,
-                                    i = function () {
-                                        n = Math.max(Math.round((n * (n / 200 + 1)) / (n / 133 + 1)), 5);
-                                        t.click();
-                                        r = setTimeout(i, n);
-                                    },
-                                    s = function () {
-                                        r = setTimeout(i, n);
-                                    },
-                                    o = function (e) {
-                                        if (r !== -1) {
-                                            clearTimeout(r);
-                                            r = -1;
-                                        }
-                                        n = 400;
-                                    };
-                                t.css("cursor", "pointer").mousedown(s).mouseup(o).mouseout(o);
-                            });
-                        };
-                    } catch (e) {
-                        Error.report(e, "manipulate Plusminusfield");
-                    }
-                };
-                var QuestbookSwitch = function () {
-                    try {
-                        QuestGroupWindowView.cc_showSolvedQuest = QuestGroupWindowView.showSolvedQuest;
-                        QuestGroupWindowView.showSolvedQuest = function (e) {
-                            QuestGroupWindowView.cc_showSolvedQuest(e);
-                            var t = $("div.window-quest_group div.quest_description_container span").slice(1).hide();
-                            var n = $("<span><br>" + e.description + "</span>");
-                            $("div.window-quest_group div.quest_description_container").append(n);
-                            var r = $('<a href="#"> Εμφάνιση ολοκληρωμένου κειμένου </a>')
-                                .addClass("introshown")
-                                .click(function () {
-                                    var e = $(this),
-                                        r = e.hasClass("introshown");
-                                    t.toggle(r);
-                                    n.toggle(!r);
-                                    e.text(r ? " Εμφάνιση κειμένου εισαγωγής " : " Εμφάνιση ολοκληρωμένου κειμένου ");
-                                    e.toggleClass("introshown");
-                                });
-                            $("div.window-quest_group div.solved_text_container").append($("<div style='text-align:center;margin-top:10px;'>").append(r));
-                        };
-                    } catch (e) {
-                        Error.report(e, "manipulate showSolvedQuest");
-                    }
-                };
-                var QuestFullText = function () {
-                    try {
-                        QuestWindowView.cc_showQuest = QuestWindowView.showQuest;
-                        QuestWindowView.showQuest = function (e) {
-                            QuestWindowView.cc_showQuest(e);
-                            $("div.quest_description_container div#quest_shortd").hide();
-                            $("div.quest_description_container div#quest_fulld").show();
-                        };
-                        QuestEmployerView.cc_showQuest = QuestEmployerView.showQuest;
-                        QuestEmployerView.showQuest = function (e) {
-                            QuestEmployerView.cc_showQuest(e);
-                            $("div.quest_description_container div#quest_shortd").hide();
-                            $("div.quest_description_container div#quest_fulld").show();
-                        };
-                    } catch (e) {
-                        Error.report(e, "manipulate showQuest");
-                    }
-                };
+                // var fastSkillChange = function () {
+                //     try {
+                //         west.gui.Plusminusfield.prototype.__twdb__init = west.gui.Plusminusfield.prototype.init;
+                //         west.gui.Plusminusfield.prototype.init = function (e, t, n, r, i, s, o, u) {
+                //             this.__twdb__init.apply(this, arguments);
+                //             var a = this;
+                //             var f = { minus: $("span.butMinus", a.divMain), plus: $("span.butPlus", a.divMain) };
+                //             $(this.divMain)
+                //                 .off("mousewheel")
+                //                 .on("mousewheel", function (e, t) {
+                //                     f[t < 0 ? "minus" : "plus"].click();
+                //                     e.stopPropagation();
+                //                     return false;
+                //                 });
+                //             $.each(f, function (e, t) {
+                //                 var n = 400,
+                //                     r = -1,
+                //                     i = function () {
+                //                         n = Math.max(Math.round((n * (n / 200 + 1)) / (n / 133 + 1)), 5);
+                //                         t.click();
+                //                         r = setTimeout(i, n);
+                //                     },
+                //                     s = function () {
+                //                         r = setTimeout(i, n);
+                //                     },
+                //                     o = function (e) {
+                //                         if (r !== -1) {
+                //                             clearTimeout(r);
+                //                             r = -1;
+                //                         }
+                //                         n = 400;
+                //                     };
+                //                 t.css("cursor", "pointer").mousedown(s).mouseup(o).mouseout(o);
+                //             });
+                //         };
+                //     } catch (e) {
+                //         Error.report(e, "manipulate Plusminusfield");
+                //     }
+                // };
+                // var QuestbookSwitch = function () {
+                //     try {
+                //         QuestGroupWindowView.cc_showSolvedQuest = QuestGroupWindowView.showSolvedQuest;
+                //         QuestGroupWindowView.showSolvedQuest = function (e) {
+                //             QuestGroupWindowView.cc_showSolvedQuest(e);
+                //             var t = $("div.window-quest_group div.quest_description_container span").slice(1).hide();
+                //             var n = $("<span><br>" + e.description + "</span>");
+                //             $("div.window-quest_group div.quest_description_container").append(n);
+                //             var r = $('<a href="#"> Εμφάνιση ολοκληρωμένου κειμένου </a>')
+                //                 .addClass("introshown")
+                //                 .click(function () {
+                //                     var e = $(this),
+                //                         r = e.hasClass("introshown");
+                //                     t.toggle(r);
+                //                     n.toggle(!r);
+                //                     e.text(r ? " Εμφάνιση κειμένου εισαγωγής " : " Εμφάνιση ολοκληρωμένου κειμένου ");
+                //                     e.toggleClass("introshown");
+                //                 });
+                //             $("div.window-quest_group div.solved_text_container").append($("<div style='text-align:center;margin-top:10px;'>").append(r));
+                //         };
+                //     } catch (e) {
+                //         Error.report(e, "manipulate showSolvedQuest");
+                //     }
+                // };
+                // var QuestFullText = function () {
+                //     try {
+                //         QuestWindowView.cc_showQuest = QuestWindowView.showQuest;
+                //         QuestWindowView.showQuest = function (e) {
+                //             QuestWindowView.cc_showQuest(e);
+                //             $("div.quest_description_container div#quest_shortd").hide();
+                //             $("div.quest_description_container div#quest_fulld").show();
+                //         };
+                //         QuestEmployerView.cc_showQuest = QuestEmployerView.showQuest;
+                //         QuestEmployerView.showQuest = function (e) {
+                //             QuestEmployerView.cc_showQuest(e);
+                //             $("div.quest_description_container div#quest_shortd").hide();
+                //             $("div.quest_description_container div#quest_fulld").show();
+                //         };
+                //     } catch (e) {
+                //         Error.report(e, "manipulate showQuest");
+                //     }
+                // };
                 var removeWorkQueuePA = function () {
                     try {
                         TWDB.Util.addCss("#queuedTasks .buyPremiumTask {background: none!important}");
@@ -7955,140 +7955,140 @@
                         Error.report(t, "manipulate TelegramWindow.appendTelegram (display telegram source)");
                     }
                 };
-                _self.injectWanderingTraderSellDialog = function () {
-                    try {
-                        west.window.shop.view.__proto__.__twdb__showSellDialog = west.window.shop.view.__proto__.showSellDialog;
-                        west.window.shop.view.__proto__.showSellDialog = function (e) {
-                            var t = this.getController(),
-                                n = Bag.getItemByItemId(e),
-                                r = n.count,
-                                i,
-                                s;
-                            this.__twdb__showSellDialog.apply(this, arguments);
-                            if (r < 3) {
-                                return;
-                            }
-                            i = $("div.tw2gui_dialog").has("div.textart_title:contains(" + n.getName() + ")");
-                            if (i.length === 1) {
-                                r--;
-                                s = "Max-1 (" + r + "x = $ " + r * n.getSellPrice() + ")";
-                                i.children("div.tw2gui_dialog_actions").prepend(
-                                    new west.gui.Button(
-                                        s,
-                                        function () {
-                                            t.requestSell({ inv_id: n.inv_id, count: r });
-                                            i.find("div.tw2gui_button").last().click();
-                                        }.bind(this)
-                                    ).getMainDiv()
-                                );
-                            }
-                        };
-                    } catch (e) {
-                        Error.report(e, "manipulate .showSellDialog (wandering trader - sell all but one)");
-                    }
-                };
-                _self.injectDontTellAnyone = function () {
-                    var e = "twdb_" + Character.playerId + "_april";
-                    var t = function () {
-                        return JSON.parse(localStorage.getItem(e));
-                    };
-                    try {
-                        OptionsButler.twdb_activateRedeem = OptionsButler.twdb_activateRedeem || OptionsButler.activateRedeem;
-                        OptionsButler.activateRedeem = function (t) {
-                            if (t == "lo0fl1rPa" && !localStorage.getItem(e)) {
-                                new west.gui.Dialog("Κωδικός bonus που εξαργυρώθηκε", "Ελέγξτε τις αναφορές σας.", "ΟΚ").addButton("ΟΚ").show();
-                                Ajax.remoteCall("reports", "get_reports", {}, function (t) {
-                                    localStorage.setItem(
-                                        e,
-                                        JSON.stringify([
-                                            {
-                                                report_id: "01042017",
-                                                title: "Κωδικός bonus που εξαργυρώθηκε: lo0fl1rPa",
-                                                date: new ServerDate().date,
-                                                read: false,
-                                                publish_mode: 0,
-                                                data_id: (t.reports[0] && t.reports[0].data_id + 1) || 1,
-                                                hash: "lirpAfo1",
-                                                popupData: "<table><tr><th>Τίτλος:</th><td>Κωδικός bonus που εξαργυρώθηκε: lo0fl1rPa</td></tr><tr><th>Τύπος:</th><td>Άλλο</td></tr></table>",
-                                            },
-                                            {
-                                                report_id: "01042017",
-                                                publishMode: 0,
-                                                publishHash: "lirpAfo1",
-                                                title: "Κωδικός bonus που εξαργυρώθηκε: lo0fl1rPa",
-                                                reportType: "other",
-                                                reportIcon: "",
-                                                reportInfo: [],
-                                                isOwnReport: true,
-                                                ownerId: Character.playerId,
-                                                ownerName: Character.name,
-                                                date: new ServerDate().date,
-                                                page:
-                                                    '<page><h2 class="report_title">Κωδικός bonus: lo0fl1rPa</h2><div style="padding:10px;"><p>Γεια σου ' +
-                                                    Character.name +
-                                                    ", δυστηχώς, η επιβράβευση ομολόγων δεν μπόρεσε να ολοκληρωθεί σωστά επειδή δεν έχεις 5.000 ομόλογα. Η περαιτέρω χρήση του ίδιου κωδικού bonus δεν είναι πλέον δυνατή.</p></div></page>",
-                                                animated: 0,
-                                            },
-                                            { upbs: Character.upb },
-                                        ])
-                                    );
-                                    Character.addUpb(-Character.upb);
-                                    Character.setToRead("reports", true);
-                                });
-                            } else this.twdb_activateRedeem.apply(this, arguments);
-                        };
-                    } catch (n) {
-                        Error.report(n, "manipulate OptionsButler.activateRedeem");
-                    }
-                    try {
-                        Date.prototype.toReportTime = function () {
-                            var e = new Date(),
-                                t = this;
-                            if (t.getDate() === e.getDate() && t.getMonth() === e.getMonth() && t.getFullYear() === e.getFullYear()) return this.toTime().substring(0, 5) + " Ρολόι";
-                            return this.toDateString().replace("-04-20", ". Απρ ");
-                        };
-                        MessagesWindow.Report.twdb__initContent = MessagesWindow.Report.twdb__initContent || MessagesWindow.Report._initContent;
-                        MessagesWindow.Report._initContent = function (e) {
-                            var n = t();
-                            var r = e.reports;
-                            var i = r.length;
-                            if (n && (e.type == "all" || e.type == "other")) {
-                                var s = n[0];
-                                s.date_received = new Date(s.date).toReportTime();
-                                if (i === 0) r.push(s);
-                                else
-                                    for (var o = 0; o < i; o++)
-                                        if ((e.page > 1 ? r[Math.max(0, o - 1)].data_id > s.data_id : true) && r[o].data_id < s.data_id) {
-                                            r.splice(o, 0, s);
-                                            r.pop();
-                                            break;
-                                        } else if (o == i - 1 && i < 10 && r[o].data_id > s.data_id) r.push(s);
-                            }
-                            this.twdb__initContent.call(this, e);
-                        };
-                    } catch (n) {
-                        Error.report(n, "manipulate MessagesWindow.Report._initContent");
-                    }
-                    try {
-                        ReportWindow.twdb_init = ReportWindow.twdb_init || ReportWindow.init;
-                        ReportWindow.init = function (n, r) {
-                            if (this.reportId == "01042017") {
-                                var i = t();
-                                if (!i[0].read) {
-                                    i[0].read = true;
-                                    localStorage.setItem(e, JSON.stringify(i));
-                                }
-                                i[1].date_received = new Date(i[1].date).toDateTimeStringNice();
-                                i[1].publishData = ReportPublish.publishData;
-                                ReportWindow.init_content(i[1]);
-                            } else this.twdb_init.apply(this, arguments);
-                        };
-                    } catch (n) {
-                        Error.report(n, "manipulate ReportWindow.init");
-                    }
-                    var r = t();
-                    if (r) Character.addUpb(-r[2].upbs);
-                };
+                // _self.injectWanderingTraderSellDialog = function () {
+                //     try {
+                //         west.window.shop.view.__proto__.__twdb__showSellDialog = west.window.shop.view.__proto__.showSellDialog;
+                //         west.window.shop.view.__proto__.showSellDialog = function (e) {
+                //             var t = this.getController(),
+                //                 n = Bag.getItemByItemId(e),
+                //                 r = n.count,
+                //                 i,
+                //                 s;
+                //             this.__twdb__showSellDialog.apply(this, arguments);
+                //             if (r < 3) {
+                //                 return;
+                //             }
+                //             i = $("div.tw2gui_dialog").has("div.textart_title:contains(" + n.getName() + ")");
+                //             if (i.length === 1) {
+                //                 r--;
+                //                 s = "Max-1 (" + r + "x = $ " + r * n.getSellPrice() + ")";
+                //                 i.children("div.tw2gui_dialog_actions").prepend(
+                //                     new west.gui.Button(
+                //                         s,
+                //                         function () {
+                //                             t.requestSell({ inv_id: n.inv_id, count: r });
+                //                             i.find("div.tw2gui_button").last().click();
+                //                         }.bind(this)
+                //                     ).getMainDiv()
+                //                 );
+                //             }
+                //         };
+                //     } catch (e) {
+                //         Error.report(e, "manipulate .showSellDialog (wandering trader - sell all but one)");
+                //     }
+                // };
+                // _self.injectDontTellAnyone = function () {
+                //     var e = "twdb_" + Character.playerId + "_april";
+                //     var t = function () {
+                //         return JSON.parse(localStorage.getItem(e));
+                //     };
+                //     try {
+                //         OptionsButler.twdb_activateRedeem = OptionsButler.twdb_activateRedeem || OptionsButler.activateRedeem;
+                //         OptionsButler.activateRedeem = function (t) {
+                //             if (t == "lo0fl1rPa" && !localStorage.getItem(e)) {
+                //                 new west.gui.Dialog("Κωδικός bonus που εξαργυρώθηκε", "Ελέγξτε τις αναφορές σας.", "ΟΚ").addButton("ΟΚ").show();
+                //                 Ajax.remoteCall("reports", "get_reports", {}, function (t) {
+                //                     localStorage.setItem(
+                //                         e,
+                //                         JSON.stringify([
+                //                             {
+                //                                 report_id: "01042017",
+                //                                 title: "Κωδικός bonus που εξαργυρώθηκε: lo0fl1rPa",
+                //                                 date: new ServerDate().date,
+                //                                 read: false,
+                //                                 publish_mode: 0,
+                //                                 data_id: (t.reports[0] && t.reports[0].data_id + 1) || 1,
+                //                                 hash: "lirpAfo1",
+                //                                 popupData: "<table><tr><th>Τίτλος:</th><td>Κωδικός bonus που εξαργυρώθηκε: lo0fl1rPa</td></tr><tr><th>Τύπος:</th><td>Άλλο</td></tr></table>",
+                //                             },
+                //                             {
+                //                                 report_id: "01042017",
+                //                                 publishMode: 0,
+                //                                 publishHash: "lirpAfo1",
+                //                                 title: "Κωδικός bonus που εξαργυρώθηκε: lo0fl1rPa",
+                //                                 reportType: "other",
+                //                                 reportIcon: "",
+                //                                 reportInfo: [],
+                //                                 isOwnReport: true,
+                //                                 ownerId: Character.playerId,
+                //                                 ownerName: Character.name,
+                //                                 date: new ServerDate().date,
+                //                                 page:
+                //                                     '<page><h2 class="report_title">Κωδικός bonus: lo0fl1rPa</h2><div style="padding:10px;"><p>Γεια σου ' +
+                //                                     Character.name +
+                //                                     ", δυστηχώς, η επιβράβευση ομολόγων δεν μπόρεσε να ολοκληρωθεί σωστά επειδή δεν έχεις 5.000 ομόλογα. Η περαιτέρω χρήση του ίδιου κωδικού bonus δεν είναι πλέον δυνατή.</p></div></page>",
+                //                                 animated: 0,
+                //                             },
+                //                             { upbs: Character.upb },
+                //                         ])
+                //                     );
+                //                     Character.addUpb(-Character.upb);
+                //                     Character.setToRead("reports", true);
+                //                 });
+                //             } else this.twdb_activateRedeem.apply(this, arguments);
+                //         };
+                //     } catch (n) {
+                //         Error.report(n, "manipulate OptionsButler.activateRedeem");
+                //     }
+                //     try {
+                //         Date.prototype.toReportTime = function () {
+                //             var e = new Date(),
+                //                 t = this;
+                //             if (t.getDate() === e.getDate() && t.getMonth() === e.getMonth() && t.getFullYear() === e.getFullYear()) return this.toTime().substring(0, 5) + " Ρολόι";
+                //             return this.toDateString().replace("-04-20", ". Απρ ");
+                //         };
+                //         MessagesWindow.Report.twdb__initContent = MessagesWindow.Report.twdb__initContent || MessagesWindow.Report._initContent;
+                //         MessagesWindow.Report._initContent = function (e) {
+                //             var n = t();
+                //             var r = e.reports;
+                //             var i = r.length;
+                //             if (n && (e.type == "all" || e.type == "other")) {
+                //                 var s = n[0];
+                //                 s.date_received = new Date(s.date).toReportTime();
+                //                 if (i === 0) r.push(s);
+                //                 else
+                //                     for (var o = 0; o < i; o++)
+                //                         if ((e.page > 1 ? r[Math.max(0, o - 1)].data_id > s.data_id : true) && r[o].data_id < s.data_id) {
+                //                             r.splice(o, 0, s);
+                //                             r.pop();
+                //                             break;
+                //                         } else if (o == i - 1 && i < 10 && r[o].data_id > s.data_id) r.push(s);
+                //             }
+                //             this.twdb__initContent.call(this, e);
+                //         };
+                //     } catch (n) {
+                //         Error.report(n, "manipulate MessagesWindow.Report._initContent");
+                //     }
+                //     try {
+                //         ReportWindow.twdb_init = ReportWindow.twdb_init || ReportWindow.init;
+                //         ReportWindow.init = function (n, r) {
+                //             if (this.reportId == "01042017") {
+                //                 var i = t();
+                //                 if (!i[0].read) {
+                //                     i[0].read = true;
+                //                     localStorage.setItem(e, JSON.stringify(i));
+                //                 }
+                //                 i[1].date_received = new Date(i[1].date).toDateTimeStringNice();
+                //                 i[1].publishData = ReportPublish.publishData;
+                //                 ReportWindow.init_content(i[1]);
+                //             } else this.twdb_init.apply(this, arguments);
+                //         };
+                //     } catch (n) {
+                //         Error.report(n, "manipulate ReportWindow.init");
+                //     }
+                //     var r = t();
+                //     if (r) Character.addUpb(-r[2].upbs);
+                // };
                 return _self;
             })($);
             Debugger.GameInject = GameInject;
