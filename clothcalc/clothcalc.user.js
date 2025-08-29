@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name The West - TW-DB.info Cloth Calc [gr] - BB
-// @version 0.0.5
+// @version 0.0.6
 // @description The West Script: Cloth Calculation for game version 1.34 or higher
 // @author Bluep, scoobydoo, Dun, Petee [tw-db.info], Belle Bernice
 // @namespace http://tw-db.info
@@ -32,7 +32,7 @@
   } else {
     TWDB = {};
     TWDB.script = new Object({
-      version: 50,
+      version: 60,
       revision: 0,
       name: "The West - TW-DB.info Cloth Calc",
       folder_url:
@@ -46,7 +46,7 @@
     });
     try {
       TWDB.script.notes = jQuery.parseJSON(
-        '[{"version":"50","notes":"[bugifx] Ουπς! Διόρθωση του userscript"},{"version":"40","notes":"[bugifx] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"30","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"20","notes":"[bugifx] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"10","notes":"** Δημιουργία userscript από το clothcalc_sk **"}]',
+        '[{"version":"60","notes":"[main] Κρύψιμο περιττού κώδικα <br>[main] Αφαίρεση κάποιων παλαιών χαρακτηριστικών"},{"version":"50","notes":"[bugifx] Ουπς! Διόρθωση του userscript"},{"version":"40","notes":"[bugifx] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"30","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"20","notes":"[bugifx] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"10","notes":"** Δημιουργία userscript από το clothcalc_sk **"}]',
       );
     } catch (e) {}
     TheWestApi.version = Game.version = parseInt(Game.version, 10)
