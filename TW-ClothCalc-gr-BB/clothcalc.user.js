@@ -1,20 +1,22 @@
 // ==UserScript==
 // @name The West - TW-DB.info Cloth Calc [gr] - BB
+// @namespace    https://github.com/BelleBernice/TW-Userscripts
 // @version 0.0.9
 // @description The West Script: Cloth Calculation for game version 1.34 or higher
 // @author Bluep, scoobydoo, Dun, Petee [tw-db.info], Belle Bernice
+// @homepageURL  https://bellebernice.github.io/TW-Userscripts
+// @supportURL   https://github.com/BelleBernice/TW-Userscripts/issues
+// @source       https://github.com/BelleBernice/TW-Userscripts
+// @icon         data:image/png;base64,UklGRlIDAABXRUJQVlA4TEUDAAAvGAAGAAfkKpIkxRpevsfvfZGH51/VHqMNt5EkKdLwwjGod5a8/5a8zPy/4Da2bVW58nj6JSLixxDRBv0HFOLw7d4z/8EmbVRRFEi2uEVgYKg8BdTBXmYT7LBWOADUj+wipwRKQZDAB7BWB0QzL4I4IziqAewsCkAzRUEGM4qJ4CRs/0ehwFa/uryjlhXpJIhmSCyyQA49jMAQvvpkambevvx9Ac8r/iauN4ffiTqqPacg2KhXwRkaCLYmmtFetOmhP7lVZsOJTEjWM+z0FimQ2uwvMmsnqZKBBIb0T8COtiD6o8BnxKka37Ml/rz8TNeJpdHycXkVmkbaOYYDzz3xTFKEARxVGoVwgL9Ig5JATCKjan2R5b87zwMmgWGnWARXATnV5LSf/LY36yZWzdwsqHO7Lu75LKha72L8L97jxelw95cbg0Rt25YoAoYeu7vF7u7ubpAl/FdGpmxlbE9+rz2F743of/YMTVQX17S+d7R0dVS2UWt7Z60mSK9ace+hyP3/ieMP+gyN4wUCCASIAMATx3M1C6OcAImeSZdIIDyTRhLpSoz7PecEWSIN0KV/nkmOK0I38aqG17y4TIjrki6J0rvzHteljX5RL1QL8qj6yLn6C/usIfozNVaQp81vilFhVVGnl7xhrk0UpJyLy8Zcsbq0IxQUFU4nmQsfgE1mIj0WUVvR5oyUq5u6vXJcBgQg2FY6GG6uL1jZknOdydB2GRDAtU+/LbrzOnP585u8fvnILJcF5Dun3zhxrWRw1t42v8vHE4+e5fqJZNY+ATFYqdDsrd3v59Tw8dpyk/cZZpku82FmUmbEbxqcyh4fbI+5NjECXMdPhic637TPiWePlPEsmyjwbXJYQDSS43cQi9pv7oDwyvVAPksggBm1ybOGWvU2HCazj3dANplIJ9LX5ofRwm9s8oouVzvJuwxRmADgH3cOrBly555Y3dLZ1DlhekGYJuacTozvbhvUtTYpV380FTTU1pSUfr5/vaAkUsur9Fe174UjgZdI1ohIJQAgwosiFO2pvKypiq5WlhQTiFBZCpTFtIblOYmTBUWUhZgkxAgiFAGcumOsrfa3dXVWvGpRXeNA/+DGD2hvvW9x4QcA
+// @updateURL    https://raw.githubusercontent.com/BelleBernice/TW-Userscripts/main/TW-ClothCalc-gr-BB/clothcalc.user.js
+// @downloadURL  https://raw.githubusercontent.com/BelleBernice/TW-Userscripts/main/TW-ClothCalc-gr-BB/clothcalc.user.js
 // @include http://*.the-west.*/game.php*
 // @include https://*.the-west.*/game.php*
 // @include http://*.tw.innogames.*/game.php*
 // @include https://*.tw.innogames.*/game.php*
-// @namespace http://tw-db.info
 // @grant none
-// @homepage     https://BelleBernice.github.io/TW-Userscripts/
-// @downloadURL  https://raw.githubusercontent.com/BelleBernice/TW-Userscripts/main/TW-ClothCalc-gr-BB/clothcalc.user.js
-// @updateURL    https://raw.githubusercontent.com/BelleBernice/TW-Userscripts/main/TW-ClothCalc-gr-BB/clothcalc.user.js
-// @supportURL   https://github.com/BelleBernice/TW-Userscripts/issues
-// @source       https://github.com/BelleBernice/TW-Userscripts
 // ==/UserScript==
+
 (function (f) {
   var d = document,
     s = d.createElement("script");
@@ -47,7 +49,7 @@
     });
     try {
       TWDB.script.notes = jQuery.parseJSON(
-        '[{"version":"90","notes":"[main] Καθαρισμός κώδικα - part 2"},{"version":"80","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"70","notes":"[bugifx] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"60","notes":"[bugifx] Αλλαγή μερικών υπερσυνδέσμων"},{"version":"50","notes":"[bugifx] Ουπς! Διόρθωση του userscript"},{"version":"40","notes":"[bugifx] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"30","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"20","notes":"[bugifx] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"10","notes":"** Δημιουργία userscript από το clothcalc_sk **"}]',
+        '[{"version":"90","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερσυνδέσμων"},{"version":"80","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"70","notes":"[bugifx] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"60","notes":"[bugifx] Αλλαγή μερικών υπερσυνδέσμων"},{"version":"50","notes":"[bugifx] Ουπς! Διόρθωση του userscript"},{"version":"40","notes":"[bugifx] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"30","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"20","notes":"[bugifx] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"10","notes":"** Δημιουργία userscript από το clothcalc_sk **"}]',
       );
     } catch (e) {}
     TheWestApi.version = Game.version = parseInt(Game.version, 10)
