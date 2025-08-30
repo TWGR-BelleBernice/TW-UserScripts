@@ -3,16 +3,17 @@
 // @version 0.0.9
 // @description The West Script: Cloth Calculation for game version 1.34 or higher
 // @author Bluep, scoobydoo, Dun, Petee [tw-db.info], Belle Bernice
-// @namespace http://tw-db.info
-// @grant none
 // @include http://*.the-west.*/game.php*
 // @include https://*.the-west.*/game.php*
 // @include http://*.tw.innogames.*/game.php*
 // @include https://*.tw.innogames.*/game.php*
-// @homepage     https://bellebernice.github.io/TW-Userscripts/
-// @downloadURL  https://bellebernice.github.io/TW-Userscripts/TW-ClothCalc-gr-BB/clothcalc.user.js
-// @updateURL    https://bellebernice.github.io/TW-Userscripts/TW-ClothCalc-gr-BB/clothcalc.user.js
-// @supportURL   https://bellebernice.github.io/TW-Userscripts/issues
+// @namespace http://tw-db.info
+// @grant none
+// @homepage     https://BelleBernice.github.io/TW-Userscripts/
+// @downloadURL  https://raw.githubusercontent.com/BelleBernice/TW-Userscripts/main/TW-ClothCalc-gr-BB/clothcalc.user.js
+// @updateURL    https://raw.githubusercontent.com/BelleBernice/TW-Userscripts/main/TW-ClothCalc-gr-BB/clothcalc.user.js
+// @supportURL   https://github.com/BelleBernice/TW-Userscripts/issues
+// @source       https://github.com/BelleBernice/TW-Userscripts
 // ==/UserScript==
 (function (f) {
   var d = document,
@@ -36,7 +37,7 @@
       version: 90,
       revision: 0,
       name: "The West - TW-DB.info Cloth Calc",
-      folder_url: "bellebernice.github.io/TW-Userscripts/TW-ClothCalc-gr-BB/",
+      folder_url: "BelleBernice.github.io/TW-Userscripts/TW-ClothCalc-gr-BB/",
       update: "clothcalc.user.js",
       check: "version",
       url: "tw-db.info",
