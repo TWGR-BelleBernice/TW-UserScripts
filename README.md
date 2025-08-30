@@ -16,5 +16,5 @@ _Κάντε κλικ στους παρακάτω συνδέσμους για ν�
 _Κάντε κλικ στους παρακάτω συνδέσμους για να εγκαταστήσετε \
 το `userscript` που επιθυμείτε για το The-West._
 
-1. [TW-DB.info Cloth Calc [gr] - BB](https://bellebernice.github.io/TW-Userscripts/TW-ClothCalc-gr-BB/clothcalc.user.js)
+1. [TW-DB.info Cloth Calc [gr] - BB](https://greasyfork.org/scripts/547843)
 2. soon™
