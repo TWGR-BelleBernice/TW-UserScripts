@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name The West - TW-DB.info Cloth Calc [gr] - BB
 // @namespace    https://github.com/BelleBernice/TW-Userscripts
-// @version 0.0.9
+// @version 0.0.99
 // @description The West Script: Cloth Calculation for game version 1.34 or higher
 // @author Bluep, scoobydoo, Dun, Petee [tw-db.info], Belle Bernice
 // @homepageURL  https://bellebernice.github.io/TW-Userscripts
@@ -36,7 +36,7 @@
   } else {
     TWDB = {};
     TWDB.script = new Object({
-      version: 90,
+      version: 99,
       revision: 0,
       name: "The West - TW-DB.info Cloth Calc",
       folder_url: "BelleBernice.github.io/TW-Userscripts/TW-ClothCalc-gr-BB/",
@@ -49,7 +49,7 @@
     });
     try {
       TWDB.script.notes = jQuery.parseJSON(
-        '[{"version":"90","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερσυνδέσμων"},{"version":"80","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"70","notes":"[bugifx] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"60","notes":"[bugifx] Αλλαγή μερικών υπερσυνδέσμων"},{"version":"50","notes":"[bugifx] Ουπς! Διόρθωση του userscript"},{"version":"40","notes":"[bugifx] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"30","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"20","notes":"[bugifx] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"10","notes":"** Δημιουργία userscript από το clothcalc_sk **"}]',
+        '[{"version":"99","notes":"[bugfix] Διόρθωση της πινέζας αντικειμένων για σωστή εμφάνιση σε παράθυρο vanilla και TWIR <br>[bugfix] Διόρθωση ορθογραφικών λαθών της λέξης bugfix στα Χαρακτηριστικά Έκδοσης"},{"version":"90","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερσυνδέσμων"},{"version":"80","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"70","notes":"[bugfix] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"60","notes":"[bugfix] Αλλαγή μερικών υπερσυνδέσμων"},{"version":"50","notes":"[bugfix] Ουπς! Διόρθωση του userscript"},{"version":"40","notes":"[bugfix] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"30","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"20","notes":"[bugfix] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"10","notes":"** Δημιουργία userscript από το clothcalc_sk **"}]',
       );
     } catch (e) {}
     TheWestApi.version = Game.version = parseInt(Game.version, 10)
@@ -7464,8 +7464,10 @@
               "width: 34px;" +
               "height: 36px;" +
               "position: absolute;" +
-              "left: 1px; }" +
-              "div#CC_pin_items.pinact { background-position: bottom; }";
+              "left: 0px!important; }" +
+              "div#CC_pin_items.pinact { background-position: bottom; }" +
+              "div.actions:has(.bag_resize) div#CC_pin_items {" +
+              "left: 24px!important; }";
             TWDB.Util.addCss(e, "pinning");
           } catch (t) {
             Error.report(t, "manipulate Inventory.addItems (pin items)");
