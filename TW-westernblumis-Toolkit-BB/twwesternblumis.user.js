@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name        TW-westernblumis-Toolkit-BB
+// @name        The West - westernblumis Toolkit - BB
 // @namespace   https://github.com/BelleBernice/TW-Userscripts
 // @version     1.11
 // @description Some useful improvements for The West
