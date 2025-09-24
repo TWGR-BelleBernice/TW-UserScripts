@@ -1,15 +1,15 @@
 // ==UserScript==
 // @name        The West - westernblumis Toolkit [gr] - BB
-// @namespace   https://github.com/BelleBernice/TW-Userscripts
-// @version     1.14
+// @namespace   https://github.com/TWGR-BelleBernice/TW-Userscripts
+// @version     1.15
 // @description Some useful improvements for The West
 // @author 	westernblumi, Belle Bernice
-// @homepageURL  https://bellebernice.github.io/TW-Userscripts
-// @supportURL   https://github.com/BelleBernice/TW-Userscripts/issues
-// @source       https://github.com/BelleBernice/TW-Userscripts
+// @homepageURL  https://TWGR-BelleBernice.github.io/TW-Userscripts
+// @supportURL   https://github.com/TWGR-BelleBernice/TW-Userscripts/issues
+// @source       https://github.com/TWGR-BelleBernice/TW-Userscripts
 // @icon         data:image/png;base64,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
-// @updateURL    https://raw.githubusercontent.com/BelleBernice/TW-Userscripts/main/TW-westernblumis-Toolkit-gr-BB/twwesternblumis.user.js
-// @downloadURL  https://raw.githubusercontent.com/BelleBernice/TW-Userscripts/main/TW-westernblumis-Toolkit-gr-BB/twwesternblumis.user.js
+// @updateURL    https://raw.githubusercontent.com/TWGR-BelleBernice/TW-Userscripts/main/TW-westernblumis-Toolkit-gr-BB/twwesternblumis.user.js
+// @downloadURL  https://raw.githubusercontent.com/TWGR-BelleBernice/TW-Userscripts/main/TW-westernblumis-Toolkit-gr-BB/twwesternblumis.user.js
 // @include http://*.the-west.*/game.php*
 // @include https://*.the-west.*/game.php*
 // @include http://*.tw.innogames.*/game.php*
@@ -116,7 +116,7 @@
 				FeatAdventureBlockPlayer:
 					"Ενεργοποίηση Αγνόησης άλλων παικτών στις Περιπέτειες",
 				save: "Αποθήκευση",
-				saveMessage: "Οι ρυθμίσεις αποθηκεύθηκαν με επιτυχία",
+				saveMessage: "Οι ρυθμίσεις αποθηκεύτηκαν με επιτυχία",
 				settings: "Ρυθμίσεις",
 				ghostTown: "Πόλη Φάντασμα",
 				indianVillage: "Ινδιάνικο Χωριό",
@@ -132,7 +132,7 @@
 				dailyItems: "Καθημερινές Αποστολές",
 				showDailyItems: "Εμφάνιση προϊόντων για καθημερινές αποστολές",
 				adventuresPlayed: "Παιγμένες Περιπέτειες",
-				adventuresKnockouts: "Εχθροί που λιποθύμισες",
+				adventuresKnockouts: "Εχθροί που λιποθύμησες",
 				adventuresMiss: "Άστοχες βολές",
 				adventuresDodges: "Αποφυγή βολών",
 				adventures: "Περιπέτειες",
@@ -436,11 +436,11 @@
 	};
 
 	WTK = {
-		version: "1.14",
-		name: "The West - westernblumis Toolkit",
+		version: "1.15",
+		name: "The West - westernblumis Toolkit [gr] - BB",
 		author: "westernblumi, Belle Bernice",
 		website: "//greasyfork.org/scripts/550500",
-		url: "//github.com/BelleBernice/TW-Userscripts/TW-westernblumis-Toolkit-gr-BB/",
+		url: "//github.com/TWGR-BelleBernice/TW-Userscripts/TW-westernblumis-Toolkit-gr-BB/",
 		Data: {},
 		loaded: [],
 		Features: {
