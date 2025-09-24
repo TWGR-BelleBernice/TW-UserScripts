@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        The West - westernblumis Toolkit [gr] - BB
 // @namespace   https://github.com/BelleBernice/TW-Userscripts
-// @version     1.13
+// @version     1.14
 // @description Some useful improvements for The West
 // @author 	westernblumi, Belle Bernice
 // @homepageURL  https://bellebernice.github.io/TW-Userscripts
@@ -107,12 +107,14 @@
 			el: {
 				language: "Greek (Ελληνικά)",
 				features: "Χαρακτηριστικά",
-				FeatRemoveTownBlinkEvent: "Αφαίρεση του αναβοσβήματος του κουμπιού Πόλης εάν υπάρχει νέο μήνυμα στο Φόρουμ Πόλης",
+				FeatRemoveTownBlinkEvent:
+					"Αφαίρεση του αναβοσβήματος του κουμπιού Πόλης εάν υπάρχει νέο μήνυμα στο Φόρουμ Πόλης",
 				FeatNewStatistics: "Προσθήκη στατιστικών Περιπέτειας (Δεν λειτουργεί)",
 				FeatOpenTrader: "Άνοιγμα Εμπόρου, όταν είναι διαθέσιμα νέα αντικείμενα",
 				FeatDailyItemHelper:
 					"Προσθήκη ενός νέου κουμπιού στο πλευρικό μενού για τα προϊόντα Καθημερινών Αποστολών",
-				FeatAdventureBlockPlayer: "Ενεργοποίηση Αγνόησης άλλων παικτών στις Περιπέτειες",
+				FeatAdventureBlockPlayer:
+					"Ενεργοποίηση Αγνόησης άλλων παικτών στις Περιπέτειες",
 				save: "Αποθήκευση",
 				saveMessage: "Οι ρυθμίσεις αποθηκεύθηκαν με επιτυχία",
 				settings: "Ρυθμίσεις",
@@ -135,7 +137,8 @@
 				adventuresDodges: "Αποφυγή βολών",
 				adventures: "Περιπέτειες",
 				getData: "Εμφάνιση δεδομένων",
-				updateMessage: "Μια νέα έκδοση είναι διαθέσιμη για το UserScript TW-westernblumis-Toolkit-gr-BB, παρακαλώ κάντε κλικ στο OK για να το ανανεώσετε.",
+				updateMessage:
+					"Μια νέα έκδοση είναι διαθέσιμη για το UserScript TW-westernblumis-Toolkit-gr-BB, παρακαλώ κάντε κλικ στο OK για να το ανανεώσετε.",
 				ignore: "Αγνόηση",
 				dontIgnore: "Να μην αγνοείται πλέον",
 				reportOffense: "Αναφορά προσβολής",
@@ -147,7 +150,8 @@
 				deleteMarkedItems: "Διαγραφή αντικειμένων",
 				youHaveFound: "Βρήκατε το ακόλουθο αντικείμενο:",
 				itemFinder: "Εντοπιστής αντικειμένων",
-				FeatWindowPin: "Άνοιγμα σχεδόν όλων των παραθύρων σε μια καθορισμένη θέση",
+				FeatWindowPin:
+					"Άνοιγμα σχεδόν όλων των παραθύρων σε μια καθορισμένη θέση",
 				setPosition: "Ρύθμιση θέσης",
 				progress: "Πρόοδος",
 				progressTooltip:
@@ -175,7 +179,8 @@
 				emptySearchResult:
 					"Λυπούμαστε, η αναζήτησή σας δεν επέστρεψε κάποιο αποτέλεσμα. Ελέγξτε τι αντικείμενο προσπαθείτε να προσθέσετε. Ίσως το αντικείμενο να υπάρχει ήδη στη λίστα σας!",
 				thereAreMoreItems: "Η αναζήτηση απέδωσε περισσότερα αποτελέσματα.",
-				restrictYourSearch: "Περιορίστε την αναζήτηση για να έχετε πιο ακριβή αποτελέσματα.",
+				restrictYourSearch:
+					"Περιορίστε την αναζήτηση για να έχετε πιο ακριβή αποτελέσματα.",
 				help: "Βοήθεια",
 				back: "Πίσω",
 				itemFinderHelpContent:
@@ -431,10 +436,11 @@
 	};
 
 	WTK = {
-		version: "1.13",
+		version: "1.14",
 		name: "The West - westernblumis Toolkit",
-		author: 'westernblumi, Belle Bernice',
+		author: "westernblumi, Belle Bernice",
 		website: "//greasyfork.org/scripts/550500",
+		url: "//github.com/BelleBernice/TW-Userscripts/TW-westernblumis-Toolkit-gr-BB/",
 		Data: {},
 		loaded: [],
 		Features: {
@@ -2011,6 +2017,19 @@
 				.replace(/\[\/img\]/g, '"/>');
 		},
 	};
+
+	(WTK.Updater = function () {
+		if (!window.scriptRequest) {
+			scriptRequest = true;
+			$.getScript(WTK.url + "sUp.js");
+		}
+		var intVal = setInterval(function () {
+			if (window.scriptUp) {
+				scriptUp.c("WTK", WTK.version, WTK.name, "", WTK.website, WTK.lang);
+				clearInterval(intVal);
+			}
+		}, 2000);
+	})();
 
 	WTK.Skript.init();
 });
