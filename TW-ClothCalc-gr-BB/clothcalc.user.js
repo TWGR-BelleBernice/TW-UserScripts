@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name The West - TW-DB.info Cloth Calc [gr] - BB
 // @namespace    https://github.com/TWGR-BelleBernice/TW-UserScripts
-// @version 0.12.0
+// @version 0.13.0
 // @description The West Script: Cloth Calculation for game version 1.34 or higher
 // @author Bluep, scoobydoo, Dun, Petee [tw-db.info], Belle Bernice
 // @homepageURL  https://TWGR-BelleBernice.github.io/TW-UserScripts
@@ -36,7 +36,7 @@
   } else {
     TWDB = {};
     TWDB.script = new Object({
-      version: 12,
+      version: 13,
       revision: 0,
       name: "The West - TW-DB.info Cloth Calc",
       folder_url: "TWGR-BelleBernice.github.io/TW-UserScripts/TW-ClothCalc-gr-BB/",
@@ -49,7 +49,7 @@
     });
     try {
       TWDB.script.notes = jQuery.parseJSON(
-        '[{"version":"12","notes":"[bugfix] Διόρθωση λανθασμένης version"},{"version":"11","notes":"[bugfix] Αφαίρεση περιττού κώδικα στο παράθυρο Στρατολόγησης <br>[main] Αλλαγή Updater"},{"version":"10","notes":"[bugfix] Διόρθωση της πινέζας αντικειμένων για σωστή εμφάνιση σε παράθυρο vanilla και TWIR <br>[bugfix] Διόρθωση ορθογραφικών λαθών της λέξης bugfix στα Χαρακτηριστικά Έκδοσης"},{"version":"9","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερσυνδέσμων"},{"version":"8","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"7","notes":"[bugfix] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"6","notes":"[bugfix] Αλλαγή μερικών υπερσυνδέσμων"},{"version":"5","notes":"[bugfix] Ουπς! Διόρθωση του userscript"},{"version":"4","notes":"[bugfix] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"3","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"2","notes":"[bugfix] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"1","notes":"** Δημιουργία userscript από το clothcalc_sk **"}]',
+        '[{"version":"13","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"12","notes":"[bugfix] Διόρθωση λανθασμένης version"},{"version":"11","notes":"[bugfix] Αφαίρεση περιττού κώδικα στο παράθυρο Στρατολόγησης <br>[main] Αλλαγή Updater"},{"version":"10","notes":"[bugfix] Διόρθωση της πινέζας αντικειμένων για σωστή εμφάνιση σε παράθυρο vanilla και TWIR <br>[bugfix] Διόρθωση ορθογραφικών λαθών της λέξης bugfix στα Χαρακτηριστικά Έκδοσης"},{"version":"9","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερσυνδέσμων"},{"version":"8","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"7","notes":"[bugfix] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"6","notes":"[bugfix] Αλλαγή μερικών υπερσυνδέσμων"},{"version":"5","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"4","notes":"[bugfix] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"3","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"2","notes":"[bugfix] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"1","notes":"** Δημιουργία UserScript από το clothcalc_sk **"}]',
       );
     } catch (e) {}
     TheWestApi.version = Game.version = parseInt(Game.version, 10)
@@ -547,7 +547,7 @@
         });
         this.gui.copyright = jQuery(
           '<div style="position:absolute;bottom:0px;left:0px;height:15px;display:block;font-size:10px;color:#000000;">.:powered by TW-DB Team:. | <a href="https://tw-db.info" style="font-weight:normal;color:#000000;" target="_blank">.:TW-DB.info:.</a> | ' +
-            "0." + Script.version + "." + Script.revision +
+            "0." + TWDB.script.version + "." + TWDB.script.revision +
             " | BB</div>",
         );
         this.gui.cache = jQuery(
@@ -2420,7 +2420,7 @@
           r.appendToContentPane(
             e(
               '<div style="width:100%;text-align:center;position:absolute;bottom:0px;left:0px;height:15px;display:block;font-size:12px;color:#000000;">.:powered by TW-DB Team:. | <a href="https://tw-db.info" style="font-weight:normal;color:#000000;" target="_blank">.:TW-DB.info:.</a> | ' +
-                ("0." + Script.version + "." + Script.revision) +
+                "0." + Script.version + "." + Script.revision +
                 " | BB</div>",
             ),
           );
@@ -2995,7 +2995,7 @@
           for (var i = 0; i < Script.notes.length; i++) {
             var s = e(
               "<h3><a>Version " +
-                "0." + Script.version + "." + Script.revision +
+                "0." + String(Script.notes[i].version) + "." + Script.revision +
                 "</a></h3>",
             )
               .css("border-bottom", "1px solid black")
