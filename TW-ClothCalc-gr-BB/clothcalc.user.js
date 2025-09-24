@@ -1,15 +1,15 @@
 // ==UserScript==
 // @name The West - TW-DB.info Cloth Calc [gr] - BB
-// @namespace    https://github.com/BelleBernice/TW-Userscripts
-// @version 0.0.99
+// @namespace    https://github.com/TWGR-BelleBernice/TW-UserScripts
+// @version 0.11.0
 // @description The West Script: Cloth Calculation for game version 1.34 or higher
 // @author Bluep, scoobydoo, Dun, Petee [tw-db.info], Belle Bernice
-// @homepageURL  https://bellebernice.github.io/TW-Userscripts
-// @supportURL   https://github.com/BelleBernice/TW-Userscripts/issues
-// @source       https://github.com/BelleBernice/TW-Userscripts
+// @homepageURL  https://TWGR-BelleBernice.github.io/TW-UserScripts
+// @supportURL   https://github.com/TWGR-BelleBernice/TW-UserScripts/issues
+// @source       https://github.com/TWGR-BelleBernice/TW-UserScripts
 // @icon         data:image/png;base64,UklGRlIDAABXRUJQVlA4TEUDAAAvGAAGAAfkKpIkxRpevsfvfZGH51/VHqMNt5EkKdLwwjGod5a8/5a8zPy/4Da2bVW58nj6JSLixxDRBv0HFOLw7d4z/8EmbVRRFEi2uEVgYKg8BdTBXmYT7LBWOADUj+wipwRKQZDAB7BWB0QzL4I4IziqAewsCkAzRUEGM4qJ4CRs/0ehwFa/uryjlhXpJIhmSCyyQA49jMAQvvpkambevvx9Ac8r/iauN4ffiTqqPacg2KhXwRkaCLYmmtFetOmhP7lVZsOJTEjWM+z0FimQ2uwvMmsnqZKBBIb0T8COtiD6o8BnxKka37Ml/rz8TNeJpdHycXkVmkbaOYYDzz3xTFKEARxVGoVwgL9Ig5JATCKjan2R5b87zwMmgWGnWARXATnV5LSf/LY36yZWzdwsqHO7Lu75LKha72L8L97jxelw95cbg0Rt25YoAoYeu7vF7u7ubpAl/FdGpmxlbE9+rz2F743of/YMTVQX17S+d7R0dVS2UWt7Z60mSK9ace+hyP3/ieMP+gyN4wUCCASIAMATx3M1C6OcAImeSZdIIDyTRhLpSoz7PecEWSIN0KV/nkmOK0I38aqG17y4TIjrki6J0rvzHteljX5RL1QL8qj6yLn6C/usIfozNVaQp81vilFhVVGnl7xhrk0UpJyLy8Zcsbq0IxQUFU4nmQsfgE1mIj0WUVvR5oyUq5u6vXJcBgQg2FY6GG6uL1jZknOdydB2GRDAtU+/LbrzOnP585u8fvnILJcF5Dun3zhxrWRw1t42v8vHE4+e5fqJZNY+ATFYqdDsrd3v59Tw8dpyk/cZZpku82FmUmbEbxqcyh4fbI+5NjECXMdPhic637TPiWePlPEsmyjwbXJYQDSS43cQi9pv7oDwyvVAPksggBm1ybOGWvU2HCazj3dANplIJ9LX5ofRwm9s8oouVzvJuwxRmADgH3cOrBly555Y3dLZ1DlhekGYJuacTozvbhvUtTYpV380FTTU1pSUfr5/vaAkUsur9Fe174UjgZdI1ohIJQAgwosiFO2pvKypiq5WlhQTiFBZCpTFtIblOYmTBUWUhZgkxAgiFAGcumOsrfa3dXVWvGpRXeNA/+DGD2hvvW9x4QcA
-// @updateURL    https://raw.githubusercontent.com/BelleBernice/TW-Userscripts/main/TW-ClothCalc-gr-BB/clothcalc.user.js
-// @downloadURL  https://raw.githubusercontent.com/BelleBernice/TW-Userscripts/main/TW-ClothCalc-gr-BB/clothcalc.user.js
+// @updateURL    https://raw.githubusercontent.com/TWGR-BelleBernice/TW-UserScripts/main/TW-ClothCalc-gr-BB/clothcalc.user.js
+// @downloadURL  https://raw.githubusercontent.com/TWGR-BelleBernice/TW-UserScripts/main/TW-ClothCalc-gr-BB/clothcalc.user.js
 // @include http://*.the-west.*/game.php*
 // @include https://*.the-west.*/game.php*
 // @include http://*.tw.innogames.*/game.php*
@@ -28,7 +28,7 @@
   if (isDefined(window.TWDB)) {
     new west.gui.Dialog(
       TWDB.script.name,
-      '<div class="txcenter"><b><br>Το UserScript ClothCalc έχει εγκατασταθεί δυο φορές, με δυο διαφορετικές γλώσσες. Θα πρέπει να απενεργοποιήσετε μία από τις δυο γλώσσες για να λειτουργήσει το σκριπτ κανονικά.</br></b></div>',
+      '<div class="txcenter"><b><br>Το UserScript ClothCalc έχει εγκατασταθεί δυο φορές, με δυο διαφορετικές γλώσσες. Θα πρέπει να απενεργοποιήσετε μία από τις δυο γλώσσες για να λειτουργήσει το UserScript κανονικά.</br></b></div>',
       west.gui.Dialog.SYS_WARNING,
     )
       .addButton("OK")
@@ -36,26 +36,26 @@
   } else {
     TWDB = {};
     TWDB.script = new Object({
-      version: 99,
+      version: 11,
       revision: 0,
       name: "The West - TW-DB.info Cloth Calc",
-      folder_url: "BelleBernice.github.io/TW-Userscripts/TW-ClothCalc-gr-BB/",
+      folder_url: "TWGR-BelleBernice.github.io/TW-UserScripts/TW-ClothCalc-gr-BB/",
       update: "clothcalc.user.js",
-      check: "version",
+      check: "version.js",
       url: "tw-db.info",
       protocol: location.protocol.match(/^(.+):$/)[1],
-      gameversion: 2.252,
+      game_version: 2.253,
       lang: "gr",
     });
     try {
       TWDB.script.notes = jQuery.parseJSON(
-        '[{"version":"99","notes":"[bugfix] Διόρθωση της πινέζας αντικειμένων για σωστή εμφάνιση σε παράθυρο vanilla και TWIR <br>[bugfix] Διόρθωση ορθογραφικών λαθών της λέξης bugfix στα Χαρακτηριστικά Έκδοσης"},{"version":"90","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερσυνδέσμων"},{"version":"80","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"70","notes":"[bugfix] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"60","notes":"[bugfix] Αλλαγή μερικών υπερσυνδέσμων"},{"version":"50","notes":"[bugfix] Ουπς! Διόρθωση του userscript"},{"version":"40","notes":"[bugfix] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"30","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"20","notes":"[bugfix] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"10","notes":"** Δημιουργία userscript από το clothcalc_sk **"}]',
+        '[{"version":"11","notes":"[bugfix] Αφαίρεση περιττού κώδικα στο παράθυρο Στρατολόγησης <br>[main] Αλλαγή Updater"},{"version":"10","notes":"[bugfix] Διόρθωση της πινέζας αντικειμένων για σωστή εμφάνιση σε παράθυρο vanilla και TWIR <br>[bugfix] Διόρθωση ορθογραφικών λαθών της λέξης bugfix στα Χαρακτηριστικά Έκδοσης"},{"version":"9","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερσυνδέσμων"},{"version":"8","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"7","notes":"[bugfix] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"6","notes":"[bugfix] Αλλαγή μερικών υπερσυνδέσμων"},{"version":"5","notes":"[bugfix] Ουπς! Διόρθωση του userscript"},{"version":"4","notes":"[bugfix] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"3","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"2","notes":"[bugfix] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"1","notes":"** Δημιουργία userscript από το clothcalc_sk **"}]',
       );
     } catch (e) {}
     TheWestApi.version = Game.version = parseInt(Game.version, 10)
       ? Game.version
-      : TWDB.script.gameversion;
-    TWDB.script.gameversion = Game.version;
+      : TWDB.script.game_version;
+    TWDB.script.game_version = Game.version;
     TWDB.script.isDev = function () {
       return this.check.search("dev_version") !== -1;
     };
@@ -547,9 +547,7 @@
         });
         this.gui.copyright = jQuery(
           '<div style="position:absolute;bottom:0px;left:0px;height:15px;display:block;font-size:10px;color:#000000;">.:powered by TW-DB Team:. | <a href="https://tw-db.info" style="font-weight:normal;color:#000000;" target="_blank">.:TW-DB.info:.</a> | ' +
-            TWDB.script.revision +
-            "." +
-            TWDB.script.version / 100 +
+            "0." + Script.version + "." + Script.revision +
             " | BB</div>",
         );
         this.gui.cache = jQuery(
@@ -2000,7 +1998,7 @@
             "twdb_clothcalc",
             "TW-DB.info - Cloth Calc",
             "2.04",
-            String(Script.gameversion),
+            String(Script.game_version),
             "scoobydoo, Dun, Petee, Bluep, Tom Robert, xShteff [tw-db.info] - BB",
             "https://tw-db.info",
           );
@@ -2422,7 +2420,7 @@
           r.appendToContentPane(
             e(
               '<div style="width:100%;text-align:center;position:absolute;bottom:0px;left:0px;height:15px;display:block;font-size:12px;color:#000000;">.:powered by TW-DB Team:. | <a href="https://tw-db.info" style="font-weight:normal;color:#000000;" target="_blank">.:TW-DB.info:.</a> | ' +
-                (Script.revision + "." + Script.version / 100) +
+                ("0." + Script.version + "." + Script.revision) +
                 " | BB</div>",
             ),
           );
@@ -2966,9 +2964,7 @@
           r = r.replace("=1=", "<b>" + Script.name + "</b>");
           r +=
             "<div><br />Τρέχουσα έκδοση: " +
-            Script.revision +
-            "." +
-            Script.version / 100 +
+            "0." + Script.version + "." + Script.revision +
             "<br />Νέα έκδοση: " +
             t +
             "." +
@@ -3001,9 +2997,7 @@
           for (var i = 0; i < Script.notes.length; i++) {
             var s = e(
               "<h3><a>Version " +
-                Script.revision +
-                "." +
-                String(Script.notes[i].version / 100) +
+                "0." + Script.version + "." + Script.revision +
                 "</a></h3>",
             )
               .css("border-bottom", "1px solid black")
@@ -8739,22 +8733,22 @@
             };
             var newfunction = String(FortBattleWindow.updateRecruitlist);
             newfunction = newfunction
-              .replace(
-                /totalCnt\s{0,1}=\s{0,1}0;/,
-                "totalCnt=0, totalCntTotal=0, gradeCountTotal={ '-2':0, '-1':0, '0':0, '1':0, '2':0, '3':0, '4':0, '5':0 };",
-              )
-              .replace(
-                /gradeCount\[g\]/,
-                "gradeCount[g] + ' [' + gradeCountTotal[g] + ']'",
-              )
-              .replace(
-                /\+\s{0,1}totalCnt\s{0,1}\+/,
-                "+totalCnt+' ['+totalCntTotal+']'+",
-              )
-              .replace(
-                /if\(this\.preBattle\.isHidden\(list\[i\]\['class'\], ?'rank_' ?\+ ?priv\)\)/,
-                "totalCntTotal++;gradeCountTotal[priv]++;if(this.preBattle.isHidden(list[i]['class'],'rank_'+priv,list[i].coords.x,list[i].coords.y))",
-              )
+              // .replace(
+              //   /totalCnt\s{0,1}=\s{0,1}0;/,
+              //   "totalCnt=0, totalCntTotal=0, gradeCountTotal={ '-2':0, '-1':0, '0':0, '1':0, '2':0, '3':0, '4':0, '5':0 };",
+              // )
+              // .replace(
+              //   /gradeCount\[g\]/,
+              //   "gradeCount[g] + ' [' + gradeCountTotal[g] + ']'",
+              // )
+              // .replace(
+              //   /\+\s{0,1}totalCnt\s{0,1}\+/,
+              //   "+totalCnt+' ['+totalCntTotal+']'+",
+              // )
+              // .replace(
+              //   /if\(this\.preBattle\.isHidden\(list\[i\]\['class'\], ?'rank_' ?\+ ?priv\)\)/,
+              //   "totalCntTotal++;gradeCountTotal[priv]++;if(this.preBattle.isHidden(list[i]['class'],'rank_'+priv,list[i].coords.x,list[i].coords.y))",
+              // )
               .replace(
                 /getGradeImg\(priv, ?true, ?'recruitplayer recruitplayer-'\+ ?i\)/,
                 "getGradeImg(priv,true,'recruitplayer recruitplayer-'+i,list[i].officername||'')",
@@ -8765,7 +8759,7 @@
               )
               .replace(
                 /\.appendToThCell\('head', ?'evaluated' ?,.*?,.*?\);/,
-                ".appendToThCell('head','healthpoints','Ταξινόμηση κατά Yγεία','<span class=\"sort sort-healthpoints\">'+'Lp'+'</span>');",
+                ".appendToThCell('head','healthpoints','Ταξινόμηση κατά Yγεία','<span class=\"sort sort-healthpoints\">'+'Π.Υ.'+'</span>');",
               )
               .replace(
                 /evaluated ?: ?list\[i\]\.officername ?\|\| ?''/,
