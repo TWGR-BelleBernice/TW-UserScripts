@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        The West - westernblumis Toolkit [gr] - BB
 // @namespace   https://github.com/TWGR-BelleBernice/TW-Userscripts
-// @version     1.15
+// @version     1.16
 // @description Some useful improvements for The West
 // @author 	westernblumi, Belle Bernice
 // @homepageURL  https://TWGR-BelleBernice.github.io/TW-Userscripts
@@ -436,11 +436,11 @@
 	};
 
 	WTK = {
-		version: "1.15",
+		version: "1.16",
 		name: "The West - westernblumis Toolkit [gr] - BB",
 		author: "westernblumi, Belle Bernice",
 		website: "//greasyfork.org/scripts/550500",
-		url: "//github.com/TWGR-BelleBernice/TW-Userscripts/TW-westernblumis-Toolkit-gr-BB/",
+		url: "//raw.githubusercontent.com/TWGR-BelleBernice/TW-Userscripts/main/TW-westernblumis-Toolkit-gr-BB/",
 		Data: {},
 		loaded: [],
 		Features: {
