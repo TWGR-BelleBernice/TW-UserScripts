@@ -23,7 +23,7 @@
 	document.body.appendChild(script);
 	document.body.removeChild(script);
 })(function () {
-	WTKstart = {
+	WTKBBstart = {
 		langs: {
 			en: {
 				language: "English",
@@ -47,7 +47,7 @@
 				saturday: "Saturday",
 				sunday: "Sunday",
 				saloon: "Saloon",
-				shortName: "WTK",
+				shortName: "WTKBB",
 				dailyItems: "Products for daily quests",
 				showDailyItems: "Show products for daily quests",
 				adventuresPlayed: "Adventures played",
@@ -128,7 +128,7 @@
 				saturday: "Σάββατο",
 				sunday: "Κυριακή",
 				saloon: "Σαλούν",
-				shortName: "WTK",
+				shortName: "WTKBB",
 				dailyItems: "Καθημερινές Αποστολές",
 				showDailyItems: "Εμφάνιση προϊόντων για καθημερινές αποστολές",
 				adventuresPlayed: "Παιγμένες Περιπέτειες",
@@ -213,7 +213,7 @@
 				saturday: "Samstag",
 				sunday: "Sonntag",
 				saloon: "Saloon",
-				shortName: "WTK",
+				shortName: "WTKBB",
 				dailyItems: "Produkte für tägliche Quests",
 				showDailyItems: "Zeige Produkte für tägliche Quests",
 				adventuresPlayed: "Abenteuer absolviert",
@@ -293,7 +293,7 @@
 				saturday: "Sobota",
 				sunday: "Niedziela",
 				saloon: "Saloon",
-				shortName: "WTK",
+				shortName: "WTKBB",
 				dailyItems: "Produkty do dziennych zadań",
 				showDailyItems: "Pokaż produkty do dziennych zadań",
 				adventuresPlayed: "Rozegrane przygody",
@@ -375,7 +375,7 @@
 				saturday: "Sábado",
 				sunday: "Domingo",
 				saloon: "Salón",
-				shortName: "WTK",
+				shortName: "WTKBB",
 				dailyItems: "Productos para búsquedas diarias",
 				showDailyItems: "Mostrar productos para búsquedas diarias",
 				adventuresPlayed: "Aventuras jugadas",
@@ -435,7 +435,7 @@
 		},
 	};
 
-	WTK = {
+	WTKBB = {
 		version: "1.19",
 		name: "The West - westernblumis Toolkit [gr] - BB",
 		author: "westernblumi, Belle Bernice",
@@ -463,22 +463,22 @@
 			menu: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/4QCsRXhpZgAATU0AKgAAAAgACQEaAAUAAAABAAAAegEbAAUAAAABAAAAggEoAAMAAAABAAIAAAExAAIAAAARAAAAigMBAAUAAAABAAAAnAMDAAEAAAABAAAAAFEQAAEAAAABAQAAAFERAAQAAAABAAAOw1ESAAQAAAABAAAOwwAAAAAAAXbyAAAD6AABdvIAAAPocGFpbnQubmV0IDQuMC4xMwAAAAGGoAAAsY//2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/2wBDAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQH/wAARCAAZADIDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD+fH9qH9jz9rLw78PfDf7aHinx0H+Avxp+KfxV+GXwr1fwV8QZvDbeH7r4SeLNZ8Jf8Ix458H6KmlWXgTxVqC+GrzWL2G5YXHiHVY9e8Q3F7e3eoLd3dbxT+wF+1V4e/ZK+G/7ZuseNvH2r/Bv4hfEnUfhNoUum/FH4jap4r8PeOdGg8SajeaP4m8FrZp4h8OPd2vhbWdcsLiSFoLzT5bHUIHEGoQM/wCsf7A/jLU/2vv2bv8Agpr/AME5LnTpbv4geGfHnxY/bk/ZQ0+S61XQ/EMfxX+D/jfXdG+K3gWPStJvo9Ug8U+P/hnfvpFjp1pc2thHejXXv4phdOkn09+wX8Hrb4rf8Ek/2mf2WPGup6vffFH9pzSvil+2z+yr8L77QtKMlje/sl3fgvRPGGraVr/i1fENhd+LPjHqel+LPhx4amvtJs4NS0X4UeNNZMXhyQC7f8woU6lSGFp00sPB5bJ0PZKjGNPEYanDD+xSUZPkqtw9nCCjy/WcOpylOOv6ZVlTpOtOrJYissfTdWdSVSo6uHxl66qOSlCClSpym6k3dynhsRywhBJn82vwY/Yu/aO+NOt/FH4jeAdR1G4s/wBmr4U65+0D4y1X4zeJ9Ql8JaX4M+HV5pS3Wlaro/jixN14qk1681Oy0jT/AATBp903iH7Y2jWkk5knuJf1i8V/svfFbVvhb8Xv2l9M0Hwfc/s+/B/41af8F7nR7XU9Ffxd8M9Y1fwT4P8AEtjp2q6Xp+jQ6lq+gMniWz8P6P401O+1BNe02TQ7OOW3tYBaWXLeKvF/hP8AY3/4JqjwXqFt4n0X4nf8FDtQv/i34i0/QrTUdT1zQv2Yf2d9Y1bSPhn4fv5/EPizXLZLH4l/GD/hN/FR8SaXdWOkaroPgPwf4i+wSadeae1z9j/8E1Pi3onxX/az/bu/4J2eLjFoHwy/bq8HW3g/wVP4kE2g6l4T+N/gP4O+B/GvwI8RX2kXzs8sBv7S4sLB44LLVdXvLrw3BMiNAFTxMTCrj8dg8NWpzc1lOM9nivZxpulicXicseEpwnJKFSlCdXDrESi/jxNa3LOnOL9eFKGFw1bF0pp0nmFGdTBqpWk6+EwccWsZUlTi7RqpYfEywtOTtGnQpL341Lny/wCGv2T/AIk+NP2Yfif+1Jpei6JrHwl+DXirSPDPxAtP+Engk8S+Gr7xLcaDpujX8vhCSy+1Lpt7fazYafDqNu6RwvaX0DRhbSVk85+C/wCy/wCLf2r/AIp+Hfhj8PvAXh668S3lhr2o2lx411Dw7baD4btfCnh7UPGGva5q+reIbUQ6NptlZ6VdXE8EiCVZ4JWm8xHsZh+2/wDwSR+GVhH4N/at/Z8+NmsyeCdA/ay1vxT+w/4J8E3V1p2pWEv7Qvw98H+L/HeoeItVntbuVdNvfg7qY0Dwy7Wiai9x4y+JvhrTXtzHFPPF8ZfB621n9kD9mP8Aaa+MvjLQPGmhfEb4/a/4o/ZB+HNnp/hPXn8R+GvA/hiO2139qPxjaaFqVrZRwx29pbeDfhdpU872v2y68SeMLC2uXNjfoPIeEnQw+X422IhB4fGVsbT9rLnhUwdbnlQg1Llw1THYarg4YdVI1LVq3NGNWlJ29CNKlWxGOy9Sw85+1wVDBznCcoVI4yNOl7bllKcq8cPWhjp4yVOq5clGMU4VU7+WeDvhR8L9V8IeFdU1P9mbwLrGo6l4b0O/1DVtN8fWHhjTtUvbzTLW4u9RsPDUen2qeHrK9nkkubXQ0tbZNJgljsFghFuI1Kg+FPxN+Duq/C74bao/gr4jztqXgHwdftPdeE/FU9zM154e064MtzPpem3GmTTyGQvNLp081hJIWe0lktzG7Ffl9aWce2q3pVIv2k7r6viVyvm2ssVZWtay0008/s4UMucIXxmNbcY6rEYlpu0NU7Xs7pr/AICPzX/Z8/a1vf2If26fD3xpu9A+KeheNfgv+0L4i8cap4Rv7rwHpw1PwR4n1/VdQvdEa7jv7y91iLxv8N/EVzol/rltq1xa6xpWpTX0OpTyCOYfY2rf8FWfhzpv/BUX4e/tofCDwtP4E+DvwR+Inh3wb8NPh7Z+LNO0m5sP2ZfD+mS+HNT8ExeE7u+13QbLU/GvgfxB411jxBZWtzFct458Wasx8TTGe8uL3wT4+f8AHv42/wCxQ8Ff+1682/Zv/wBR4f8A93Tf/S68r9XpcR/V8kpY+GD5fY1qWIdCliXCH1jDyjSlOlKVGpKnGpKPtOSp7dpqCnOryJnyT4b+s59VyyeNvz0K1H288MpP6rOo/wBzKnGtTg3GLcVODp2Tmowjzyv3X7bn7ZXwl/at+MvjzXvBfwXtNK0DxDHZfCX4GeDvDHijww2ueF/gr4d0Rfh/8KPA3gPwp4f0rUTpes6d4S0vS7WSx0+TU9KtLy41+6ENxf3Tzy8x/wAL4m+DX7Rdz4+1PTfi/wCGfG6+KfhX8b/hrqN0PhUbDUk0nwn4LTSvGC6j4ik1efXb6w8WeGtQu9DTT/Lu/C+pwwaabfRbrT0t7f8AVrwN/wAlQ+Fv/Yb8S/8AqJQ18OfHP/kI3X/Yl+OP/T9JXyGW8XUc+zOnSllU8M8TR+tVav8AadbEVY18difrEZUJToRVCNCWCjFQjF80Zr2bo8iv7+I4drZblksTHMlU+pr6tRoxwFGlRdHDUI0ZU6qVSU6qrf2jOc+ad+aHvOaqSt9Vfts/8FZvA37R/wC0/wDC/wCPnwQ0a0+GFt8HD4K+Ifg/w74nvvBdu1p8X/FGtH4gfFnxVDJu1XXdP13xJ8Sls9KudW0fxLHPqfhTwb4IuVt9NuY7e10mp/wUD/4Kbfs8ftRfGi7+JXhj4PWFl4N0fRGsPhl4f1X4peDoNOs9d8W+Jbj4i/FDXx4A02PVftnj7xX8WPGfjPVLfUdJu5dd1e6l8M2WrI9gY9Jtvyf+AfU/9hHWf/SnT6/XKw/1vgH/ALHv4ff+nXUa6+J+KFgcViMuxGEr4qjmE44jF+yzCWCc3h1JqlH2WGnKFGUfclSUnTajTcoydOFscjyJ1cHluY4bFU8LVoYath8NGWEWJ9ksRXlSnVlKpXTrVl7NSjUmk4qdaC92rI+OfCvxu1Twj4X8N+FLSL4zaLa+GNB0fw9baPqV3oU+o6Tb6Lp1vpsOmX85gtDNe2EdstrdSm1tjJPFI5t4SfLUr9CfF/8AyNnij/sYtb/9OVzRX56+JMPWbqyyuN6rdR3rYaWs2pP3pZc3LVvV3b3d3e/uvLXSbpqsmqb5E+SrG/J7qdo4lJfCtEklslZH/9k=",
 		},
 		updateLang: function () {
-			var languages = WTKstart.langs;
-			WTK.lang = languages[Game.locale.substr(0, 2)]
+			var languages = WTKBBstart.langs;
+			WTKBB.lang = languages[Game.locale.substr(0, 2)]
 				? Game.locale.substr(0, 2)
 				: "en";
-			WTKlang = languages[WTK.lang];
+			WTKBBlang = languages[WTKBB.lang];
 		},
 	};
-	WTK.updateLang();
-	WTK.Skript = {
+	WTKBB.updateLang();
+	WTKBB.Skript = {
 		init: function () {
 			var menuContainer = $(
-				'<div class="menulink" onclick="WTK.GUI.openMenu();" title="' +
-					WTK.name +
+				'<div class="menulink" onclick="WTKBB.GUI.openMenu();" title="' +
+					WTKBB.name +
 					'" />'
 			)
-				.css("background-image", "url(" + WTK.Images.menu + ")")
+				.css("background-image", "url(" + WTKBB.Images.menu + ")")
 				.css("background-position", "0px 0px")
 				.on("mouseenter", function () {
 					$(this).css("background-position", "-25px 0px");
@@ -487,94 +487,94 @@
 					$(this).css("background-position", "0px 0px");
 				});
 			$("#ui_menubar").append(
-				$('<div id="WTK_menubutton" class="ui_menucontainer" />')
+				$('<div id="WTKBB_menubutton" class="ui_menucontainer" />')
 					.append(menuContainer)
 					.append('<div class="menucontainer_bottom" />')
 			);
 
 			var styling = $("<style></style>").text(
-				".WTK_find_notifcation {position: absolute;width: 51px;color: #fff;min-width: 23px;line-height: 12px;font-size: 10px;bottom: 3px;left: 2px;text-align: center;background: rgba(127, 111, 85, 0.7);border-radius: 0 2px 0 2px;box-shadow: 0px -1px 2px #000000;font-weight: bold;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;padding: 0 2px;opacity: 1;}" +
-					".WTK_find_notifcation_highlight {border: 2px;border-color: yellow;border-style: solid;width: 48px;}" +
-					".WTK_item_border {border: transparent;border-style: solid;border-width: 2px;border-radius: 5px;}" +
-					".WTK_item_border_green {border: green;border-style: solid;border-width: 2px;border-radius: 5px;}"
+				".WTKBB_find_notifcation {position: absolute;width: 51px;color: #fff;min-width: 23px;line-height: 12px;font-size: 10px;bottom: 3px;left: 2px;text-align: center;background: rgba(127, 111, 85, 0.7);border-radius: 0 2px 0 2px;box-shadow: 0px -1px 2px #000000;font-weight: bold;-webkit-font-smoothing: antialiased;-moz-osx-font-smoothing: grayscale;padding: 0 2px;opacity: 1;}" +
+					".WTKBB_find_notifcation_highlight {border: 2px;border-color: yellow;border-style: solid;width: 48px;}" +
+					".WTKBB_item_border {border: transparent;border-style: solid;border-width: 2px;border-radius: 5px;}" +
+					".WTKBB_item_border_green {border: green;border-style: solid;border-width: 2px;border-radius: 5px;}"
 			);
 			$("head").append(styling);
 
-			WTK.Skript.updateFeat();
+			WTKBB.Skript.updateFeat();
 		},
 		updateFeat: function () {
-			var saved = localStorage.getItem("WTKFeaturestest");
-			WTK.Data = (saved && saved.indexOf("{") === 0 && JSON.parse(saved)) || {};
-			for (var k in WTK.Features) {
-				if (WTK.Skript.getFeature(k) && !WTK.loaded.includes(k)) {
+			var saved = localStorage.getItem("WTKBBFeaturestest");
+			WTKBB.Data = (saved && saved.indexOf("{") === 0 && JSON.parse(saved)) || {};
+			for (var k in WTKBB.Features) {
+				if (WTKBB.Skript.getFeature(k) && !WTKBB.loaded.includes(k)) {
 					try {
-						WTK.loaded.push(k);
-						WTK[k].init();
+						WTKBB.loaded.push(k);
+						WTKBB[k].init();
 					} catch (e) {}
 				}
 			}
-			WTK.ExtendedItemFinder.init();
+			WTKBB.ExtendedItemFinder.init();
 		},
 		getFeature: function (name) {
-			return WTK.Data[name] !== undefined ? WTK.Data[name] : WTK.Features[name];
+			return WTKBB.Data[name] !== undefined ? WTKBB.Data[name] : WTKBB.Features[name];
 		},
 	};
 
-	WTK.GUI = {
+	WTKBB.GUI = {
 		openMenu: function () {
-			WTK.GUI.open();
-			WTK.GUI.openSettings();
+			WTKBB.GUI.open();
+			WTKBB.GUI.openSettings();
 		},
 		window: {},
 		checkbox: {},
 		open: function () {
-			WTK.GUI.window = wman
-				.open("WTKMenuWindow", WTK.name, "noreload")
-				.setMiniTitle(WTKlang.shortName)
+			WTKBB.GUI.window = wman
+				.open("WTKBBMenuWindow", WTKBB.name, "noreload")
+				.setMiniTitle(WTKBBlang.shortName)
 				.setMaxSize(1268, 838);
-			WTK.GUI.window.addTab(
-				WTKlang.settings,
-				"WTKSettingsTab",
-				WTK.GUI.openSettings
+			WTKBB.GUI.window.addTab(
+				WTKBBlang.settings,
+				"WTKBBSettingsTab",
+				WTKBB.GUI.openSettings
 			);
-			WTK.GUI.window.addTab(
-				WTKlang.dailyItems,
-				"WTKDailyItemsTab",
-				WTK.DailyItemHelper.showDailyItems
+			WTKBB.GUI.window.addTab(
+				WTKBBlang.dailyItems,
+				"WTKBBDailyItemsTab",
+				WTKBB.DailyItemHelper.showDailyItems
 			);
-			WTK.GUI.window.addTab(
-				WTKlang.itemFinder,
-				"WTKExtendedItemFinder",
-				WTK.ExtendedItemFinder.showExtendedItemFinder
+			WTKBB.GUI.window.addTab(
+				WTKBBlang.itemFinder,
+				"WTKBBExtendedItemFinder",
+				WTKBB.ExtendedItemFinder.showExtendedItemFinder
 			);
 		},
 		getDefault: function (tab) {
-			WTK.GUI.window
+			WTKBB.GUI.window
 				.setResizeable(false)
 				.setSize(748, 471)
 				.clearContentPane()
 				.removeClass("nocloseall")
-				.setTitle(WTK.name);
-			WTK.GUI.window.dontCloseAll = false;
-			$(WTK.GUI.window.getContentPane()).css("margin-top", "10px");
-			var wnd = WTK.GUI.window.getMainDiv();
+				.setTitle(WTKBB.name);
+			WTKBB.GUI.window.dontCloseAll = false;
+			$(WTKBB.GUI.window.getContentPane()).css("margin-top", "10px");
+			var wnd = WTKBB.GUI.window.getMainDiv();
 			$(".textart_title", wnd).css("display", "");
-			WTK.GUI.window.activateTab(tab);
+			WTKBB.GUI.window.activateTab(tab);
 		},
 		openSettings: function () {
-			WTK.GUI.getDefault("WTKSettingsTab");
+			WTKBB.GUI.getDefault("WTKBBSettingsTab");
 
 			var featScroll = new west.gui.Scrollpane();
 
-			featScroll.appendContent("<h2>" + WTKlang.features + "</h2>");
-			for (var k in WTK.Features) {
-				WTK.GUI.checkbox[k] = new west.gui.Checkbox()
-					.setLabel(WTKlang["Feat" + k])
-					.setSelected(WTK.Skript.getFeature(k))
+			featScroll.appendContent("<h2>" + WTKBBlang.features + "</h2>");
+			for (var k in WTKBB.Features) {
+				WTKBB.GUI.checkbox[k] = new west.gui.Checkbox()
+					.setLabel(WTKBBlang["Feat" + k])
+					.setSelected(WTKBB.Skript.getFeature(k))
 					.appendTo(featScroll.getContentPane());
 				if (k == "WindowPin") {
-					var button1 = new west.gui.Button(WTKlang.setPosition, function () {
-						WTK.WindowPin.getNewPinPosition();
+					var button1 = new west.gui.Button(WTKBBlang.setPosition, function () {
+						WTKBB.WindowPin.getNewPinPosition();
 					});
 					featScroll.appendContent(button1.getMainDiv());
 				}
@@ -585,21 +585,21 @@
 				height: "310px",
 				"margin-bottom": "10px",
 			});
-			var button2 = new west.gui.Button(WTKlang.save, function () {
-				for (var k in WTK.GUI.checkbox) {
-					WTK.Data[k] = WTK.GUI.checkbox[k].isSelected();
+			var button2 = new west.gui.Button(WTKBBlang.save, function () {
+				for (var k in WTKBB.GUI.checkbox) {
+					WTKBB.Data[k] = WTKBB.GUI.checkbox[k].isSelected();
 				}
-				localStorage.setItem("WTKFeaturestest", JSON.stringify(WTK.Data));
-				WTK.Skript.updateFeat();
-				new UserMessage(WTKlang.saveMessage, "success").show();
+				localStorage.setItem("WTKBBFeaturestest", JSON.stringify(WTKBB.Data));
+				WTKBB.Skript.updateFeat();
+				new UserMessage(WTKBBlang.saveMessage, "success").show();
 			});
-			$(WTK.GUI.window.getContentPane())
+			$(WTKBB.GUI.window.getContentPane())
 				.append(featScroll.getMainDiv())
 				.append(button2.getMainDiv());
 		},
 	};
 
-	WTK.RemoveTownBlinkEvent = {
+	WTKBB.RemoveTownBlinkEvent = {
 		init: function () {
 			setTimeout(function () {
 				$("div.city > div.city").removeClass("dock-highlight");
@@ -611,7 +611,7 @@
 		},
 	};
 
-	WTK.NewStatistics = {
+	WTKBB.NewStatistics = {
 		init: function () {
 			AchievementStatistic.backup_init = AchievementStatistic.init;
 			AchievementStatistic.init = function () {
@@ -642,20 +642,20 @@
 								i++;
 							});
 							var button3 = new west.gui.Button(
-								WTKlang.getData,
-								WTK.NewStatistics.getDataAdventuresDodges
+								WTKBBlang.getData,
+								WTKBB.NewStatistics.getDataAdventuresDodges
 							);
 							table
 								.appendRow()
-								.appendToCell(-1, "desc", WTKlang.adventuresDodges)
+								.appendToCell(-1, "desc", WTKBBlang.adventuresDodges)
 								.appendToCell(-1, "value", button3.getMainDiv());
 							var button4 = new west.gui.Button(
-								WTKlang.getData,
-								WTK.NewStatistics.getDataAdventuresMiss
+								WTKBBlang.getData,
+								WTKBB.NewStatistics.getDataAdventuresMiss
 							);
 							table
 								.appendRow()
-								.appendToCell(-1, "desc", WTKlang.adventuresMiss)
+								.appendToCell(-1, "desc", WTKBBlang.adventuresMiss)
 								.appendToCell(-1, "value", button4.getMainDiv());
 
 							that.window
@@ -686,7 +686,7 @@
 				},
 				function (json) {
 					if (!json.error) {
-						MessageSuccess(WTKlang.adventuresMiss + ": " + json.current).show();
+						MessageSuccess(WTKBBlang.adventuresMiss + ": " + json.current).show();
 					}
 					Ajax.remoteCall("achievement", "untrack", {}, function (json) {});
 				}
@@ -703,7 +703,7 @@
 				function (json) {
 					if (!json.error) {
 						MessageSuccess(
-							WTKlang.adventuresDodges + ": " + json.current
+							WTKBBlang.adventuresDodges + ": " + json.current
 						).show();
 					}
 					Ajax.remoteCall("achievement", "untrack", {}, function (json) {});
@@ -712,25 +712,25 @@
 		},
 	};
 
-	WTK.OpenTrader = {
+	WTKBB.OpenTrader = {
 		init: function () {
 			setTimeout(function () {
-				setInterval(WTK.OpenTrader.checkTrader, 10000);
+				setInterval(WTKBB.OpenTrader.checkTrader, 10000);
 			}, 10000);
 		},
 		checkTrader: function () {
-			if (WTK.OpenTrader.TraderTime == undefined) {
+			if (WTKBB.OpenTrader.TraderTime == undefined) {
 				Ajax.remoteCallMode("shop_trader", "index", {}, function (response) {
-					WTK.OpenTrader.TraderTime = response.traderTime;
-					if (WTK.OpenTrader.TraderTime - new Date().getTime() / 1000 > 86385) {
+					WTKBB.OpenTrader.TraderTime = response.traderTime;
+					if (WTKBB.OpenTrader.TraderTime - new Date().getTime() / 1000 > 86385) {
 						west.window.shop.open("wear_window").showCategory("trader");
 						Character.setToRead("trader", false);
 					}
 				});
 			}
-			if (Math.round(new Date().getTime() / 1000) > WTK.OpenTrader.TraderTime) {
+			if (Math.round(new Date().getTime() / 1000) > WTKBB.OpenTrader.TraderTime) {
 				Ajax.remoteCallMode("shop_trader", "index", {}, function (response) {
-					WTK.OpenTrader.TraderTime = response.traderTime;
+					WTKBB.OpenTrader.TraderTime = response.traderTime;
 				});
 				west.window.shop.open("wear_window").showCategory("trader");
 				Character.setToRead("trader", false);
@@ -738,7 +738,7 @@
 		},
 	};
 
-	WTK.DailyItemHelper = {
+	WTKBB.DailyItemHelper = {
 		ghostTown: [
 			{ minLevel: 21, maxLevel: 50, amount: 1, itemID: 715 },
 			{ minLevel: 27, maxLevel: 60, amount: 1, itemID: 760 },
@@ -897,11 +897,11 @@
 		],
 		init: function () {
 			var menuContainer = $(
-				'<div class="menulink" onclick="WTK.DailyItemHelper.showDailyItems();" title="' +
-					WTKlang.showDailyItems +
+				'<div class="menulink" onclick="WTKBB.DailyItemHelper.showDailyItems();" title="' +
+					WTKBBlang.showDailyItems +
 					'" />'
 			)
-				.css("background-image", "url(" + WTK.Images.menudailyitems + ")")
+				.css("background-image", "url(" + WTKBB.Images.menudailyitems + ")")
 				.css("background-position", "0px 0px")
 				.on("mouseenter", function () {
 					$(this).css("background-position", "-25px 0px");
@@ -909,7 +909,7 @@
 				.on("mouseleave", function () {
 					$(this).css("background-position", "0px 0px");
 				});
-			$("#WTK_menubutton").append(menuContainer);
+			$("#WTKBB_menubutton").append(menuContainer);
 		},
 		getQuestsFromArray: function (questArray) {
 			var text = "";
@@ -940,71 +940,71 @@
 		},
 
 		showDailyItems: function () {
-			WTK.GUI.open();
-			WTK.GUI.getDefault("WTKDailyItemsTab");
+			WTKBB.GUI.open();
+			WTKBB.GUI.getDefault("WTKBBDailyItemsTab");
 
 			var scrollPane = new west.gui.Scrollpane(),
-				dih = WTK.DailyItemHelper,
+				dih = WTKBB.DailyItemHelper,
 				gqa = dih.getQuestsFromArray;
 			scrollPane.appendContent(
 				'<div style="float: left; padding: 10px 30px 5px 5px;"><b>' +
-					WTKlang.saloon +
+					WTKBBlang.saloon +
 					":</b><br>" +
 					gqa(dih.others) +
 					"</div>" +
 					'<div style="float: left; padding: 10px 30px 5px 5px;"><b>' +
-					WTKlang.indianVillage +
+					WTKBBlang.indianVillage +
 					":</b><br>" +
 					gqa(dih.indianVillage) +
 					"</div>" +
 					'<div style="float: left; padding: 10px 30px 5px 5px;"><b>' +
-					WTKlang.ghostTown +
+					WTKBBlang.ghostTown +
 					":</b><br>" +
 					gqa(dih.ghostTown) +
 					"</div>" +
 					'<div style="clear:both"></div>' +
 					'<div style="float: left; padding: 10px 30px 5px 5px;"><b>' +
-					WTKlang.monday +
+					WTKBBlang.monday +
 					":</b><br>" +
 					gqa(dih.daily.monday) +
 					"</div>" +
 					'<div style="float: left; padding: 10px 30px 5px 5px;"><b>' +
-					WTKlang.tuesday +
+					WTKBBlang.tuesday +
 					":</b><br>" +
 					gqa(dih.daily.tuesday) +
 					"</div>" +
 					'<div style="float: left; padding: 10px 30px 5px 5px;"><b>' +
-					WTKlang.wednesday +
+					WTKBBlang.wednesday +
 					":</b><br>" +
 					gqa(dih.daily.wednesday) +
 					"</div>" +
 					'<div style="float: left; padding: 10px 30px 5px 5px;"><b>' +
-					WTKlang.thursday +
+					WTKBBlang.thursday +
 					":</b><br>" +
 					gqa(dih.daily.thursday) +
 					"</div>" +
 					'<div style="float: left; padding: 10px 30px 5px 5px;"><b>' +
-					WTKlang.friday +
+					WTKBBlang.friday +
 					":</b><br>" +
 					gqa(dih.daily.friday) +
 					"</div>" +
 					'<div style="float: left; padding: 10px 30px 5px 5px;"><b>' +
-					WTKlang.saturday +
+					WTKBBlang.saturday +
 					":</b><br>" +
 					gqa(dih.daily.saturday) +
 					"</div>" +
 					'<div style="float: left; padding: 10px 30px 5px 5px;"><b>' +
-					WTKlang.sunday +
+					WTKBBlang.sunday +
 					":</b><br>" +
 					gqa(dih.daily.sunday) +
 					"</div>" +
 					'<div style="clear:both"></div>'
 			);
-			$(WTK.GUI.window.getContentPane()).append(scrollPane.getMainDiv());
+			$(WTKBB.GUI.window.getContentPane()).append(scrollPane.getMainDiv());
 		},
 	};
 
-	WTK.AdventureBlockPlayer = {
+	WTKBB.AdventureBlockPlayer = {
 		blockedUsers: [],
 
 		init: function () {
@@ -1020,7 +1020,7 @@
 				var newDiv = $("<div></div>");
 				newDiv.html(from);
 				var short_name = $(".client_name", newDiv).text();
-				if (WTK.AdventureBlockPlayer.blockedUsers.includes(short_name)) {
+				if (WTKBB.AdventureBlockPlayer.blockedUsers.includes(short_name)) {
 					return;
 				} else {
 					return [
@@ -1060,25 +1060,25 @@
 								break;
 							case 1:
 								if (
-									WTK.AdventureBlockPlayer.blockedUsers.includes(client.pname)
+									WTKBB.AdventureBlockPlayer.blockedUsers.includes(client.pname)
 								) {
-									WTK.AdventureBlockPlayer.blockedUsers = jQuery.grep(
-										WTK.AdventureBlockPlayer.blockedUsers,
+									WTKBB.AdventureBlockPlayer.blockedUsers = jQuery.grep(
+										WTKBB.AdventureBlockPlayer.blockedUsers,
 										function (value) {
 											return value != client.pname;
 										}
 									);
 									MessageSuccess(
-										WTKlang.willNotBeIgnored + " " + client.pname
+										WTKBBlang.willNotBeIgnored + " " + client.pname
 									).show();
 								} else {
-									WTK.AdventureBlockPlayer.blockedUsers.push(client.pname);
+									WTKBB.AdventureBlockPlayer.blockedUsers.push(client.pname);
 									localStorage.setItem(
-										"WTKAdventureBlockedPlayers",
-										JSON.stringify(WTK.AdventureBlockPlayer.blockedUsers)
+										"WTKBBAdventureBlockedPlayers",
+										JSON.stringify(WTKBB.AdventureBlockPlayer.blockedUsers)
 									);
 									MessageSuccess(
-										WTKlang.willBeIgnored + " " + client.pname
+										WTKBBlang.willBeIgnored + " " + client.pname
 									).show();
 								}
 								break;
@@ -1086,12 +1086,12 @@
 					};
 					var selectbox = new west.gui.Selectbox()
 						.setHeader(client.pname)
-						.addItem(0, WTKlang.reportOffense)
+						.addItem(0, WTKBBlang.reportOffense)
 						.addItem(
 							1,
-							WTK.AdventureBlockPlayer.blockedUsers.includes(client.pname)
-								? WTKlang.dontIgnore
-								: WTKlang.ignore
+							WTKBB.AdventureBlockPlayer.blockedUsers.includes(client.pname)
+								? WTKBBlang.dontIgnore
+								: WTKBBlang.ignore
 						)
 						.addListener(onAction)
 						.show(args[0]);
@@ -1101,15 +1101,15 @@
 			};
 
 			var savedBlockedUsers = JSON.parse(
-				localStorage.getItem("WTKAdventureBlockedPlayers")
+				localStorage.getItem("WTKBBAdventureBlockedPlayers")
 			);
 			if (savedBlockedUsers != null) {
-				WTK.AdventureBlockPlayer.blockedUsers = savedBlockedUsers;
+				WTKBB.AdventureBlockPlayer.blockedUsers = savedBlockedUsers;
 			}
 		},
 	};
 
-	WTK.ChurchLevels = {
+	WTKBB.ChurchLevels = {
 		init: function () {
 			BuildWindow.updateLaborPoints_backup = BuildWindow.updateLaborPoints;
 			BuildWindow.updateLaborPoints = function (points) {
@@ -1125,7 +1125,7 @@
 								(stageCount >= 0 ? "+" : "") +
 								stageCount +
 								" " +
-								WTKlang.churchLevels +
+								WTKBBlang.churchLevels +
 								")"
 						);
 				}
@@ -1133,7 +1133,7 @@
 		},
 	};
 
-	WTK.FormattedRankings = {
+	WTKBB.FormattedRankings = {
 		init: function () {
 			RankingWindow.Cities.updateTable_backup =
 				RankingWindow.Cities.updateTable;
@@ -1284,37 +1284,37 @@
 		},
 	};
 
-	WTK.WindowPin = {
+	WTKBB.WindowPin = {
 		newPos: {
 			left: -1,
 			top: -1,
 		},
 		saveMousPos: function (event) {
-			WTK.WindowPin.newPos = {
+			WTKBB.WindowPin.newPos = {
 				left: event.clientX,
 				top: event.clientY,
 			};
 			localStorage.setItem(
-				"WTKPinPosition",
-				JSON.stringify(WTK.WindowPin.newPos)
+				"WTKBBPinPosition",
+				JSON.stringify(WTKBB.WindowPin.newPos)
 			);
-			document.removeEventListener("click", WTK.WindowPin.saveMousPos);
-			$("body").removeClass("WTK_overlay");
+			document.removeEventListener("click", WTKBB.WindowPin.saveMousPos);
+			$("body").removeClass("WTKBB_overlay");
 		},
 		getNewPinPosition: function () {
 			var styling = $("<style></style>").text(
-				".WTK_overlay { background-image: none; opacity:0.2; background-color:#000; position:fixed; width:100%; height:100%; top:0px; left:0px; z-index:1000;}"
+				".WTKBB_overlay { background-image: none; opacity:0.2; background-color:#000; position:fixed; width:100%; height:100%; top:0px; left:0px; z-index:1000;}"
 			);
 			$("head").append(styling);
-			$("body").addClass("WTK_overlay");
+			$("body").addClass("WTKBB_overlay");
 			setTimeout(function () {
-				document.addEventListener("click", WTK.WindowPin.saveMousPos);
+				document.addEventListener("click", WTKBB.WindowPin.saveMousPos);
 			}, 100);
 		},
 		init: function () {
-			var tempPos = JSON.parse(localStorage.getItem("WTKPinPosition"));
+			var tempPos = JSON.parse(localStorage.getItem("WTKBBPinPosition"));
 			if (tempPos != null && tempPos.left >= 0 && tempPos.top >= 0) {
-				WTK.WindowPin.newPos = tempPos;
+				WTKBB.WindowPin.newPos = tempPos;
 
 				Inventory.dock = function (dockedWindow) {
 					Inventory.window.center = function () {
@@ -1336,8 +1336,8 @@
 							docklet_position.left = 0;
 						} else {
 							inventory_position.left =
-								WTK.WindowPin.newPos.left + $docklet.outerWidth() - 13;
-							docklet_position.left = WTK.WindowPin.newPos.left;
+								WTKBB.WindowPin.newPos.left + $docklet.outerWidth() - 13;
+							docklet_position.left = WTKBB.WindowPin.newPos.left;
 						}
 						inventory_position.top =
 							($(document).outerHeight() - $inventory.outerHeight()) >> 1;
@@ -1350,7 +1350,7 @@
 								($(document).outerHeight() - $inventory.outerHeight()) >> 1
 							);
 							inventory_position.top = docklet_position.top =
-								WTK.WindowPin.newPos.top;
+								WTKBB.WindowPin.newPos.top;
 						} else {
 							docklet_position.top =
 								($(document).outerHeight() - $docklet.outerHeight()) >> 1;
@@ -1384,12 +1384,12 @@
 					if (x !== false) {
 						var w = this.outerWidth();
 						var sw = relative.outerWidth();
-						this.first().css("left", WTK.WindowPin.newPos.left - 20 + "px");
+						this.first().css("left", WTKBB.WindowPin.newPos.left - 20 + "px");
 					}
 					if (y !== false) {
 						var h = this.outerHeight();
 						var sh = relative.outerHeight();
-						this.first().css("top", WTK.WindowPin.newPos.top - 20 + "px");
+						this.first().css("top", WTKBB.WindowPin.newPos.top - 20 + "px");
 					}
 					return this;
 				};
@@ -1398,7 +1398,7 @@
 		setNewPos: function () {},
 	};
 
-	WTK.ShowFort = {
+	WTKBB.ShowFort = {
 		init: function () {
 			ReportWindow.init_content_backup = ReportWindow.init_content;
 			ReportWindow.init_content = function (data) {
@@ -1407,7 +1407,7 @@
 					data.reportType == "fortbattle" &&
 					data.reportInfo.subtype == "declare"
 				) {
-					WTK.ShowFort.getFortID(data.reportInfo.fortname, data.report_id);
+					WTKBB.ShowFort.getFortID(data.reportInfo.fortname, data.report_id);
 				}
 			};
 		},
@@ -1446,7 +1446,7 @@
 		},
 	};
 
-	WTK.BuildingProgress = {
+	WTKBB.BuildingProgress = {
 		init: function () {
 			BuildWindow.initInfo_backup = BuildWindow.initInfo;
 			BuildWindow.initInfo = function (data) {
@@ -1455,15 +1455,15 @@
 					'<div class="rp_row_jobdata row_build_' +
 						"hammer" +
 						'" style="margin:-2px 0 -24px 0;" title="' +
-						WTKlang.progress.escapeHTML() +
+						WTKBBlang.progress.escapeHTML() +
 						":&nbsp;" +
-						WTKlang.progressTooltip +
+						WTKBBlang.progressTooltip +
 						'">' +
 						'<span class="rp_jobdata_label_icon"><img src="https://westde.innogamescdn.com/images/icons/' +
 						"hammer" +
 						'.png" alt="" /></span>' +
 						'<span class="rp_jobdata_label text_bold">' +
-						WTKlang.progress +
+						WTKBBlang.progress +
 						"</span>" +
 						'<span class="rp_jobdata_text text_bold"></span>' +
 						"</div>"
@@ -1487,7 +1487,7 @@
 		},
 	};
 
-	WTK.ImprovedBuildCityhall = {
+	WTKBB.ImprovedBuildCityhall = {
 		init: function () {
 			CityhallWindow.Build.fillContent_backup =
 				CityhallWindow.Build.fillContent;
@@ -1550,14 +1550,14 @@
 		},
 	};
 
-	WTK.ExtendedItemFinder = {
+	WTKBB.ExtendedItemFinder = {
 		itemsToFind: [],
 		searchResultDialog: null,
 		searchDialog: null,
 
 		init: function () {
 			var savedItemsToFindOriginal = JSON.parse(
-				localStorage.getItem("WTKItemFinderItems")
+				localStorage.getItem("WTKBBItemFinderItems")
 			);
 			if (savedItemsToFindOriginal != null) {
 				for (var i = 0; i < savedItemsToFindOriginal.length; i++) {
@@ -1566,56 +1566,56 @@
 						targetAmount: 1,
 						showNotification: true,
 					};
-					WTK.ExtendedItemFinder.itemsToFind.push(item);
+					WTKBB.ExtendedItemFinder.itemsToFind.push(item);
 				}
-				localStorage.removeItem("WTKItemFinderItems");
+				localStorage.removeItem("WTKBBItemFinderItems");
 				localStorage.setItem(
-					"WTKExtendedItemFinderItems",
-					JSON.stringify(WTK.ExtendedItemFinder.itemsToFind)
+					"WTKBBExtendedItemFinderItems",
+					JSON.stringify(WTKBB.ExtendedItemFinder.itemsToFind)
 				);
 			} else {
 				var savedItemsToFind = JSON.parse(
-					localStorage.getItem("WTKExtendedItemFinderItems")
+					localStorage.getItem("WTKBBExtendedItemFinderItems")
 				);
 				if (savedItemsToFind != null) {
-					WTK.ExtendedItemFinder.itemsToFind = savedItemsToFind;
+					WTKBB.ExtendedItemFinder.itemsToFind = savedItemsToFind;
 				}
 			}
-			WTK.ExtendedItemFinder.initFindNotification();
+			WTKBB.ExtendedItemFinder.initFindNotification();
 		},
 
 		showExtendedItemFinder: function () {
-			WTK.GUI.open();
-			WTK.GUI.getDefault("WTKExtendedItemFinder");
+			WTKBB.GUI.open();
+			WTKBB.GUI.getDefault("WTKBBExtendedItemFinder");
 			var scrollPane = new west.gui.Scrollpane();
 
 			var itemSearchButton = new west.gui.Button(
-				WTKlang.searchItem,
+				WTKBBlang.searchItem,
 				function () {
-					WTK.ExtendedItemFinder.showSearchDialog();
+					WTKBB.ExtendedItemFinder.showSearchDialog();
 				}
 			);
 
 			var deleteButton = new west.gui.Button(
-				WTKlang.deleteMarkedItems,
+				WTKBBlang.deleteMarkedItems,
 				function () {
-					WTK.ExtendedItemFinder.deleteSelectedItems();
+					WTKBB.ExtendedItemFinder.deleteSelectedItems();
 				}
 			).addClass("inactive");
 
-			var helpButton = new west.gui.Button(WTKlang.help, function () {
-				WTK.ExtendedItemFinder.helpDialog = new west.gui.Dialog(
-					WTKlang.help,
-					$("<div>").append(WTKlang.itemFinderHelpContent)
-				).addButton(WTKlang.back);
-				WTK.ExtendedItemFinder.helpDialog.show();
+			var helpButton = new west.gui.Button(WTKBBlang.help, function () {
+				WTKBB.ExtendedItemFinder.helpDialog = new west.gui.Dialog(
+					WTKBBlang.help,
+					$("<div>").append(WTKBBlang.itemFinderHelpContent)
+				).addButton(WTKBBlang.back);
+				WTKBB.ExtendedItemFinder.helpDialog.show();
 			});
 
 			scrollPane.appendContent(itemSearchButton.getMainDiv());
 			scrollPane.appendContent(deleteButton.getMainDiv());
 			scrollPane.appendContent(helpButton.getMainDiv());
 
-			var itemsToFind = WTK.ExtendedItemFinder.itemsToFind;
+			var itemsToFind = WTKBB.ExtendedItemFinder.itemsToFind;
 			var targetAmount = 1;
 			for (var i = 0; i < itemsToFind.length; i++) {
 				var itemId = itemsToFind[i].id;
@@ -1624,10 +1624,10 @@
 				var div;
 				var classToSet = "";
 				if (itemsToFind[i].showNotification == true)
-					classToSet = "WTK_find_notifcation_highlight";
+					classToSet = "WTKBB_find_notifcation_highlight";
 				if (Bag.getItemCount(itemId) >= itemsToFind[i].targetAmount) {
 					div = $("<div>").append(
-						'<div class="item item_inventory hasMousePopup WTK_item_border_green" title="' +
+						'<div class="item item_inventory hasMousePopup WTKBB_item_border_green" title="' +
 							popup.getXHTML().escapeHTML() +
 							'"><img class="tw_item item_inventory_img dnd_draggable" src="' +
 							item.image +
@@ -1636,7 +1636,7 @@
 							">" +
 							'<div class="' +
 							classToSet +
-							' WTK_find_notifcation">' +
+							' WTKBB_find_notifcation">' +
 							Bag.getItemCount(itemId) +
 							" / " +
 							itemsToFind[i].targetAmount +
@@ -1645,7 +1645,7 @@
 					);
 				} else {
 					div = $("<div>").append(
-						'<div class="item item_inventory hasMousePopup WTK_item_border" title="' +
+						'<div class="item item_inventory hasMousePopup WTKBB_item_border" title="' +
 							popup.getXHTML().escapeHTML() +
 							'"><img class="tw_item item_inventory_img dnd_draggable" src="' +
 							item.image +
@@ -1654,7 +1654,7 @@
 							">" +
 							'<div class="' +
 							classToSet +
-							' WTK_find_notifcation">' +
+							' WTKBB_find_notifcation">' +
 							Bag.getItemCount(itemId) +
 							" / " +
 							itemsToFind[i].targetAmount +
@@ -1667,8 +1667,8 @@
 					.children("div")
 					.off("click")
 					.click(function () {
-						$(this).toggleClass("WTK_find_notifcation_highlight");
-						WTK.ExtendedItemFinder.toogleNotification(
+						$(this).toggleClass("WTKBB_find_notifcation_highlight");
+						WTKBB.ExtendedItemFinder.toogleNotification(
 							$(this).parent().find("img").attr("alt")
 						);
 					});
@@ -1678,16 +1678,16 @@
 					.click(function () {
 						$(this).parent().parent().toggleClass("opacity05");
 						if (
-							$(".active_tab_id_WTKExtendedItemFinder").find(".opacity05")
+							$(".active_tab_id_WTKBBExtendedItemFinder").find(".opacity05")
 								.length == 0
 						) {
-							$(".WTKMenuWindow")
+							$(".WTKBBMenuWindow")
 								.find($(".tw2gui_button"))
 								.last()
 								.prev()
 								.addClass("inactive");
 						} else {
-							$(".WTKMenuWindow")
+							$(".WTKBBMenuWindow")
 								.find($(".tw2gui_button"))
 								.last()
 								.prev()
@@ -1698,7 +1698,7 @@
 			}
 			var placeHolder = "";
 			//			for (var i = 0; i <= (itemsToFind.length - itemsToFind.length  % 10) / 10; i++) {
-			//				placeHolder += '<div style="height: 64px;" ondrop="WTK.ExtendedItemFinder.dropItem(event)" ondragover="WTK.ExtendedItemFinder.allowDrop(event)"/>';
+			//				placeHolder += '<div style="height: 64px;" ondrop="WTKBB.ExtendedItemFinder.dropItem(event)" ondragover="WTKBB.ExtendedItemFinder.allowDrop(event)"/>';
 			//			}
 			placeHolder =
 				'<div style="height: ' +
@@ -1706,52 +1706,52 @@
 				'px;" />';
 
 			scrollPane.appendContent(placeHolder);
-			$(WTK.GUI.window.getContentPane()).append(scrollPane.getMainDiv());
-			$(".WTKMenuWindow")
+			$(WTKBB.GUI.window.getContentPane()).append(scrollPane.getMainDiv());
+			$(".WTKBBMenuWindow")
 				.find($(".tw2gui_button"))
 				.first()
 				.css("margin-bottom", "5px");
 		},
 
 		deleteSelectedItems: function () {
-			var selectedItems = $(".active_tab_id_WTKExtendedItemFinder").find(
+			var selectedItems = $(".active_tab_id_WTKBBExtendedItemFinder").find(
 				".opacity05"
 			);
 			for (var i = 0; i < selectedItems.length; i++) {
 				var id = selectedItems[i].childNodes[0].childNodes[0].alt;
-				WTK.ExtendedItemFinder.itemsToFind = jQuery.grep(
-					WTK.ExtendedItemFinder.itemsToFind,
+				WTKBB.ExtendedItemFinder.itemsToFind = jQuery.grep(
+					WTKBB.ExtendedItemFinder.itemsToFind,
 					function (value) {
 						return value.id != id;
 					}
 				);
 			}
 			localStorage.setItem(
-				"WTKExtendedItemFinderItems",
-				JSON.stringify(WTK.ExtendedItemFinder.itemsToFind)
+				"WTKBBExtendedItemFinderItems",
+				JSON.stringify(WTKBB.ExtendedItemFinder.itemsToFind)
 			);
-			WTK.ExtendedItemFinder.showExtendedItemFinder();
+			WTKBB.ExtendedItemFinder.showExtendedItemFinder();
 		},
 
 		toogleNotification: function (item_id) {
-			WTK.ExtendedItemFinder.itemsToFind;
-			for (var i = 0; i < WTK.ExtendedItemFinder.itemsToFind.length; i++) {
-				var entry = WTK.ExtendedItemFinder.itemsToFind[i];
+			WTKBB.ExtendedItemFinder.itemsToFind;
+			for (var i = 0; i < WTKBB.ExtendedItemFinder.itemsToFind.length; i++) {
+				var entry = WTKBB.ExtendedItemFinder.itemsToFind[i];
 				if (entry.id == item_id) {
 					entry.showNotification = !entry.showNotification;
-					WTK.ExtendedItemFinder.itemsToFind[i] = entry;
+					WTKBB.ExtendedItemFinder.itemsToFind[i] = entry;
 					localStorage.setItem(
-						"WTKExtendedItemFinderItems",
-						JSON.stringify(WTK.ExtendedItemFinder.itemsToFind)
+						"WTKBBExtendedItemFinderItems",
+						JSON.stringify(WTKBB.ExtendedItemFinder.itemsToFind)
 					);
 				}
 			}
 		},
 
 		searchForItems: function () {
-			var name = $("#WTKExtendedItemFinder_searchDialog_name").val();
+			var name = $("#WTKBBExtendedItemFinder_searchDialog_name").val();
 			var amount = parseInt(
-				$("#WTKExtendedItemFinder_searchDialog_targetAmount").val()
+				$("#WTKBBExtendedItemFinder_searchDialog_targetAmount").val()
 			);
 			var searchResult = [];
 			var searchMaximum = Math.floor(($(window).height() - 230) / 16);
@@ -1766,7 +1766,7 @@
 					ItemManager.get(newItemId)
 						.name.toLowerCase()
 						.indexOf(name.toLowerCase()) >= 0 &&
-					WTK.ExtendedItemFinder.isAlreadyOnTheList(newItemId) == false
+					WTKBB.ExtendedItemFinder.isAlreadyOnTheList(newItemId) == false
 				) {
 					searchResult.push(newItemId);
 				}
@@ -1780,14 +1780,14 @@
 					contentDiv +=
 						'<a class="hasMousePopup" title="' +
 						popup.getXHTML().escapeHTML() +
-						'" href="javascript:void(WTK.ExtendedItemFinder.addItemToItemsToSearch(' +
+						'" href="javascript:void(WTKBB.ExtendedItemFinder.addItemToItemsToSearch(' +
 						item_id +
 						"," +
 						amount +
 						'))">' +
 						item.name +
 						"</a> " +
-						WTK.ExtendedItemFinder.getColoredString(
+						WTKBB.ExtendedItemFinder.getColoredString(
 							Bag.getItemCount(item.item_id),
 							amount
 						) +
@@ -1796,67 +1796,67 @@
 				if (searchResult.length == searchMaximum) {
 					contentDiv +=
 						"<br><b>" +
-						WTKlang.thereAreMoreItems +
+						WTKBBlang.thereAreMoreItems +
 						"<br>" +
-						WTKlang.restrictYourSearch +
+						WTKBBlang.restrictYourSearch +
 						"</b>";
 				}
-				new west.gui.Dialog(WTKlang.searchResult, $(contentDiv))
-					.addButton(WTKlang.back, function () {
-						WTK.ExtendedItemFinder.showSearchDialog(name, amount);
+				new west.gui.Dialog(WTKBBlang.searchResult, $(contentDiv))
+					.addButton(WTKBBlang.back, function () {
+						WTKBB.ExtendedItemFinder.showSearchDialog(name, amount);
 					})
 					.addButton("cancel")
 					.show();
 			} else {
-				MessageHint(WTKlang.emptySearchResult).show();
+				MessageHint(WTKBBlang.emptySearchResult).show();
 			}
 		},
 
 		inputIsValid: function () {
 			var targetAmount = parseInt(
-				$("#WTKExtendedItemFinder_searchDialog_targetAmount").val()
+				$("#WTKBBExtendedItemFinder_searchDialog_targetAmount").val()
 			);
-			var name = $("#WTKExtendedItemFinder_searchDialog_name").val();
+			var name = $("#WTKBBExtendedItemFinder_searchDialog_name").val();
 			if (name == undefined || name.length <= 0) {
-				MessageError(WTKlang.nameCannotBeEmpty).show();
+				MessageError(WTKBBlang.nameCannotBeEmpty).show();
 				return false;
 			} else if (
 				targetAmount == undefined ||
 				Number.isNaN(targetAmount) ||
 				targetAmount <= 0
 			) {
-				MessageError(WTKlang.itemAmountMustBeHigherThan0).show();
+				MessageError(WTKBBlang.itemAmountMustBeHigherThan0).show();
 				return false;
 			}
 			return true;
 		},
 
 		addItemToItemsToSearch: function (item_id, targetAmountValue) {
-			if (WTK.ExtendedItemFinder.isAlreadyOnTheList(item_id) == false) {
+			if (WTKBB.ExtendedItemFinder.isAlreadyOnTheList(item_id) == false) {
 				var item = {
 					id: item_id,
 					targetAmount: targetAmountValue,
 					showNotification: false,
 				};
-				WTK.ExtendedItemFinder.itemsToFind.push(item);
+				WTKBB.ExtendedItemFinder.itemsToFind.push(item);
 				localStorage.setItem(
-					"WTKExtendedItemFinderItems",
-					JSON.stringify(WTK.ExtendedItemFinder.itemsToFind)
+					"WTKBBExtendedItemFinderItems",
+					JSON.stringify(WTKBB.ExtendedItemFinder.itemsToFind)
 				);
-				WTK.ExtendedItemFinder.showExtendedItemFinder();
+				WTKBB.ExtendedItemFinder.showExtendedItemFinder();
 			}
 		},
 
 		showSearchDialog: function (nameInputValue, targetAmoundInputValue) {
 			var contentDiv = $('<div style="text-align: center;">');
 			contentDiv.append(
-				WTKlang.whatItemsWouldYouLikeToSearchFor +
+				WTKBBlang.whatItemsWouldYouLikeToSearchFor +
 					"<br><b>" +
-					WTKlang.nameOfTheItem +
+					WTKBBlang.nameOfTheItem +
 					"<b>"
 			);
 			var nameInput = new west.gui.Textfield(
-				"WTKExtendedItemFinder_searchDialog_name"
+				"WTKBBExtendedItemFinder_searchDialog_name"
 			)
 				.setSize(10)
 				.setClass4Input("input_layout");
@@ -1864,42 +1864,42 @@
 			contentDiv.append(nameInput.getMainDiv());
 			contentDiv.append(
 				"<br>" +
-					WTKlang.howManyOfThemWouldYouLikeToCollect +
+					WTKBBlang.howManyOfThemWouldYouLikeToCollect +
 					"<br><b>" +
-					WTKlang.numberOfItems +
+					WTKBBlang.numberOfItems +
 					"<b>"
 			);
 			var targetAmoundInput = new west.gui.Textfield(
-				"WTKExtendedItemFinder_searchDialog_targetAmount"
+				"WTKBBExtendedItemFinder_searchDialog_targetAmount"
 			)
 				.onlyNumeric()
 				.setSize(10)
 				.setClass4Input("input_layout");
 			targetAmoundInput.setValue(targetAmoundInputValue);
 			contentDiv.append(targetAmoundInput.getMainDiv());
-			WTK.ExtendedItemFinder.searchDialog = new west.gui.Dialog(
-				WTKlang.searchItem,
+			WTKBB.ExtendedItemFinder.searchDialog = new west.gui.Dialog(
+				WTKBBlang.searchItem,
 				$(contentDiv)
 			)
-				.addButton(WTKlang.search, function () {
-					if (WTK.ExtendedItemFinder.inputIsValid()) {
-						WTK.ExtendedItemFinder.searchForItems();
+				.addButton(WTKBBlang.search, function () {
+					if (WTKBB.ExtendedItemFinder.inputIsValid()) {
+						WTKBB.ExtendedItemFinder.searchForItems();
 					} else {
-						WTK.ExtendedItemFinder.showSearchDialog(
-							$("#WTKExtendedItemFinder_searchDialog_name").val(),
-							$("#WTKExtendedItemFinder_searchDialog_targetAmount").val()
+						WTKBB.ExtendedItemFinder.showSearchDialog(
+							$("#WTKBBExtendedItemFinder_searchDialog_name").val(),
+							$("#WTKBBExtendedItemFinder_searchDialog_targetAmount").val()
 						);
 					}
 				})
 				.addButton("cancel");
-			WTK.ExtendedItemFinder.searchDialog.show();
-			$("#WTKExtendedItemFinder_searchDialog_name").focus();
-			$("#WTKExtendedItemFinder_searchDialog_targetAmount").val(1);
+			WTKBB.ExtendedItemFinder.searchDialog.show();
+			$("#WTKBBExtendedItemFinder_searchDialog_name").focus();
+			$("#WTKBBExtendedItemFinder_searchDialog_targetAmount").val(1);
 		},
 
 		isAlreadyOnTheList: function (item_id) {
-			for (var i = 0; i < WTK.ExtendedItemFinder.itemsToFind.length; i++) {
-				if (WTK.ExtendedItemFinder.itemsToFind[i].id == item_id) {
+			for (var i = 0; i < WTKBB.ExtendedItemFinder.itemsToFind.length; i++) {
+				if (WTKBB.ExtendedItemFinder.itemsToFind[i].id == item_id) {
 					return true;
 				}
 			}
@@ -1928,19 +1928,19 @@
 				for (i; i < l; i++) {
 					if (
 						changes[i].count > 0 &&
-						WTK.ExtendedItemFinder.isAlreadyOnTheList(changes[i].item_id) &&
+						WTKBB.ExtendedItemFinder.isAlreadyOnTheList(changes[i].item_id) &&
 						from != "wear"
 					) {
 						var item2 = ItemManager.get(changes[i].item_id);
 						var popup = new ItemPopup(item2, {}).popup;
 						new west.gui.Dialog(
-							WTKlang.itemFinder,
+							WTKBBlang.itemFinder,
 							'<div class="item item_inventory hasMousePopup" title="' +
 								popup.getXHTML().escapeHTML() +
 								'"><img class="tw_item item_inventory_img dnd_draggable" src="' +
 								item2.image +
 								'"></div>' +
-								WTKlang.youHaveFound +
+								WTKBBlang.youHaveFound +
 								'<br><br><div style="text-align: center;"><b>' +
 								item2.name +
 								"</b></div><br>"
@@ -1959,10 +1959,10 @@
 		},
 
 		isItemOnNotificationList: function (item_id) {
-			for (var i = 0; i < WTK.ExtendedItemFinder.itemsToFind.length; i++) {
+			for (var i = 0; i < WTKBB.ExtendedItemFinder.itemsToFind.length; i++) {
 				if (
-					WTK.ExtendedItemFinder.itemsToFind[i].id == item_id &&
-					WTK.ExtendedItemFinder.itemsToFind[i].showNotification == true
+					WTKBB.ExtendedItemFinder.itemsToFind[i].id == item_id &&
+					WTKBB.ExtendedItemFinder.itemsToFind[i].showNotification == true
 				) {
 					return true;
 				}
@@ -1971,13 +1971,13 @@
 		},
 	};
 
-	WTK.ExtendedBBCodes = {
+	WTKBB.ExtendedBBCodes = {
 		init: function () {
 			Game.TextHandler.parse_backup = Game.TextHandler.parse;
 			Game.TextHandler.parse = function (text) {
-				text = WTK.ExtendedBBCodes.replaceColor(text);
-				text = WTK.ExtendedBBCodes.replaceSize(text);
-				text = WTK.ExtendedBBCodes.replaceImage(text);
+				text = WTKBB.ExtendedBBCodes.replaceColor(text);
+				text = WTKBB.ExtendedBBCodes.replaceSize(text);
+				text = WTKBB.ExtendedBBCodes.replaceImage(text);
 				return Game.TextHandler.parse_backup.call(this, text);
 			};
 		},
@@ -2018,18 +2018,18 @@
 		},
 	};
 
-	// (WTK.Updater = function () {
+	// (WTKBB.Updater = function () {
 	// 	if (!window.scriptRequest) {
 	// 		scriptRequest = true;
-	// 		$.getScript(WTK.url + "sUp.js");
+	// 		$.getScript(WTKBB.url + "sUp.js");
 	// 	}
 	// 	var intVal = setInterval(function () {
 	// 		if (window.scriptUp) {
-	// 			scriptUp.c("WTK", WTK.version, WTK.name, "", WTK.website, WTK.lang);
+	// 			scriptUp.c("WTKBB", WTKBB.version, WTKBB.name, "", WTKBB.website, WTKBB.lang);
 	// 			clearInterval(intVal);
 	// 		}
 	// 	}, 2000);
 	// })();
 
-	WTK.Skript.init();
+	WTKBB.Skript.init();
 });
