@@ -34,8 +34,8 @@ scriptUp = {
 	// TWTu:'Collections',
 	// FBT:'1.21',
 	// FBTn:'Litte fix in the fort battle formula',
-	WTKBB: "1.21",
-	WTKBBn: "Χαρακτηριστικά - τεστ",
+	WTKBB: "1.22",
+	WTKBBn: "Χαρακτηριστικά - τεστ v2",
 	// TWIR:'2.204.9',
 	// TWIRn:'Buff categorization fixed, MassOpener removed',
 	cs: ["Aktualizovat", "NovÃ¡ verze scriptu je dostupnÃ¡"],
@@ -54,35 +54,35 @@ scriptUp = {
 	sk: ["AktualizovaÅ¥", "NovÃ¡ verzia scriptu je dostupnÃ¡"],
 	tr: ["GÃ¼ncelleÅŸtir", "Scriptin yeni bir sÃ¼rÃ¼mÃ¼"],
 	cD: 0,
-	// c: function (s, v, n, a, w, l) {
-	// 	if (this[s] != v) {
-	// 		l = l || a;
-	// 		l = this[l] || this.en;
-	// 		var u = this[s + "u"],
-	// 			t = u
-	// 				? "//the-west-scripts.github.io/The-West-" + u + "/script.user.js"
-	// 				: w + "/code.user.js",
-	// 			m = new west.gui.Dialog(
-	// 				l[0] + ": " + n,
-	// 				"<span>" +
-	// 					l[1] +
-	// 					"<br><br><b>v" +
-	// 					this[s] +
-	// 					":</b><br>" +
-	// 					this[s + "n"] +
-	// 					"</span>",
-	// 				"warning"
-	// 			)
-	// 				.setDraggable(1)
-	// 				.addButton(l[0], function () {
-	// 					m.hide();
-	// 					location.href = t;
-	// 				})
-	// 				.addButton("cancel")
-	// 				.show();
-	// 	}
-	// 	this.cD = 1;
-	// },
+	c: function (s, v, n, a, w, l) {
+		if (this[s] != v) {
+			l = l || a;
+			l = this[l] || this.en;
+			var u = this[s + "u"],
+				t = u
+					? "//the-west-scripts.github.io/The-West-" + u + "/script.user.js"
+					: w + "/code.user.js",
+				m = new west.gui.Dialog(
+					l[0] + ": " + n,
+					"<span>" +
+						l[1] +
+						"<br><br><b>v" +
+						this[s] +
+						":</b><br>" +
+						this[s + "n"] +
+						"</span>",
+					"warning"
+				)
+					.setDraggable(1)
+					.addButton(l[0], function () {
+						m.hide();
+						location.href = t;
+					})
+					.addButton("cancel")
+					.show();
+		}
+		this.cD = 1;
+	},
 };
 var sI = setInterval(function () {
 	if (scriptUp.cD) {
