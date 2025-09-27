@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        The West - westernblumis Toolkit [gr] - BB
 // @namespace   https://github.com/TWGR-BelleBernice/TW-UserScripts
-// @version     1.20
+// @version     1.21
 // @description Some useful improvements for The West
 // @author 	westernblumi, Belle Bernice
 // @homepageURL  https://TWGR-BelleBernice.github.io/TW-UserScripts
@@ -436,7 +436,7 @@
 	};
 
 	WTKBB = {
-		version: "1.20",
+		version: "1.21",
 		name: "The West - westernblumis Toolkit [gr] - BB",
 		author: "westernblumi, Belle Bernice",
 		website: "//greasyfork.org/scripts/550500",
@@ -2018,18 +2018,18 @@
 		},
 	};
 
-	// (WTKBB.Updater = function () {
-	// 	if (!window.scriptRequest) {
-	// 		scriptRequest = true;
-	// 		$.getScript(WTKBB.url + "sUp.js");
-	// 	}
-	// 	var intVal = setInterval(function () {
-	// 		if (window.scriptUp) {
-	// 			scriptUp.c("WTKBB", WTKBB.version, WTKBB.name, "", WTKBB.website, WTKBB.lang);
-	// 			clearInterval(intVal);
-	// 		}
-	// 	}, 2000);
-	// })();
+	(WTKBB.Updater = function () {
+		if (!window.scriptRequest) {
+			scriptRequest = true;
+			$.getScript(WTKBB.url + "sUp.js");
+		}
+		var intVal = setInterval(function () {
+			if (window.scriptUp) {
+				scriptUp.c("WTKBB", WTKBB.version, WTKBB.name, "", WTKBB.website, WTKBB.lang);
+				clearInterval(intVal);
+			}
+		}, 2000);
+	})();
 
 	WTKBB.Skript.init();
 });
