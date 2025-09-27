@@ -87,39 +87,39 @@ scriptUp = {
 var sI = setInterval(function () {
 	if (scriptUp.cD) {
 		clearInterval(sI);
-		// var x = ["LT", "CT", "QIS", "NPC", "MBB", "BS", "KoM"],
-			// z = "";
-		// for (var y of x) if (window[y]) z += "- " + window[y].name + "<br>";
-		// if (z && !localStorage.getItem("TWXnoRemind"))
-			// new west.gui.Dialog(
-			// 	"Scripts renamed",
-			// 	"<span>These Scripts were merged into the new <b>TW Essentials</b>.<br><br>" +
-			// 		z +
-			// 		"<br>Please " +
-			// 		(window.TWX
-			// 			? ""
-			// 			: 'install <a href="//the-west-scripts.github.io/The-West-Essentials/script.user.js">TW Essentials</a><br>and ') +
-			// 		'remove the listed scripts from Grease-/Tampermonkey:<br><img src="//imgur.com/tGIkeM7.png"><br><br><img src="//imgur.com/so3OyYC.png"></span>',
-			// 	"warning"
-			// )
-			// 	.setDraggable(1)
-			// 	.addButton("Stop reminding me", localStorage.setItem("TWXnoRemind", 1))
-			// 	.addButton("ok")
-			// 	.show();
-		// var trl = "https://tomrobert.github.io/TWIR/";
-		// if (window.TWIR && TWIR.base_url != trl)
-		// 	scriptUp.c("TWIR", TWIR.version, TWIR.script_name, "", trl, TWIR.lang);
-		// FortBattleWindow.savePosition_twx =
-		// 	FortBattleWindow.savePosition_twx || FortBattleWindow.savePosition;
-		// FortBattleWindow.savePosition = function () {
-		// 	if (!$(".fortbattle-" + this.fortId + " .fort_battle_timer").length)
-		// 		return;
-		// 	FortBattleWindow.savePosition_twx.apply(this, arguments);
-		// };
-		// var style = document.createElement("style");
-		// style.type = "text/css";
-		// style.innerHTML =
-		// 	"div#CC_pin_items{left:24px}\n .inventory .open_search {left:-9px}\n .inventory .actions .upgrade_items {margin-left:32px}\n .inventory .bag_resize {right:-9px}\n .TWX_sellable_button {left:23px!important}";
-		// document.head.appendChild(style);
+		var x = ["LT", "CT", "QIS", "NPC", "MBB", "BS", "KoM"],
+			z = "";
+		for (var y of x) if (window[y]) z += "- " + window[y].name + "<br>";
+		if (z && !localStorage.getItem("TWXnoRemind"))
+			new west.gui.Dialog(
+				"Scripts renamed",
+				"<span>These Scripts were merged into the new <b>TW Essentials</b>.<br><br>" +
+					z +
+					"<br>Please " +
+					(window.TWX
+						? ""
+						: 'install <a href="//the-west-scripts.github.io/The-West-Essentials/script.user.js">TW Essentials</a><br>and ') +
+					'remove the listed scripts from Grease-/Tampermonkey:<br><img src="//imgur.com/tGIkeM7.png"><br><br><img src="//imgur.com/so3OyYC.png"></span>',
+				"warning"
+			)
+				.setDraggable(1)
+				.addButton("Stop reminding me", localStorage.setItem("TWXnoRemind", 1))
+				.addButton("ok")
+				.show();
+		var trl = "https://tomrobert.github.io/TWIR/";
+		if (window.TWIR && TWIR.base_url != trl)
+			scriptUp.c("TWIR", TWIR.version, TWIR.script_name, "", trl, TWIR.lang);
+		FortBattleWindow.savePosition_twx =
+			FortBattleWindow.savePosition_twx || FortBattleWindow.savePosition;
+		FortBattleWindow.savePosition = function () {
+			if (!$(".fortbattle-" + this.fortId + " .fort_battle_timer").length)
+				return;
+			FortBattleWindow.savePosition_twx.apply(this, arguments);
+		};
+		var style = document.createElement("style");
+		style.type = "text/css";
+		style.innerHTML =
+			"div#CC_pin_items{left:24px}\n .inventory .open_search {left:-9px}\n .inventory .actions .upgrade_items {margin-left:32px}\n .inventory .bag_resize {right:-9px}\n .TWX_sellable_button {left:23px!important}";
+		document.head.appendChild(style);
 	}
 }, 5000);
