@@ -440,7 +440,7 @@
 		name: "The West - westernblumis Toolkit [gr] - BB",
 		author: "westernblumi, Belle Bernice",
 		website: "//greasyfork.org/scripts/550500",
-		url: "//rawcdn.githack.com/TWGR-BelleBernice/TW-UserScripts/1cb2b904c2e6f926d6a4de208b4cbdbf571986d0/TW-westernblumis-Toolkit-gr-BB/",
+		url: "//rawcdn.githack.com/TWGR-BelleBernice/TW-UserScripts/de5b62911234fe324084753b9d7ac30f58d4dedf/TW-westernblumis-Toolkit-gr-BB/",
 		Data: {},
 		loaded: [],
 		Features: {
