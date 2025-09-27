@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name        The West - westernblumis Toolkit [gr] - BB
 // @namespace   https://github.com/TWGR-BelleBernice/TW-UserScripts
-// @version     1.19
+// @version     1.20
 // @description Some useful improvements for The West
 // @author 	westernblumi, Belle Bernice
 // @homepageURL  https://TWGR-BelleBernice.github.io/TW-UserScripts
@@ -106,7 +106,7 @@
 			},
 			el: {
 				language: "Greek (Ελληνικά)",
-				features: "Χαρακτηριστικά",
+				features: "Χαρακτηριστικά - τεστ",
 				FeatRemoveTownBlinkEvent:
 					"Αφαίρεση του αναβοσβήματος του κουμπιού Πόλης εάν υπάρχει νέο μήνυμα στο Φόρουμ Πόλης",
 				FeatNewStatistics: "Προσθήκη στατιστικών Περιπέτειας (Δεν λειτουργεί)",
@@ -436,7 +436,7 @@
 	};
 
 	WTKBB = {
-		version: "1.19",
+		version: "1.20",
 		name: "The West - westernblumis Toolkit [gr] - BB",
 		author: "westernblumi, Belle Bernice",
 		website: "//greasyfork.org/scripts/550500",

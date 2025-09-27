@@ -34,7 +34,7 @@ scriptUp = {
 	// TWTu:'Collections',
 	// FBT:'1.21',
 	// FBTn:'Litte fix in the fort battle formula',
-	WTKBB: "1.19",
+	WTKBB: "1.20",
 	WTKBBn: "welp",
 	// TWIR:'2.204.9',
 	// TWIRn:'Buff categorization fixed, MassOpener removed',
