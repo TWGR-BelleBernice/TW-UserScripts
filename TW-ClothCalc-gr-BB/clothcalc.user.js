@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name The West - TW-DB.info Cloth Calc [gr] - BB
 // @namespace    https://github.com/TWGR-BelleBernice/TW-UserScripts
-// @version 0.13.0
+// @version 0.14.0
 // @description The West Script: Cloth Calculation for game version 1.34 or higher
 // @author Bluep, scoobydoo, Dun, Petee [tw-db.info], Belle Bernice
 // @homepageURL  https://TWGR-BelleBernice.github.io/TW-UserScripts
@@ -29,17 +29,18 @@
     new west.gui.Dialog(
       TWDB.script.name,
       '<div class="txcenter"><b><br>Το UserScript ClothCalc έχει εγκατασταθεί δυο φορές, με δυο διαφορετικές γλώσσες. Θα πρέπει να απενεργοποιήσετε μία από τις δυο γλώσσες για να λειτουργήσει το UserScript κανονικά.</br></b></div>',
-      west.gui.Dialog.SYS_WARNING,
+      west.gui.Dialog.SYS_WARNING
     )
       .addButton("OK")
       .show();
   } else {
     TWDB = {};
     TWDB.script = new Object({
-      version: 13,
+      version: 14,
       revision: 0,
       name: "The West - TW-DB.info Cloth Calc",
-      folder_url: "TWGR-BelleBernice.github.io/TW-UserScripts/TW-ClothCalc-gr-BB/",
+      folder_url:
+        "TWGR-BelleBernice.github.io/TW-UserScripts/TW-ClothCalc-gr-BB/",
       update: "clothcalc.user.js",
       check: "version.js",
       url: "tw-db.info",
@@ -49,9 +50,9 @@
     });
     try {
       TWDB.script.notes = jQuery.parseJSON(
-        '[{"version":"13","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"12","notes":"[bugfix] Διόρθωση λανθασμένης version"},{"version":"11","notes":"[bugfix] Αφαίρεση περιττού κώδικα στο παράθυρο Στρατολόγησης <br>[main] Αλλαγή Updater"},{"version":"10","notes":"[bugfix] Διόρθωση της πινέζας αντικειμένων για σωστή εμφάνιση σε παράθυρο vanilla και TWIR <br>[bugfix] Διόρθωση ορθογραφικών λαθών της λέξης bugfix στα Χαρακτηριστικά Έκδοσης"},{"version":"9","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερσυνδέσμων"},{"version":"8","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"7","notes":"[bugfix] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"6","notes":"[bugfix] Αλλαγή μερικών υπερσυνδέσμων"},{"version":"5","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"4","notes":"[bugfix] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"3","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"2","notes":"[bugfix] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"1","notes":"** Δημιουργία UserScript από το clothcalc_sk **"}]',
+        '[{"version":"14","notes":"[main] Αφαίρεση περιττού κώδικα <br>[main] Αλλαγή λεπτομερειών στο παράθυρο Στρατολόγησης"},{"version":"13","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"12","notes":"[bugfix] Διόρθωση λανθασμένης version"},{"version":"11","notes":"[main] Αφαίρεση περιττού κώδικα στο παράθυρο Στρατολόγησης <br>[main] Αλλαγή Updater"},{"version":"10","notes":"[bugfix] Διόρθωση της πινέζας αντικειμένων για σωστή εμφάνιση σε παράθυρο vanilla και TWIR <br>[bugfix] Διόρθωση ορθογραφικών λαθών της λέξης bugfix στα Χαρακτηριστικά Έκδοσης"},{"version":"9","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"8","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"7","notes":"[bugfix] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"6","notes":"[bugfix] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"5","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"4","notes":"[bugfix] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"3","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"2","notes":"[bugfix] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"1","notes":"** Δημιουργία UserScript από το clothcalc_sk **"}]'
       );
-    } catch (e) {}
+    } catch (e) { }
     TheWestApi.version = Game.version = parseInt(Game.version, 10)
       ? Game.version
       : TWDB.script.game_version;
@@ -69,12 +70,12 @@
     window.debLog =
       TWDB.script.isDev() && console.info
         ? function (e) {
-            console.info.apply(
-              console,
-              ["CC:"].concat(Array.prototype.slice.call(arguments)),
-            );
-          }
-        : function (e) {};
+          console.info.apply(
+            console,
+            ["CC:"].concat(Array.prototype.slice.call(arguments))
+          );
+        }
+        : function (e) { };
     TWDB.images = {
       iconName:
         "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAqBJREFUeNqslEtvElEUxy90gOHRDhQpDBIEaysKNQZpYpqiLroxaUjUrV/Bpd/BD6IrdySGmK5cVzf1sSgNgrzDAB0QBpgZxnPonYZSSLvwJj/unXMP/3vOfRyDpmnkfzUGf1Kp1Lw5A7BEwTYGVNpfaul0+kxsQbMAHOCmi/aBFtAF5IWRLbC7gLtPGOalPBpZG7J8cmKxHIDtN3AKaNcVw6gCYZNp/4XV+kaRJNKs16V3wSBG9pdyKTrjgr1aBsK7LPtqPBwStdsl1mbTGiuX98HuB6zzIpgnZgJuAHfWNc2ndjpEabcn3KtUtnERupfG64jZAH7XbN5bHg5ZVRTJT0Kq416PhATBsyJJUZj3AOarxPB7BQhuGo2Rcb9PTiVpcMDzuOnErCjMVqmUpKnarxLD1TxOgyF2X1F4TPHQbC4KNtug4HY30CFSrW5AFwKcswc4K4ar3YwbjU8xLQVSPOK4iUjW5xOw94miixfFBAy9s6kyc+5WOCHLG0qrRfqtlhLv93mcZGX53PdBsZisclwGhjlA0u8cM3O3vAFNiztrNccwlyOGdpvZPju9Cw1S9X+OxdZh+IO+itG0mH63go+bzWeD4+PJ3apxXPvChiqKabXXczgGAzaRz+99DYUOwVyeFdNTDNzK5dZQCDf8/c4OPp/vgAisAY/eZjLP8VTDjUYExHALHHRe08WwMrDJQuEhW6+zaMh7PFnoPgFH9Pngg69mvd5otFy+vVmr8RClq2W3W+hBqtNpDj2CsCQ4HGX40H75/R/A9g11cQ7A0xyD2EevKL4GH3WrWFz5Eoko9P/EgMUR6hk+oVVMkz4lrFsVSofWMIberQBNGX1qug/Us/PIVFpWMII/9Kgl+j2e8hGpraRnAwx0n38CDAD3lwpCS51YdAAAAABJRU5ErkJggg==",
@@ -153,16 +154,6 @@
       t.addCss = function (e, t) {
         return n(e, t);
       };
-      var r = null,
-        i = function () {
-          if (r === null) {
-            r = isDefined(ItemManager.getByBaseId);
-          }
-          return r;
-        };
-      t.isNewIDsystem = function () {
-        return i();
-      };
       var s = function () {
         var e = [],
           t,
@@ -194,302 +185,10 @@
       t.backupData = function () {
         return s();
       };
-      t.idMigrationDone = function () {
-        var e = TWDB.Cache.load("migration") || {};
-        e.itemid = e.itemid || {};
-        return e.itemid.migcomplete === true;
-      };
-      var o = function () {
-        if (!TWDB.Util.isNewIDsystem()) {
-          return;
-        }
-        var t = [
-            "barracks",
-            "bonusdisplay",
-            "bonusjobs",
-            "chathistory",
-            "embackup",
-            "marketreminder",
-            "migration",
-            "msdsettings",
-            "notes",
-            "settings",
-            "statistic",
-          ],
-          n = { keys: true },
-          r = [],
-          i,
-          s,
-          o,
-          u,
-          a,
-          f,
-          l = "twdb_" + Character.playerId + "_",
-          c = TWDB.Cache.load("migration") || {};
-        c.itemid = c.itemid || {};
-        if (c.itemid.migcomplete === true) {
-          return;
-        }
-        var h = function (e) {
-          return JSON.parse(JSON.stringify(e));
-        };
-        var p = function (e) {
-          return parseInt(e, 10) * 1e3;
-        };
-        for (u = 0; u < localStorage.length; u++) {
-          i = localStorage.key(u);
-          if (i.search(l) === 0) {
-            r.push(i.substr(l.length));
-          }
-        }
-        for (u = 0; u < r.length; u++) {
-          i = r[u];
-          if (t.indexOf(i) === -1) {
-            localStorage.removeItem(l + i);
-          } else {
-            if (c.itemid[i] === true) {
-              n[i] = true;
-              continue;
-            }
-            switch (i) {
-              case "marketreminder":
-                s = TWDB.Cache.load(i) || {};
-                for (a in s) {
-                  if (s[a].item) {
-                    s[a].item = p(s[a].item);
-                  }
-                }
-                TWDB.Cache.save(i, s);
-                c.itemid[i] = true;
-                TWDB.Cache.save("migration", c);
-                break;
-              case "notes":
-                s = TWDB.Cache.load(i) || "";
-                o = s.replace(/\[item=(\d+)\]/gi, function (e, t) {
-                  return "[item=" + p(t) + "]";
-                });
-                if (o !== s) {
-                  TWDB.Cache.save(i, o);
-                }
-                c.itemid[i] = true;
-                TWDB.Cache.save("migration", c);
-                break;
-              case "settings":
-                s = TWDB.Cache.load(i);
-                if (
-                  isDefined(s.pinnedItems) &&
-                  isDefined(s.pinnedItems.length)
-                ) {
-                  for (a = 0; a < s.pinnedItems.length; a++) {
-                    s.pinnedItems[a] = p(s.pinnedItems[a]);
-                  }
-                  TWDB.Cache.save(i, s);
-                }
-                c.itemid[i] = true;
-                TWDB.Cache.save("migration", c);
-                break;
-              case "statistic":
-                s = TWDB.Cache.load(i);
-                o = {};
-                var d, v, m, g, y, b;
-                for (d in s.chest) {
-                  f = p(d);
-                  o[f] = h(s.chest[d]);
-                  o[f].items = {};
-                  for (v in s.chest[d].items) {
-                    o[f].items[p(v)] = s.chest[d].items[v];
-                  }
-                }
-                s.chest = h(o);
-                for (m in s.job) {
-                  if (!JobList.getJobById(m)) {
-                    continue;
-                  }
-                  o = {};
-                  for (g in s.job[m]) {
-                    o[g] = {};
-                    if (g === "products") {
-                      for (y in s.job[m][g]) {
-                        o[g][p(y)] = h(s.job[m][g][y]);
-                      }
-                    } else if (e.isNumeric(g)) {
-                      for (b in s.job[m][g]) {
-                        if (b === "items" || b === "extraitems") {
-                          o[g][b] = {};
-                          for (v in s.job[m][g][b]) {
-                            o[g][b][p(v)] = s.job[m][g][b][v];
-                          }
-                        } else {
-                          o[g][b] = h(s.job[m][g][b]);
-                        }
-                      }
-                      if (
-                        !isDefined(o[g].duration) ||
-                        !e.isNumeric(o[g].duration)
-                      ) {
-                        o[g].duration = 0;
-                      }
-                    } else {
-                      o[g] = h(s.job[m][g]);
-                    }
-                  }
-                  s.job[m] = h(o);
-                }
-                TWDB.Cache.save(i, s);
-                c.itemid[i] = true;
-                TWDB.Cache.save("migration", c);
-                break;
-              default:
-                break;
-            }
-            n[i] = true;
-          }
-        }
-        TWDB.Cache.save("keys", n);
-        c.itemid.migcomplete = true;
-        TWDB.Cache.save("migration", c);
-      };
-      t.idMigrator = function () {
-        return o();
-      };
-      var u = function (e) {
-        if (
-          localStorage.getItem("twdb_" + Character.playerId + "_embackup") !==
-          "TRUE"
-        ) {
-          return;
-        }
-        var t = [],
-          n,
-          r,
-          i = "backup_twdb_0_",
-          s;
-        for (s = 0; s < localStorage.length; s++) {
-          n = localStorage.key(s);
-          if (n.search(i) === 0) {
-            t.push(n);
-          }
-        }
-        if (e === true) {
-          for (s = 0; s < t.length; s++) {
-            localStorage.removeItem(t[s]);
-          }
-          localStorage.removeItem("twdb_" + Character.playerId + "_embackup");
-        } else {
-          for (s = 0; s < t.length; s++) {
-            localStorage.setItem(t[s].substr(7), localStorage.getItem(t[s]));
-          }
-        }
-      };
-      t.simpleRestore = function (e) {
-        return u(e);
-      };
-      t.wrapBetaGetItem = function () {
-        ItemManager.__twdb__get = ItemManager.__twdb__get || ItemManager.get;
-        ItemManager.get = function (e) {
-          try {
-            return ItemManager.__twdb__get(e);
-          } catch (t) {
-            console.log(t);
-            TWDB.script.isDev() && console.trace && console.trace();
-            return undefined;
-          }
-        };
-      };
       return t;
     })(jQuery);
     TWDB.ClothCalc = {
       uid: "twdb_clothcalc",
-      _sk4attr: {
-        strength: [5, 6, 7, 8, 9],
-        flexibility: [10, 11, 12, 13, 14],
-        dexterity: [15, 16, 17, 18, 19],
-        charisma: [20, 21, 22, 23, 24],
-      },
-      _type2id: {
-        animal: 1,
-        body: 2,
-        foot: 3,
-        head: 4,
-        left_arm: 5,
-        neck: 6,
-        right_arm: 7,
-        yield: 8,
-        pants: 9,
-        belt: 10,
-      },
-      _id2type: {
-        1: "animal",
-        2: "body",
-        3: "foot",
-        4: "head",
-        5: "left_arm",
-        6: "neck",
-        7: "right_arm",
-        8: "yield",
-        9: "pants",
-        10: "belt",
-      },
-      _skill2id: {
-        strength: 1,
-        flexibility: 2,
-        dexterity: 3,
-        charisma: 4,
-        build: 5,
-        punch: 6,
-        tough: 7,
-        endurance: 8,
-        health: 9,
-        ride: 10,
-        reflex: 11,
-        dodge: 12,
-        hide: 13,
-        swim: 14,
-        aim: 15,
-        shot: 16,
-        pitfall: 17,
-        finger_dexterity: 18,
-        repair: 19,
-        leadership: 20,
-        tactic: 21,
-        trade: 22,
-        animal: 23,
-        appearance: 24,
-      },
-      _id2skill: {
-        1: "strength",
-        2: "flexibility",
-        3: "dexterity",
-        4: "charisma",
-        5: "build",
-        6: "punch",
-        7: "tough",
-        8: "endurance",
-        9: "health",
-        10: "ride",
-        11: "reflex",
-        12: "dodge",
-        13: "hide",
-        14: "swim",
-        15: "aim",
-        16: "shot",
-        17: "pitfall",
-        18: "finger_dexterity",
-        19: "repair",
-        20: "leadership",
-        21: "tactic",
-        22: "trade",
-        23: "animal",
-        24: "appearance",
-      },
-      _class2id: {
-        greenhorn: 1,
-        adventurer: 2,
-        duelist: 3,
-        worker: 4,
-        soldier: 5,
-      },
-      data: { skills: {}, items: {}, jobs: {}, custom: {} },
       calcdata: {
         skills: {},
         items: {},
@@ -536,10 +235,6 @@
           return;
         }
         var e = this;
-        this.jobs.setParent(this);
-        this.joblist.parent = this;
-        this.customs.setParent(this);
-        this.bag.setParent(this);
         this.getBids();
         this.getLearned();
         TWDB.Eventer.set("TWDBdataLoaded", function () {
@@ -547,1262 +242,21 @@
         });
         this.gui.copyright = jQuery(
           '<div style="position:absolute;bottom:0px;left:0px;height:15px;display:block;font-size:10px;color:#000000;">.:powered by TW-DB Team:. | <a href="https://tw-db.info" style="font-weight:normal;color:#000000;" target="_blank">.:TW-DB.info:.</a> | ' +
-            "0." + TWDB.script.version + "." + TWDB.script.revision +
-            " | BB</div>",
+          "0." +
+          TWDB.script.version +
+          "." +
+          TWDB.script.revision +
+          " | BB</div>"
         );
         this.gui.cache = jQuery(
-          '<div style="position:absolute;top:10px;right:8px;width:20px;height:20px;cursor:pointer;" />',
+          '<div style="position:absolute;top:10px;right:8px;width:20px;height:20px;cursor:pointer;" />'
         );
-        this.gui.bag = jQuery(
-          '<div style="position:absolute;top:95px;left:1px;width:252px;height:186px;" />',
-        );
-        this.BagInt = window.setInterval(function () {
-          e.finishInit();
-        }, 100);
         if (!TWDB.Updater.wasUpdated()) {
           var t = TWDB.Cache.load("calcdata");
           if (typeof t === "object" && t !== null && isDefined(t.loaded)) {
             this.calcdata = t;
           }
         }
-      },
-      finishInit: function () {
-        if (typeof this.BagInt === "undefined") {
-          return;
-        }
-        if (Bag.loaded) {
-          window.clearInterval(this.BagInt);
-          delete this.BagInt;
-          this.loaded = true;
-          this.ready = true;
-          this.addButton();
-          var e = this;
-          HotkeyManager.register(
-            new Hotkey("twdbcc", "", "tw-db ClothCalc", function () {
-              e.open();
-            }),
-          );
-          if (isDefined(this.open_param)) {
-            this.open(this.open_param[0], this.open_param[1]);
-            delete this.open_param;
-          }
-        }
-      },
-      jobs: {
-        selected: 0,
-        base: 1,
-        basetime: 1,
-        sort: { list: [], type: "name", order: 1 },
-        setParent: function (e) {
-          this.parent = e;
-        },
-        init: function () {
-          var e = [],
-            t = 0,
-            n = 0,
-            r,
-            i,
-            s;
-          while (true) {
-            t++;
-            i = JobList.getJobById(t);
-            if (!i) {
-              n++;
-              if (n > 5) {
-                break;
-              }
-              continue;
-            }
-            n = 0;
-            e[i.shortname] = i.id;
-          }
-          for (r in this.parent.calcdata.jobs) {
-            i = this.parent.calcdata.jobs[r];
-            if (typeof e[i.short_name] === "undefined") {
-              if (i.short_name === "construction") {
-                i.name = "Κατασκευή";
-                i.skills = {};
-                i.gameid = 0;
-                i.laborpoints.current = 0;
-                i.duration = 7200 * Number(this.parent.data.jobs.workspeed);
-                i.energy = 24;
-              } else {
-                i.name = "!!".job.short_name;
-                i.skills = {};
-                i.gameid = 0;
-                i.laborpoints.current = 0;
-                i.duration = 0;
-                i.energy = 0;
-              }
-              continue;
-            }
-            s = JobList.getJobById(e[i.short_name]);
-            i.name = s.name;
-            i.skills = s.skills;
-            i.gameid = s.id;
-            i.difficulty = s.malus;
-            i.duration = 0;
-            i.energy = s.energy;
-            i.laborpoints.current = 0;
-          }
-        },
-        update: function () {
-          if (isDefined(this.parent.calcdata.jobs[this.selected])) {
-            var e = this.calcJob(this.selected);
-            var t =
-              e.name.substring(0, 18) +
-              " [" +
-              e.laborpoints.current +
-              "/" +
-              e.laborpoints.sum +
-              "]";
-            this.parent.gui.job.title.html(t);
-            this.parent.jobs.showCur();
-          }
-        },
-        showCur: function () {
-          if (isDefined(this.selected)) {
-            var e = this.parent.calcdata.jobs[this.selected];
-            if (isDefined(e)) {
-              var t = "";
-              switch (this.parent.joblist.sort.type) {
-                case "luck1":
-                  t +=
-                    '<img style="vertical-align: bottom;" src="' +
-                    TWDB.images.iconLuck +
-                    '"/> ';
-                  t +=
-                    " $" + e.values.cur_luck1 + "-" + "$" + e.values.cur_luck2;
-                  break;
-                case "laborpoints":
-                  t +=
-                    '<img style="vertical-align: bottom;" src="' +
-                    TWDB.images.iconLaborpoints +
-                    '"/> ';
-                  t += e.laborpoints.current;
-                  break;
-                case "experience":
-                  t +=
-                    '<img style="vertical-align: bottom;" src="' +
-                    TWDB.images.iconExperience +
-                    '"/> ';
-                  t += e.values.cur_experience + "exp";
-                  break;
-                case "wages":
-                  t +=
-                    '<img style="vertical-align: bottom;" src="' +
-                    TWDB.images.iconDollar +
-                    '"/> ';
-                  t += " $" + e.values.cur_wages;
-                  break;
-                case "danger":
-                  t +=
-                    '<img style="vertical-align: bottom;" src="' +
-                    TWDB.images.iconDanger +
-                    '"/> ';
-                  t += e.values.cur_danger + "%";
-                  break;
-                case "motivation":
-                  t +=
-                    '<img style="vertical-align: bottom;" src="' +
-                    TWDB.images.iconMoti +
-                    '"/> ';
-                  t +=
-                    e.values.resmotivation * 100 +
-                    " (" +
-                    Math.round(e.values.motivation * 100) +
-                    ")%";
-                  break;
-              }
-              this.parent.gui.job.calc.html(t);
-            }
-          }
-        },
-        switchJob: function (e) {
-          if (
-            typeof this.parent.calcdata.jobs[e] === "undefined" ||
-            typeof this.parent.calcdata.jobs[e].cloth === "undefined"
-          ) {
-            return;
-          }
-          var t = this.parent,
-            n = t.calcdata.jobs[e];
-          if (n.gameid !== 0) {
-            TWDB.Map.setMinimapJob(n.name);
-            t.gui.job.search.show();
-          } else {
-            t.gui.job.search.hide();
-          }
-          this.selected = e;
-          var r =
-            n.name.substring(0, 18) +
-            " [" +
-            n.laborpoints.current +
-            "/" +
-            n.laborpoints.sum +
-            "]";
-          t.gui.job.title.html(r);
-          t.bag.showItems(n.cloth, "jobs");
-          t.gui.job.skills.children().remove();
-          var i, s, o;
-          for (i in n.skills) {
-            for (s = 0; s < n.skills[i]; s++) {
-              o = jQuery('<div style="float:left;width;30px;height:30px;" />');
-              t.gui.job.skills.append(o.append(t.getSkillImg(i, 30)));
-            }
-          }
-          this.showCur();
-        },
-        mode: function (e) {
-          var t = this,
-            n = 2,
-            r = t.parent.data.jobs.jobs,
-            i;
-          for (i in t.parent.data.jobs.jobs) {
-            n = Math.min(r[i].durations.length - 1, n);
-          }
-          if (n < e) {
-            return t.mode(0);
-          }
-          t.parent.gui.job.mode.off("click");
-          switch (e) {
-            case 1:
-              t.base = 1;
-              t.basetime = 600;
-              t.parent.gui.job.mode
-                .css("background-position", "-20px 0px")
-                .click(function () {
-                  t.mode(2);
-                  t.parent.joblist.update();
-                });
-              break;
-            case 2:
-              t.base = 2;
-              t.basetime = 3600;
-              t.parent.gui.job.mode
-                .css("background-position", "-40px 0px")
-                .click(function () {
-                  t.mode(0);
-                  t.parent.joblist.update();
-                });
-              break;
-            default:
-              t.base = 0;
-              t.basetime = 15;
-              t.parent.gui.job.mode
-                .css("background-position", "0px 0px")
-                .click(function () {
-                  t.mode(1);
-                  t.parent.joblist.update();
-                });
-              break;
-          }
-        },
-        _calcStepFormula: function (e, t, n, r, i, s, o, u, a) {
-          var f = Math.ceil((i + 1) / 5),
-            l = Math.min(Math.floor(r / f), 15),
-            c = Math.ceil(o / 25) * 0.25;
-          return r < 5 * f || r <= i
-            ? Math[e](
-                { 0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6.25 }[a ? 0 : l] *
-                  s *
-                  c *
-                  u,
-              )
-            : Math[t](n(r - i, l) * s * c * u);
-        },
-        calcWage: function (e, t, n, r, i) {
-          return this._calcStepFormula(
-            "ceil",
-            "round",
-            function (e) {
-              return 6.25 * Math.pow(e, 0.05);
-            },
-            e,
-            t,
-            n,
-            r,
-            i,
-          );
-        },
-        calcExp: function (e, t, n, r, i) {
-          return this._calcStepFormula(
-            "ceil",
-            "ceil",
-            function (e) {
-              return 6.25;
-            },
-            e,
-            t,
-            n,
-            r,
-            i,
-          );
-        },
-        calcLuck: function (e, t, n, r, i) {
-          return this._calcStepFormula(
-            "floor",
-            "floor",
-            function (e) {
-              return 6.25 * Math.pow(e, 0.2);
-            },
-            e,
-            t,
-            (0.9 * n + 5) / 1.25,
-            100,
-            i,
-          );
-        },
-        calcProductRate: function (e, t, n, r, i) {
-          return this._calcStepFormula(
-            "round",
-            "round",
-            function (e, t) {
-              return t < 15 ? 6.25 : 9.375;
-            },
-            e,
-            t,
-            n,
-            100,
-            i,
-          );
-        },
-        calcDanger: function (e, t, n, r, i) {
-          return this._calcStepFormula(
-            "floor",
-            "floor",
-            function (e) {
-              return Math.pow(e, -0.2);
-            },
-            e,
-            t,
-            n,
-            100,
-            i,
-            true,
-          );
-        },
-        addPremium: function (e) {
-          var t = Number(Premium.hasBonus("character")),
-            n = Number(Premium.hasBonus("money")),
-            r = 1,
-            i = 1,
-            s = 1;
-          if (n) {
-            r *= 1.5;
-          }
-          if (Character.charClass === "worker") {
-            i = t ? 1.1 : 1.05;
-          }
-          if (Character.charClass === "adventurer") {
-            s = t ? 0.8 : 0.9;
-          }
-          e.values.cur_wages = Math.round(e.values.cur_wages * r);
-          e.values.cur_experience = Math.round(e.values.cur_experience * i);
-          e.values.cur_luck2 = Math.floor(e.values.cur_luck2 * r);
-          e.values.cur_danger = Math.round(e.values.cur_danger * s);
-          e.values.wages = Math.round(e.values.wages * r);
-          e.values.experience = Math.round(e.values.experience * i);
-          e.values.luck2 = Math.floor(e.values.luck2 * r);
-          e.values.danger = Math.round(e.values.danger * s);
-          return e;
-        },
-        calcJob: function (e) {
-          var t = this.parent.calcdata.jobs[e],
-            n = t.difficulty,
-            r = JobList.getJobById(t.gameid),
-            i;
-          t.values = {};
-          t.sp = 0;
-          t.max_sp = 0;
-          t.laborpoints.skills = 0;
-          for (i in t.skills) {
-            t.laborpoints.skills +=
-              Number(t.skills[i]) * Number(CharacterSkills.skills[i].points);
-          }
-          t.laborpoints.sum = t.laborpoints.cloth;
-          t.laborpoints.sum += t.laborpoints.skills;
-          t.laborpoints.sum -= t.difficulty + 1;
-          if (isDefined(r)) {
-            t.laborpoints.current = r.calcJobPoints() - (r.malus + 1);
-            t.sp = r.calcJobPoints();
-            t.max_sp = t.laborpoints.skills + t.laborpoints.cloth;
-          } else {
-            t.laborpoints.current = 0;
-          }
-          if (t.gameid !== 0) {
-            t.values.motivation =
-              this.parent.data.jobs.jobs[t.gameid].motivation;
-            t.values.resmotivation =
-              Math.ceil(this.parent.data.jobs.jobs[t.gameid].motivation * 4) /
-              4;
-          } else {
-            t.values.motivation = 0;
-            t.values.resmotivation = 0;
-          }
-          t.values.name = t.name;
-          t.values.laborpoints = Number(t.laborpoints.sum);
-          t.values.duration = Number(this.basetime);
-          var s = 1;
-          switch (this.base) {
-            case 0:
-              s = 0.1;
-              break;
-            case 1:
-              s = 0.47;
-              break;
-            default:
-              break;
-          }
-          var o = t.values.motivation * 100;
-          t.values.cur_wages = this.calcWage(t.sp, n, t.wages, o, s);
-          t.values.cur_experience = this.calcExp(t.sp, n, t.experience, o, s);
-          t.values.cur_luck1 = this.calcLuck(t.sp, n, t.luck, o, 1);
-          t.values.cur_luck2 = this.calcLuck(t.sp, n, t.luck, o, 3);
-          t.values.cur_danger = this.calcDanger(t.sp, n, t.danger, o, 1);
-          t.values.wages = this.calcWage(
-            t.max_sp,
-            n,
-            t.wages,
-            t.values.resmotivation * 100,
-            s,
-          );
-          t.values.experience = this.calcExp(
-            t.max_sp,
-            n,
-            t.experience,
-            t.values.resmotivation * 100,
-            s,
-          );
-          t.values.luck1 = this.calcLuck(
-            t.max_sp,
-            n,
-            t.luck,
-            t.values.resmotivation * 100,
-            1,
-          );
-          t.values.luck2 = this.calcLuck(
-            t.max_sp,
-            n,
-            t.luck,
-            t.values.resmotivation * 100,
-            3,
-          );
-          t.values.danger = this.calcDanger(
-            t.max_sp,
-            n,
-            t.danger,
-            t.values.resmotivation * 100,
-            1,
-          );
-          return this.addPremium(t);
-        },
-      },
-      joblist: {
-        ready: false,
-        gui: {},
-        elements: [],
-        focused: 0,
-        sort: { type: "name", order: 1 },
-        all: false,
-        name: null,
-        reset: function () {
-          this.ready = false;
-          delete this.elements;
-          this.elements = [];
-          this.getMainDiv().children().remove();
-          this.getMainDiv().append(
-            '<style type="text/css">.TWDB_hide{display:none;}.TWDB_filter{display:none;}</style>',
-          );
-          this.init(this.parent);
-        },
-        init: function (e) {
-          if (this.ready) {
-            return;
-          }
-          this.ready = true;
-          this.parent = e;
-          if (!this.gui.main) {
-            this.gui.main = this.getMainDiv();
-          }
-          this.gui.result = $(
-            '<div class="tw2gui_jobsearchbar_allresults" style="width:285px;" />',
-          );
-          this.gui.input = new west.gui.Textfield()
-            .maxlength(32)
-            .setClass4Input("tw2gui_jobsearch_string")
-            .setWidth(265);
-          this.gui.button = $(
-            '<div class="tw2gui_jobsearch_showall" style="display:block;cursor:pointer;"></div>',
-          );
-          this.gui.scrollpane = new west.gui.Scrollpane();
-          $(this.gui.scrollpane.getMainDiv()).css({
-            width: "285px",
-            height: "250px",
-          });
-          var t, n, r, i;
-          for (t in e.calcdata.jobs) {
-            n = e.calcdata.jobs[t];
-            r = $("<p>" + n.name + "</p>");
-            i = {};
-            i.dom = r;
-            i.id = t;
-            i.str = "Â§" + n.name.toUpperCase() + "Â§";
-            if (n.gameid !== 0) {
-              var s = JobList.getJobById(n.gameid),
-                o;
-              for (o in s.yields) {
-                if (isNaN(o)) {
-                  continue;
-                }
-                i.str += ItemManager.get(o).name.toUpperCase() + "Â§";
-              }
-            }
-            this.elements.push(i);
-          }
-          this.gui.main
-            .append(
-              $('<div style="position:relative;top:0;left:0;width:305px" />')
-                .append(this.gui.input.getMainDiv())
-                .append(this.gui.button),
-            )
-            .append(this.gui.result);
-          this.update();
-          if (this.name) {
-            this.open(this.name);
-          }
-        },
-        open: function (e) {
-          var t = this;
-          this.gui.result.show();
-          $(this.gui.input.getMainDiv())
-            .off()
-            .on("keyup", function (e) {
-              t.keyHandler(e);
-            });
-          $(this.gui.input.getField())
-            .off()
-            .on("focus", function () {
-              t.gui.result.show();
-            });
-          delete this.gui.scrollpane;
-          this.gui.scrollpane = new west.gui.Scrollpane();
-          $(this.gui.scrollpane.getMainDiv()).css({
-            width: "285px",
-            height: "250px",
-          });
-          var n = true;
-          $.each(this.elements, function (e, r) {
-            r.dom.off();
-            t.updateJob(e);
-            if (n && r.dom.is(":visible")) {
-              this.focused = e;
-              r.dom.addClass("focused");
-              n = false;
-            } else {
-              r.dom.removeClass("focused");
-            }
-            r.dom.addMousePopup(TWDB.ClothCalc.jobs.getJobPopup(r.id));
-            r.dom.click(
-              (function (e) {
-                return function () {
-                  t.close();
-                  TWDB.ClothCalc.jobs.switchJob(e);
-                };
-              })(r.id),
-            );
-            t.gui.scrollpane.appendContent(r.dom);
-          });
-          this.gui.result.children().remove();
-          this.gui.result.append(this.gui.scrollpane.getMainDiv());
-          this.gui.button.click(function () {
-            if (t.gui.result.is(":visible")) {
-              t.gui.result.hide();
-            } else {
-              t.gui.input.focus();
-            }
-          });
-          this.gui.main.show();
-          if (isDefined(e)) {
-            $(this.gui.input.getField()).attr("value", e);
-            this.search(e, true);
-          }
-        },
-        search: function (e, t) {
-          var n = new RegExp(
-            isDefined(t) ? "Â§" + e.toUpperCase() + "Â§" : e.toUpperCase(),
-            "i",
-          );
-          var r = true;
-          var i = this;
-          var s = [];
-          $.each(this.elements, function (e, t) {
-            t.dom.removeClass("focused");
-            if (n.test(t.str)) {
-              t.dom.removeClass("TWDB_filter");
-              if (t.dom.is(":visible")) {
-                s.push(t.dom);
-                if (r) {
-                  i.focused = e;
-                  t.dom.addClass("focused");
-                  r = false;
-                }
-              }
-            } else {
-              t.dom.addClass("TWDB_filter");
-            }
-          });
-          if (s.length === 1) {
-            s[0].click();
-          }
-        },
-        keyHandler: function (e) {
-          var t = e.keyCode || e.which,
-            n;
-          if (t === 38 || t === 40) {
-            if (t === 38) {
-              this.elements[this.focused].dom.removeClass("focused");
-              for (n = 0; n < this.elements.length; n++) {
-                this.focused--;
-                if (this.focused < 0) {
-                  this.focused = this.elements.length - 1;
-                }
-                if (this.elements[this.focused].dom.is(":visible")) {
-                  this.elements[this.focused].dom.addClass("focused");
-                  break;
-                }
-              }
-            } else {
-              this.elements[this.focused].dom.removeClass("focused");
-              for (n = 0; n < this.elements.length; n++) {
-                this.focused++;
-                if (this.focused >= this.elements.length) {
-                  this.focused = 0;
-                }
-                if (this.elements[this.focused].dom.is(":visible")) {
-                  this.elements[this.focused].dom.addClass("focused");
-                  break;
-                }
-              }
-            }
-            var r = this.elements[this.focused].dom.offset().top,
-              i = jQuery(this.gui.scrollpane.clipPane).offset().top,
-              s;
-            if (r - i > 180 || i - r > 0) {
-              s = (r - i - 90) / 16;
-              this.gui.scrollpane.scrollTo(0, s);
-            }
-          } else if (t === 13) {
-            this.elements[this.focused].dom.click();
-          } else {
-            this.search(this.gui.input.getValue());
-          }
-        },
-        order: function (e) {
-          function t(t, n) {
-            var r = TWDB.ClothCalc.calcdata.jobs[t.id].values[e];
-            var s = TWDB.ClothCalc.calcdata.jobs[n.id].values[e];
-            return r > s ? i : -i;
-          }
-          function n(t, n) {
-            var r = TWDB.ClothCalc.calcdata.jobs[t.id].values[e];
-            var s = TWDB.ClothCalc.calcdata.jobs[n.id].values[e];
-            return r * 1 > s * 1 ? i : -i;
-          }
-          var r = true;
-          if (e) {
-            if (e === this.sort.type) {
-              this.sort.order *= -1;
-            } else {
-              r = false;
-              if (e === "danger" || e === "name") {
-                this.sort.order = 1;
-              } else {
-                this.sort.order = -1;
-              }
-              this.sort.type = e;
-            }
-          }
-          var i = this.sort.order,
-            e = this.sort.type,
-            s = this,
-            o = true;
-          if (e === "name") {
-            this.elements.sort(t);
-          } else {
-            this.elements.sort(n);
-          }
-          jQuery.each(this.elements, function (e, t) {
-            if (!r) {
-              s.updateJob(e);
-            }
-            if (o && t.dom.is(":visible")) {
-              this.focused = e;
-              t.dom.addClass("focused");
-              o = false;
-            } else {
-              t.dom.removeClass("focused");
-            }
-            s.gui.scrollpane.appendContent(t.dom);
-          });
-          this.parent.jobs.showCur();
-        },
-        updateJob: function (e) {
-          var t = this.elements[e],
-            n = TWDB.ClothCalc.jobs.calcJob(t.id),
-            r = n.name;
-          t.dom.removeClass("TWDB_hide");
-          r += " [" + n.laborpoints.current + "/" + n.laborpoints.sum + "] ";
-          switch (this.sort.type) {
-            case "luck1":
-              r += " $" + n.values.luck1 + "-" + "$" + n.values.luck2;
-              break;
-            case "laborpoints":
-              break;
-            case "experience":
-              r += n.values.experience + "exp";
-              break;
-            case "wages":
-              r += "$" + n.values.wages;
-              break;
-            case "danger":
-              r += n.values.danger + "%";
-              break;
-            case "duration":
-              r += n.values.duration + " sec";
-              break;
-            case "motivation":
-              r +=
-                n.values.resmotivation * 100 +
-                " (" +
-                Math.round(n.values.motivation * 100) +
-                ")%";
-              break;
-          }
-          t.dom.html(r);
-          if (n.laborpoints.current < 0) {
-            if (n.laborpoints.sum < 0) {
-              if (JobList.getJobById(t.id).level <= Character.level) {
-                t.dom.css("color", "blue");
-              } else {
-                t.dom.css("color", "red");
-                if (!this.all) {
-                  t.dom.addClass("TWDB_hide");
-                }
-              }
-            } else {
-              t.dom.css("color", "orange");
-            }
-          } else {
-            t.dom.css("color", "#333");
-          }
-          return n;
-        },
-        update: function () {
-          var e = this;
-          jQuery.each(this.elements, function (t) {
-            e.updateJob(t);
-          });
-          this.order();
-        },
-        getMainDiv: function () {
-          if (!this.gui.main) {
-            this.gui.main = jQuery(
-              '<div style="position:absolute;left: 255px; top: 30px; display: none;" />',
-            ).append(
-              '<style type="text/css">.TWDB_hide{display:none;}.TWDB_filter{display:none;}</style>',
-            );
-          }
-          return this.gui.main;
-        },
-        close: function () {
-          this.gui.main.hide();
-        },
-      },
-      customs: {
-        selected: 0,
-        setParent: function (e) {
-          this.parent = e;
-        },
-        calc: function () {
-          var e = this.parent.calcdata.custom[this.selected];
-          return isDefined(e) && e.type === "fort" ? "0|0|0" : "";
-        },
-        createSelectbox: function () {
-          if (!this.parent.gui.custom.selectbox) {
-            return;
-          }
-          var e, t;
-          this.parent.gui.custom.selectbox.elContent.empty();
-          this.parent.gui.custom.selectbox.value = null;
-          this.parent.gui.custom.selectbox.items = [];
-          for (e in this.parent.calcdata.custom) {
-            t =
-              this.parent.calcdata.custom[e].name +
-              " [" +
-              this.parent.calcdata.custom[e].laborpoints +
-              "]";
-            this.parent.gui.custom.selectbox.addItem(e, t);
-          }
-          this.switchCustomJob(this.selected);
-        },
-        switchCustomJob: function (e) {
-          if (
-            isDefined(this.parent.calcdata.custom[e]) &&
-            isDefined(this.parent.calcdata.custom[e].cloth)
-          ) {
-            this.parent.customs.selected = e;
-            var t = " [" + this.parent.calcdata.custom[e].laborpoints + "]";
-            t =
-              this.parent.calcdata.custom[e].name.substring(0, 35 - t.length) +
-              t;
-            this.parent.gui.custom.title.html(t);
-            this.parent.bag.showItems(
-              this.parent.calcdata.custom[e].cloth,
-              "custom",
-            );
-            this.showSkill();
-          }
-        },
-        showSkill: function () {
-          this.parent.gui.custom.skills.children().remove();
-          if (
-            !isDefined(
-              this.parent.calcdata.custom[this.parent.customs.selected],
-            )
-          ) {
-            return;
-          }
-          if (
-            this.parent.calcdata.custom[this.parent.customs.selected].type ==
-            "fort"
-          ) {
-            return;
-          }
-          var e = this.calc();
-          var t = String(e).split("|");
-          for (
-            var n = 0;
-            n < this.parent.calcdata.custom[this.selected].skills.length;
-            n++
-          ) {
-            var r = jQuery(
-              '<div style="float:left;width:30px;height:30px;" />',
-            );
-            r.append(
-              this.parent.getSkillImg(
-                this.parent.calcdata.custom[this.selected].skills[n],
-                30,
-              ),
-            );
-            this.parent.gui.custom.skills.append(r);
-            if (
-              this.parent.calcdata.custom[this.parent.customs.selected].type ==
-                "fort" &&
-              typeof t[n] !== "undefined"
-            ) {
-              var i = jQuery(
-                '<div style="float:left;height:25px;padding:5px 10px 0px 5px ;font-weight:bold;">' +
-                  t[n] +
-                  "</div>",
-              );
-              this.parent.gui.custom.skills.append(i);
-            }
-          }
-          if (
-            this.parent.calcdata.custom[this.parent.customs.selected].type !==
-            "fort"
-          ) {
-            var i = jQuery(
-              '<div style="float:left;height:25px;padding:5px 0px 0px 5px ;font-weight:bold;">' +
-                e +
-                "</div>",
-            );
-            this.parent.gui.custom.skills.append(i);
-          }
-        },
-        showConfig: function () {
-          var e = this;
-          var t = jQuery(
-            '<div title="Επεξεργασία" style="display:inline-block;vertical-align:top;height:16px;width:16px;cursor:pointer;background:url(\'' +
-              Game.cdnURL +
-              "/images/window/messages/head-icons.png') repeat scroll 0 16px transparent;\" />",
-          );
-          var n = jQuery(
-            '<div title="Διαγραφή" style="display:inline-block;vertical-align:top;height:16px;width:16px;cursor:pointer;background:url(\'' +
-              Game.cdnURL +
-              "/images/icons/delete.png') repeat scroll 0px 0px transparent;\" />",
-          );
-          var r = jQuery(
-            '<div title="Προσθήκη" style="display:block;margin-top:2px;vertical-align:top;height:20px;width:25px;cursor:pointer;background:url(\'' +
-              Game.cdnURL +
-              "/images/window/messages/icons.png') repeat scroll 72px -5px transparent;\" />",
-          );
-          var i = jQuery("<div />");
-          for (var s in this.parent.data.custom) {
-            var o = this.parent.data.custom[s];
-            var u = jQuery(
-              '<div style="display:inline-block;vertical-align:top;height:16px;width:300px;overflow:hidden;" />',
-            ).html(o.name);
-            var a = t.clone(false);
-            var f = n.clone(false);
-            var l = jQuery(
-              '<div style="display:block;height:18px;padding: 3px 0px 0px 0px;border-bottom: 1px solid #666" />',
-            )
-              .append(u)
-              .append(a)
-              .append(f);
-            i.append(l);
-            var c = (function (t) {
-              return function () {
-                e.editConfig(t);
-              };
-            })(s);
-            a.click(c);
-            var c = (function (t) {
-              return function () {
-                e.deleteConfig(t);
-              };
-            })(s);
-            f.click(c);
-          }
-          var h = 0;
-          for (var s in this.parent.data.custom) {
-            h++;
-          }
-          if (h < 15) {
-            i.append(r);
-            r.click(function () {
-              e.addConfig();
-            });
-          }
-          this.parent.gui.custom.config = new west.gui.Dialog(
-            "Προσαρμογή των ικανοτήτων",
-            i,
-          );
-          this.parent.gui.custom.config.addButton("ΟΚ", function () {
-            e.parent.checkCache();
-          });
-          this.parent.gui.custom.config.show();
-        },
-        addConfig: function () {
-          var e = 0;
-          for (var t in this.parent.data.custom) {
-            e++;
-          }
-          if (e >= 15) {
-            new UserMessage(
-              "Πάρα πολλές καταχωρήσεις, επιτρέπονται μόνο δέκα (10)",
-              UserMessage.TYPE_ERROR,
-            ).show();
-          } else {
-            e++;
-            this.editConfig(e);
-          }
-        },
-        htmlUnEscape: function (e) {
-          return String(e)
-            .replace(/&amp;/g, "&")
-            .replace(/&quot/g, '"')
-            .replace(/&#39;/g, "'")
-            .replace(/&lt;/g, "<")
-            .replace(/&gt;/g, ">");
-        },
-        htmlEscape: function (e) {
-          return String(e)
-            .replace(/&/g, "&amp;")
-            .replace(/"/g, "&quot;")
-            .replace(/'/g, "&#39;")
-            .replace(/</g, "&lt;")
-            .replace(/>/g, "&gt;");
-        },
-        editConfig: function (e, t) {
-          if (typeof t == "undefined") {
-            var n = this;
-            var r = "";
-            var i = "";
-            var s = "Προσθήκη - ";
-            if (typeof this.parent.data.custom[e] !== "undefined") {
-              s = "Επεξεργασία - ";
-              var r = this.parent.data.custom[e].name;
-              var i = JSON.stringify({
-                type: this.parent.data.custom[e].type,
-                para: this.parent.data.custom[e].para,
-              });
-            }
-            this.tmp = { name: r, code: i };
-            this.parent.gui.custom.name = new west.gui.Textfield(
-              "twdb_cc_custom_name",
-            )
-              .setSize(30)
-              .setValue(this.htmlUnEscape(r));
-            this.parent.gui.custom.code = new west.gui.Textfield(
-              "twdb_cc_custom_code",
-            )
-              .setSize(30)
-              .setValue(i);
-            var o = jQuery('<table width="400px" />');
-            o.append(
-              jQuery("<tr />")
-                .append('<td style="vertical-align:middle">Meno:</td>')
-                .append(
-                  jQuery("<td />").append(
-                    this.parent.gui.custom.name.getMainDiv(),
-                  ),
-                ),
-            );
-            o.append(
-              jQuery("<tr />")
-                .append('<td style="vertical-align:middle">Kód:</td>')
-                .append(
-                  jQuery("<td />").append(
-                    this.parent.gui.custom.code.getMainDiv(),
-                  ),
-                ),
-            );
-            o.append(
-              '<tr><td colspan="2">Παρακαλούμε, μεταβείτε στο tw-db.info και αντιγράψτε εδώ τον κωδικό που λαμβάνετε από τον <a href="https://tw-db.info/?strana=calc" target="_blank">TW-DB.info Υπολογιστή</a></td></tr>',
-            );
-            var o = new west.gui.Dialog(s + "Προσαρμογή των ικανοτήτων", o);
-            o.addButton("ΟΚ", function () {
-              return n.editConfig(e, true);
-            });
-            o.addButton("Ακύρωση");
-            o.show();
-          } else {
-            var u = function (e) {
-              new UserMessage(
-                "Τα δεδομένα που εισαγάγατε είναι λανθασμένα: " + e,
-                UserMessage.TYPE_ERROR,
-              ).show();
-              return false;
-            };
-            if (this.parent.gui.custom.name.getValue() == "") {
-              return u("Άδειο Όνομα");
-            }
-            if (this.parent.gui.custom.code.getValue() == "") {
-              return u("Άδειος Κωδικός [1]");
-            }
-            if (
-              this.parent.gui.custom.name.getValue() == this.tmp.name &&
-              this.parent.gui.custom.code.getValue() == this.tmp.code
-            ) {
-              return true;
-            }
-            try {
-              var i = JSON.parse(this.parent.gui.custom.code.getValue());
-            } catch (a) {
-              return u("Κωδικός Σφάλματος [2]");
-            }
-            if (typeof i.type == "undefined" || typeof i.para == "undefined") {
-              return u("Κωδικός Σφάλματος [3]");
-            }
-            var f = 0;
-            for (var l in i.para) {
-              f++;
-            }
-            switch (i.type) {
-              case "speed":
-              case "regen":
-                if (f !== 0) {
-                  return u("Κωδικός Σφάλματος [4]");
-                }
-                break;
-              case "fort":
-                if (
-                  typeof i.para.type == "undefined" ||
-                  typeof i.para.att == "undefined" ||
-                  typeof i.para.def == "undefined" ||
-                  typeof i.para.health == "undefined"
-                ) {
-                  return u("Κωδικός Σφάλματος [5]");
-                }
-                if (i.para.type !== 1 && i.para.type !== 0) {
-                  return u("Κωδικός Σφάλματος [6]");
-                }
-                if (!jQuery.isNumeric(i.para.att) || i.para.att < 0) {
-                  return u("Κωδικός Σφάλματος [7]");
-                }
-                if (!jQuery.isNumeric(i.para.def) || i.para.def < 0) {
-                  return u("Κωδικός Σφάλματος [8]");
-                }
-                if (!jQuery.isNumeric(i.para.health) || i.para.health < 0) {
-                  return u("Κωδικός Σφάλματος [9]");
-                }
-                break;
-              case "duel":
-              case "custom":
-                if (f <= 0) {
-                  return u("Κωδικός Σφάλματος [10]");
-                }
-                break;
-              default:
-                return u("Κωδικός Σφάλματος [11]");
-            }
-            delete this.tmp;
-            this.parent.data.custom[e] = {
-              id: Number(e),
-              type: i.type,
-              para: i.para,
-              name: this.htmlEscape(this.parent.gui.custom.name.getValue()),
-            };
-            this.parent.gui.custom.config.hide();
-            this.showConfig();
-            TWDB.Settings.set("custom", this.parent.data.custom);
-          }
-        },
-        deleteConfig: function (e, t) {
-          if (typeof t == "undefined") {
-            var n = this;
-            var r = new west.gui.Dialog(
-              "Διαγραφή - Προσαρμογή των ικανοτήτων",
-              "Διαγραφή: " + this.parent.data.custom[e].name + "?",
-            );
-            r.addButton("ΟΚ", function () {
-              n.deleteConfig(e, true);
-            });
-            r.addButton("Ακύρωση");
-            r.show();
-          } else {
-            var i = this.parent.data.custom;
-            delete i[e];
-            this.parent.data.custom = {};
-            var s = 0;
-            for (var e in i) {
-              s++;
-              this.parent.data.custom[s] = i[e];
-              this.parent.data.custom[s].id = s;
-            }
-            this.parent.gui.custom.config.hide();
-            this.showConfig();
-            TWDB.Settings.set("custom", this.parent.data.custom);
-          }
-        },
-      },
-      bag: {
-        stack: {},
-        interval: false,
-        setParent: function (e) {
-          this.parent = e;
-        },
-        showItems: function (e, t) {
-          this.parent.gui.bag.children().remove();
-          this.items = {};
-          var n = this,
-            r = false,
-            i = function (e) {
-              var r = new tw2widget.InventoryItem(
-                ItemManager.get(e),
-              ).setCharacter(Character);
-              var i = r.getMainDiv();
-              var s = (function (e) {
-                return function () {
-                  n.click(r, e, t);
-                };
-              })(e);
-              jQuery(i)
-                .removeAttr("id")
-                .children(".TWDBcollector")
-                .remove()
-                .end()
-                .children("img:first-child")
-                .removeAttr("id")
-                .end()
-                .click(s)
-                .appendTo(n.parent.gui.bag);
-              n.items[e] = jQuery(i);
-            },
-            s,
-            o;
-          for (s in e) {
-            if (typeof s === "function") {
-              break;
-            }
-            o = e[s].id;
-            i(o);
-            r = r || ItemManager.get(o).type === "animal";
-          }
-          this.parent.gui.bag.append(
-            jQuery(
-              new west.gui.Button(
-                Inventory.guiElements.instantWearButton.caption.text,
-                n.autoEquip,
-                n,
-                null,
-              ).getMainDiv(),
-            ).css({ position: "absolute", right: "8px", bottom: "5px" }),
-          );
-          var u = TWDB.DataManager.getAnimals();
-          if (!r && u.length > 0) {
-            i(u[0]["id"]);
-          }
-          this.wear();
-        },
-        autoEquip: function () {
-          var e;
-          for (e in this.items) {
-            if (this.items.hasOwnProperty(e)) {
-              jQuery(this.items[e]).click();
-            }
-          }
-        },
-        click: function (e, t, n) {
-          if (Bag.getItemByItemId(t) === undefined) {
-            return false;
-          }
-          Wear.carry(e);
-          this.stack[t] = e;
-          var r = this,
-            i;
-          if (this.interval === false) {
-            switch (n) {
-              case "jobs":
-                i = function () {
-                  r.wear();
-                  r.parent.jobs.update();
-                  r.parent.joblist.update();
-                };
-                break;
-              case "custom":
-                i = function () {
-                  r.wear();
-                  r.parent.customs.showSkill();
-                };
-                break;
-            }
-            TWDB.Eventer.set("carryChecker", i, 1);
-            this.interval = setInterval(function () {
-              r.carry();
-            }, 100);
-          }
-        },
-        carry: function () {
-          var e = 0,
-            t,
-            n;
-          for (t in this.stack) {
-            n = this.stack[t];
-            if (n === undefined || n.getImgEl().css("opacity") === "1") {
-              delete this.stack[t];
-            } else {
-              e++;
-            }
-          }
-          if (e === 0) {
-            clearInterval(this.interval);
-            this.interval = false;
-            TWDB.Eventer.trigger("carryChecker");
-          }
-        },
-        wear: function () {
-          var e, t;
-          for (e in Wear.wear) {
-            t = Wear.wear[e].getId();
-            if (typeof this.items[t] !== "undefined") {
-              this.items[t].css("opacity", "0.5");
-            }
-          }
-        },
       },
       getLPForJob: function (e) {
         if (
@@ -1855,9 +309,9 @@
                 function () {
                   s();
                 },
-                "TW-DB.info: an error occured",
-                "tip",
-              ),
+                "TW-DB.info: Παρουσιάστηκε σφάλμα",
+                "tip"
+              )
             );
           }
         };
@@ -1932,39 +386,9 @@
               Error.report(e, "");
               new UserMessage(
                 "Η εγγραφή του UserScript TW-DB.info στο TheWestApi απέτυχε.",
-                UserMessage.TYPE_FATAL,
+                UserMessage.TYPE_FATAL
               ).show();
               return d();
-            }
-            if (TWDB.Util.isNewIDsystem()) {
-              TWDB.Util.wrapBetaGetItem();
-            }
-            if (
-              TWDB.Util.isNewIDsystem() &&
-              window.location.href.indexOf(".beta.the-west.net") === -1 &&
-              !TWDB.Util.idMigrationDone()
-            ) {
-              try {
-                TWDB.Util.backupData();
-              } catch (e) {}
-              try {
-                TWDB.Util.idMigrator();
-                new UserMessage(
-                  "Η μετατροπή των δεδομένων του TW-DB στο νέο σύστημα των αντικειμένων ολοκληρώθηκε επιτυχώς.",
-                  UserMessage.TYPE_SUCCESS,
-                ).show();
-                TWDB.Util.simpleRestore(true);
-              } catch (e) {
-                Error.report(
-                  e,
-                  "Η μετατροπή των δεδομένων του TW-DB στο νέο σύστημα των αντικειμένων απέτυχε.",
-                );
-                new UserMessage(
-                  "Η μετατροπή των δεδομένων του TW-DB στο νέο σύστημα των αντικειμένων απέτυχε. Μην χρησιμοποιείτε τους ΑΝΑΛΥΤΕΣ εάν θέλετε να αποθηκεύσετε τα δεδομένα σας!",
-                  UserMessage.TYPE_FATAL,
-                ).show();
-                TWDB.Util.simpleRestore();
-              }
             }
             return p();
           }
@@ -2000,7 +424,7 @@
             "2.04",
             String(Script.game_version),
             "scoobydoo, Dun, Petee, Bluep, Tom Robert, xShteff [tw-db.info] - BB",
-            "https://tw-db.info",
+            "https://tw-db.info"
           );
           var n =
             '<br><br><form action="https://www.paypal.com/cgi-bin/webscr" method="post">' +
@@ -2009,11 +433,11 @@
             '<input type="image" src="https://www.paypalobjects.com/en_US/DE/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - Ο ασφαλέστερος και ευκολότερος τρόπος για να πληρώνετε online!">' +
             '<img width="1" border="0" height="1" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" alt=""></form><br>';
           var r = e(
-            "<div style='font-family:comic sans ms; font-size:13pt; padding-top:10px; text-align:center;' />",
+            "<div style='font-family:comic sans ms; font-size:13pt; padding-top:10px; text-align:center;' />"
           ).append(
             "Το UserScript ClothCalc είναι ένα έργο που δημιουργήθηκε από την ομάδα TW-DB.info. Προσφέρει πολλές δυνατότητες και επεκτάσεις που θα σας δώσει μια βελτιωμένη εμπειρία παιχνιδιού - εξοικονόμηση του χρόνου σας και τη βελτιστοποίηση σε ορισμένες από τις δραστηριότητες σας.",
             n,
-            "Ευχαριστούμε!",
+            "Ευχαριστούμε!"
           );
           t.setGui(r);
           if (t.isOutdated()) {
@@ -2030,7 +454,7 @@
             if (a) {
               Error.report(
                 { message: "deadlock detected" },
-                "failed to load module: " + o.key,
+                "failed to load module: " + o.key
               );
               i[o.key] = true;
               return p();
@@ -2125,12 +549,12 @@
               }
               new UserMessage(
                 "Η επαναφορά ολοκληρώθηκε, η σελίδα θα φορτωθεί ξανά",
-                UserMessage.TYPE_SUCCESS,
+                UserMessage.TYPE_SUCCESS
               ).show();
               location.href = location.href.replace(location.hash || "#", "");
             } else {
               var u = e(
-                "<div><h2>Θέλετε σίγουρα να επαναφέρετε ολόκληρο το Cache του tw-db UserScript;</h2></div>",
+                "<div><h2>Θέλετε σίγουρα να επαναφέρετε ολόκληρο το Cache του tw-db UserScript;</h2></div>"
               );
               var a = new west.gui.Textfield("twdb_cache_key")
                 .setSize(40)
@@ -2149,12 +573,12 @@
                   f.setSelected(false);
                 });
               u.append(
-                e('<div style="display:block;" />').append(f.getMainDiv()),
+                e('<div style="display:block;" />').append(f.getMainDiv())
               );
               new west.gui.Dialog(
                 "Επαναφορά Cache tw-db",
                 u,
-                west.gui.Dialog.SYS_QUESTION,
+                west.gui.Dialog.SYS_QUESTION
               )
                 .addButton("ΟΚ", function () {
                   if (f.isSelected()) {
@@ -2400,10 +824,10 @@
             });
           e("#ui_menubar").append(
             e(
-              '<div class="ui_menucontainer" id="TWDB_ClothCalc_menubuttons" />',
+              '<div class="ui_menucontainer" id="TWDB_ClothCalc_menubuttons" />'
             )
               .append(t)
-              .append('<div class="menucontainer_bottom" />'),
+              .append('<div class="menucontainer_bottom" />')
           );
           ready = true;
           o.ready = true;
@@ -2420,9 +844,12 @@
           r.appendToContentPane(
             e(
               '<div style="width:100%;text-align:center;position:absolute;bottom:0px;left:0px;height:15px;display:block;font-size:12px;color:#000000;">.:powered by TW-DB Team:. | <a href="https://tw-db.info" style="font-weight:normal;color:#000000;" target="_blank">.:TW-DB.info:.</a> | ' +
-                "0." + Script.version + "." + Script.revision +
-                " | BB</div>",
-            ),
+              "0." +
+              Script.version +
+              "." +
+              Script.revision +
+              " | BB</div>"
+            )
           );
           var o;
           for (var u in s) {
@@ -2565,7 +992,7 @@
             n = {};
           }
           TWDB.Util.addCss(
-            "span.twdb_sett_capt { font-size: 115%; font-weight: bold; font-style: italic; display: inline-block; margin-top: 8px; text-shadow: 2px 1px 2px #643; }",
+            "span.twdb_sett_capt { font-size: 115%; font-weight: bold; font-style: italic; display: inline-block; margin-top: 8px; text-shadow: 2px 1px 2px #643; }"
           );
           r = Window.addTab("settings", "Ρυθμίσεις", "Ρυθμίσεις", o);
           i.ready = true;
@@ -2766,9 +1193,9 @@
               h.append(
                 e('<td colspan="2" />').append(
                   e('<span class="twdb_sett_capt" />').text(
-                    (s[l][2] + "").twdb_twiceHTMLUnescape(),
-                  ),
-                ),
+                    (s[l][2] + "").twdb_twiceHTMLUnescape()
+                  )
+                )
               );
               a.append(h);
               continue;
@@ -2788,10 +1215,10 @@
                 var d = new west.gui.Checkbox(
                   "",
                   !o[c] ? "" : "tw2gui_checkbox_checked",
-                  p,
+                  p
                 );
                 h.append(
-                  e('<td style="width:25px;" />').append(d.getMainDiv()),
+                  e('<td style="width:25px;" />').append(d.getMainDiv())
                 );
                 break;
             }
@@ -2803,8 +1230,8 @@
                 a.append(
                   e(
                     '<tr><td style="width:25px;cursor:pointer;" /><td style="cursor:pointer;" class="item_sell"><span class="twdb_cat butMinus" style="margin-top: -3px;background: no-repeat url(https://westgr.innogamescdn.com/images/scrollbar/scroll_down.png);width: 350px;height: 16px;" />&nbsp;&nbsp;&nbsp;&nbsp;' +
-                      v.twdb_twiceHTMLUnescape() +
-                      "</td></tr>",
+                    v.twdb_twiceHTMLUnescape() +
+                    "</td></tr>"
                   ).click(
                     (function (t) {
                       return function () {
@@ -2814,12 +1241,12 @@
                           .toggleClass("butMinus")
                           .toggleClass("butPlus");
                       };
-                    })(v),
+                    })(v)
                   ),
                   e("<tr>").append(
                     e('<td style="width:25px;">'),
-                    e("<td>").append(f[v]),
-                  ),
+                    e("<td>").append(f[v])
+                  )
                 );
               }
               f[v].append(h);
@@ -2834,12 +1261,12 @@
           });
           var y = e('<div style="width:100%;text-align:right;" />').append(
             e(
-              '<img style="position:relative;top:-20px;cursor:pointer;" title=" Επαναφορά Local Storage" src="' +
-                Images.iconReset +
-                '" />',
+              '<img style="position:relative;top:-20px;cursor:pointer;" title=" Επαναφορά Ρυθμίσεων" src="' +
+              Images.iconReset +
+              '" />'
             ).click(function () {
               Cache.reset();
-            }),
+            })
           );
           i.appendContent(a);
           r.append(g.getMainDiv()).append(y);
@@ -2863,7 +1290,7 @@
           if (Cache.save("settings", n)) {
             new UserMessage(
               "Αποθήκευση επιτυχής",
-              UserMessage.TYPE_SUCCESS,
+              UserMessage.TYPE_SUCCESS
             ).show();
           } else {
             new UserMessage("?save_error", UserMessage.TYPE_ERROR).show();
@@ -2893,7 +1320,7 @@
             JobWindow.prototype.initView = function () {
               var t = JobWindow.prototype.__twdb__initView.apply(
                 this,
-                arguments,
+                arguments
               );
               var n =
                 "&nbsp;&nbsp;(" +
@@ -2901,7 +1328,7 @@
                 "&nbsp;Π.Ε.)";
               e(
                 "div.tw2gui_inner_window_title > .textart_title",
-                this.window.divMain,
+                this.window.divMain
               ).append(n);
               return t;
             };
@@ -2930,7 +1357,7 @@
             "Χαρακτηριστικά Έκδοσης",
             function () {
               u();
-            },
+            }
           );
           if (!Cache.load("version"))
             Cache.save("version", Script.version + " " + Script.revision);
@@ -2964,9 +1391,15 @@
           r = r.replace("=1=", "<b>" + Script.name + "</b>");
           r +=
             "<div><br />Τρέχουσα έκδοση: " +
-            "0." + Script.version + "." + Script.revision +
+            "0." +
+            Script.version +
+            "." +
+            Script.revision +
             "<br />Νέα έκδοση: " +
-            "0." + e + "." + t +
+            "0." +
+            e +
+            "." +
+            t +
             "</div>";
           var i = Script.protocol + "://" + Script.folder_url + Script.update;
           var s = function () {
@@ -2974,7 +1407,7 @@
             new west.gui.Dialog(
               Script.name,
               "Φορτώστε ξανά το παιχνίδι μετά την εγκατάσταση.",
-              "warning",
+              "warning"
             )
               .setModal(true, false, true)
               .show();
@@ -2995,8 +1428,11 @@
           for (var i = 0; i < Script.notes.length; i++) {
             var s = e(
               "<h3><a>Version " +
-                "0." + String(Script.notes[i].version) + "." + Script.revision +
-                "</a></h3>",
+              "0." +
+              String(Script.notes[i].version) +
+              "." +
+              Script.revision +
+              "</a></h3>"
             )
               .css("border-bottom", "1px solid black")
               .click(function () {
@@ -3016,11 +1452,11 @@
           setTimeout(function () {
             e.getScript(
               Script.protocol +
-                "://" +
-                Script.folder_url +
-                Script.check +
-                "?" +
-                new Date().getTime(),
+              "://" +
+              Script.folder_url +
+              Script.check +
+              "?" +
+              new Date().getTime()
             );
           }, 500);
         };
@@ -3100,18 +1536,18 @@
             i.addItem(
               "home",
               "Ξενοδοχείο&nbsp;" +
-                w.GameMap.calcWayTime(f, w.Character.homeTown).formatDuration(),
+              w.GameMap.calcWayTime(f, w.Character.homeTown).formatDuration()
             );
           for (var s = 0; s < r; s++)
             if (t[s].stage !== 0)
               i.addItem(
                 s,
                 "Στάδιο&nbsp;" +
-                  t[s].stage +
-                  "&nbsp;" +
-                  t[s].distance.formatDuration() +
-                  "&nbsp;|&nbsp;" +
-                  t[s].name,
+                t[s].stage +
+                "&nbsp;" +
+                t[s].distance.formatDuration() +
+                "&nbsp;|&nbsp;" +
+                t[s].name
               );
           e(i.elContent).addClass("twdb_sleepmenu");
           i.show(n);
@@ -3126,7 +1562,7 @@
               if (r.error) return new UserMessage(r.msg).show();
               h[e].stage = r.hotel_level;
               if (++c == t) m(h, n, t);
-            },
+            }
           );
         };
         var y = function (e) {
@@ -3164,7 +1600,7 @@
               if (e.error) return new UserMessage(e.msg).show();
               var t = p[e.hotel_level];
               w.TaskQueue.add(new TaskSleep(w.Character.homeTown.town_id, t));
-            },
+            }
           );
         };
         var E = function (e) {
@@ -3188,11 +1624,11 @@
                   r = e.page.match(
                     new RegExp(
                       '<div id="ownforts">[\\S\\s]+FortWindow.open\\(undefined, ' +
-                        n[1] +
-                        ", " +
-                        n[2] +
-                        '\\)\\)">(.+?)</a>[\\S\\s]+<div id="lastbattle">',
-                    ),
+                      n[1] +
+                      ", " +
+                      n[2] +
+                      '\\)\\)">(.+?)</a>[\\S\\s]+<div id="lastbattle">'
+                    )
                   );
                 if (r) i.push({ fort_id: n[0], x: n[1], y: n[2], name: r[1] });
               }
@@ -3213,7 +1649,7 @@
                   w.setTimeout(function () {
                     T();
                   }, Timer.getTimeout());
-              },
+              }
             );
         };
         var T = function () {
@@ -3262,7 +1698,7 @@
                 } else {
                   Cache.save("barracks", s);
                 }
-              },
+              }
             );
           } catch (u) {
             Error.report(u, "getFortData");
@@ -3290,12 +1726,12 @@
           }
           TWDB.Util.addCss(
             ".messages-analyser-job .item img.tw_item { width: 30px; height: 27px; }" +
-              ".messages-analyser-job .item .count { bottom: -4px; }" +
-              ".messages-analyser-job .item span.usable { display: none; }" +
-              "div.tw2gui_window .messages-analyser-job div.fancytable .row > div { display: none; vertical-align: top; }" +
-              ".messages-analyser-job.view-rewards div.fancytable .row > div.view-rewards { display: inline-block; }" +
-              ".messages-analyser-job.view-items div.fancytable .row > div.view-items { display: inline-block; }" +
-              "div.tw2gui_window .messages-analyser-job div.fancytable div.trows div.tbody div.row { height: auto; }",
+            ".messages-analyser-job .item .count { bottom: -4px; }" +
+            ".messages-analyser-job .item span.usable { display: none; }" +
+            "div.tw2gui_window .messages-analyser-job div.fancytable .row > div { display: none; vertical-align: top; }" +
+            ".messages-analyser-job.view-rewards div.fancytable .row > div.view-rewards { display: inline-block; }" +
+            ".messages-analyser-job.view-items div.fancytable .row > div.view-items { display: inline-block; }" +
+            "div.tw2gui_window .messages-analyser-job div.fancytable div.trows div.tbody div.row { height: auto; }"
           );
           var t = Cache.load("statistic");
           if (typeof t == "object" && t !== null) {
@@ -3325,7 +1761,7 @@
             "analyser-job",
             function () {
               T("job");
-            },
+            }
           );
           if (Settings.get("chestanalyser", true)) {
             GameInject.ItemUse(v.add);
@@ -3334,7 +1770,7 @@
               "analyser-chest",
               function () {
                 v.show();
-              },
+              }
             );
           }
           h.ready = true;
@@ -3386,16 +1822,16 @@
             }
           } else {
             var a = e(
-              '<div><h2>Θέλετε πραγματικά να επαναφέρετε τα στατιστικά του Αναλυτή Δουλειών;</h2><span style="font-size:12px"><br />Δώστε τον σύνδεσμο αναφοράς της πρώτης αναφοράς που θα πρέπει να διαβαστεί μετά την επαναφορά</span></div>',
+              '<div><h2>Θέλετε πραγματικά να επαναφέρετε τα στατιστικά του Αναλυτή Δουλειών;</h2><span style="font-size:12px"><br />Δώστε τον σύνδεσμο αναφοράς της πρώτης αναφοράς που θα πρέπει να διαβαστεί μετά την επαναφορά</span></div>'
             );
             var f = new west.gui.Textfield("twdb_analyser_last").setSize(40);
             f.setLabel("Σύνδεσμος-Αναφοράς:");
             a.append(f.getMainDiv());
             var l = new west.gui.Checkbox(
-              "ή χρησιμοποιήστε όλες τις αναφορές&nbsp;&nbsp;",
+              "ή χρησιμοποιήστε όλες τις αναφορές&nbsp;&nbsp;"
             );
             var c = new west.gui.Checkbox(
-              "ή χρησιμοποιήστε μόνο μελλοντικές αναφορές",
+              "ή χρησιμοποιήστε μόνο μελλοντικές αναφορές"
             );
             l.setCallback(function (e) {
               if (e) {
@@ -3419,7 +1855,7 @@
             a.append(
               e('<div style="display:block;" />')
                 .append(l.getMainDiv())
-                .append(c.getMainDiv()),
+                .append(c.getMainDiv())
             );
             var h = new west.gui.Dialog("Επαναφορά - ReportAnalyser", a);
             h.addButton("ΟΚ", function () {
@@ -3468,7 +1904,7 @@
               return;
             }
             var t = e(MessagesWindow.window.getContentPane()).find(
-              ".messages-analyser-chest",
+              ".messages-analyser-chest"
             );
             MessagesWindow.window.showLoader();
             t.children().remove();
@@ -3479,35 +1915,35 @@
               var s = r.chest[i];
               var o = new tw2widget.Item(
                 ItemManager.get(i),
-                "item_inventory",
+                "item_inventory"
               ).setCount(s.count);
               o.getImgEl().addClass("item_inventory_img");
               n.appendContent(
                 e(
-                  '<div style="float:left;position:relative;height:61px;width:61px;" />',
-                ).append(o.getMainDiv()),
+                  '<div style="float:left;position:relative;height:61px;width:61px;" />'
+                ).append(o.getMainDiv())
               );
               var u = 0;
               var a = e(
-                '<div style="float:left;position:relative;width:610px;" />',
+                '<div style="float:left;position:relative;width:610px;" />'
               );
               for (var f in s.items) {
                 u++;
                 var o = new tw2widget.Item(
                   ItemManager.get(f),
-                  "item_inventory",
+                  "item_inventory"
                 ).setCount(s.items[f]);
                 o.getImgEl().addClass("item_inventory_img");
                 a.append(o.getMainDiv());
               }
               n.appendContent(
                 '<div style="float:left;position:relative;width:10px;height:' +
-                  String(Math.ceil(u / 10) * 61) +
-                  'px;background: url(/images/window/report/devider_report.png) repeat-y;" />',
+                String(Math.ceil(u / 10) * 61) +
+                'px;background: url(/images/window/report/devider_report.png) repeat-y;" />'
               )
                 .appendContent(a)
                 .appendContent(
-                  '<div style="clear:both;position:relative;height:10px;display:block;background: url(/images/window/dailyactivity/wood_devider_horiz.png) repeat-x;" />',
+                  '<div style="clear:both;position:relative;height:10px;display:block;background: url(/images/window/dailyactivity/wood_devider_horiz.png) repeat-x;" />'
                 );
             }
             MessagesWindow.window.hideLoader();
@@ -3533,7 +1969,7 @@
             { page: t, folder: e },
             function (t) {
               y(e, t);
-            },
+            }
           );
         };
         var y = function (e, t) {
@@ -3580,14 +2016,14 @@
             function (e) {
               E(t.type, e);
             },
-            "json",
+            "json"
           );
         };
         var E = function (e, t) {
           if (!t || !t.report_id || !t.publishHash) {
             new UserMessage(
               "empty Server Response",
-              UserMessage.TYPE_ERROR,
+              UserMessage.TYPE_ERROR
             ).show();
             return false;
           }
@@ -3612,7 +2048,7 @@
             b(e);
           }, Timer.getTimeout());
         };
-        var S = function (e) {};
+        var S = function (e) { };
         var x = function (n) {
           try {
             data = {
@@ -3653,7 +2089,7 @@
                   if (!data.duration)
                     Error.report(
                       { message: "Unrecognized time on report:" + n },
-                      "Job-Analyser",
+                      "Job-Analyser"
                     );
                   break;
                 case 2:
@@ -3677,7 +2113,7 @@
             var s = n.js.split(";");
             e(s).each(function () {
               var e = new RegExp(
-                /\s*ItemManager\.get\(([0-9]+)\)\s*\)\.setCount\(([0-9]+)\)/m,
+                /\s*ItemManager\.get\(([0-9]+)\)\s*\)\.setCount\(([0-9]+)\)/m
               );
               var t = e.exec(this);
               if (t) {
@@ -3767,7 +2203,7 @@
             return;
           }
           l.window = e(MessagesWindow.window.getContentPane()).find(
-            ".messages-analyser-" + t,
+            ".messages-analyser-" + t
           );
           if (typeof n == "undefined") {
             MessagesWindow.window.showLoader();
@@ -3848,134 +2284,134 @@
           c = { ord: 1, type: 0, avg: "avg" };
           var t = e(
             '<div class="fancytable">' +
-              '<div class="_bg tw2gui_bg_tl"></div>' +
-              '<div class="_bg tw2gui_bg_tr"></div>' +
-              '<div class="_bg tw2gui_bg_bl"></div>' +
-              '<div class="_bg tw2gui_bg_br"></div>' +
-              '<div class="trows">' +
-              '<div class="thead statics">' +
-              '<div class="row row_head">' +
-              '<div class="cell_0 view-rewards view-items" style="width:91px; text-align:center;">' +
-              '<span title="Όνομα" style="cursor:pointer, margin-bottom:3px;">' +
-              '<img src="' +
-              Images.iconName +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_1 view-rewards view-items" style="width:50px; text-align:center;">' +
-              '<span title="Αριθμός">' +
-              '<img src="' +
-              Images.iconCount +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_2 view-rewards view-items" style="width:50px; text-align:center;">' +
-              '<span title="Διάρκεια">' +
-              '<img src="' +
-              Images.iconClock +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_3 view-rewards" style="width:50px; text-align:center;">' +
-              '<span title="Εμπειρία">' +
-              '<img src="' +
-              Images.iconExperience +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_4 view-rewards" style="width:50px; text-align:center;">' +
-              '<span title="Χρήματα">' +
-              '<img src="' +
-              Images.iconDollar +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_5 view-rewards" style="width:50px; text-align:center;">' +
-              '<span title="Ομόλογα">' +
-              '<img src="' +
-              Images.iconUpb +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_6 view-rewards" style="width:50px; text-align:center;">' +
-              '<span title="Κίνητρο">' +
-              '<img src="' +
-              Images.iconMoti +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_7 view-rewards" style="width:50px; text-align:center;">' +
-              '<span title="Κίνδυνος">' +
-              '<img src="' +
-              Images.iconDanger +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_8 view-rewards" style="width:50px; text-align:center;">' +
-              '<span title="Λιποθύμισες">' +
-              '<img src="' +
-              Images.iconKilled +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_9 view-rewards" style="width:50px; text-align:center;">' +
-              '<span title="Προϊόντα">' +
-              '<img src="' +
-              Images.iconYield +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_9 view-items" style="width:63px; text-align:center;">' +
-              '<span title="Προϊόντα">' +
-              '<img src="' +
-              Images.iconYield +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_10 view-rewards" style="width:50px; text-align:center;">' +
-              '<span title="Αντικείμενα">' +
-              '<img src="' +
-              Images.iconItem +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_10 view-items" style="width:378px; text-align:center;">' +
-              '<span title="Αντικείμενα">' +
-              '<img src="' +
-              Images.iconItem +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_11 view-rewards" style="width:41px; text-align:center;">' +
-              '<span title="Τύχη">' +
-              '<img src="' +
-              Images.iconLuck +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_reset view-rewards view-items" style="width:20px; text-align:right;">' +
-              '<span title="Επαναφορά">' +
-              '<img src="' +
-              Images.iconReset +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              "</div>" +
-              "</div>" +
-              '<div class="tbody">' +
-              '<div class="_bg tw2gui_bg_l"></div>' +
-              '<div class="_bg tw2gui_bg_r"></div>' +
-              "</div>" +
-              '<div class="tfoot statics">' +
-              '<div class="row row_foot"></div>' +
-              "</div>" +
-              "</div>" +
-              "</div>",
+            '<div class="_bg tw2gui_bg_tl"></div>' +
+            '<div class="_bg tw2gui_bg_tr"></div>' +
+            '<div class="_bg tw2gui_bg_bl"></div>' +
+            '<div class="_bg tw2gui_bg_br"></div>' +
+            '<div class="trows">' +
+            '<div class="thead statics">' +
+            '<div class="row row_head">' +
+            '<div class="cell_0 view-rewards view-items" style="width:91px; text-align:center;">' +
+            '<span title="Όνομα" style="cursor:pointer, margin-bottom:3px;">' +
+            '<img src="' +
+            Images.iconName +
+            '" />' +
+            "</span>" +
+            "</div>" +
+            '<div class="cell_1 view-rewards view-items" style="width:50px; text-align:center;">' +
+            '<span title="Αριθμός">' +
+            '<img src="' +
+            Images.iconCount +
+            '" />' +
+            "</span>" +
+            "</div>" +
+            '<div class="cell_2 view-rewards view-items" style="width:50px; text-align:center;">' +
+            '<span title="Διάρκεια">' +
+            '<img src="' +
+            Images.iconClock +
+            '" />' +
+            "</span>" +
+            "</div>" +
+            '<div class="cell_3 view-rewards" style="width:50px; text-align:center;">' +
+            '<span title="Εμπειρία">' +
+            '<img src="' +
+            Images.iconExperience +
+            '" />' +
+            "</span>" +
+            "</div>" +
+            '<div class="cell_4 view-rewards" style="width:50px; text-align:center;">' +
+            '<span title="Χρήματα">' +
+            '<img src="' +
+            Images.iconDollar +
+            '" />' +
+            "</span>" +
+            "</div>" +
+            '<div class="cell_5 view-rewards" style="width:50px; text-align:center;">' +
+            '<span title="Ομόλογα">' +
+            '<img src="' +
+            Images.iconUpb +
+            '" />' +
+            "</span>" +
+            "</div>" +
+            '<div class="cell_6 view-rewards" style="width:50px; text-align:center;">' +
+            '<span title="Κίνητρο">' +
+            '<img src="' +
+            Images.iconMoti +
+            '" />' +
+            "</span>" +
+            "</div>" +
+            '<div class="cell_7 view-rewards" style="width:50px; text-align:center;">' +
+            '<span title="Κίνδυνος">' +
+            '<img src="' +
+            Images.iconDanger +
+            '" />' +
+            "</span>" +
+            "</div>" +
+            '<div class="cell_8 view-rewards" style="width:50px; text-align:center;">' +
+            '<span title="Λιποθύμισες">' +
+            '<img src="' +
+            Images.iconKilled +
+            '" />' +
+            "</span>" +
+            "</div>" +
+            '<div class="cell_9 view-rewards" style="width:50px; text-align:center;">' +
+            '<span title="Προϊόντα">' +
+            '<img src="' +
+            Images.iconYield +
+            '" />' +
+            "</span>" +
+            "</div>" +
+            '<div class="cell_9 view-items" style="width:63px; text-align:center;">' +
+            '<span title="Προϊόντα">' +
+            '<img src="' +
+            Images.iconYield +
+            '" />' +
+            "</span>" +
+            "</div>" +
+            '<div class="cell_10 view-rewards" style="width:50px; text-align:center;">' +
+            '<span title="Αντικείμενα">' +
+            '<img src="' +
+            Images.iconItem +
+            '" />' +
+            "</span>" +
+            "</div>" +
+            '<div class="cell_10 view-items" style="width:378px; text-align:center;">' +
+            '<span title="Αντικείμενα">' +
+            '<img src="' +
+            Images.iconItem +
+            '" />' +
+            "</span>" +
+            "</div>" +
+            '<div class="cell_11 view-rewards" style="width:41px; text-align:center;">' +
+            '<span title="Τύχη">' +
+            '<img src="' +
+            Images.iconLuck +
+            '" />' +
+            "</span>" +
+            "</div>" +
+            '<div class="cell_reset view-rewards view-items" style="width:20px; text-align:right;">' +
+            '<span title="Επαναφορά">' +
+            '<img src="' +
+            Images.iconReset +
+            '" />' +
+            "</span>" +
+            "</div>" +
+            "</div>" +
+            "</div>" +
+            '<div class="tbody">' +
+            '<div class="_bg tw2gui_bg_l"></div>' +
+            '<div class="_bg tw2gui_bg_r"></div>' +
+            "</div>" +
+            '<div class="tfoot statics">' +
+            '<div class="row row_foot"></div>' +
+            "</div>" +
+            "</div>" +
+            "</div>"
           );
           t.find(".row_head > div").each(function () {
             var t = e(this)
-                .attr("class")
-                .match(/cell_(\d+|reset)/)[1],
+              .attr("class")
+              .match(/cell_(\d+|reset)/)[1],
               n = e(this).find("img");
             if (t == "reset") {
               e(this).click(function () {
@@ -3987,7 +2423,7 @@
                   return function () {
                     N(e);
                   };
-                })(t * 1),
+                })(t * 1)
               );
             }
           });
@@ -4075,7 +2511,7 @@
             }
             var w = e('<div class="row row_' + n + '" />');
             var m = e(
-              '<div class="cell_0 view-rewards view-items" style="width:91px; text-align:left;cursor:pointer;font-size:11px;" ></div>',
+              '<div class="cell_0 view-rewards view-items" style="width:91px; text-align:left;cursor:pointer;font-size:11px;" ></div>'
             );
             m.data("sum", a.name);
             m.data("sum-t", a.name);
@@ -4084,7 +2520,7 @@
             w.append(m);
             i.jobs++;
             var m = e(
-              '<div class="cell_1 view-rewards view-items" style="width:50px; text-align:center;cursor:pointer;" ></div>',
+              '<div class="cell_1 view-rewards view-items" style="width:50px; text-align:center;cursor:pointer;" ></div>'
             );
             m.data("sum", f.count);
             m.data("sum-t", f.count);
@@ -4093,7 +2529,7 @@
             w.append(m);
             i.count += f.count;
             var m = e(
-              '<div class="cell_2 view-rewards view-items" style="width:50px; text-align:center;cursor:pointer;" ></div>',
+              '<div class="cell_2 view-rewards view-items" style="width:50px; text-align:center;cursor:pointer;" ></div>'
             );
             m.data("sum", (f.duration / 3600).round(2));
             m.data("sum-t", String((f.duration / 3600).round(2)) + " ώρες");
@@ -4101,25 +2537,25 @@
             m.data(
               "avg-t",
               "&Oslash; " +
-                String((f.duration / (3600 * f.count)).round(2)) +
-                " ώρες",
+              String((f.duration / (3600 * f.count)).round(2)) +
+              " ώρες"
             );
             w.append(m);
             i.duration += f.duration;
             var m = e(
-              '<div class="cell_3 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>',
+              '<div class="cell_3 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>'
             );
             m.data("sum", f.experience);
             m.data("sum-t", String(f.experience));
             m.data("avg", (f.experience / f.count).round(2));
             m.data(
               "avg-t",
-              "&Oslash; " + String((f.experience / f.count).round(2)),
+              "&Oslash; " + String((f.experience / f.count).round(2))
             );
             w.append(m);
             i.experience += f.experience;
             var m = e(
-              '<div class="cell_4 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>',
+              '<div class="cell_4 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>'
             );
             m.data("sum", f.wage);
             m.data("sum-t", "$" + String(f.wage));
@@ -4128,55 +2564,55 @@
             w.append(m);
             i.wage += f.wage;
             var m = e(
-              '<div class="cell_5 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>',
+              '<div class="cell_5 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>'
             );
             m.data("sum", f.bond);
             m.data("sum-t", String(f.bond));
             m.data("avg", ((f.bond / f.count) * 100).round(2));
             m.data(
               "avg-t",
-              "&Oslash; " + String(((f.bond / f.count) * 100).round(2)) + "%",
+              "&Oslash; " + String(((f.bond / f.count) * 100).round(2)) + "%"
             );
             w.append(m);
             i.bond += f.bond;
             var m = e(
-              '<div class="cell_6 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>',
+              '<div class="cell_6 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>'
             );
             m.data("sum", f.motivation);
             m.data("sum-t", String(f.motivation) + "%");
             m.data("avg", (f.motivation / f.count).round(2));
             m.data(
               "avg-t",
-              "&Oslash; " + String((f.motivation / f.count).round(2)) + "%",
+              "&Oslash; " + String((f.motivation / f.count).round(2)) + "%"
             );
             w.append(m);
             i.motivation += f.motivation;
             var m = e(
-              '<div class="cell_7 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>',
+              '<div class="cell_7 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>'
             );
             m.data("sum", f.injury);
             m.data("sum-t", String(f.injury));
             m.data("avg", (f.injury / f.count).round(2));
             m.data(
               "avg-t",
-              "&Oslash; " + String((f.injury / f.count).round(2)),
+              "&Oslash; " + String((f.injury / f.count).round(2))
             );
             w.append(m);
             i.injury += f.injury;
             var m = e(
-              '<div class="cell_8 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>',
+              '<div class="cell_8 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>'
             );
             m.data("sum", f.killed);
             m.data("sum-t", String(f.killed));
             m.data("avg", ((f.killed / f.count) * 100).round(2));
             m.data(
               "avg-t",
-              "&Oslash; " + String(((f.killed / f.count) * 100).round(2)) + "%",
+              "&Oslash; " + String(((f.killed / f.count) * 100).round(2)) + "%"
             );
             w.append(m);
             i.killed += f.killed;
             var m = e(
-              '<div class="cell_9 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>',
+              '<div class="cell_9 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>'
             );
             m.data("sum", f.products);
             m.data("sum-t", String(f.products));
@@ -4184,15 +2620,15 @@
             m.data(
               "avg-t",
               "&Oslash; " +
-                String(((f.products / f.count) * 100).round(2)) +
-                "% [" +
-                p * 100 +
-                "%]",
+              String(((f.products / f.count) * 100).round(2)) +
+              "% [" +
+              p * 100 +
+              "%]"
             );
             w.append(m);
             i.products += f.products;
             var m = e(
-              '<div class="cell_9 view-items" style="width:63px; text-align:center;cursor:pointer;" ></div>',
+              '<div class="cell_9 view-items" style="width:63px; text-align:center;cursor:pointer;" ></div>'
             );
             var E = e.map(f.all_products, function (e, t) {
               return new tw2widget.Item(ItemManager.get(t))
@@ -4203,19 +2639,19 @@
             m.data("avg", E);
             w.append(m);
             var m = e(
-              '<div class="cell_10 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>',
+              '<div class="cell_10 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>'
             );
             m.data("sum", f.items);
             m.data("sum-t", String(f.items));
             m.data("avg", ((f.items / f.count) * 100).round(2));
             m.data(
               "avg-t",
-              "&Oslash; " + String(((f.items / f.count) * 100).round(2)) + "%",
+              "&Oslash; " + String(((f.items / f.count) * 100).round(2)) + "%"
             );
             w.append(m);
             i.items += f.items;
             var m = e(
-              '<div class="cell_10 view-items" style="width:390px; text-align:center;cursor:pointer;" ></div>',
+              '<div class="cell_10 view-items" style="width:390px; text-align:center;cursor:pointer;" ></div>'
             );
             var E = e.map(f.all_items, function (e, t) {
               return new tw2widget.Item(ItemManager.get(t))
@@ -4226,7 +2662,7 @@
             m.data("avg", E);
             w.append(m);
             var m = e(
-              '<div class="cell_11 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>',
+              '<div class="cell_11 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>'
             );
             m.data("sum", f.luck);
             m.data("sum-t", "$" + String(f.luck));
@@ -4245,7 +2681,7 @@
           t.find(".tbody").append(l.bodyscroll.getMainDiv());
           l.footer = t.find(".row_foot");
           var m = e(
-            '<div class="cell_0" style="width:71px; text-align:center;" ></div>',
+            '<div class="cell_0" style="width:71px; text-align:center;" ></div>'
           );
           m.data("sum", i.jobs);
           m.data("sum-t", i.jobs + " Δουλειές");
@@ -4253,7 +2689,7 @@
           m.data("avg-t", i.jobs + " Δουλειές");
           l.footer.append(m);
           var m = e(
-            '<div class="cell_0 view-rewards view-items" style="width:87px; text-align:center;cursor:pointer;color:#444;" ></div>',
+            '<div class="cell_0 view-rewards view-items" style="width:87px; text-align:center;cursor:pointer;color:#444;" ></div>'
           );
           m.mouseenter(function () {
             e(this).css("color", "#888");
@@ -4269,7 +2705,7 @@
           m.data("avg-t", "Αλλαγή σε &sum; σύνολο");
           l.footer.append(m);
           var m = e(
-            '<div class="cell_1 view-rewards view-items" style="width:50px; text-align:center;" ></div>',
+            '<div class="cell_1 view-rewards view-items" style="width:50px; text-align:center;" ></div>'
           );
           m.data("sum", i.count);
           m.data("sum-t", i.count);
@@ -4277,7 +2713,7 @@
           m.data("avg-t", i.count);
           l.footer.append(m);
           var m = e(
-            '<div class="cell_2 view-rewards view-items" style="width:50px; text-align:center;" ></div>',
+            '<div class="cell_2 view-rewards view-items" style="width:50px; text-align:center;" ></div>'
           );
           m.data("sum", (i.duration / 3600).round(2));
           m.data("sum-t", String((i.duration / 3600).round(2)) + " ώρες");
@@ -4285,23 +2721,23 @@
           m.data(
             "avg-t",
             "&Oslash; " +
-              String((i.duration / (3600 * i.count)).round(2)) +
-              " ώρες",
+            String((i.duration / (3600 * i.count)).round(2)) +
+            " ώρες"
           );
           l.footer.append(m);
           var m = e(
-            '<div class="cell_3 view-rewards" style="width:50px; text-align:center;" ></div>',
+            '<div class="cell_3 view-rewards" style="width:50px; text-align:center;" ></div>'
           );
           m.data("sum", i.experience);
           m.data("sum-t", String(i.experience));
           m.data("avg", (i.experience / i.count).round(2));
           m.data(
             "avg-t",
-            "&Oslash; " + String((i.experience / i.count).round(2)),
+            "&Oslash; " + String((i.experience / i.count).round(2))
           );
           l.footer.append(m);
           var m = e(
-            '<div class="cell_4 view-rewards" style="width:50px; text-align:center;" ></div>',
+            '<div class="cell_4 view-rewards" style="width:50px; text-align:center;" ></div>'
           );
           m.data("sum", i.wage);
           m.data("sum-t", "$" + String(i.wage));
@@ -4309,29 +2745,29 @@
           m.data("avg-t", "&Oslash; $" + String((i.wage / i.count).round(2)));
           l.footer.append(m);
           var m = e(
-            '<div class="cell_5 view-rewards" style="width:50px; text-align:center;" ></div>',
+            '<div class="cell_5 view-rewards" style="width:50px; text-align:center;" ></div>'
           );
           m.data("sum", i.bond);
           m.data("sum-t", String(i.bond));
           m.data("avg", ((i.bond / i.count) * 100).round(2));
           m.data(
             "avg-t",
-            "&Oslash; " + String(((i.bond / i.count) * 100).round(2)) + "%",
+            "&Oslash; " + String(((i.bond / i.count) * 100).round(2)) + "%"
           );
           l.footer.append(m);
           var m = e(
-            '<div class="cell_6 view-rewards" style="width:50px; text-align:center;" ></div>',
+            '<div class="cell_6 view-rewards" style="width:50px; text-align:center;" ></div>'
           );
           m.data("sum", i.motivation);
           m.data("sum-t", String(i.motivation) + "%");
           m.data("avg", (i.motivation / i.count).round(2));
           m.data(
             "avg-t",
-            "&Oslash; " + String((i.motivation / i.count).round(2)) + "%",
+            "&Oslash; " + String((i.motivation / i.count).round(2)) + "%"
           );
           l.footer.append(m);
           var m = e(
-            '<div class="cell_7 view-rewards" style="width:50px; text-align:center;" ></div>',
+            '<div class="cell_7 view-rewards" style="width:50px; text-align:center;" ></div>'
           );
           m.data("sum", i.injury);
           m.data("sum-t", String(i.injury));
@@ -4339,62 +2775,62 @@
           m.data("avg-t", "&Oslash; " + String((i.injury / i.count).round(2)));
           l.footer.append(m);
           var m = e(
-            '<div class="cell_8 view-rewards" style="width:50px; text-align:center;" ></div>',
+            '<div class="cell_8 view-rewards" style="width:50px; text-align:center;" ></div>'
           );
           m.data("sum", i.killed);
           m.data("sum-t", String(i.killed));
           m.data("avg", ((i.killed / i.count) * 100).round(2));
           m.data(
             "avg-t",
-            "&Oslash; " + String(((i.killed / i.count) * 100).round(2)) + "%",
+            "&Oslash; " + String(((i.killed / i.count) * 100).round(2)) + "%"
           );
           l.footer.append(m);
           var m = e(
-            '<div class="cell_9 view-rewards" style="width:50px; text-align:center;" ></div>',
+            '<div class="cell_9 view-rewards" style="width:50px; text-align:center;" ></div>'
           );
           m.data("sum", i.products);
           m.data("sum-t", String(i.products));
           m.data("avg", ((i.products / i.count) * 100).round(2));
           m.data(
             "avg-t",
-            "&Oslash; " + String(((i.products / i.count) * 100).round(2)) + "%",
+            "&Oslash; " + String(((i.products / i.count) * 100).round(2)) + "%"
           );
           l.footer.append(m);
           var m = e(
-            '<div class="cell_9 view-items" style="width:63px; text-align:center;" ></div>',
+            '<div class="cell_9 view-items" style="width:63px; text-align:center;" ></div>'
           );
           m.data("sum", i.products);
           m.data("sum-t", String(i.products));
           m.data("avg", ((i.products / i.count) * 100).round(2));
           m.data(
             "avg-t",
-            "&Oslash; " + String(((i.products / i.count) * 100).round(2)) + "%",
+            "&Oslash; " + String(((i.products / i.count) * 100).round(2)) + "%"
           );
           l.footer.append(m);
           var m = e(
-            '<div class="cell_10 view-rewards" style="width:50px; text-align:center;" ></div>',
+            '<div class="cell_10 view-rewards" style="width:50px; text-align:center;" ></div>'
           );
           m.data("sum", i.items);
           m.data("sum-t", String(i.items));
           m.data("avg", ((i.items / i.count) * 100).round(2));
           m.data(
             "avg-t",
-            "&Oslash; " + String(((i.items / i.count) * 100).round(2)) + "%",
+            "&Oslash; " + String(((i.items / i.count) * 100).round(2)) + "%"
           );
           l.footer.append(m);
           var m = e(
-            '<div class="cell_10 view-items" style="width:390px; text-align:center;" ></div>',
+            '<div class="cell_10 view-items" style="width:390px; text-align:center;" ></div>'
           );
           m.data("sum", i.items);
           m.data("sum-t", String(i.items));
           m.data("avg", ((i.items / i.count) * 100).round(2));
           m.data(
             "avg-t",
-            "&Oslash; " + String(((i.items / i.count) * 100).round(2)) + "%",
+            "&Oslash; " + String(((i.items / i.count) * 100).round(2)) + "%"
           );
           l.footer.append(m);
           var m = e(
-            '<div class="cell_11 view-rewards" style="width:50px; text-align:center;" ></div>',
+            '<div class="cell_11 view-rewards" style="width:50px; text-align:center;" ></div>'
           );
           m.data("sum", i.luck);
           m.data("sum-t", "$" + String(i.luck));
@@ -4404,7 +2840,7 @@
           var o = e('<div style="margin: 0px 6px 0px 6px;width:680px;" />')
             .append(
               e(
-                '<a href="#">Εναλλαγή μεταξύ ανταμοιβών και αντικειμένων που έχουν βρεθεί</a>',
+                '<a href="#">Εναλλαγή μεταξύ ανταμοιβών και αντικειμένων που έχουν βρεθεί</a>'
               )
                 .css({
                   marginTop: "-8px",
@@ -4413,14 +2849,14 @@
                 })
                 .click(function () {
                   e(".messages-analyser-job").toggleClass(
-                    "view-rewards view-items",
+                    "view-rewards view-items"
                   );
-                }),
+                })
             )
             .append(t);
           return o;
         };
-        var L = function (e) {};
+        var L = function (e) { };
         t.getExtra = function () {
           if (isDefined(r.extra)) {
             return r.extra;
@@ -4447,7 +2883,7 @@
               "notes",
               function () {
                 s();
-              },
+              }
             );
           }
           r.ready = true;
@@ -4461,7 +2897,7 @@
             return;
           }
           n = e(w.MessagesWindow.window.getContentPane()).find(
-            ".messages-notes",
+            ".messages-notes"
           );
           n.css("width", "680px")
             .css("margin", "0 auto")
@@ -4473,7 +2909,7 @@
           Cache.save("notes", e);
           new UserMessage(
             "Αποθήκευση επιτυχής",
-            UserMessage.TYPE_SUCCESS,
+            UserMessage.TYPE_SUCCESS
           ).show();
         };
         var u = function (t) {
@@ -4485,8 +2921,8 @@
             .setContent(t);
           n.append(
             e('<div style="margin-left:8px" />').append(
-              new west.gui.Bbcodes(r).getMainDiv(),
-            ),
+              new west.gui.Bbcodes(r).getMainDiv()
+            )
           )
             .append(r.getMainDiv())
             .append(
@@ -4495,16 +2931,16 @@
                   new west.gui.Button("Αποθήκευση".escapeHTML(), function () {
                     o(r.getContent());
                     a(r.getContent());
-                  }).getMainDiv(),
+                  }).getMainDiv()
                 )
                 .append(
                   new west.gui.Button(
                     "Προεπισκόπηση".escapeHTML(),
                     function () {
                       a(r.getContent());
-                    },
-                  ).getMainDiv(),
-                ),
+                    }
+                  ).getMainDiv()
+                )
             );
           w.MessagesWindow.window.hideLoader();
         };
@@ -4516,19 +2952,19 @@
             .find(".tw2gui_scrollpane_clipper_contentpane")
             .addClass("selectable");
           n.append(
-            e('<div style="margin:8px" />').append(r.getMainDiv()),
+            e('<div style="margin:8px" />').append(r.getMainDiv())
           ).append(
             e('<div style="margin-left:8px" />')
               .append(
                 new west.gui.Button("Αποθήκευση".escapeHTML(), function () {
                   o(t);
-                }).getMainDiv(),
+                }).getMainDiv()
               )
               .append(
                 new west.gui.Button("Επεξεργασία".escapeHTML(), function () {
                   u(t);
-                }).getMainDiv(),
-              ),
+                }).getMainDiv()
+              )
           );
           if (t) {
             w.MessagesWindow.window.showLoader();
@@ -4539,7 +2975,7 @@
               function (e) {
                 r.appendContent(w.Game.TextHandler.parse(e.parsed_text));
                 w.MessagesWindow.window.hideLoader();
-              },
+              }
             );
           }
         };
@@ -4707,7 +3143,7 @@
                   var u;
                   if (t.ctrlKey && t.keyCode === 86 && !t.altKey) {
                     u = new RegExp("^([0-9]{1,5})([^0-9]+)([0-9]{1,5})$").exec(
-                      e.trim(n.getValue()),
+                      e.trim(n.getValue())
                     );
                     if (u) {
                       n.setValue(u[1]);
@@ -4751,7 +3187,7 @@
                 window.setTimeout(function () {
                   if (t.ctrlKey && t.keyCode == 86 && !t.altKey) {
                     var n = new RegExp("^([0-9]{1,5})$").exec(
-                      e.trim(r.getValue()),
+                      e.trim(r.getValue())
                     );
                     if (n) {
                       r.setValue(n[1]);
@@ -4770,7 +3206,7 @@
                     return;
                   }
                   var n = new RegExp("^([0-9]{1,5})$").exec(
-                    e.trim(r.getValue()),
+                    e.trim(r.getValue())
                   );
                   if (n) {
                     r.setValue(n[1]);
@@ -4790,12 +3226,12 @@
               },
               null,
               null,
-              "Μετακινήστε τον χάρτη στις δεδομένες συντεταγμένες",
+              "Μετακινήστε τον χάρτη στις δεδομένες συντεταγμένες"
             ).setWidth("48");
             var a = e(
               '<img title="Εμφάνιση συντεταγμένων στον χάρτη" src="' +
-                Images.iconCount +
-                '" />',
+              Images.iconCount +
+              '" />'
             ).click(function () {
               if (e(this).css("opacity") === 1) {
                 e(this).css("opacity", "0.5");
@@ -4810,7 +3246,7 @@
               n.getMainDiv(),
               "<span>|</span>",
               r.getMainDiv(),
-              e(u.getMainDiv()).css("top", "6px"),
+              e(u.getMainDiv()).css("top", "6px")
             );
             e(".minimap-right", MinimapWindow.window.divMain).append(t);
           };
@@ -4930,55 +3366,55 @@
               .append(
                 e(
                   '<input title="Εμφάνιση Χρυσών δουλειών" type="checkbox" ' +
-                    (i.gold ? 'checked="checked"' : "") +
-                    " />",
+                  (i.gold ? 'checked="checked"' : "") +
+                  " />"
                 ).change(function () {
                   i.gold = e(this).is(":checked");
                   a();
-                }),
+                })
               )
               .append(
-                '<div title="Εμφάνιση Χρυσών δουλειών" style="background-color:yellow; border:1px solid red;" />',
+                '<div title="Εμφάνιση Χρυσών δουλειών" style="background-color:yellow; border:1px solid red;" />'
               )
               .append(
                 e(
                   '<input title="Εμφάνιση Ασημένιων δουλειών" type="checkbox" ' +
-                    (i.silver ? 'checked="checked"' : "") +
-                    " />",
+                  (i.silver ? 'checked="checked"' : "") +
+                  " />"
                 ).change(function () {
                   i.silver = e(this).is(":checked");
                   a();
-                }),
+                })
               )
               .append(
-                '<div title="Εμφάνιση Ασημένιων δουλειών" style="background-color:white; border:1px solid black;" />',
+                '<div title="Εμφάνιση Ασημένιων δουλειών" style="background-color:white; border:1px solid black;" />'
               )
               .append(
                 e(
                   '<img title="Εισαγωγή - Δουλειών με μπόνους" src="' +
-                    Images.iconExport +
-                    '" />',
+                  Images.iconExport +
+                  '" />'
                 ).click(function () {
                   f();
-                }),
+                })
               )
               .append(
                 e(
                   '<img title="Εξαγωγή - Δουλειών με μπόνους" src="' +
-                    Images.iconImport +
-                    '" />',
+                  Images.iconImport +
+                  '" />'
                 ).click(function () {
                   l();
-                }),
+                })
               )
               .append(
                 e(
                   '<img title="Επαναφορά - Δουλειών με μπόνους" src="' +
-                    Images.iconReset2 +
-                    '" />',
+                  Images.iconReset2 +
+                  '" />'
                 ).click(function () {
                   c();
-                }),
+                })
               );
             e(MinimapWindow.window.divMain).find(".minimap-right").append(t);
             a();
@@ -4991,7 +3427,7 @@
           Cache.save("bonusdisplay", i);
           e(
             "#minimap_worldmap > div.TWDBbonusjob",
-            MinimapWindow.window.divMain,
+            MinimapWindow.window.divMain
           ).remove();
           var t = function (t, n, r, i, s) {
             var o = 0.00513;
@@ -5004,28 +3440,28 @@
             }
             var l = e(
               '<div class="TWDBbonusjob" style="z-index:7;position:absolute;display:block;width:4px;height:4px;background-color:' +
-                (r ? "yellow" : "white") +
-                ";left:" +
-                u +
-                "px;top:" +
-                a +
-                "px;" +
-                f +
-                "border:1px solid " +
-                (r ? "red" : "black") +
-                ';" />',
+              (r ? "yellow" : "white") +
+              ";left:" +
+              u +
+              "px;top:" +
+              a +
+              "px;" +
+              f +
+              "border:1px solid " +
+              (r ? "red" : "black") +
+              ';" />'
             )
               .click(
                 (function (e, t) {
                   return function () {
                     window.GameMap.center(e, t);
                   };
-                })(t, n),
+                })(t, n)
               )
               .addMousePopup(
                 '<div style="min-width:60px;text-align:center">' +
-                  s.join('<div class="marker_popup_divider"></div>') +
-                  "</div>",
+                s.join('<div class="marker_popup_divider"></div>') +
+                "</div>"
               );
             e(MinimapWindow.window.divMain).find("#minimap_worldmap").append(l);
           };
@@ -5144,24 +3580,24 @@
             .append(
               e(
                 '<img src="' +
-                  Images.iconName +
-                  '" title=" Ταξινόμηση κατά Όνομα "  style="margin:0px 2px 0px 2px;cursor:pointer;" />',
+                Images.iconName +
+                '" title=" Ταξινόμηση κατά Όνομα "  style="margin:0px 2px 0px 2px;cursor:pointer;" />'
               ).click(function () {
                 c("name");
-              }),
+              })
             )
             .append(
               e(
                 '<img src="' +
-                  Images.iconCount +
-                  '" title=" Ταξινόμηση κατά Κομητεία " style="margin:0px 2px 0px 2px;cursor:pointer;" />',
+                Images.iconCount +
+                '" title=" Ταξινόμηση κατά Κομητεία " style="margin:0px 2px 0px 2px;cursor:pointer;" />'
               ).click(function () {
                 c("country");
-              }),
+              })
             );
           new west.gui.Dialog(
             "Εξαγωγή - Δουλειών με μπόνους",
-            e("<div />").append(h).append(a),
+            e("<div />").append(h).append(a)
           )
             .addButton("ΟΚ")
             .show();
@@ -5245,7 +3681,7 @@
               a();
               new UserMessage(
                 "Επαναφορά - Δουλειών με μπόνους",
-                UserMessage.TYPE_SUCCESS,
+                UserMessage.TYPE_SUCCESS
               ).show();
             } else {
               var o = "tw-db Επαναφορά";
@@ -5324,7 +3760,7 @@
             }
             if (
               $(
-                "div.tw2gui_window.chat.nominimize div.tw2gui_window_buttons_close",
+                "div.tw2gui_window.chat.nominimize div.tw2gui_window_buttons_close"
               ).click().length > 0
             ) {
               ChatWindow.open();
@@ -5389,19 +3825,19 @@
         var l = function (t) {
           var n;
           var r = e(
-            '<span style="padding:3px;display:none;width:160px;position:absolute;bottom:20px;left:-3px;" />',
+            '<span style="padding:3px;display:none;width:160px;position:absolute;bottom:20px;left:-3px;" />'
           );
           for (var s in i) {
             n = i[s].indexOf(".gif") === -1 ? i[s] + ".png" : i[s];
             r.append(
               e(
                 '<img src="' +
-                  Game.cdnURL +
-                  "/images/chat/emoticons/" +
-                  n +
-                  '?1" title="' +
-                  s +
-                  '" style="cursor:pointer;margin:1px;" />',
+                Game.cdnURL +
+                "/images/chat/emoticons/" +
+                n +
+                '?1" title="' +
+                s +
+                '" style="cursor:pointer;margin:1px;" />'
               ).click(
                 (function (e) {
                   return function () {
@@ -5409,21 +3845,21 @@
                     t.input.focus();
                     r.hide();
                   };
-                })(s),
-              ),
+                })(s)
+              )
             );
           }
           var o = false;
           t.mainDiv.find(".chat_input").append(
             e(
-              '<div style="position:absolute;width:15px;height:15px;bottom:7px;vertical-align:top;left:23px;cursor:pointer;" />',
+              '<div style="position:absolute;width:15px;height:15px;bottom:7px;vertical-align:top;left:23px;cursor:pointer;" />'
             )
               .append(
                 e(
                   '<img style="vertical-align:top;" src="' +
-                    Images.iconChatSM +
-                    '" />',
-                ),
+                  Images.iconChatSM +
+                  '" />'
+                )
               )
               .append(r)
               .hover(
@@ -5438,8 +3874,8 @@
                       r.hide();
                     }
                   }, 200);
-                },
-              ),
+                }
+              )
           );
         };
         var c = function (e) {
@@ -5524,107 +3960,107 @@
         };
         var d = function (t) {
           return e(
-            '<div style="position:absolute;display:block;width:15px;height:15px;"/>',
+            '<div style="position:absolute;display:block;width:15px;height:15px;"/>'
           )
             .append(
               e(
                 '<div style="position:absolute;width:15px;height:1px;top:7px;left:0px;background-color:' +
-                  t +
-                  ';opacity:0.1;" />',
-              ),
+                t +
+                ';opacity:0.1;" />'
+              )
             )
             .append(
               e(
                 '<div style="position:absolute;width:1px;height:15px;top:0px;left:7px;background-color:' +
-                  t +
-                  ';opacity:0.1;" />',
-              ),
+                t +
+                ';opacity:0.1;" />'
+              )
             )
             .append(
               e(
                 '<div style="position:absolute;width:15px;height:3px;top:6px;left:0px;background-color:' +
-                  t +
-                  ';opacity:0.33;" />',
-              ),
+                t +
+                ';opacity:0.33;" />'
+              )
             )
             .append(
               e(
                 '<div style="position:absolute;width:3px;height:15px;top:0px;left:6px;background-color:' +
-                  t +
-                  ';opacity:0.33;" />',
-              ),
+                t +
+                ';opacity:0.33;" />'
+              )
             )
             .append(
               e(
                 '<div style="position:absolute;width:15px;height:5px;top:5px;left:0px;background-color:' +
-                  t +
-                  ';opacity:0.47;" />',
-              ),
+                t +
+                ';opacity:0.47;" />'
+              )
             )
             .append(
               e(
                 '<div style="position:absolute;width:5px;height:15px;top:0px;left:5px;background-color:' +
-                  t +
-                  ';opacity:0.47;" />',
-              ),
+                t +
+                ';opacity:0.47;" />'
+              )
             )
             .append(
               e(
                 '<div style="position:absolute;width:13px;height:9px;top:3px;left:1px;background-color:' +
-                  t +
-                  ';opacity:0.6;" />',
-              ),
+                t +
+                ';opacity:0.6;" />'
+              )
             )
             .append(
               e(
                 '<div style="position:absolute;width:9px;height:13px;top:1px;left:3px;background-color:' +
-                  t +
-                  ';opacity:0.6;" />',
-              ),
+                t +
+                ';opacity:0.6;" />'
+              )
             )
             .append(
               e(
                 '<div style="position:absolute;width:11px;height:11px;top:2px;left:2px;background-color:' +
-                  t +
-                  ';opacity:0.8;" />',
-              ),
+                t +
+                ';opacity:0.8;" />'
+              )
             )
             .append(
               e(
                 '<div style="position:absolute;width:13px;height:7px;top:4px;left:1px;background-color:' +
-                  t +
-                  ';" />',
-              ),
+                t +
+                ';" />'
+              )
             )
             .append(
               e(
                 '<div style="position:absolute;width:7px;height:13px;top:1px;left:4px;background-color:' +
-                  t +
-                  ';" />',
-              ),
+                t +
+                ';" />'
+              )
             )
             .append(
               e(
                 '<div style="position:absolute;width:9px;height:11px;top:2px;left:3px;background-color:' +
-                  t +
-                  ';" />',
-              ),
+                t +
+                ';" />'
+              )
             )
             .append(
               e(
                 '<div style="position:absolute;width:11px;height:9px;top:3px;left:2px;background-color:' +
-                  t +
-                  ';" />',
-              ),
+                t +
+                ';" />'
+              )
             );
         };
         var m = function (t) {
           try {
             var n = e(
-              '<span style="position:relative;display:none;padding:3px;width:300px;position:absolute;bottom:17px;left:-5px;" />',
+              '<span style="position:relative;display:none;padding:3px;width:300px;position:absolute;bottom:17px;left:-5px;" />'
             );
             n.append(
-              '<div style="position:absolute;height: 50px; width:25;display:block" />',
+              '<div style="position:absolute;height: 50px; width:25;display:block" />'
             );
             var r = [
               "black",
@@ -5638,13 +4074,13 @@
             ];
             n.append(
               e(
-                '<div style="display:inline-block;width:15px;height:15px;padding:2px;opacity:0.5;"/>',
+                '<div style="display:inline-block;width:15px;height:15px;padding:2px;opacity:0.5;"/>'
               )
                 .append(d("#e0e2e0"))
                 .append(
                   e(
-                    '<div style="position:absolute;width:15px;height:15px;" ><table border="0" cellspacing="0" cellpadding="0" style="padding:0px;margin:0px;border:0px;" ><tr><td style="display:block;width:15px;height:15px;vertical-align:top;text-align:center;font-size:11px;color:#000;font-weight:bold;">a</td></tr></table></div>',
-                  ),
+                    '<div style="position:absolute;width:15px;height:15px;" ><table border="0" cellspacing="0" cellpadding="0" style="padding:0px;margin:0px;border:0px;" ><tr><td style="display:block;width:15px;height:15px;vertical-align:top;text-align:center;font-size:11px;color:#000;font-weight:bold;">a</td></tr></table></div>'
+                  )
                 )
                 .click(function () {
                   if (e(this).css("opacity") == 0.5) {
@@ -5655,17 +4091,17 @@
                     e(this).css("opacity", 0.5);
                   }
                   n.hide();
-                }),
+                })
             );
             n.append(
               e(
-                '<div style="display:inline-block;width:15px;height:15px;padding:2px;opacity:0.5;"/>',
+                '<div style="display:inline-block;width:15px;height:15px;padding:2px;opacity:0.5;"/>'
               )
                 .append(d("#e0e2e0"))
                 .append(
                   e(
-                    '<div style="position:absolute;width:15px;height:15px;" ><table border="0" cellspacing="0" cellpadding="0" style="padding:0px;margin:0px;border:0px;" ><tr><td style="display:block;width:15px;height:15px;vertical-align:top;text-align:center;font-size:11px;color:#000;">A</td></tr></table></div>',
-                  ),
+                    '<div style="position:absolute;width:15px;height:15px;" ><table border="0" cellspacing="0" cellpadding="0" style="padding:0px;margin:0px;border:0px;" ><tr><td style="display:block;width:15px;height:15px;vertical-align:top;text-align:center;font-size:11px;color:#000;">A</td></tr></table></div>'
+                  )
                 )
                 .click(function () {
                   if (e(this).css("opacity") == 0.5) {
@@ -5676,12 +4112,12 @@
                     e(this).css("opacity", 0.5);
                   }
                   n.hide();
-                }),
+                })
             );
             for (var i = 0; i < r.length; i++) {
               n.append(
                 e(
-                  '<div style="display:inline-block;width:15px;height:15px;padding:2px;"/>',
+                  '<div style="display:inline-block;width:15px;height:15px;padding:2px;"/>'
                 )
                   .append(d(r[i]))
                   .click(function () {
@@ -5692,39 +4128,39 @@
                         .css("background-color"),
                     });
                     n.hide();
-                  }),
+                  })
               );
             }
             n.append(
               e(
                 '<div style="margin:2px;display:inline-block;vertical-align:top;width:15px;height:15px;background:url(' +
-                  Images.iconChatNoColor +
-                  ')no-repeat 0px 0px transparent;"/>',
+                Images.iconChatNoColor +
+                ')no-repeat 0px 0px transparent;"/>'
               ).click(function () {
                 p(t, { color: null });
                 n.hide();
-              }),
+              })
             );
             n.append(
               e(
                 '<div style="margin:3px;display:inline-block;vertical-align:top;width:13px;height:13px;background:url(' +
-                  Images.iconChat +
-                  ')no-repeat 0px 0px transparent;"/>',
+                Images.iconChat +
+                ')no-repeat 0px 0px transparent;"/>'
               ).click(function () {
                 g(t);
                 n.hide();
-              }),
+              })
             );
             var s = false;
             t.mainDiv.find(".chat_input").append(
               e(
-                '<div class="TWDBcolor" style="position:absolute;width:15px;height:15px;bottom:7px;vertical-align:top;left:5px;cursor:pointer;" />',
+                '<div class="TWDBcolor" style="position:absolute;width:15px;height:15px;bottom:7px;vertical-align:top;left:5px;cursor:pointer;" />'
               )
                 .append(d("#e0e2e0"))
                 .append(
                   e(
-                    '<div style="position:absolute;width:15px;height:15px;" ><table border="0" cellspacing="0" cellpadding="0" style="padding:0px;margin:0px;border:0px;" ><tr><td class="TWDBtext" style="display:block;width:15px;height:15px;vertical-align:top;text-align:center;font-size:11px;color:#000;">a</td></tr></table></div>',
-                  ),
+                    '<div style="position:absolute;width:15px;height:15px;" ><table border="0" cellspacing="0" cellpadding="0" style="padding:0px;margin:0px;border:0px;" ><tr><td class="TWDBtext" style="display:block;width:15px;height:15px;vertical-align:top;text-align:center;font-size:11px;color:#000;">a</td></tr></table></div>'
+                  )
                 )
                 .append(n)
                 .hover(
@@ -5739,8 +4175,8 @@
                         n.hide();
                       }
                     }, 200);
-                  },
-                ),
+                  }
+                )
             );
           } catch (o) {
             Error.report(o, "injectColor");
@@ -5751,11 +4187,11 @@
           var r = c(n.css("background-color"));
           var i = {};
           i.customColor = e(
-            '<div style="width:50px;height:50px;display:inline-block;vertical-align:top;margin: 5px;" />',
+            '<div style="width:50px;height:50px;display:inline-block;vertical-align:top;margin: 5px;" />'
           );
           i.customColor.css(
             "background-color",
-            h(c(n.css("background-color"))),
+            h(c(n.css("background-color")))
           );
           var o = function (e, t) {
             if ((t && r[e] == 9) || (!t && r[e] == 0)) {
@@ -5778,7 +4214,7 @@
             i.customColor.css("background-color", h(r));
           };
           var u = e(
-            '<div style="width:42px;height:48px;display:inline-block;vertical-align:top;margin: 6px 5px 6px 5px;" />',
+            '<div style="width:42px;height:48px;display:inline-block;vertical-align:top;margin: 6px 5px 6px 5px;" />'
           );
           i.plusminus = [];
           for (var a = 0; a < 3; a++) {
@@ -5795,22 +4231,22 @@
             }
             i.plusminus[a] = e(
               '<div class="tw2gui_plusminus" style="display:inline-block;background-color:' +
-                f +
-                ';width:12px;height:46px;padding:1px;"><span class="butPlus" style="cursor:pointer;"></span><span style="width:12px;height:10px;display:inline-block;"></span><span class="butMinus" style="cursor:pointer;"></span></div>',
+              f +
+              ';width:12px;height:46px;padding:1px;"><span class="butPlus" style="cursor:pointer;"></span><span style="width:12px;height:10px;display:inline-block;"></span><span class="butMinus" style="cursor:pointer;"></span></div>'
             );
             i.plusminus[a].children(".butMinus").click(
               (function (e) {
                 return function () {
                   o(e, false);
                 };
-              })(a),
+              })(a)
             );
             i.plusminus[a].children(".butPlus").click(
               (function (e) {
                 return function () {
                   o(e, true);
                 };
-              })(a),
+              })(a)
             );
             if (r[a] == 0) {
               i.plusminus[a].children(".butMinus").css("opacity", 0.3);
@@ -5825,8 +4261,8 @@
             .append(i.plusminus[2]);
           i.input = e(
             '<input maxLength="3" type="text" value="' +
-              r +
-              '" style="position: relative; top: -35px; left: 2px;color: rgb(255, 255, 255); font-weight: bold; letter-spacing: 6px; text-shadow: 1px 1px 1px rgb(0, 0, 0); width: 43px; background: none repeat scroll 0pt 0pt transparent; border: medium none; height: 18px; line-height: 18px; margin: 0pt; outline: medium none;" />',
+            r +
+            '" style="position: relative; top: -35px; left: 2px;color: rgb(255, 255, 255); font-weight: bold; letter-spacing: 6px; text-shadow: 1px 1px 1px rgb(0, 0, 0); width: 43px; background: none repeat scroll 0pt 0pt transparent; border: medium none; height: 18px; line-height: 18px; margin: 0pt; outline: medium none;" />'
           );
           i.input.keyup(function () {
             var e = i.input.val();
@@ -5856,14 +4292,14 @@
           u.append(i.input);
           var l = { bold: t._bold, caps: t._caps };
           var d = e(
-            '<div style="height:50px;display:inline-block;vertical-align:top;margin: 5px;" />',
+            '<div style="height:50px;display:inline-block;vertical-align:top;margin: 5px;" />'
           );
           var v = new west.gui.Checkbox(
             "*έντονα*",
             l.bold ? "tw2gui_checkbox_checked" : "",
             function () {
               l.bold = l.bold ? false : true;
-            },
+            }
           );
           e(v.getMainDiv()).css("display", "block").css("margin-bottom", "5px");
           d.append(v.getMainDiv());
@@ -5872,20 +4308,20 @@
             l.caps ? "tw2gui_checkbox_checked" : "",
             function () {
               l.caps = l.caps ? false : true;
-            },
+            }
           );
           d.append(v.getMainDiv());
           var m = e(
-            '<div style="width:160px;height:50px;display:inline-block;vertical-align:top;border: 1px solid #000;padding: 0px;margin: 5px;" />',
+            '<div style="width:160px;height:50px;display:inline-block;vertical-align:top;border: 1px solid #000;padding: 0px;margin: 5px;" />'
           );
           m.append(
-            '<span style="width:140px;height:15px;display:inline-block;text-align:center;padding: 4px 0px 2px 0px;font-size:11px;">Ιστορικό</span>',
+            '<span style="width:140px;height:15px;display:inline-block;text-align:center;padding: 4px 0px 2px 0px;font-size:11px;">Ιστορικό</span>'
           );
           for (var a = 0; a < s.length; a++) {
             var g = e(
               '<div style="width:20px;height:20px;display:inline-block;vertical-align:top;margin: 0px 0px 0px 10px;cursor:pointer;background-color:' +
-                h(s[a]) +
-                ';" />',
+              h(s[a]) +
+              ';" />'
             );
             g.click(function () {
               p(t, {
@@ -5965,8 +4401,8 @@
           if (t.isNewItem(e.obj.item_id)) {
             e.divMain.append(
               '<img src="' +
-                Images.iconNew +
-                '" class="TWDBcollector" title=" Δεν έχετε ακόμα αυτό το αντικείμενο " style="position:absolute;top:-8px;left:-15px;padding:0px;border:0px;margin:0px;" />',
+              Images.iconNew +
+              '" class="TWDBcollector" title=" Δεν έχετε ακόμα αυτό το αντικείμενο " style="position:absolute;top:-8px;left:-15px;padding:0px;border:0px;margin:0px;" />'
             );
           }
         };
@@ -6049,11 +4485,11 @@
             str = str.replace("the-west", "tw-db|the-west");
             str = str.replace("|com|", "|com|info|");
             eval("showlink = " + str);
-          } catch (e) {}
+          } catch (e) { }
         };
         var repositionEventCounters = function () {
           TWDB.Util.addCss(
-            "@media (min-width: 1320px) { .custom_unit_counter {top: -1px!important; margin-left: 310px!important;} #hiro_friends_container {top: -1px!important; margin-right: 304px!important;} }",
+            "@media (min-width: 1320px) { .custom_unit_counter {top: -1px!important; margin-left: 310px!important;} #hiro_friends_container {top: -1px!important; margin-right: 304px!important;} }"
           );
         };
         var disableScrollbars = function () {
@@ -6062,30 +4498,30 @@
         var allowChatGuiMinimize = function () {
           TWDB.Util.addCss(
             "div#ui_bottomleft { width: auto; overflow: hidden; }" +
-              "div#ui_chat { margin-top: 12px; }" +
-              "div#ui_chat div#toggleMinChat { position: absolute; top: -14px; left: 5px; width: 27px; display: block; background-size: 108px 42px; border: 0px solid rgba(0, 0, 0, 0); background-clip: content-box; }" +
-              "div#ui_chat.minchat div#toggleMinChat { background-position: 0px 0px; border-width: 0px 8px 34px 0px; }" +
-              "div#ui_chat.minchat div#servertime { display: none; }" +
-              "div#ui_chat.minchat > div.tabs div { display: none; }" +
-              "div#ui_chat.minchat div.container div.friend { display: none!important; }" +
-              "div#ui_chat.minchat div.container div.general { display: block!important; }" +
-              "div#ui_chat.minchat div.container div.vertical_divider { display: none; }" +
-              "div#ui_chat.minchat img.leave_channel { display: none!important; }" +
-              "div#ui_chat div.minchat_tabr { display: none; }" +
-              'div#ui_chat.minchat div.minchat_tabr { display: block; position: absolute; left: 32px; top: 0px; width: 8px; height: 34px; background: url("' +
-              to_cdn("images/interface/chat/chat-top.png?1") +
-              '") top right; }' +
-              "div#ui_chat.minchat { position: relative; left: -10px; top: 4px; width: 39px; }" +
-              'div#ui_chat.minchat > div.tabs { width: 32px; background: url("' +
-              to_cdn("images/interface/chat/chat-top.png?1") +
-              '"); }' +
-              "div#ui_chat.minchat div.chat_channel { width: 24px; }" +
-              "div#ui_chat.minchat div.chat_channel .new_message { left: 2px; top: 0px; }" +
-              "div#ui_chat.minchat div.chat_channel div.online_count { background: none; position: absolute; right: 0px; top: -1px; width: auto; height: auto; line-height: normal; padding: 0px; font-size: 8pt; font-weight: bold; text-align: right; text-shadow: -1px 1px 1px #FFF, 0px 0px 2px #FFF; cursor: default; }" +
-              "div#ui_chat.minchat div.container { width: 40px; background-position-x: right; }" +
-              "div#ui_chat.minchat div.row_title { left: 5px; width: 32px; opacity: 0; }" +
-              "div#ui_chat.minchat div.tw2gui_scrollpane { width: 50px; }",
-            "minchat",
+            "div#ui_chat { margin-top: 12px; }" +
+            "div#ui_chat div#toggleMinChat { position: absolute; top: -14px; left: 5px; width: 27px; display: block; background-size: 108px 42px; border: 0px solid rgba(0, 0, 0, 0); background-clip: content-box; }" +
+            "div#ui_chat.minchat div#toggleMinChat { background-position: 0px 0px; border-width: 0px 8px 34px 0px; }" +
+            "div#ui_chat.minchat div#servertime { display: none; }" +
+            "div#ui_chat.minchat > div.tabs div { display: none; }" +
+            "div#ui_chat.minchat div.container div.friend { display: none!important; }" +
+            "div#ui_chat.minchat div.container div.general { display: block!important; }" +
+            "div#ui_chat.minchat div.container div.vertical_divider { display: none; }" +
+            "div#ui_chat.minchat img.leave_channel { display: none!important; }" +
+            "div#ui_chat div.minchat_tabr { display: none; }" +
+            'div#ui_chat.minchat div.minchat_tabr { display: block; position: absolute; left: 32px; top: 0px; width: 8px; height: 34px; background: url("' +
+            to_cdn("images/interface/chat/chat-top.png?1") +
+            '") top right; }' +
+            "div#ui_chat.minchat { position: relative; left: -10px; top: 4px; width: 39px; }" +
+            'div#ui_chat.minchat > div.tabs { width: 32px; background: url("' +
+            to_cdn("images/interface/chat/chat-top.png?1") +
+            '"); }' +
+            "div#ui_chat.minchat div.chat_channel { width: 24px; }" +
+            "div#ui_chat.minchat div.chat_channel .new_message { left: 2px; top: 0px; }" +
+            "div#ui_chat.minchat div.chat_channel div.online_count { background: none; position: absolute; right: 0px; top: -1px; width: auto; height: auto; line-height: normal; padding: 0px; font-size: 8pt; font-weight: bold; text-align: right; text-shadow: -1px 1px 1px #FFF, 0px 0px 2px #FFF; cursor: default; }" +
+            "div#ui_chat.minchat div.container { width: 40px; background-position-x: right; }" +
+            "div#ui_chat.minchat div.row_title { left: 5px; width: 32px; opacity: 0; }" +
+            "div#ui_chat.minchat div.tw2gui_scrollpane { width: 50px; }",
+            "minchat"
           );
           $("div#ui_chat")
             .append('<div class="minchat_tabr" />')
@@ -6099,11 +4535,11 @@
                   e.stopPropagation();
                   Settings.set(
                     "mini_chatgui_min",
-                    $("div#ui_chat").toggleClass("minchat").hasClass("minchat"),
+                    $("div#ui_chat").toggleClass("minchat").hasClass("minchat")
                   );
                   return false;
-                },
-              ),
+                }
+              )
             );
         };
         var addTaskJobsHints = function () {
@@ -6123,14 +4559,14 @@
                   r =
                     TWDB.ClothCalc.calcdata.loaded &&
                     TaskQueue.queue[e].data.job_points <
-                      TWDB.ClothCalc.calcdata.jobs[
-                        TaskQueue.queue[e].data.job.id
-                      ].laborpoints.sum -
-                        5;
+                    TWDB.ClothCalc.calcdata.jobs[
+                      TaskQueue.queue[e].data.job.id
+                    ].laborpoints.sum -
+                    5;
                   if (TaskQueue.queue[e].data.job_points < 0) {
                     n = west.gui.Icon.get(
                       "exclamation-priority-3",
-                      "αρνητικοί πόντοι εργασίας",
+                      "αρνητικοί πόντοι εργασίας"
                     );
                   } else if (
                     TaskQueue.queue[e].data.job_points <
@@ -6138,12 +4574,12 @@
                   ) {
                     n = west.gui.Icon.get(
                       "exclamation-priority-2",
-                      "χαμηλοί πόντοι εργασίας",
+                      "χαμηλοί πόντοι εργασίας"
                     );
                   } else if (r) {
                     n = west.gui.Icon.get(
                       "exclamation-priority-1",
-                      "Μη βέλτιστοι πόντοι εργασίας",
+                      "Μη βέλτιστοι πόντοι εργασίας"
                     );
                   }
                   if (n !== null) {
@@ -6154,7 +4590,7 @@
                       .append(
                         $('<div class="twdb_lp_hint" />')
                           .toggleClass("tw2gui-iconset tw2gui-icon-star", !r)
-                          .append(n),
+                          .append(n)
                       );
                   }
                 }
@@ -6169,7 +4605,7 @@
             return;
           }
           TWDB.Util.addCss(
-            "div#ui_experience_bar .label {text-shadow: 3px 1px 1px #000, 3px -1px 1px #000, -2px 1px 1px #000, -2px 0px 0px #000;}",
+            "div#ui_experience_bar .label {text-shadow: 3px 1px 1px #000, 3px -1px 1px #000, -2px 1px 1px #000, -2px 0px 0px #000;}"
           );
           var e = function (e) {
             return Math.abs(e) >= 1e5
@@ -6240,7 +4676,7 @@
         var removeWorkQueuePA = function () {
           try {
             TWDB.Util.addCss(
-              "#queuedTasks .buyPremiumTask {background: none!important}",
+              "#queuedTasks .buyPremiumTask {background: none!important}"
             );
             Premium.checkForAutomationPremium = function (e, t) {
               if (typeof t !== "undefined") return t();
@@ -6293,7 +4729,7 @@
               this.preBattle.battleData.canSetPrivilege = true;
               return FortBattleWindow.__twdb__getInfoArea.apply(
                 this,
-                arguments,
+                arguments
               );
             };
           } catch (e) {
@@ -6323,7 +4759,7 @@
                   return e;
                 }
                 var t = ["div#equip_manager_list", "span.twdb_banking"].join(
-                  ", ",
+                  ", "
                 );
                 if ($(this.divMain).find(t).addBack().is(t)) {
                   return this.setModal(false)
@@ -6386,14 +4822,14 @@
                 '<td id="twdb_msd_bid_btn_cc">',
                 '<td id="twdb_msd_bid_cc" style="min-width: 90px;">',
                 '<td id="twdb_msd_buy_btn_cc">',
-                '<td id="twdb_msd_buy_cc" style="min-width: 90px;">',
-              ),
+                '<td id="twdb_msd_buy_cc" style="min-width: 90px;">'
+              )
             );
             $(
               "tr:nth-last-child(5) td:nth-child(2) span.tw2gui_textfield",
-              i,
+              i
             ).after(
-              '<span id="twdb_msd_mult_cc" title="Ρύθμιση (πολλαπλασιασμός) της τρέχουσας τιμής με αυτόν τον αριθμό" style="background-image: url(&quot;/images/ranking/town_ranking_icons.png&quot;); display:inline-block; height:16px; width:16px; background-position:0px -80px; cursor:pointer;">&nbsp;</span>',
+              '<span id="twdb_msd_mult_cc" title="Ρύθμιση (πολλαπλασιασμός) της τρέχουσας τιμής με αυτόν τον αριθμό" style="background-image: url(&quot;/images/ranking/town_ranking_icons.png&quot;); display:inline-block; height:16px; width:16px; background-position:0px -80px; cursor:pointer;">&nbsp;</span>'
             );
             $("tr:last-child td:first-child", i)
               .attr("colspan", 3)
@@ -6420,7 +4856,7 @@
               TWDB.Cache.save("msdsettings", t);
               new UserMessage(
                 "Αποθήκευση επιτυχής",
-                UserMessage.TYPE_SUCCESS,
+                UserMessage.TYPE_SUCCESS
               ).show();
               return this;
             };
@@ -6429,7 +4865,7 @@
               TWDB.Cache.save("msdsettings", t);
               new UserMessage(
                 "Αποθήκευση επιτυχής",
-                UserMessage.TYPE_SUCCESS,
+                UserMessage.TYPE_SUCCESS
               ).show();
             };
             var a = function () {
@@ -6454,20 +4890,20 @@
             };
             $("#twdb_msd_desc_cc", r).append(
               $(
-                '<div class="tw2gui-iconset tw2gui-icon-save" title="Αποθήκευση περιγραφής για μελλοντικές δημοπρασίες">',
+                '<div class="tw2gui-iconset tw2gui-icon-save" title="Αποθήκευση περιγραφής για μελλοντικές δημοπρασίες">'
               ).click(function () {
                 u("description", $("textarea#auction_description", r).val());
               }),
               $(
-                '<div class="tw2gui-iconset tw2gui-icon-abort" title="Επαναφορά περιγραφής">',
+                '<div class="tw2gui-iconset tw2gui-icon-abort" title="Επαναφορά περιγραφής">'
               ).click(function () {
                 u("description", "");
                 $("textarea#auction_description", r).val("");
-              }),
+              })
             );
             $("#twdb_msd_bid_btn_cc", r).append(
               $(
-                '<span class="tw2gui-iconset tw2gui-icon-abort" title="Επαναφορά επιλογής" style="display: inline-block;">',
+                '<span class="tw2gui-iconset tw2gui-icon-abort" title="Επαναφορά επιλογής" style="display: inline-block;">'
               ).click(function () {
                 $("div.tw2gui_checkbox.twdb_msd_bid_fix", r).each(function () {
                   const checkbox = $(this).guiElement();
@@ -6477,11 +4913,11 @@
                   }
                 });
                 $("#market_min_bid", r).val("").keyup();
-              }),
+              })
             );
             $("#twdb_msd_buy_btn_cc", r).append(
               $(
-                '<span class="tw2gui-iconset tw2gui-icon-abort" title="Επαναφορά επιλογής" style="display: inline-block;">',
+                '<span class="tw2gui-iconset tw2gui-icon-abort" title="Επαναφορά επιλογής" style="display: inline-block;">'
               ).click(function () {
                 $("div.tw2gui_checkbox.twdb_msd_buy_fix", r).each(function () {
                   const checkbox = $(this).guiElement();
@@ -6491,75 +4927,75 @@
                   }
                 });
                 $("#market_max_price", r).val("").keyup();
-              }),
+              })
             );
             $("#twdb_msd_buy_cc", r)
               .append(
                 new west.gui.Checkbox("", "twdb_msd_buy_fix", o)
                   .setTitle("Χρήση ως προεπιλεγμένη τιμή")
-                  .setValue(2).divMain,
+                  .setValue(2).divMain
               )
               .append(
                 $('<div class="tw2gui_checkbox" title="Τιμή αγοράς">')
                   .append(
-                    '<span class="invPopup_buyicon" style="height:20px;">',
+                    '<span class="invPopup_buyicon" style="height:20px;">'
                   )
                   .click(function () {
                     $("#market_max_price", r)
                       .val(e.price || 1)
                       .keyup();
-                  }),
+                  })
               )
               .append("&nbsp;&nbsp;")
               .append(
                 new west.gui.Checkbox("", "twdb_msd_buy_fix", o)
                   .setTitle("Χρήση ως προεπιλεγμένη τιμή")
-                  .setValue(1).divMain,
+                  .setValue(1).divMain
               )
               .append(
                 $('<div class="tw2gui_checkbox" title="Τιμή πώλησης">')
                   .append(
-                    '<span class="invPopup_sellicon" style="height:20px;">',
+                    '<span class="invPopup_sellicon" style="height:20px;">'
                   )
                   .click(function () {
                     $("#market_max_price", r)
                       .val(e.sell_price || Math.round(e.price / 2) || 1)
                       .keyup();
-                  }),
+                  })
               );
             $("#twdb_msd_bid_cc", r)
               .append(
                 new west.gui.Checkbox("", "twdb_msd_bid_fix", o)
                   .setTitle("Χρήση ως προεπιλεγμένη τιμή")
-                  .setValue(2).divMain,
+                  .setValue(2).divMain
               )
               .append(
                 $('<div class="tw2gui_checkbox" title="Τιμή αγοράς">')
                   .append(
-                    '<span class="invPopup_buyicon" style="height:20px;">',
+                    '<span class="invPopup_buyicon" style="height:20px;">'
                   )
                   .click(function () {
                     $("#market_min_bid", r)
                       .val(e.price || 1)
                       .keyup();
-                  }),
+                  })
               )
               .append("&nbsp;&nbsp;")
               .append(
                 new west.gui.Checkbox("", "twdb_msd_bid_fix", o)
                   .setTitle("Χρήση ως προεπιλεγμένη τιμή")
-                  .setValue(1).divMain,
+                  .setValue(1).divMain
               )
               .append(
                 $('<div class="tw2gui_checkbox" title="Τιμή πώλησης">')
                   .append(
-                    '<span class="invPopup_sellicon" style="height:20px;">',
+                    '<span class="invPopup_sellicon" style="height:20px;">'
                   )
                   .click(function () {
                     $("#market_min_bid", r)
                       .val(e.sell_price || Math.round(e.price / 2) || 1)
                       .keyup();
-                  }),
+                  })
               );
             $("#twdb_msd_mult_cc", r).click(function () {
               var e,
@@ -6581,13 +5017,13 @@
             });
             $("#twdb_msd_opt_cc", r).append(
               $(
-                '<span class="tw2gui-iconset tw2gui-icon-save" title="Αποθήκευση διάρκειας και δικαιωμάτων για μελλοντικές δημοπρασίες" style="display: inline-block;">',
+                '<span class="tw2gui-iconset tw2gui-icon-save" title="Αποθήκευση διάρκειας και δικαιωμάτων για μελλοντικές δημοπρασίες" style="display: inline-block;">'
               ).click(function () {
                 u("duration", parseInt($("#market_days", r).data("value"), 10));
                 u("rights", parseInt($("#market_rights", r).data("value"), 10));
               }),
               $(
-                '<span class="tw2gui-iconset tw2gui-icon-abort" title="Επαναφορά επιλογής" style="display: inline-block;">',
+                '<span class="tw2gui-iconset tw2gui-icon-abort" title="Επαναφορά επιλογής" style="display: inline-block;">'
               ).click(function () {
                 u("duration", 1);
                 $("span#market_days.tw2gui_combobox", r).guiElement().select(1);
@@ -6595,7 +5031,7 @@
                 $("span#market_rights.tw2gui_combobox", r)
                   .guiElement()
                   .select(2);
-              }),
+              })
             );
             var f = $("span#market_rights.tw2gui_combobox", r)?.guiElement()
               ?.items;
@@ -6650,7 +5086,7 @@
                     date: null,
                   });
                 },
-                11,
+                11
               );
               t.setTooltip(r);
               t.setImageClass("work");
@@ -6675,12 +5111,9 @@
                     e(r.found);
                   }, i);
                 } else {
-                  w.setTimeout(
-                    function () {
-                      t();
-                    },
-                    parseInt(i / 2, 10),
-                  );
+                  w.setTimeout(function () {
+                    t();
+                  }, parseInt(i / 2, 10));
                 }
               }
             };
@@ -6702,10 +5135,10 @@
                           found: e.recipes_content[n].item_id,
                           date: new Date(
                             new ServerDate().getTime() +
-                              parseInt(
-                                e.recipes_content[n].last_craft * 1e3,
-                                10,
-                              ),
+                            parseInt(
+                              e.recipes_content[n].last_craft * 1e3,
+                              10
+                            )
                           ),
                         });
                       } else {
@@ -6761,10 +5194,10 @@
             });
             var s = e(
               '<div class="char_links" style="top:' +
-                (6 + (n - 1) * 26) +
-                "px;left:6px;background:url(" +
-                t +
-                ')no-repeat 0px 0px transparent;"/>',
+              (6 + (n - 1) * 26) +
+              "px;left:6px;background:url(" +
+              t +
+              ')no-repeat 0px 0px transparent;"/>'
             );
             s.hover(
               function () {
@@ -6772,7 +5205,7 @@
               },
               function () {
                 e(this).css("background-position", "0px 0px");
-              },
+              }
             );
             r.append(s);
             return s;
@@ -7022,7 +5455,7 @@
               .toString()
               .replace("return", inject + "\n return");
             eval(
-              "tw2widget['" + item + "'].prototype.getMainDiv = " + newfunction,
+              "tw2widget['" + item + "'].prototype.getMainDiv = " + newfunction
             );
           } catch (e) {
             Error.report(e, "manipulate " + item + ".prototype.getMainDiv");
@@ -7049,7 +5482,7 @@
           } catch (e) {
             Error.report(
               e,
-              "injectTrader, creating callback function: " + name,
+              "injectTrader, creating callback function: " + name
             );
           }
           try {
@@ -7061,13 +5494,13 @@
             inject.replace(/ /g, "");
             var newfunction = str.replace(
               "return $item",
-              inject + "\n return $item",
+              inject + "\n return $item"
             );
             eval("west.game.shop.item.view.prototype.render = " + newfunction);
           } catch (e) {
             Error.report(
               e,
-              "manipulate west.game.shop.item.view.prototype.render",
+              "manipulate west.game.shop.item.view.prototype.render"
             );
             west.game.shop.item.view.prototype.render =
               save["west.game.shop.item.view.prototype.render"];
@@ -7140,21 +5573,21 @@
               .toString()
               .replace(
                 /MessagesWindow.Telegram.DOM/g,
-                inject + "MessagesWindow.Telegram.DOM",
+                inject + "MessagesWindow.Telegram.DOM"
               );
             eval(
               "(function ($) {" +
-                "MessagesWindow.open = " +
-                newfunction +
-                "})(jQuery);",
+              "MessagesWindow.open = " +
+              newfunction +
+              "})(jQuery);"
             );
           } catch (e) {
             Error.report(e, "manipulate MessagesWindow.open");
             eval(
               "(function ($) {" +
-                "MessagesWindow.open = " +
-                save.MessagesWindowOpen +
-                "})(jQuery);",
+              "MessagesWindow.open = " +
+              save.MessagesWindowOpen +
+              "})(jQuery);"
             );
           }
           try {
@@ -7176,17 +5609,17 @@
               .replace(/switch(\s)*\(id\)(\s)*{/g, "switch (id) { " + inject);
             eval(
               "(function ($) {" +
-                "MessagesWindow.showTab = " +
-                newfunction +
-                "})(jQuery);",
+              "MessagesWindow.showTab = " +
+              newfunction +
+              "})(jQuery);"
             );
           } catch (e) {
             Error.report(e, "manipulate MessagesWindow.showTab");
             eval(
               "(function ($) {" +
-                "MessagesWindow.showTab = " +
-                save.MessagesWindowTab +
-                "})(jQuery);",
+              "MessagesWindow.showTab = " +
+              save.MessagesWindowTab +
+              "})(jQuery);"
             );
           }
         };
@@ -7386,7 +5819,7 @@
                 var inject = "this._TWDB(msg);";
                 var newfunction = OnGoingReportReceivedEntry.toString().replace(
                   "{",
-                  "{\n" + inject + "\n",
+                  "{\n" + inject + "\n"
                 );
                 eval("OnGoingReportReceivedEntry = " + newfunction);
                 OnGoingReportReceivedEntry.prototype = new OnGoingEntry();
@@ -7424,7 +5857,7 @@
                       title:
                         "Εναλλαγή λειτουργίας καρφιτσώματος".twdb_twiceHTMLUnescape(),
                     })
-                    .toggleClass("pinact", TWDB.Settings.itemPinningMode === 1),
+                    .toggleClass("pinact", TWDB.Settings.itemPinningMode === 1)
                 );
               }
               $("#CC_pin_items")
@@ -7433,7 +5866,7 @@
                   TWDB.Settings.itemPinningMode ^= true;
                   $(this).toggleClass(
                     "pinact",
-                    TWDB.Settings.itemPinningMode === 1,
+                    TWDB.Settings.itemPinningMode === 1
                   );
                   Inventory.addItems(e, t);
                 });
@@ -7443,7 +5876,7 @@
                   function (e, t) {
                     var n = Bag.getItemByItemId(t);
                     if (n) Inventory.addItemDivToInv(n, true);
-                  },
+                  }
                 );
               }
             };
@@ -7476,31 +5909,31 @@
                 var n = TWDB.Settings.get("pinnedItems") || [],
                   r = e.getId();
                 var i = $("<div>").append(
-                  e.getMainDiv().data("itemId", e.getId()),
+                  e.getMainDiv().data("itemId", e.getId())
                 );
                 i.find("img")
                   .off("click")
                   .click(
                     TWDB.Settings.itemPinningMode
                       ? function (e) {
-                          var t = n.indexOf(r);
-                          if (t < 0) {
-                            if (n.length >= Inventory.latestSize) return;
-                            n.push(r);
-                          } else n.splice(t, 1);
-                          $(this).parent().parent().toggleClass("opacity05");
-                          TWDB.Settings.set("pinnedItems", n);
-                        }
+                        var t = n.indexOf(r);
+                        if (t < 0) {
+                          if (n.length >= Inventory.latestSize) return;
+                          n.push(r);
+                        } else n.splice(t, 1);
+                        $(this).parent().parent().toggleClass("opacity05");
+                        TWDB.Settings.set("pinnedItems", n);
+                      }
                       : function (t) {
-                          Inventory.clickHandler(e.getId(), t);
-                        },
+                        Inventory.clickHandler(e.getId(), t);
+                      }
                   );
                 if (TWDB.Settings.itemPinningMode)
                   i.addClass(n.indexOf(r) < 0 ? "opacity05" : "");
                 else
                   i.find("img").setDraggable(
                     Inventory.announceDragStart,
-                    Inventory.announceDragStop,
+                    Inventory.announceDragStop
                   );
                 if (t) {
                   i.addClass("pinned").prependTo($("#bag", Inventory.DOM));
@@ -7547,7 +5980,7 @@
                   $('<div class="telegram-source"><div>BB</div></div>')
                     .attr(
                       "title",
-                      "Εναλλαγή μεταξύ μη μορφοποιημένου μηνύματος και του αρχικού",
+                      "Εναλλαγή μεταξύ μη μορφοποιημένου μηνύματος και του αρχικού"
                     )
                     .click(function () {
                       var t = $(this).toggleClass("active").hasClass("active");
@@ -7557,229 +5990,59 @@
                         .html(
                           t
                             ? e.text
-                                .replace(/<(\/?(b|i|u|del))>/g, "[$1]")
-                                .replace(
-                                  /<a href="[^"]+PlayerProfileWindow[^"]+">([^<]+)<\/a>/g,
-                                  "[player]$1[/player]",
-                                )
-                                .replace(
-                                  /<a href="[^"]+TownWindow[^"]+">([^<]+)<\/a>/g,
-                                  "[town]$1[/town]",
-                                )
-                                .replace(
-                                  /<a href="[^"]+FortWindow[^"]+">([^<]+)<\/a>/g,
-                                  "[fort]$1[/fort]",
-                                )
-                                .replace(
-                                  /<a href="[^"]+AllianceWindow[^"]+">([^<]+)<\/a>/g,
-                                  "[alliance]$1[/alliance]",
-                                )
-                                .replace(
-                                  /<a class="external_link" href="[^=]+=redirect[^=]+=([^"]+)" target="_blank">([^<]+)<\/a>/g,
-                                  function (e, t, n) {
-                                    return (
-                                      "[url=" +
-                                      decodeURIComponent(t) +
-                                      "]" +
-                                      n +
-                                      "[/url]"
-                                    );
-                                  },
-                                )
-                            : Game.TextHandler.parse(e.text),
+                              .replace(/<(\/?(b|i|u|del))>/g, "[$1]")
+                              .replace(
+                                /<a href="[^"]+PlayerProfileWindow[^"]+">([^<]+)<\/a>/g,
+                                "[player]$1[/player]"
+                              )
+                              .replace(
+                                /<a href="[^"]+TownWindow[^"]+">([^<]+)<\/a>/g,
+                                "[town]$1[/town]"
+                              )
+                              .replace(
+                                /<a href="[^"]+FortWindow[^"]+">([^<]+)<\/a>/g,
+                                "[fort]$1[/fort]"
+                              )
+                              .replace(
+                                /<a href="[^"]+AllianceWindow[^"]+">([^<]+)<\/a>/g,
+                                "[alliance]$1[/alliance]"
+                              )
+                              .replace(
+                                /<a class="external_link" href="[^=]+=redirect[^=]+=([^"]+)" target="_blank">([^<]+)<\/a>/g,
+                                function (e, t, n) {
+                                  return (
+                                    "[url=" +
+                                    decodeURIComponent(t) +
+                                    "]" +
+                                    n +
+                                    "[/url]"
+                                  );
+                                }
+                              )
+                            : Game.TextHandler.parse(e.text)
                         );
-                    }),
+                    })
                 );
             };
             TWDB.Util.addCss(
               ".telegram-source { position: absolute; width: 24px; height: 24px; cursor: pointer; " +
-                "background: url(/images/window/messages/icons.png) 72px -3px; " +
-                "left: 52px; }\n" +
-                ".telegram-source div { display: inline-block; width: 14px; height: 11px; color: white; " +
-                "background: #523F30; font-size: 10px; margin: 4px; padding: 0px 0 5px 2px; line-height: 16px; " +
-                "font-family: Impact, sans-serif; font-weight: 300; }\n" +
-                ".telegram-source.active div { background: blue; }\n",
+              "background: url(/images/window/messages/icons.png) 72px -3px; " +
+              "left: 52px; }\n" +
+              ".telegram-source div { display: inline-block; width: 14px; height: 11px; color: white; " +
+              "background: #523F30; font-size: 10px; margin: 4px; padding: 0px 0 5px 2px; line-height: 16px; " +
+              "font-family: Impact, sans-serif; font-weight: 300; }\n" +
+              ".telegram-source.active div { background: blue; }\n"
             );
           } catch (t) {
             Error.report(
               t,
-              "manipulate TelegramWindow.appendTelegram (display telegram source)",
+              "manipulate TelegramWindow.appendTelegram (display telegram source)"
             );
           }
         };
         return _self;
       })($);
       Debugger.GameInject = GameInject;
-      var DataManager = (function (e) {
-        var t = {};
-        var n = false;
-        var r = {};
-        var i = {};
-        var s = {};
-        var o = [];
-        var u = 0;
-        var a = { items: {}, skills: {} };
-        var f = { items: true, skills: true };
-        var l = null;
-        var c = {};
-        var h = function () {
-          if (c.ready) {
-            return;
-          }
-          var e = window.addEventListener ? "addEventListener" : "attachEvent";
-          var t = window[e];
-          var n = e == "attachEvent" ? "onmessage" : "message";
-          t(
-            n,
-            function (e) {
-              if (e.origin !== Script.protocol + "://" + Script.url) {
-                return;
-              }
-              try {
-                var t = JSON.parse(e.data);
-                if (isDefined(t.error)) {
-                  new UserMessage(
-                    Script.url + ": " + t.error,
-                    UserMessage.TYPE_ERROR,
-                  ).show();
-                } else {
-                  new UserMessage(
-                    Script.url + ": " + t.message,
-                    UserMessage.TYPE_SUCCESS,
-                  ).show();
-                  r = t.data;
-                  a.skills = s;
-                  a.items = i;
-                  Cache.save("datamanager", a);
-                  f = { items: true, skills: true };
-                  u++;
-                  Eventer.trigger("TWDBdataLoaded");
-                }
-              } catch (e) {
-                console.log(Script.url + ": empty or corrupt data recieved");
-              }
-            },
-            false,
-          );
-          var o = Cache.load("datamanager");
-          if (isDefined(o) && isDefined(o.skills) && isDefined(o.items)) {
-            a = o;
-          }
-          if (!window.Bag.loaded && window.Bag.loadItems) {
-            window.Bag.loadItems();
-          }
-          var l = window.setInterval(function () {
-            if (window.Bag.loaded) {
-              window.clearInterval(l);
-              c.ready = true;
-            }
-          }, 100);
-        };
-        c = Loader.add("DataManager", "tw-db DataManager", h, { Cache: true });
-        t.getData = function (e) {
-          if (isDefined(r[e])) {
-            return r[e];
-          }
-          return r;
-        };
-        t.getSkills = function () {
-          return s;
-        };
-        t.getItems = function () {
-          return i;
-        };
-        t.getAnimals = function () {
-          return o;
-        };
-        t.getVersion = function () {
-          return u;
-        };
-        t.getUp2Date = function () {
-          return f;
-        };
-        var p = function () {
-          try {
-            var t = e.extend(true, {}, a.skills);
-            s = {};
-            for (var n in CharacterSkills.skills) {
-              var r = TWDB.ClothCalc._skill2id[n];
-              var i = CharacterSkills.skills[n].points;
-              s[r] = i;
-              if (isDefined(t[r])) {
-                if (t[r] !== i) {
-                  f.skills = false;
-                }
-                delete t[r];
-              } else {
-                f.skills = false;
-              }
-            }
-            if (!e.isEmptyObject(t)) {
-              f.skills = false;
-            }
-          } catch (o) {
-            Error.report(o, "DataManager loadSkill");
-          }
-        };
-        var d = function () {
-          try {
-            var t = e.extend(true, {}, a.items);
-            i = {};
-            o = [];
-            for (var n in Bag.items_by_id) {
-              var r = Bag.items_by_id[n].obj;
-              if (ClothCalc.isItemUsable(r.item_id)) {
-                i[r.item_id] = true;
-                if (r.type === "animal") {
-                  o.push({ id: r.item_id, speed: r.speed });
-                }
-                if (isDefined(t[r.item_id])) {
-                  delete t[r.item_id];
-                } else {
-                  f.items = false;
-                }
-              }
-            }
-            for (var s in Wear.wear) {
-              var u = Number(Wear.wear[s].getId());
-              if (isDefined(i[u])) {
-                continue;
-              }
-              if (ClothCalc.isItemUsable(u)) {
-                i[u] = true;
-                if (s == "animal") {
-                  o.push({ id: u, speed: Wear.wear[s].obj.speed });
-                }
-                if (isDefined(t[u])) {
-                  delete t[u];
-                } else {
-                  f.items = false;
-                }
-              }
-            }
-            if (!e.isEmptyObject(t)) {
-              f.items = false;
-            }
-            var l = function (e, t) {
-              return e["speed"] > t["speed"] ? true : false;
-            };
-            o.sort(l);
-          } catch (c) {
-            Error.report(c, "DataManager loadItems");
-          }
-        };
-        t.loadData = function (e) {
-          p();
-          d();
-          if (e === true) {
-            v();
-          }
-        };
-        t.aktuell = f;
-        return t;
-      })($);
-      _base.DataManager = DataManager;
-      Debugger.DataManager = DataManager;
       var Quests = (function (e) {
         var t = {};
         var n = {};
@@ -7799,7 +6062,7 @@
             QuestWindow.cancelQuest = function (t) {
               new west.gui.Dialog(
                 "Ακύρωση Αποστολής;",
-                "Είστε βέβαιοι ότι επιθυμείτε να ακυρώσετε αυτή την αποστολή;",
+                "Είστε βέβαιοι ότι επιθυμείτε να ακυρώσετε αυτή την αποστολή;"
               )
                 .setIcon(west.gui.Dialog.SYS_QUESTION)
                 .setModal(true, false, {
@@ -7809,7 +6072,7 @@
                 .addButton("Ναι", function () {
                   e(t);
                 })
-                .addButton("Όχι", function () {})
+                .addButton("Όχι", function () { })
                 .show();
             };
           } catch (t) {
@@ -7891,7 +6154,7 @@
                   return new UserMessage(e.msg).show();
                 }
                 Character.setDuelMotivation(e.motivation);
-              },
+              }
             );
           }
           n.ready = true;
@@ -7903,7 +6166,7 @@
           });
           e(".energy_add").css({ top: "161px" });
           var t = e('<div class="twdb_charcont_ext" />').insertBefore(
-            ".energy_bar",
+            ".energy_bar"
           );
           r = e('<div id="duelmot_bar" class="duelmot_dim" />').appendTo(t);
           i = e('<div class="status_bar duelmot_warn" />').appendTo(t);
@@ -7961,7 +6224,7 @@
           d(
             t + "%",
             "Κίνητρο μονομαχίας:&nbsp;" + t + "%",
-            e ? "duelmot_dim" : "",
+            e ? "duelmot_dim" : ""
           );
         };
         var g = function (e) {
@@ -7992,7 +6255,7 @@
             u.formatDuration(),
             a,
             l === "getDuelProtection" ? "duelmot_protect" : "duelmot_ko",
-            true,
+            true
           );
           i.addClass("koblink").click(function () {
             i.removeClass("koblink").stop(true, false).css({ opacity: 0 });
@@ -8007,7 +6270,7 @@
               u =
                 parseInt(
                   (Character[l](true) - new ServerDate().getTime()) / 1e3,
-                  10,
+                  10
                 ) || 0;
             } else {
               u--;
@@ -8071,9 +6334,9 @@
             "Κατάθεση χρημάτων",
             e(
               "<span class='twdb_banking'>Χρήματα: " +
-                w.Character.money +
-                "</span>",
-            ),
+              w.Character.money +
+              "</span>"
+            )
           )
             .setIcon(west.gui.Dialog.SYS_QUESTION)
             .setModal(true, false)
@@ -8099,9 +6362,9 @@
                   "Κατάθεση χρημάτων",
                   e(
                     "<span class='twdb_banking'>Έχετε φτάσει στην πόλη σας. Μήπως θέλετε να καταθέσετε τα χρήματα σας; <br />Χρήματα: " +
-                      w.Character.money +
-                      "</span>",
-                  ),
+                    w.Character.money +
+                    "</span>"
+                  )
                 )
                   .setIcon(west.gui.Dialog.SYS_QUESTION)
                   .setModal(true, false)
@@ -8125,7 +6388,7 @@
           }
           w.BankWindow.townid = e;
           w.BankWindow.DOM = new west.gui.Textfield(
-            "tb_balance_input_" + w.BankWindow.townid,
+            "tb_balance_input_" + w.BankWindow.townid
           )
             .setSize(10)
             .setValue(w.Character.money)
@@ -8149,15 +6412,15 @@
               "marketmap",
               function () {
                 c();
-              },
+              }
             );
             TWDB.Util.addCss(
               ".twdb_mmap_point { width: 7px;" +
-                "height: 7px;" +
-                "background-color: #F00;" +
-                "position: absolute;" +
-                "border: 1px solid #000;" +
-                "border-radius: 5px; }",
+              "height: 7px;" +
+              "background-color: #F00;" +
+              "position: absolute;" +
+              "border: 1px solid #000;" +
+              "border-radius: 5px; }"
             );
           }
           if (Settings.get("marketreminder", true)) {
@@ -8207,7 +6470,7 @@
               return function () {
                 l.create(e, t);
               };
-            })(t, n),
+            })(t, n)
           );
           if (l.exists(t.market_offer_id) === false) {
             n.css("opacity", 0.5);
@@ -8234,7 +6497,7 @@
             var t = n[e],
               r = Math.max(
                 t.ends * 1e3 - new Date().getTime() - t.reminder * 60 * 1e3,
-                100,
+                100
               );
             t.timer = setTimeout(
               (function (e) {
@@ -8242,7 +6505,7 @@
                   u(e);
                 };
               })(e),
-              r,
+              r
             );
           };
           var s = function (e, r, s) {
@@ -8280,31 +6543,31 @@
             s.init();
             s.setTooltip(
               "Δημοπρασία: " +
-                i.name +
-                ", Τέλος: " +
-                Number(
-                  r.ends - new Date().getTime() / 1e3,
-                ).getTimeString4Timestamp(),
+              i.name +
+              ", Τέλος: " +
+              Number(
+                r.ends - new Date().getTime() / 1e3
+              ).getTimeString4Timestamp()
             );
             s.setImage(e('<img src="' + Images.notiBell + '" />'));
             WestUi.NotiBar.add(s);
             TitleTicker.setNotifyMessage(
               "Δημοπρασία: " +
-                i.name +
-                ", Τέλος: " +
-                Number(
-                  r.ends - new Date().getTime() / 1e3,
-                ).getTimeString4Timestamp(),
+              i.name +
+              ", Τέλος: " +
+              Number(
+                r.ends - new Date().getTime() / 1e3
+              ).getTimeString4Timestamp()
             );
             AudioController.play(AudioController.SOUND_NEWMSG);
             o(t);
           };
           t.create = function (r, i) {
             var u = e("<div />").append(
-                '<span style="position:relative; width:100%;display:block;">Τέλος δημοπρασίας: ' +
-                  r.auction_ends_in.getTimeString4Timestamp() +
-                  "</span>",
-              ),
+              '<span style="position:relative; width:100%;display:block;">Τέλος δημοπρασίας: ' +
+              r.auction_ends_in.getTimeString4Timestamp() +
+              "</span>"
+            ),
               a = new west.gui.Textfield("twdb_analyser_last")
                 .maxlength(4)
                 .onlyNumeric()
@@ -8333,7 +6596,7 @@
                 i.css("opacity", 0.5);
               });
             }
-            f.addButton("Ακύρωση", function () {}).show();
+            f.addButton("Ακύρωση", function () { }).show();
           };
           return t;
         })(e);
@@ -8347,7 +6610,7 @@
             var t = -111,
               s = -1;
             r = e(
-              '<div style="position:relative;display:block;margin:10px 9px 10px 9px;width:770px;height:338px;" />',
+              '<div style="position:relative;display:block;margin:10px 9px 10px 9px;width:770px;height:338px;" />'
             );
             for (var o = 1; o < 16; o++) {
               if (o == 8) {
@@ -8357,14 +6620,14 @@
               t += 110;
               var u = e(
                 '<img style="position:absolute;border:1px solid #000;width:110px;height:169px;left:' +
-                  t +
-                  "px;top:" +
-                  s +
-                  'px;" src="' +
-                  Game.cdnURL +
-                  "/images/map/minimap/county_" +
-                  o +
-                  '.jpg" />',
+                t +
+                "px;top:" +
+                s +
+                'px;" src="' +
+                Game.cdnURL +
+                "/images/map/minimap/county_" +
+                o +
+                '.jpg" />'
               );
               if (o == 4) {
                 u.css({ height: "114px" });
@@ -8465,7 +6728,7 @@
                 t[n].market_town_y,
                 r,
                 i,
-                0,
+                0
               );
             }
             d();
@@ -8495,11 +6758,11 @@
                   t[n].market_town_y,
                   r,
                   "",
-                  t[n].current_bid,
+                  t[n].current_bid
                 );
               }
               v();
-            },
+            }
           );
         };
         var v = function () {
@@ -8557,14 +6820,14 @@
                   return function () {
                     TownWindow.open(e.x, e.y);
                   };
-                })(n),
+                })(n)
               )
               .appendTo(r);
           }
           e(
             "<img src='" +
-              to_cdn("images/map/minimap/icons/miniicon_pos.png") +
-              "' />",
+            to_cdn("images/map/minimap/icons/miniicon_pos.png") +
+            "' />"
           )
             .css({
               left:
@@ -8731,60 +6994,48 @@
             };
             var newfunction = String(FortBattleWindow.updateRecruitlist);
             newfunction = newfunction
-              // .replace(
-              //   /totalCnt\s{0,1}=\s{0,1}0;/,
-              //   "totalCnt=0, totalCntTotal=0, gradeCountTotal={ '-2':0, '-1':0, '0':0, '1':0, '2':0, '3':0, '4':0, '5':0 };",
-              // )
-              // .replace(
-              //   /gradeCount\[g\]/,
-              //   "gradeCount[g] + ' [' + gradeCountTotal[g] + ']'",
-              // )
-              // .replace(
-              //   /\+\s{0,1}totalCnt\s{0,1}\+/,
-              //   "+totalCnt+' ['+totalCntTotal+']'+",
-              // )
-              // .replace(
-              //   /if\(this\.preBattle\.isHidden\(list\[i\]\['class'\], ?'rank_' ?\+ ?priv\)\)/,
-              //   "totalCntTotal++;gradeCountTotal[priv]++;if(this.preBattle.isHidden(list[i]['class'],'rank_'+priv,list[i].coords.x,list[i].coords.y))",
-              // )
-              .replace(
-                /getGradeImg\(priv, ?true, ?'recruitplayer recruitplayer-'\+ ?i\)/,
-                "getGradeImg(priv,true,'recruitplayer recruitplayer-'+i,list[i].officername||'')",
-              )
               .replace(
                 /\.addColumns\(\['count', ?'name', ?'town', ?'rank', ?'class', ?'status', ?'evaluated'\]\)/,
-                ".addColumns(['count','name','town','rank','class','status','healthpoints'])",
+                ".addColumns(['count','name','town','rank','class','status','healthpoints'])"
               )
               .replace(
                 /\.appendToThCell\('head', ?'evaluated' ?,.*?,.*?\);/,
-                ".appendToThCell('head','healthpoints','Ταξινόμηση κατά Yγεία','<span class=\"sort sort-healthpoints\">'+'Π.Υ.'+'</span>');",
+                ".appendToThCell('head','healthpoints','Ταξινόμηση κατά Yγεία','<span class=\"sort sort-healthpoints\" style=\"margin-left: 15px;\">'+'Π.Υ.'+'</span>');"
               )
               .replace(
                 /evaluated ?: ?list\[i\]\.officername ?\|\| ?''/,
-                "healthpoints:'<p style=\"font-weight: 700; color: '+((this.preBattle.battleData.fortCoords.x-list[i].coords.x==0&&this.preBattle.battleData.fortCoords.y-list[i].coords.y==0) ? 'rgb(0, 153, 0)' : ((Math.abs(this.preBattle.battleData.fortCoords.x-list[i].coords.x)<=500&&Math.abs(this.preBattle.battleData.fortCoords.y-list[i].coords.y)<=500) ? 'rgb(255, 119, 0)' : 'rgb(255, 0, 0)'))+'\">'+list[i].currhealth+'/'+list[i].maxhealth+'</p>'",
+                "healthpoints:'<p style=\"font-weight: 700; color: '+((this.preBattle.battleData.fortCoords.x-list[i].coords.x==0&&this.preBattle.battleData.fortCoords.y-list[i].coords.y==0) ? 'rgb(0, 153, 0)' : ((Math.abs(this.preBattle.battleData.fortCoords.x-list[i].coords.x)<=500&&Math.abs(this.preBattle.battleData.fortCoords.y-list[i].coords.y)<=500) ? 'rgb(255, 119, 0)' : 'rgb(255, 0, 0)'))+'\">'+list[i].currhealth+'/'+list[i].maxhealth+'</p>'"
               );
             eval(
               "FortBattleWindow.updateRecruitlist=(function(){ var lastStamp; return " +
-                newfunction +
-                "})();",
+              newfunction +
+              "})();"
             );
-            var newfunction = String(PreBattle.getSortedPlayerlist);
-            newfunction = newfunction.replace(
-              /pa\s{0,1},\s{0,1}pb\s{0,1}\)/g,
-              "pa,pb,that)",
-            );
-            eval("PreBattle.getSortedPlayerlist = " + newfunction);
+            const originalUpdate = FortBattleWindow.updateRecruitlist;
+            FortBattleWindow.updateRecruitlist = function (...args) {
+              const result = originalUpdate.apply(this, args);
+              try {
+                const thStatus = TWDS.q1(
+                  ".cell_5 .sort-status",
+                  this.infoareaEl[0]
+                );
+                if (thStatus) {
+                  thStatus.textContent = "Βαθμός";
+                }
+              } catch (e) { }
+              return result;
+            };
             var fb_sort = String(FortBattleWindow.recruitListClick);
             fb_sort = "FortBattleWindow.recruitListClick=" + fb_sort;
             fb_sort = fb_sort
               .replace(/pp ?< ?ownPriv/, "pp<ownPriv&&ownPriv>gv.SERGEANT")
               .replace(
                 /var hidden ?= ?function\(classKey, ?privKey\) ?{ ?return that\.preBattle\.isHidden\(classKey, ?'rank_'\+ ?privKey\); ?};/,
-                "var hidden=function(classKey,privKey, location){return that.preBattle.isHidden(classKey,'rank_'+privKey, null, null, location);};",
+                "var hidden=function(classKey,privKey, location){return that.preBattle.isHidden(classKey,'rank_'+privKey, null, null, location);};"
               )
               .replace(
                 /return ?{message: ?sorting, ?title: ?title};/,
-                "else if(key=='healthpoints'){title='Ταξινόμηση κατά Yγεία';sorting.append(getSortLink('Αύξουσα τρέχουσα Yγεία','>currhealth'));sorting.append(getSortLink('Φθίνουσα τρέχουσα Yγεία','<currhealth')); sorting.append(getSortLink('Αύξουσα μέγιστη Υγεία','>maxhealth'));sorting.append(getSortLink('Φθίνουσα μέγιστη Υγεία','<maxhealth'));sorting.append('<br />');sorting.append(getSortLink('Αύξουσα Απόσταση','>distance'));sorting.append(getSortLink('Φθίνουσα Απόσταση','<distance'));sorting.append(getVisLink(hidden(null,'-3','atfort')?'Εμφάνιση παικτών στο οχυρό':'Απόκρυψη παικτών στο οχυρό','atfort'));sorting.append(getVisLink(hidden(null,'-3','nearbyfort')?'Εμφάνιση παικτών κοντά στο οχυρό':'Απόκρυψη παικτών κοντά στο οχυρό','nearbyfort'));sorting.append(getVisLink(hidden(null,'-3','notatfort')?'Εμφάνιση παικτών μακρυά από το οχυρό':'Απόκρυψη παικτών μακρυά από το οχυρό','notatfort'));}return{message:sorting,title:title};",
+                "else if(key=='healthpoints'){title='Ταξινόμηση κατά Yγεία';sorting.append(getSortLink('Αύξουσα τρέχουσα Yγεία','>currhealth'));sorting.append(getSortLink('Φθίνουσα τρέχουσα Yγεία','<currhealth')); sorting.append(getSortLink('Αύξουσα μέγιστη Υγεία','>maxhealth'));sorting.append(getSortLink('Φθίνουσα μέγιστη Υγεία','<maxhealth'));sorting.append('<br />');sorting.append(getSortLink('Αύξουσα Απόσταση','>distance'));sorting.append(getSortLink('Φθίνουσα Απόσταση','<distance'));sorting.append(getVisLink(hidden(null,'-3','atfort')?'Εμφάνιση παικτών στο οχυρό':'Απόκρυψη παικτών στο οχυρό','atfort'));sorting.append(getVisLink(hidden(null,'-3','nearbyfort')?'Εμφάνιση παικτών κοντά στο οχυρό':'Απόκρυψη παικτών κοντά στο οχυρό','nearbyfort'));sorting.append(getVisLink(hidden(null,'-3','notatfort')?'Εμφάνιση παικτών μακρυά από το οχυρό':'Απόκρυψη παικτών μακρυά από το οχυρό','notatfort'));}return{message:sorting,title:title};"
               );
             eval(fb_sort);
             PreBattle.recruitSorting.currhealth = function (e, t, n) {
@@ -8795,7 +7046,7 @@
             PreBattle.recruitSorting.maxhealth = function (e, t, n) {
               return n ? e.maxhealth == t.maxhealth : e.maxhealth < t.maxhealth;
             };
-            PreBattle.recruitSorting.distance = function (e, t, n, r, i, s) {};
+            PreBattle.recruitSorting.distance = function (e, t, n, r, i, s) { };
             PreBattle.isHidden = function (e, t, n, r, i) {
               if (i == null) {
                 var s = this.battleData.fortCoords.x - n;
