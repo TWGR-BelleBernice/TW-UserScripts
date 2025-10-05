@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name The West - TW-DB.info Cloth Calc [gr] - BB
 // @namespace    https://github.com/TWGR-BelleBernice/TW-UserScripts
-// @version 0.16.0
+// @version 0.17.0
 // @description The West Script: Cloth Calculation for game version 1.34 or higher
 // @author Bluep, scoobydoo, Dun, Petee [tw-db.info], Belle Bernice
 // @homepageURL  https://TWGR-BelleBernice.github.io/TW-UserScripts
@@ -36,8 +36,7 @@
   } else {
     TWDB = {};
     TWDB.script = new Object({
-      version: 16,
-      revision: 0,
+      version: 17.0,
       name: "The West - TW-DB.info Cloth Calc",
       folder_url:
         "TWGR-BelleBernice.github.io/TW-UserScripts/TW-ClothCalc-gr-BB/",
@@ -50,7 +49,7 @@
     });
     try {
       TWDB.script.notes = JSON.parse(
-        '[{"version":"16","notes":"[bugfix] Αλλαγή συνδέσμου νέας έκδοσης χαρακτηριστικών"},{"version":"15","notes":"[bugfix] Διόρθωση καταργημένου κώδικα που χρησιμοποιούσε το UserScript"},{"version":"14","notes":"[main] Αφαίρεση περιττού κώδικα <br>[main] Αλλαγή λεπτομερειών στο παράθυρο Στρατολόγησης"},{"version":"13","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"12","notes":"[bugfix] Διόρθωση λανθασμένης version"},{"version":"11","notes":"[main] Αφαίρεση περιττού κώδικα στο παράθυρο Στρατολόγησης <br>[main] Αλλαγή Updater"},{"version":"10","notes":"[bugfix] Διόρθωση της πινέζας αντικειμένων για σωστή εμφάνιση σε παράθυρο vanilla και TWIR <br>[bugfix] Διόρθωση ορθογραφικών λαθών της λέξης bugfix στα Χαρακτηριστικά Έκδοσης"},{"version":"9","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"8","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"7","notes":"[bugfix] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"6","notes":"[bugfix] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"5","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"4","notes":"[bugfix] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"3","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"2","notes":"[bugfix] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"1","notes":"** Δημιουργία UserScript από το clothcalc_sk **"}]'
+        '[{"version":"17.0","notes":"[main] Αφαίρεση revision"},{"version":"16.0","notes":"[bugfix] Αλλαγή συνδέσμου νέας έκδοσης χαρακτηριστικών"},{"version":"15.0","notes":"[bugfix] Διόρθωση καταργημένου κώδικα που χρησιμοποιούσε το UserScript"},{"version":"14.0","notes":"[main] Αφαίρεση περιττού κώδικα <br>[main] Αλλαγή λεπτομερειών στο παράθυρο Στρατολόγησης"},{"version":"13.0","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"12.0","notes":"[bugfix] Διόρθωση λανθασμένης version"},{"version":"11.0","notes":"[main] Αφαίρεση περιττού κώδικα στο παράθυρο Στρατολόγησης <br>[main] Αλλαγή Updater"},{"version":"10.0","notes":"[bugfix] Διόρθωση της πινέζας αντικειμένων για σωστή εμφάνιση σε παράθυρο vanilla και TWIR <br>[bugfix] Διόρθωση ορθογραφικών λαθών της λέξης bugfix στα Χαρακτηριστικά Έκδοσης"},{"version":"9.0","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"8.0","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"7.0","notes":"[bugfix] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"6.0","notes":"[bugfix] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"5.0","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"4.0","notes":"[bugfix] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"3.0","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"2.0","notes":"[bugfix] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"1.0","notes":"** Δημιουργία UserScript από το clothcalc_sk **"}]'
       );
     } catch (e) { }
     TheWestApi.version = Game.version = parseInt(Game.version, 10)
@@ -244,8 +243,6 @@
           '<div style="position:absolute;bottom:0px;left:0px;height:15px;display:block;font-size:10px;color:#000000;">.:powered by TW-DB Team:. | <a href="https://tw-db.info" style="font-weight:normal;color:#000000;" target="_blank">.:TW-DB.info:.</a> | ' +
           "0." +
           TWDB.script.version +
-          "." +
-          TWDB.script.revision +
           " | BB</div>"
         );
         this.gui.cache = jQuery(
@@ -846,8 +843,6 @@
               '<div style="width:100%;text-align:center;position:absolute;bottom:0px;left:0px;height:15px;display:block;font-size:12px;color:#000000;">.:powered by TW-DB Team:. | <a href="https://tw-db.info" style="font-weight:normal;color:#000000;" target="_blank">.:TW-DB.info:.</a> | ' +
               "0." +
               Script.version +
-              "." +
-              Script.revision +
               " | BB</div>"
             )
           );
@@ -1360,12 +1355,12 @@
             }
           );
           if (!Cache.load("version"))
-            Cache.save("version", Script.version + " " + Script.revision);
+            Cache.save("version", Script.version);
           else if (
-            Script.version + " " + Script.revision !==
+            Script.version !==
             Cache.load("version")
           ) {
-            Cache.save("version", Script.version + " " + Script.revision);
+            Cache.save("version", Script.version);
             i = true;
             var e = "Το UserScript έχει ενημερωθεί!";
             var t =
@@ -1384,7 +1379,7 @@
           Cache: true,
           Window: true,
         });
-        var o = function (e, t) {
+        var o = function (e) {
           var n = "Το UserScript χρειάζεται ανανέωση";
           var r =
             '<div class="txcenter">Μια νέα έκδοση είναι διαθέσιμη για το UserScript =1=, παρακαλώ κάντε κλικ στο OK για να το ανανεώσετε.</div>';
@@ -1393,13 +1388,9 @@
             "<div><br />Τρέχουσα έκδοση: " +
             "0." +
             Script.version +
-            "." +
-            Script.revision +
             "<br />Νέα έκδοση: " +
             "0." +
             e +
-            "." +
-            t +
             "</div>";
           var i = Script.protocol + "://" + Script.folder_url + Script.update;
           var s = function () {
@@ -1427,11 +1418,9 @@
           var n = false;
           for (var i = 0; i < Script.notes.length; i++) {
             var s = e(
-              "<h3><a>Version " +
+              "<h3><a>Έκδοση " +
               "0." +
               String(Script.notes[i].version) +
-              "." +
-              Script.revision +
               "</a></h3>"
             )
               .css("border-bottom", "1px solid black")
@@ -1460,9 +1449,9 @@
             );
           }, 500);
         };
-        t.check = function (e, t, n) {
-          if (Script.version !== e || Script.revision !== t) {
-            o(e, t);
+        t.check = function (e, n) {
+          if (Script.version !== e) {
+            o(e);
           }
         };
         return t;
