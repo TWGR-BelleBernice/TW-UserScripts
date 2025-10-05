@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name The West - TW-DB.info Cloth Calc [gr] - BB
 // @namespace    https://github.com/TWGR-BelleBernice/TW-UserScripts
-// @version 0.14.0
+// @version 0.15.0
 // @description The West Script: Cloth Calculation for game version 1.34 or higher
 // @author Bluep, scoobydoo, Dun, Petee [tw-db.info], Belle Bernice
 // @homepageURL  https://TWGR-BelleBernice.github.io/TW-UserScripts
@@ -36,7 +36,7 @@
   } else {
     TWDB = {};
     TWDB.script = new Object({
-      version: 14,
+      version: 15,
       revision: 0,
       name: "The West - TW-DB.info Cloth Calc",
       folder_url:
@@ -45,12 +45,12 @@
       check: "version.js",
       url: "tw-db.info",
       protocol: location.protocol.match(/^(.+):$/)[1],
-      game_version: 2.253,
+      game_version: 2.254,
       lang: "gr",
     });
     try {
-      TWDB.script.notes = jQuery.parseJSON(
-        '[{"version":"14","notes":"[main] Αφαίρεση περιττού κώδικα <br>[main] Αλλαγή λεπτομερειών στο παράθυρο Στρατολόγησης"},{"version":"13","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"12","notes":"[bugfix] Διόρθωση λανθασμένης version"},{"version":"11","notes":"[main] Αφαίρεση περιττού κώδικα στο παράθυρο Στρατολόγησης <br>[main] Αλλαγή Updater"},{"version":"10","notes":"[bugfix] Διόρθωση της πινέζας αντικειμένων για σωστή εμφάνιση σε παράθυρο vanilla και TWIR <br>[bugfix] Διόρθωση ορθογραφικών λαθών της λέξης bugfix στα Χαρακτηριστικά Έκδοσης"},{"version":"9","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"8","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"7","notes":"[bugfix] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"6","notes":"[bugfix] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"5","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"4","notes":"[bugfix] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"3","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"2","notes":"[bugfix] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"1","notes":"** Δημιουργία UserScript από το clothcalc_sk **"}]'
+      TWDB.script.notes = JSON.parse(
+        '[{"version":"15","notes":"[bugfix] Διόρθωση καταργημένου κώδικα που χρησιμοποιούσε το UserScript"},{"version":"14","notes":"[main] Αφαίρεση περιττού κώδικα <br>[main] Αλλαγή λεπτομερειών στο παράθυρο Στρατολόγησης"},{"version":"13","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"12","notes":"[bugfix] Διόρθωση λανθασμένης version"},{"version":"11","notes":"[main] Αφαίρεση περιττού κώδικα στο παράθυρο Στρατολόγησης <br>[main] Αλλαγή Updater"},{"version":"10","notes":"[bugfix] Διόρθωση της πινέζας αντικειμένων για σωστή εμφάνιση σε παράθυρο vanilla και TWIR <br>[bugfix] Διόρθωση ορθογραφικών λαθών της λέξης bugfix στα Χαρακτηριστικά Έκδοσης"},{"version":"9","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"8","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"7","notes":"[bugfix] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"6","notes":"[bugfix] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"5","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"4","notes":"[bugfix] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"3","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"2","notes":"[bugfix] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"1","notes":"** Δημιουργία UserScript από το clothcalc_sk **"}]'
       );
     } catch (e) { }
     TheWestApi.version = Game.version = parseInt(Game.version, 10)
@@ -813,10 +813,10 @@
           }
           var t = e('<div title="TW-DB.info | BB" class="menulink" />')
             .css("background-image", "url(" + Images.button + ")")
-            .mouseenter(function () {
+            .on("mouseenter", function () {
               e(this).css("background-position", "-25px 0px");
             })
-            .mouseleave(function () {
+            .on("mouseleave", function () {
               e(this).css("background-position", "0px 0px");
             })
             .click(function () {
@@ -2691,9 +2691,9 @@
           var m = e(
             '<div class="cell_0 view-rewards view-items" style="width:87px; text-align:center;cursor:pointer;color:#444;" ></div>'
           );
-          m.mouseenter(function () {
+          m.on("mouseenter", function () {
             e(this).css("color", "#888");
-          }).mouseleave(function () {
+          }).on("mouseleave", function () {
             e(this).css("color", "#444");
           });
           m.click(function () {
@@ -3862,12 +3862,11 @@
                 )
               )
               .append(r)
-              .hover(
-                function () {
+              .on("mouseenter", function () {
                   o = true;
                   r.show();
-                },
-                function () {
+                })
+              .on("mouseleave", function () {
                   o = false;
                   setTimeout(function () {
                     if (!o) {
@@ -4163,12 +4162,11 @@
                   )
                 )
                 .append(n)
-                .hover(
-                  function () {
+                .on("mouseenter", function () {
                     s = true;
                     n.show();
-                  },
-                  function () {
+                  })
+                .on("mouseleave", function () {
                     s = false;
                     setTimeout(function () {
                       if (!s) {
@@ -5199,14 +5197,12 @@
               t +
               ')no-repeat 0px 0px transparent;"/>'
             );
-            s.hover(
-              function () {
+            s.on("mouseenter", function () {
                 e(this).css("background-position", "-25px 0px");
-              },
-              function () {
+              })
+              .on("mouseleave", function () {
                 e(this).css("background-position", "0px 0px");
-              }
-            );
+              });
             r.append(s);
             return s;
           };
