@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name The West - TW-DB.info Cloth Calc [gr] - BB
 // @namespace    https://github.com/TWGR-BelleBernice/TW-UserScripts
-// @version 0.15.1
+// @version 0.15.0
 // @description The West Script: Cloth Calculation for game version 1.34 or higher
 // @author Bluep, scoobydoo, Dun, Petee [tw-db.info], Belle Bernice
 // @homepageURL  https://TWGR-BelleBernice.github.io/TW-UserScripts
@@ -37,7 +37,7 @@
     TWDB = {};
     TWDB.script = new Object({
       version: 15,
-      revision: 1,
+      revision: 0,
       name: "The West - TW-DB.info Cloth Calc",
       folder_url:
         "TWGR-BelleBernice.github.io/TW-UserScripts/TW-ClothCalc-gr-BB/",
@@ -50,7 +50,7 @@
     });
     try {
       TWDB.script.notes = JSON.parse(
-        '[{"version":"15","notes":"[bugfix] Διόρθωση καταργημένου κώδικα που χρησιμοποιούσε το UserScript"},{"version":"14","notes":"[main] Αφαίρεση περιττού κώδικα <br>[main] Αλλαγή λεπτομερειών στο παράθυρο Στρατολόγησης"},{"version":"13","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"12","notes":"[bugfix] Διόρθωση λανθασμένης version"},{"version":"11","notes":"[main] Αφαίρεση περιττού κώδικα στο παράθυρο Στρατολόγησης <br>[main] Αλλαγή Updater"},{"version":"10","notes":"[bugfix] Διόρθωση της πινέζας αντικειμένων για σωστή εμφάνιση σε παράθυρο vanilla και TWIR <br>[bugfix] Διόρθωση ορθογραφικών λαθών της λέξης bugfix στα Χαρακτηριστικά Έκδοσης"},{"version":"9","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"8","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"7","notes":"[bugfix] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"6","notes":"[bugfix] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"5","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"4","notes":"[bugfix] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"3","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"2","notes":"[bugfix] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"1","notes":"** Δημιουργία UserScript από το clothcalc_sk **"}]'
+        '[{"version":"15","notes":"[bugfix] Διόρθωση καταργημένου κώδικα που χρησιμοποιούσε το UserScript"<br>[bugfix] Αλλαγή συνδέσμου νέας έκδοσης χαρακτηριστικών"},{"version":"14","notes":"[main] Αφαίρεση περιττού κώδικα <br>[main] Αλλαγή λεπτομερειών στο παράθυρο Στρατολόγησης"},{"version":"13","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"12","notes":"[bugfix] Διόρθωση λανθασμένης version"},{"version":"11","notes":"[main] Αφαίρεση περιττού κώδικα στο παράθυρο Στρατολόγησης <br>[main] Αλλαγή Updater"},{"version":"10","notes":"[bugfix] Διόρθωση της πινέζας αντικειμένων για σωστή εμφάνιση σε παράθυρο vanilla και TWIR <br>[bugfix] Διόρθωση ορθογραφικών λαθών της λέξης bugfix στα Χαρακτηριστικά Έκδοσης"},{"version":"9","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"8","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"7","notes":"[bugfix] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"6","notes":"[bugfix] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"5","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"4","notes":"[bugfix] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"3","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"2","notes":"[bugfix] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"1","notes":"** Δημιουργία UserScript από το clothcalc_sk **"}]'
       );
     } catch (e) { }
     TheWestApi.version = Game.version = parseInt(Game.version, 10)
