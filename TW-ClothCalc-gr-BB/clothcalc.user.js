@@ -1,7 +1,7 @@
   // ==UserScript==
   // @name The West - TW-DB.info Cloth Calc [gr] - BB
   // @namespace    https://github.com/TWGR-BelleBernice/TW-UserScripts
-  // @version 0.22.0
+  // @version 0.23.0
   // @description The West Script: Cloth Calculation for game version 1.34 or higher
   // @author Bluep, scoobydoo, Dun, Petee [tw-db.info], Belle Bernice
   // @homepageURL  https://TWGR-BelleBernice.github.io/TW-UserScripts
@@ -36,7 +36,7 @@
     } else {
       TWDB = {};
       TWDB.script = new Object({
-        version: "22.0",
+        version: "23.0",
         name: "The West - TW-DB.info Cloth Calc [gr] - BB",
         name_max: "The%20West%20-%20TW-DBinfo%20Cloth%20Calc%20%5Bgr%5D%20-%20BB",
         name_min: "clothcalc",
@@ -51,7 +51,7 @@
       });
       try {
         TWDB.script.notes = JSON.parse(
-          '[{"version":"22.0","notes":"[feature] Προσθήκη κρίσιμων χτυπημάτων και γύρων με φάντασμα στο νεκροταφείο οχυρού <br>[feature] Προσθήκη παραθύρου για ιδιόκτητα και συμμαχικά οχυρά στο παράθυρο πόλεων <br>[feature] Προσθήκη αυτόματου ανοίγματος οχυρού ξεθαψίματος τσεκουριού από την αναφορά του <br>[feature] Βελτίωση όλων των πινάκων Κατάταξης <br>[feature] Βελτίωση του παραθύρου Στρατολόγησης πριν την μάχη οχυρού <br>[feature] Αφαίρεση του αναβοσβήματος του κουμπιού Πόλης εάν υπάρχει νέο μήνυμα στο Φόρουμ Πόλης"},{"version":"21.0","notes":"[feature] Προσθήκη προόδου κτιρίου στην καρτέλα χτισίματος <br>[feature] Προσθήκη επιπλέον επιπέδων εκκλησίας <br>[feature] Προσθήκη λειτουργίας εμφάνισης μόνο κτιρίων που δεν έχουν κατασκευαστεί πλήρως στο Δημαρχείο <br>[feature] Προσθήκη ενός νέου κουμπιού για εύκολο άνοιγμα της καρτέλας χτισίματος Εκκλησίας <br>[feature] Προσθήκη ενός κουμπιού για κλείσιμο μόνο των παραθύρων Αποθεμάτων"},{"version":"20.0","notes":"[bugfix] Ουπς! Διόρθωση κώδικα έκδοσης"},{"version":"19.0","notes":"[bugfix] Διόρθωση συνδέσμου νέας έκδοσης"},{"version":"18.0","notes":"[bugfix] Διόρθωση έκδοσης σε κάποια σημεία, ας ελπίσουμε!"},{"version":"17.1","notes":"[bugfix] Διόρθωση έκδοσης σε κάποια σημεία"},{"version":"17.0","notes":"[main] Αφαίρεση revision"},{"version":"16.0","notes":"[bugfix] Αλλαγή συνδέσμου νέας έκδοσης χαρακτηριστικών"},{"version":"15.0","notes":"[bugfix] Διόρθωση καταργημένου κώδικα που χρησιμοποιούσε το UserScript"},{"version":"14.0","notes":"[main] Αφαίρεση περιττού κώδικα <br>[main] Αλλαγή λεπτομερειών στο παράθυρο Στρατολόγησης"},{"version":"13.0","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"12.0","notes":"[bugfix] Διόρθωση λανθασμένης version"},{"version":"11.0","notes":"[main] Αφαίρεση περιττού κώδικα στο παράθυρο Στρατολόγησης <br>[main] Αλλαγή Updater"},{"version":"10.0","notes":"[bugfix] Διόρθωση της πινέζας αντικειμένων για σωστή εμφάνιση στο vanilla και TWIR παράθυρο Αποθεμάτων <br>[bugfix] Διόρθωση ορθογραφικών λαθών της λέξης bugfix στα Χαρακτηριστικά Έκδοσης"},{"version":"9.0","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"8.0","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"7.0","notes":"[bugfix] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"6.0","notes":"[bugfix] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"5.0","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"4.0","notes":"[bugfix] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"3.0","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"2.0","notes":"[bugfix] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"1.0","notes":"** Δημιουργία UserScript από το clothcalc_sk **<br><br>"}]'
+          '[{"version":"23.0","notes":"[bugfix] Διόρθωση κάποιων μηνυμάτων ρυθμίσεων<br>[bugfix] Διόρθωση καρτέλας Στρατολόγησης"},{"version":"22.0","notes":"[feature] Προσθήκη κρίσιμων χτυπημάτων και γύρων με φάντασμα στο νεκροταφείο οχυρού <br>[feature] Προσθήκη παραθύρου για ιδιόκτητα και συμμαχικά οχυρά στο παράθυρο πόλεων <br>[feature] Προσθήκη αυτόματου ανοίγματος οχυρού ξεθαψίματος τσεκουριού από την αναφορά του <br>[feature] Βελτίωση όλων των πινάκων Κατάταξης <br>[feature] Βελτίωση του παραθύρου Στρατολόγησης πριν την μάχη οχυρού <br>[feature] Αφαίρεση του αναβοσβήματος του κουμπιού Πόλης εάν υπάρχει νέο μήνυμα στο Φόρουμ Πόλης"},{"version":"21.0","notes":"[feature] Προσθήκη προόδου κτιρίου στην καρτέλα χτισίματος <br>[feature] Προσθήκη επιπλέον επιπέδων εκκλησίας <br>[feature] Προσθήκη λειτουργίας εμφάνισης μόνο κτιρίων που δεν έχουν κατασκευαστεί πλήρως στο Δημαρχείο <br>[feature] Προσθήκη ενός νέου κουμπιού για εύκολο άνοιγμα της καρτέλας χτισίματος Εκκλησίας <br>[feature] Προσθήκη ενός κουμπιού για κλείσιμο μόνο των παραθύρων Αποθεμάτων"},{"version":"20.0","notes":"[bugfix] Ουπς! Διόρθωση κώδικα έκδοσης"},{"version":"19.0","notes":"[bugfix] Διόρθωση συνδέσμου νέας έκδοσης"},{"version":"18.0","notes":"[bugfix] Διόρθωση έκδοσης σε κάποια σημεία, ας ελπίσουμε!"},{"version":"17.1","notes":"[bugfix] Διόρθωση έκδοσης σε κάποια σημεία"},{"version":"17.0","notes":"[main] Αφαίρεση revision"},{"version":"16.0","notes":"[bugfix] Αλλαγή συνδέσμου νέας έκδοσης χαρακτηριστικών"},{"version":"15.0","notes":"[bugfix] Διόρθωση καταργημένου κώδικα που χρησιμοποιούσε το UserScript"},{"version":"14.0","notes":"[main] Αφαίρεση περιττού κώδικα <br>[main] Αλλαγή λεπτομερειών στο παράθυρο Στρατολόγησης"},{"version":"13.0","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"12.0","notes":"[bugfix] Διόρθωση λανθασμένης version"},{"version":"11.0","notes":"[main] Αφαίρεση περιττού κώδικα στο παράθυρο Στρατολόγησης <br>[main] Αλλαγή Updater"},{"version":"10.0","notes":"[bugfix] Διόρθωση της πινέζας αντικειμένων για σωστή εμφάνιση στο vanilla και TWIR παράθυρο Αποθεμάτων <br>[bugfix] Διόρθωση ορθογραφικών λαθών της λέξης bugfix στα Χαρακτηριστικά Έκδοσης"},{"version":"9.0","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"8.0","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"7.0","notes":"[bugfix] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"6.0","notes":"[bugfix] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"5.0","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"4.0","notes":"[bugfix] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"3.0","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"2.0","notes":"[bugfix] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"1.0","notes":"** Δημιουργία UserScript από το clothcalc_sk **<br><br>"}]'
         );
       } catch (e) { }
       TheWestApi.version = Game.version = parseInt(Game.version, 10)
@@ -1029,12 +1029,13 @@
               [0, "no_scrollbars", "Απενεργοποίηση των γραμμών κύλισης σε μικρές οθόνες ή όταν μετακινείτε τα παράθυρα πολύ μακριά", false],
               [0, "close_all_wear", "Προσθήκη ενός κουμπιού για το αυτόματο κλείσιμο μόνο των παραθύρων των Αποθεμάτων", false],
               [0, "button_church", "Προσθήκη ενός κουμπιού για ευκολότερο άνοιγμα του παραθύρου χτισίματος εκκλησίας", false],
+              [0, "profile_duel_exp", "Εμφάνιση της εμπειρία μονομαχίας στα προφίλ παικτών", false],
               [9, "", "Μικρός χάρτης", false],
               [0, "show_bonus_jobs", "Προσθήκη επιλογής εμφάνισης δουλειών με μπόνους", false],
               [0, "show_coordinates", "Προσθήκη επιλογής για μετακίνηση σε καθορισμένες συντεταγμένες", false],
               [9, "", "Οχυρό", false],
               [0, "fort_recruitment", "Προσθήκη της επισκόπησης Στρατολόγησης οχυρού", false],
-              [0, "enhanced_fort_recruitment", "Προσθήκη επιλογής εμφάνισης παικτών κοντά στο οχυρό", false],
+              [0, "enhanced_fort_recruitment", "Βελτίωση της καρτέλας Στρατολόγησης πριν την μάχη οχυρού", false],
               [0, "declare_report", "Σύνδεση της αναφοράς ξεθαψίματος τσεκουριού μάχης στο συγκεκριμένο οχυρό επίθεσης", false],
               [0, "owned_forts_tab", "Ιδιοκτησία Οχυρών στο προφίλ των πόλεων", false],
               [0, "cemetery_critical", "Κρίσιμα χτυπήματα και Γύρες με Φάντασμα στο νεκροταφείο οχυρού", false],
@@ -1045,7 +1046,7 @@
               [0, "chest_analyser", "Προσθήκη του Αναλυτή Θηκών στο παράθυρο Τηλεγραφείου/Αναφορών", false],
               [0, "weekly_crafting", "Προσθήκη ειδοποίησης για την λήξη περιόδου αναμονής των δημιουργιών", false],
               [0, "telegram_bb_codes", "Προσθήκη ενός κουμπιού για να αλλαγή σε μη μορφοποιημένο κείμενο στα τηλεγραφήματα", false],
-              [0, "enhanced_rankings", "Εμφάνιση της διαφοράς των παικτών στις καρτέλες Κατάταξης", false],
+              [0, "enhanced_rankings", "Βελτίωση των καρτελών Κατάταξης και προσθήκη διαφοράς παικτών", false],
               [9, "", "Premium ρυθμίσεις", false],
               [0, "no_work_queue_pa", "Απενεργοποίηση ειδοποιήσεων για την αγορά Premium Αυτοματισμού", false],
               [0, "no_fetch_all_pa", "Απενεργοποίηση Premium προτροπής όταν λαμβάνεις αντικείμενα από την αγορά", false],
@@ -4296,7 +4297,6 @@
             }
             if (Settings.get("close_all_wear", true)) {
               addCloseAllWearButton();
-              startInventoryObserver();
             }
             if (Settings.get("custom_event_counter", true)) {
               repositionEventCounters();
@@ -4335,8 +4335,9 @@
               GameInject.injectInventoryAddItemsPinItems();
               GameInject.injectInventoryAddItemDivToInvPinItems();
             }
-            if (Settings.get("telegram_bb_codes", true))
+            if (Settings.get("telegram_bb_codes", true)) {
               GameInject.injectTelegramWindowAppendTelegramDisplaySource();
+            }
             if (Settings.get("no_shop_sale", false)) {
               supressOnGoingEntries();
             }
@@ -4356,6 +4357,9 @@
             if (Settings.get("enhanced_rankings", true)) {
               addEnchancedRankings();
             }
+            if (Settings.get("profile_duel_exp", true)) {
+              addDuelXpInProfiles();
+            }
             var e = new ServerDate().date;
             loader.ready = true;
           };
@@ -4370,55 +4374,30 @@
               eval("showlink = " + str);
             } catch (e) { }
           };
-          var addCloseAllWearButton = function () {
-            if (typeof Inventory === "undefined" || !Inventory.window || !Inventory.window.divMain) { return; }
-            const container = $(".tw2gui_window_buttons", Inventory.window.divMain);
-            if (!container || container.length === 0) return;
-            const selector = ".game_ext_close_all_button";
-            if ($(selector, container).length) return;
-            const btn = $(`<div class="tw2gui_window_buttons_closeall game_ext_close_all_button" title="<b>Κλείσιμο μόνο των παραθύρων αποθεμάτων σας</b>"></div>`);
-            btn.on("click", function () {
-              if (Inventory.window && typeof Inventory.window.destroy === "function") { Inventory.window.destroy(); }
-              if (Inventory.dockedWindow && typeof Inventory.dockedWindow.destroy === "function") { Inventory.dockedWindow.destroy(); }
-              const wearWindows = document.querySelectorAll(".tw2gui_window.wear");
-              if (!wearWindows || wearWindows.length === 0) {
-              } else {
-                wearWindows.forEach((win) => {
-                  const closeBtn = win.querySelector(".tw2gui_window_buttons_close");
-                  if (closeBtn) {
-                    closeBtn.click();
-                    return;
-                  }
-                  const closeAllBtn = win.querySelector(".tw2gui_window_buttons_closeall");
-                  if (closeAllBtn) {
-                    closeAllBtn.click();
-                    return;
-                  }
-                  if (win.__windowInstance && typeof win.__windowInstance.destroy === "function") {
-                    win.__windowInstance.destroy();
-                    return;
-                  }
-                  win.parentNode && win.parentNode.removeChild(win);
+          var addCloseAllWearButton = function() {
+            const addBtn = () => {
+              if (!Inventory?.window?.divMain) return;
+              const container = $(".tw2gui_window_buttons", Inventory.window.divMain);
+              if (!container.length || container.find(".game_ext_close_all_button").length) return;
+              const btn = $(`<div class="tw2gui_window_buttons_closeall game_ext_close_all_button" title="<b>Κλείσιμο μόνο των παραθύρων αποθεμάτων σας</b>"></div>`);
+              btn.on("click", () => {
+                Inventory.window?.destroy?.();
+                Inventory.dockedWindow?.destroy?.();
+                document.querySelectorAll(".tw2gui_window.wear").forEach(win => {
+                  win.querySelector(".tw2gui_window_buttons_close")?.click() ||
+                  win.querySelector(".tw2gui_window_buttons_closeall")?.click() ||
+                  win.__windowInstance?.destroy?.() ||
+                  win.remove();
                 });
-              }
-            });
-            container.append(btn);
-          };
-          let inventoryObserver = null;
-          var startInventoryObserver = function () {
-            if (inventoryObserver) return;
-            inventoryObserver = new MutationObserver((mutations) => {
-              for (const m of mutations) {
-                if (m.addedNodes && m.addedNodes.length) {
-                  addCloseAllWearButton();
-                }
-              }
-            });
-            inventoryObserver.observe(document.body, {
-              childList: true,
-              subtree: true,
-            });
-            setTimeout(addCloseAllWearButton, 500);
+                document.querySelector('.button.inventory.active')?.classList.remove('active');
+              });
+              container.append(btn);
+            };
+            if (!window.inventoryObserver) {
+              window.inventoryObserver = new MutationObserver(() => addBtn());
+              window.inventoryObserver.observe(document.body, { childList: true, subtree: true });
+            }
+            addBtn();
           };
           var addConstructionButton = function () {
               const churchClass = `build-${Character.homeTown.x}-${Character.homeTown.y}-church`;
@@ -5335,6 +5314,33 @@
             rankingUpdate(RankingWindow.Skills, [
               {selector: ".skill_pointss", skip: "div.cell.cell_2", diff: true}
             ]);
+          };
+          var addDuelXpInProfiles = function () {
+              PlayerProfileMain.setProfileInfo_backup = PlayerProfileMain.setProfileInfo_backup || PlayerProfileMain.setProfileInfo;
+              PlayerProfileMain.setProfileInfo = function () {
+                PlayerProfileMain.setProfileInfo_backup.apply(this, arguments);
+                var clvl = this.resp.level,
+                dlvl = this.resp.duelLevel,
+                target = $('.playerprofile-' + this.playerid + ' .profileinfo-duellevel .profileinfo-value'),
+                dLvlRange = function (dl) {
+                    return {
+                      min: Math.ceil(dl / 1.4 + 0.01),
+                      max: Math.min(450, Math.floor(dl * 1.4 - 0.01))
+                    };
+                  },
+                range = dLvlRange(dlvl),
+                getXp = function (lvl) {
+                  return Math.ceil(Math.pow(lvl * 10, 1 / 0.6));
+                },
+                getLvl = function (xp, perc) {
+                  return clvl + Math.floor(Math.pow(xp * (perc || 1), 0.6) / 10);
+                },
+                minXp = getXp(dlvl - clvl),
+                maxXp = dlvl == '450' ? '<b>∞</b>' : getXp(dlvl + 1 - clvl),
+                minLvl = getLvl(minXp, 0.9),
+                maxLvl = dlvl == '450' ? '450' : getLvl(maxXp, 0.9);
+                target.append(' <div class="tw2gui-iconset tw2gui-icon-question-priority-4" title="<span>Επίπεδα μονομαχίας που μπορείς να μονομαχίσεις: ' + range.min + ' - ' + range.max + '<br><br>Τρέχουσα εμπειρία μονομαχίας που θα κερδίσεις: ' + minXp + ' - ' + maxXp + '<br>Μυστηριώδες φίλτρο -10% ⇒ Επίπεδο Μονομαχίας ' + minLvl + (maxLvl > minLvl ? ' - ' + maxLvl : '') + '</span>" style="display:inline-block;vertical-align:top;cursor:pointer;"></div>');
+              };
           };
           return _self;
         })($);
@@ -7185,7 +7191,7 @@
                   [/totalCnt\s{0,1}=\s{0,1}0;/,
                     "totalCnt=0, totalCntTotal=0, gradeCountTotal={ '-2':0, '-1':0, '0':0, '1':0, '2':0, '3':0, '4':0, '5':0 };"],
                   [/gradeCount\[g\]/,
-                    "'<span style=\"font-size: 16px;\"><span style=\"font-weight:700;color:'+(gradeCount[g]===gradeCountTotal[g]?(gradeCount[g]>0?'forestgreen':'lightslategray'):'crimson')+';\">[&nbsp;' + gradeCount[g] + '&nbsp;]</span><span style=\"position: relative;float: right;right: 14px;\"><small>Max:</small>&nbsp;<span style=\"font-weight:700;color:'+(gradeCountTotal[g]>0?'forestgreen':'lightslategray')+';\">[&nbsp;' + gradeCountTotal[g] + '&nbsp;]</span></span></span>'"],
+                    "'<span style=\"font-size:15px;\"><span style=\"font-weight:700;text-align:center;width:45px;display:inline-block;margin-left:-10px;top:2px;position:relative;color:'+(gradeCount[g]===gradeCountTotal[g]?(gradeCount[g]>0?'forestgreen':'lightslategray'):'crimson')+';\">'+gradeCount[g]+'</span></span>'"],
                   [/if\(this\.preBattle\.isHidden\(list\[i\]\['class'\], ?'rank_' ?\+ ?priv\)\)/,
                     "totalCntTotal++;gradeCountTotal[priv]++;if(this.preBattle.isHidden(list[i]['class'],'rank_'+priv,list[i].coords.x,list[i].coords.y))"],
                   [/getGradeImg\(priv, ?true, ?'recruitplayer recruitplayer-'\+ ?i\)/,
