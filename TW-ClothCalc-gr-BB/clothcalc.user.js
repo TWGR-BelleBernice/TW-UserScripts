@@ -1,7 +1,7 @@
   // ==UserScript==
   // @name The West - TW-DB.info Cloth Calc [gr] - BB
   // @namespace    https://github.com/TWGR-BelleBernice/TW-UserScripts
-  // @version 0.23.0
+  // @version 0.24.0
   // @description The West Script: Cloth Calculation for game version 1.34 or higher
   // @author Bluep, scoobydoo, Dun, Petee [tw-db.info], Belle Bernice
   // @homepageURL  https://TWGR-BelleBernice.github.io/TW-UserScripts
@@ -36,7 +36,7 @@
     } else {
       TWDB = {};
       TWDB.script = new Object({
-        version: "23.0",
+        version: "24.0",
         name: "The West - TW-DB.info Cloth Calc [gr] - BB",
         name_max: "The%20West%20-%20TW-DBinfo%20Cloth%20Calc%20%5Bgr%5D%20-%20BB",
         name_min: "clothcalc",
@@ -51,7 +51,7 @@
       });
       try {
         TWDB.script.notes = JSON.parse(
-          '[{"version":"23.0","notes":"[bugfix] Διόρθωση κάποιων μηνυμάτων ρυθμίσεων<br>[bugfix] Διόρθωση καρτέλας Στρατολόγησης"},{"version":"22.0","notes":"[feature] Προσθήκη κρίσιμων χτυπημάτων και γύρων με φάντασμα στο νεκροταφείο οχυρού <br>[feature] Προσθήκη παραθύρου για ιδιόκτητα και συμμαχικά οχυρά στο παράθυρο πόλεων <br>[feature] Προσθήκη αυτόματου ανοίγματος οχυρού ξεθαψίματος τσεκουριού από την αναφορά του <br>[feature] Βελτίωση όλων των πινάκων Κατάταξης <br>[feature] Βελτίωση του παραθύρου Στρατολόγησης πριν την μάχη οχυρού <br>[feature] Αφαίρεση του αναβοσβήματος του κουμπιού Πόλης εάν υπάρχει νέο μήνυμα στο Φόρουμ Πόλης"},{"version":"21.0","notes":"[feature] Προσθήκη προόδου κτιρίου στην καρτέλα χτισίματος <br>[feature] Προσθήκη επιπλέον επιπέδων εκκλησίας <br>[feature] Προσθήκη λειτουργίας εμφάνισης μόνο κτιρίων που δεν έχουν κατασκευαστεί πλήρως στο Δημαρχείο <br>[feature] Προσθήκη ενός νέου κουμπιού για εύκολο άνοιγμα της καρτέλας χτισίματος Εκκλησίας <br>[feature] Προσθήκη ενός κουμπιού για κλείσιμο μόνο των παραθύρων Αποθεμάτων"},{"version":"20.0","notes":"[bugfix] Ουπς! Διόρθωση κώδικα έκδοσης"},{"version":"19.0","notes":"[bugfix] Διόρθωση συνδέσμου νέας έκδοσης"},{"version":"18.0","notes":"[bugfix] Διόρθωση έκδοσης σε κάποια σημεία, ας ελπίσουμε!"},{"version":"17.1","notes":"[bugfix] Διόρθωση έκδοσης σε κάποια σημεία"},{"version":"17.0","notes":"[main] Αφαίρεση revision"},{"version":"16.0","notes":"[bugfix] Αλλαγή συνδέσμου νέας έκδοσης χαρακτηριστικών"},{"version":"15.0","notes":"[bugfix] Διόρθωση καταργημένου κώδικα που χρησιμοποιούσε το UserScript"},{"version":"14.0","notes":"[main] Αφαίρεση περιττού κώδικα <br>[main] Αλλαγή λεπτομερειών στο παράθυρο Στρατολόγησης"},{"version":"13.0","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"12.0","notes":"[bugfix] Διόρθωση λανθασμένης version"},{"version":"11.0","notes":"[main] Αφαίρεση περιττού κώδικα στο παράθυρο Στρατολόγησης <br>[main] Αλλαγή Updater"},{"version":"10.0","notes":"[bugfix] Διόρθωση της πινέζας αντικειμένων για σωστή εμφάνιση στο vanilla και TWIR παράθυρο Αποθεμάτων <br>[bugfix] Διόρθωση ορθογραφικών λαθών της λέξης bugfix στα Χαρακτηριστικά Έκδοσης"},{"version":"9.0","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"8.0","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"7.0","notes":"[bugfix] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"6.0","notes":"[bugfix] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"5.0","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"4.0","notes":"[bugfix] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"3.0","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"2.0","notes":"[bugfix] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"1.0","notes":"** Δημιουργία UserScript από το clothcalc_sk **<br><br>"}]'
+          '[{"version":"24.0","notes":"[feature] Προσθήκη Χρόνων Αναγέννησης στο πορτρέτο του παίκτη<br>[feature] Προσθήκη μαρκαρίσματος κειμένου στα Φόρουμ Πόλεων<br>[feature] Προσθήκη επιλογής καρφιτσώματος της γραμμής Μενού, Εμπειρίας και UserScript στην οθόνη<br>[feature] Προσθήκη εμπειρίας μονομαχίας στο προφίλ του παίκτη<br>[bugfix] Διόρθωση καρτέλας Στρατολόγησης<br>[bugfix] Απενεργοποίηση της αυτόματης ενεργοποίησης κάποιων λειτουργιών"},{"version":"23.0","notes":"[bugfix] Διόρθωση κάποιων μηνυμάτων ρυθμίσεων<br>[bugfix] Διόρθωση καρτέλας Στρατολόγησης"},{"version":"22.0","notes":"[feature] Προσθήκη κρίσιμων χτυπημάτων και γύρων με φάντασμα στο νεκροταφείο οχυρού <br>[feature] Προσθήκη παραθύρου για ιδιόκτητα και συμμαχικά οχυρά στο παράθυρο πόλεων <br>[feature] Προσθήκη αυτόματου ανοίγματος οχυρού ξεθαψίματος τσεκουριού από την αναφορά του <br>[feature] Βελτίωση όλων των πινάκων Κατάταξης <br>[feature] Βελτίωση του παραθύρου Στρατολόγησης πριν την μάχη οχυρού <br>[feature] Αφαίρεση του αναβοσβήματος του κουμπιού Πόλης εάν υπάρχει νέο μήνυμα στο Φόρουμ Πόλης"},{"version":"21.0","notes":"[feature] Προσθήκη προόδου κτιρίου στην καρτέλα χτισίματος <br>[feature] Προσθήκη επιπλέον επιπέδων εκκλησίας <br>[feature] Προσθήκη λειτουργίας εμφάνισης μόνο κτιρίων που δεν έχουν κατασκευαστεί πλήρως στο Δημαρχείο <br>[feature] Προσθήκη ενός νέου κουμπιού για εύκολο άνοιγμα της καρτέλας χτισίματος Εκκλησίας <br>[feature] Προσθήκη ενός κουμπιού για κλείσιμο μόνο των παραθύρων Αποθεμάτων"},{"version":"20.0","notes":"[bugfix] Ουπς! Διόρθωση κώδικα έκδοσης"},{"version":"19.0","notes":"[bugfix] Διόρθωση συνδέσμου νέας έκδοσης"},{"version":"18.0","notes":"[bugfix] Διόρθωση έκδοσης σε κάποια σημεία, ας ελπίσουμε!"},{"version":"17.1","notes":"[bugfix] Διόρθωση έκδοσης σε κάποια σημεία"},{"version":"17.0","notes":"[main] Αφαίρεση revision"},{"version":"16.0","notes":"[bugfix] Αλλαγή συνδέσμου νέας έκδοσης χαρακτηριστικών"},{"version":"15.0","notes":"[bugfix] Διόρθωση καταργημένου κώδικα που χρησιμοποιούσε το UserScript"},{"version":"14.0","notes":"[main] Αφαίρεση περιττού κώδικα <br>[main] Αλλαγή λεπτομερειών στο παράθυρο Στρατολόγησης"},{"version":"13.0","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"12.0","notes":"[bugfix] Διόρθωση λανθασμένης version"},{"version":"11.0","notes":"[main] Αφαίρεση περιττού κώδικα στο παράθυρο Στρατολόγησης <br>[main] Αλλαγή Updater"},{"version":"10.0","notes":"[bugfix] Διόρθωση της πινέζας αντικειμένων για σωστή εμφάνιση στο vanilla και TWIR παράθυρο Αποθεμάτων <br>[bugfix] Διόρθωση ορθογραφικών λαθών της λέξης bugfix στα Χαρακτηριστικά Έκδοσης"},{"version":"9.0","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"8.0","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"7.0","notes":"[bugfix] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"6.0","notes":"[bugfix] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"5.0","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"4.0","notes":"[bugfix] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"3.0","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"2.0","notes":"[bugfix] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"1.0","notes":"** Δημιουργία UserScript από το clothcalc_sk **<br><br>"}]'
         );
       } catch (e) { }
       TheWestApi.version = Game.version = parseInt(Game.version, 10)
@@ -111,6 +111,8 @@
           "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAIAAAC0D9CtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAKNSURBVDhPfZPNTxNBFMBn9rvbL9bSsnAglGLwA2OCUj8IJl49GA56II2pB0PSi4RE5aAJ3DASrwT9B0jUBEMMJEjCSYlGEkPlwoHSokCBAm13W7bbdnzT6UEP+svOm/cxb/J25g1+GhtACCUNIZfPO2RJlGQwAbtkVSwTFF52gtS8De7qkSQKoNMR3ylKyL58utlGqmnmwVMuHtGIKoLOFbZBfl1NguztaoU0fLu/v6NFezh4r2oXCvt7vvdz3sVlObULK0y9Id3Xlepuror8bqb49lvesKrXOgNcpVwOhs5CAt7cCMWe6a/fOTZ+ceUKfK7gudDKTvjlvHJoOlXRp3lOCkbJLnO8IBhGtpo90B89V5K0DAYZGEA3+vD6ums3e/HVkmWWbF5lIQ6GbaSdbz78lTAygoaH8YsJZrrT2fYvCbFSYCYHfw+TZ+EzsxHPk8lJPDaG7keRTUOMUJyeAYMrWSWYlJ9pajmdZGYGx2JIEPDHRbS2hmZnUVMTRLT9LF1Qg9ZGIYRKrxdPTaFolORzqKWF2DYZGkLp2nZ/UM8xdI1O29tobo5IEtZOkelp3NuLE4laHB01epgCcBVexrnNvXAHs4muo/FxMvIERyLIpH3AWD/fVtcgxyGQzPFJ6nrQ0L3UMTqKIhF6YqzaGsd+T/xSfVOgXhvc9PfBm/nwBTQxgRcWmJMBCfN3wkjm6zYcbXfP1czOViDgsxzqZrv7xDQU05KKJcLhTKBh9cqZpVs9OdV9XBSX4wmt0e93ifjxg7uffqQU1eX3+2AP6GvoaEHmylYV+hpuQpIlaO2tZBLWdDYpLqdK3wK00MrG4f4e7ct/0doWbHUTURHdiqP+fgDIZMp/oO8Hod/QgQVXD60mfgAAAABJRU5ErkJggg==",
         iconPhantom:
           "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAIAAAC0D9CtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJySURBVDhPfZPPaxNBFMd3dmdmf5htGpvUtmlLLKnF0FNJC6L5A/RQiuBBsD0KXgQ9iKB4EC969aDoVT3o1V8gHiyKVYzQKiIp9GdMm6T5tclms7vZXd+wQYNQP+y8+c7Me2/fzs6gaxfOchy32cBavS6LlFARhoBtmY6pgxDEA2BDwV7VrVCCQbP2bcegnJ0cH7Q5RdfrMNM2KmxFIaD5Zg7s55VNsMcnRyEMzc7NxYdCF8/Pu3ZT16pqKHxwJCEH+8GjXtjYWn5TXF0CvVsynn2pN0z32ES/EI/Hp6eS4yO9TksLRY8MJVJU6eF5AR5J7Ts0PsPzuJL94SG0rZF8YS8aVnkB40ajBgFYDkbGpiDlP8SmZ3uGJ5uWYwuKP8NDsxt5s6WHohMIoVL2Z2F9xV/b2/peXF8GEZs6aTqYOE1/HsPXQ2eVy0rvQCWXWXx0Q6J45sx1KGDp6S0oMXn6KtTse/vwlmlB17JrWFSgdIkSDiGBiDymgiBwHMJUwkTyvX3YXgNGrQA2ODB2YuE2CDU8DDa1cMfzXDU8wjy6YN8DmLbrC/D2A4BAX/RPQNv1fAHwjiAibUMkneD9cDo5GbyMvVK15doGDPTKjueyRcvQzKYGwvM8rfSLOXbxN31+9dO7B5fTL+/p1cLik5uv7l+pl3JfXz98fvdSJv1W6KoDnZufN7Irp1JHAzJFrmG1Wd2aCTvG2R5PEHstiEYLv/iYCYUjiQEZD4qtD4b0+H0xEumDFIRKcKKxiNqm65ga/AkqUjja25trkhIYVVlGdhcsu51eKxcLuzDej9HYYQggElEluXN/AIj0xX9g94fjfgNTw/ZOJuuzRAAAAABJRU5ErkJggg==",
+        iconRegen:
+          "data:image/webp;base64,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",
         button:
           "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAB3RJTUUH3AgUFDIohckK2gAAAAlwSFlzAAALEgAACxIB0t1+/AAAAARnQU1BAACxjwv8YQUAAAHmUExURQAAAIRZN5VdOHZKJVY3GnBRNWZLNEo1IjswHTUbCUQyG1Q6I3M9JmtBHIJMJoZXKpRnLIhhLpl1R3pUKLR7QriESpRkOHNMMjUiDUYqFkw7IV0vI5ZsSLiHUqZtOKR4UygXCAYDAigaEhoTCCoiFiUOCR4TEDQcE1lCHqN1OaN9ZS8kBDckFUYsJGRCHBYJBUs6HkwyHEMzJVs2JKRvTzwqIEMyK0wwFVpFKWZGJ1Q6KmFNQUM5JmhXRWlcUXpnVlMsFHljS0w6KlpHNmE+JEkpDFM1IVE1Kaagmqmop5mYl2ZRLXtaOnNVOsC0qcXBvVo8ImI5G3NaQpWGeaadlX5fR3hWOIJdRYdlOX1jOYdoSKSUhrWlmLCfkHpbMsCMXcOPaFw8Kraxra2wrrGsqJN7ZkMdEmlUNtHLxqKNe3pTM5ZZLlgqDXRcTIJsWXBWQYdzZ4mHhri4t7/Cw0IdBph3VtfX1uHe2ZSATsjHxs3T1sjO0ubn5+3w8e/w79XRzHlFG1U+M9re4Orv8BIEEXx0beXi3vT19tzh4k4wDGxNFPLx76qCUIl1Vox3SKJxQJqAY3JaM0g7MYGBXU1DOEU7L5iacltSMHVaP3lfS5GMiG9vb8K9uXlqZVpQSHh3d52TiFhYWP9Q2EoAAAABdFJOUwBA5thmAAAHyklEQVR42n3V+1/a5h4H8GAwGi6ipZVE7ZoLt9VopI6SYDsRg3JxItVWy9qew6VAbb2FGhqIRmEDrLrVHTc6S0/X//Q8gO3a/XC+ySvweoXP883zwPMGevJ6w++adx5GuO7IkHbIGUPmMJroxVxm7q3elfByEe4M8TuHnE5kjiGsGOOC1m/ayH/WTyT7xmy6mZ1tcLMNP7hy3Gz72uCyN2GIx0iWZmm6fbHRoFiWZMn56zw20QAf4RoRZyTCIY0syDQOualr0F2SpglilEAJgiboUQLDCAK12sk/staGvoHwEZ6PtIo/O+O4SJbT/QH9h6QpgsAoCmQ6NUpQDit9dkpNOLkYL3Acz3MIz/H6iODkOecZdMYyGNObcVAY5UBBLxtxGDwE7wYWHNw4x7dOwcgbeSEhbC3+KSzpNRBsQ4+YQCbg3w4mm8nw+0l8ZXorkMFOLJgW5saXnN3PHjWjzcfLSGLl6a7BqT+B1mz40YQHSUs5MRQOh/PF4PJfwz4X8+saBcY2bi0qktwUk6JUfxR81HcAx36F4nTAc7QpiaFQKhQCoQu5tIXjWs9anAaJp2AkOZqPNpvJpCRtGwzw6zXolPDpp6vJYEgUxTw4wjul/FRiKTD4yygM79blZr6oSkVJKolJKbetMcUGoYeUD5HUcCcRCr/7uBNW0ojv5clD1LBQkJJNkJAkOR8Kh5qKvHvwAsyFRf+qiTshMZ9PBd99/PghtCPl38e0J6vsi8c1OVlqdQCBcKiUlMrP+vpOoBHWIdfSO6GULNXDHz6ERXGnqF6sz70aYTO5WjQtlwqKkg+l82oxXa0nr76+AcEko9aiOyFpryzuXITElHhRLl7g7JqBxtWamsopNUUVxVIpV0yXq8lhdhDiSUas7YfTrSUWQY9QMCWpH1BWMJJjzdpxUi7Kcl7Nq2q+GVWU8NhPMegVaXtfq5XTO60vJRUOB8Gk8v/1sfFXpLV1o5lM5fNgvUQRPGJp20DHobgdj+UURVGToXQonRLBmPIFrqV21+hhs7p/rKhyMwoqVyxIUtJiwHYhnpl4MaVK9RqI1SW5JJeiF7M8xw7wvZbYlqootVptX1EK9Wq5nDw1rbEDYJGtKOUPSkpZklQZVOpnxKDhKSRO6jJjh4v1YzBWtVwoS3Jw9/m1AUcEumLzc4iAbFyAZSypYvDdxtuRVZ7v1lyxRdY0mtU3QTlXr9ZL4srTG//6t2YkvgrNUP5ZITA5N6+7dX74m9utw5mxCbSXMc9QkQULzFv4yNbG9J8It+T1LiGeOb0ZcpMkzRIEhYECOwcUeHVbaQ9O0nYb6sBwD4q7dJ45T8Dl8+juUB7oCsNSGGNFmSGdCxw619Atl+u2HZv8zs06XLrbOK4PcJzWqRe6Ob57iu5dgr65QZAUbbVRtJ0Ap91mt9I0ycT5b3cZmhrFUAalUcqeoVCrmybInkEe0nTB2m6kpxfD9cMG+GCgv3/gisl89Xq/ZvDTjaGYAYZN/f39I+0bUJs+71Aiwv3QaNG3xE9iFMFYPU8EQB8336Jv1tumz/V/6CNJ2xuzpkMfd/4P+swQj7boa8Nnt3foA1qS3uvj2BCgD2lwkQafjTQa2Yi3wZ1zyHVAn50mRlEC6/39/Px2LzPKfKYPjMojEfPZzOnpzNuz7Bn/BX004XCfR1v7Nfm7G0CIUlbb2akV0DfORzZy1apSzc1EgIFf0ofPypJUUSrF/G8Ygzoc2Oh6m75xZKZQUI5rtePCDJ8QBMH7mT6vGN2YBvuvUkwlPB6tLzN6so5pjcDjnDryBvyYa8e5rDBugj/RN+fJytP3i8qeUinns1qtz9dzSR8/o55uFo5bmcJ93gx/ps8TuyfPpAuVSr2i5O9qA74WfTOE0cjDcfV0sVJrR6Z52GA0t+k70h4J94Ev9UpFqdfle64jrdCmj+8zPtlVlf3jTiRuMcIm03ibPr0TXsjVwU4CbepyN2jKvwjceEjAsNH4oLDfDoD5d/UdaJ5f0gfmy61IoENFKZdWOJ/WB8eOrt9nfbFxg3lR6TRRFk3PD/q6TB36CBDiSmUJbP6SeOg58vgMD/RXvmMzLzOeOaTTRinE+wYHDr65+vpViz6HA0WZn0vlYrFc+t6NZgIo7iPXYHYskMHx+eXqXq22V90WfHOTsdglfSDjcB+KIFPO+x0ohoE/sRZ9ujEcZ/ApqbK/ty8l8Azuc2XwDn0o+LrR2ym5WJLyfgbFMkSgTZ+DyYBK5JS9/X0VwXHfi5fDBx36tAEcx/07LSZD87rWyC+1xG6c1vbFYrEl/rEE0Isiw4KgHfbBl/SN4T1z+qmNzc3Nu3zC7xWET/QtxSaXhK3Nzafbq+vrZoupa0BDmzr0Ye6enkQomUo/tfAC3AdrEALQNwZmP+abz0ZzueizdY1m8Juv6ItY7i0vryzff7CwoPmbvlXNQ40m/uOjxz+uPlnrAvR1xUe+oM8bDAXDd9z4GKPradNHAPoMFhj5YTEaXUSWBK83huBf0cfcufv9LRzIx3ymj7KBZ8a1t6anOb3Lh7fps2v/pm+iZ0I3pNNNAAJ7btkZQB+JAQRxfMjD8V5nD29p0Uf06r+iD7h3SZ9jxPntTfQTfRhhdWA2ay+gb2xk/DN9qE6vNRj7TJf0XRvUdFk+0TfcuXFJ3/8ATGWXD/XSBkwAAAAASUVORK5CYII=",
         iconChatSM:
@@ -141,6 +143,14 @@
           "data:image/png;base64,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",
         duelMotBar:
           "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIkAAAAmCAYAAADwbrjyAAAbsElEQVR4AXSZeVOX1xXHeSN9De0fnXTaqRlNNC5VLIq4KIIKBFEEFwXBuBsWKCCgRAjILmoFZBEXBBdUbIYGQUHBuGjqYk2mTtt/0pTT53Om3/aZSeLMd8695y73+d3zec69D0YkpR+09KxiS9tZZIkJCZay9VPKLvxf9DbYNy8m7dXjL62+eIslpu62LbtKXdv2HLGtu8st+1CVK2NfBXX379h71H27cqq9rHrG/s9oD/dVf++7J6+GNu+HdufWuD/rYKW37c0/7vV9BbWWW9rkKqo4aeXVrVZZ32lHatrs6PF2q27stqYzl6zh1AXX6Y4rkrWfu26tXVet88JNV8f5AVf3pUHrunjLy2d7XHbqbL+dbO+zE22Xrbm111oCq3mPN5/zdY7VdVhNU7c/Q0XtWZ4BK+HHRz+eDR/W67UnelC4jd+huTQOUVa75mZdhE/jva/EPFUNXd6uOXJLau1AQZXVn+gK9uKKNZ3uscKyeisobbDPGzqZjzH0Z3+nIgg2gViTmGb/+Ntru955zNYkbfbAbdqYbO/ePrfXT0bs7df37e/fvrBr7aWWuc/hsMwDx0wBUzAFxv7COhYgqLR7/WBRvdfVrjJi/KHiBvwA4XX5Ga91BAc2v6zZyqpaJQLGZiD/oY2nLxIALIEGEIKOBRIsIFDGChivozAgwIEApa7lPPOyHiIwCoICok1GCih91U6ZZwQ25gM42vB5We1hKymIiL5I80oCB6mtIoDoQH6VtXX128vX39irN9+a2/+Wh4bH7WBBlUBhXl7AqQg2n00fvFBHxghgGA9geGl5GausJS/GHo9ctq8f3LK/Ph+zf757Y8kbtgOHAFHwPZgEXcoL5iSI+MkABDXncCNr4cN6Xe2y8tGfeZhfZdZBzAtQBeUnHI7SyjNYlwKA1eYRUIIhWAi0sgKg4AOItu5r1AUEcJA1BAfzEVCkQAoOCZ/eagVIPo3V289zUWcNno0yz+ltWkOZhrLGSZoDq7UEWjjD6Rlzimps5N6k4LCbTZVWNu1ndqOx0l4HPvT46Qvbm1MhUOzwsdNTEQQkNTXdvv/Xd/bm2V3PGOO3/mh/mbhtN9vyrOtogo1cqXN4incnAYcfBwBCmfEEknpYhUdaAEFZAQCUVRivwHOkaD4JH+OwAlKZBUiYizUBBRihHVD4QUjA6Ojhx2qjlQkICgEhQAg/NnycIPVTwBR0bX449bMmVmmdVC9wNEbBDgeZtVlHoAjqnwSEetgnOAQKPtVl84KjpKq+DTgk4BAkDo7U1tlnheVNPDNxnIogANt2FVtGapw9Gu33o2Xsxil7cvdKkEV67dn4gLWXrLSOsnhLzyri7sBRQxAlHQsKNkeOjhYFGR/BxU/wlT00n2BB+DjuBKSg0VGGlFkECVmFDAMs/DBlFwL1g7dMbxobLSntKzDqh8JZAwkEJBCV0aiHpSMhDAXSejoWldl+DJYwpJpDEqzhrKZnxCqrfVp83AZuD/vRAiAvXr39ASRqm3z03I8lxjokkTFJNv2jGJs2c7H94r0ZdjhrsUPS35QVHD8T9vz+DbvTX+vHTubH8+z9WVE2Y85Smzl/hcbZ3Kh4+yhytf32g0U2a8EqmzF3GX2w9KHs/nmL1tI3mCNafh/DHL+ZsdB+9f4Ct+9Nm0fZ9evpkS7mYpzWZb2o5Sk2f3GCLYvfYkvjNlt0bBplrCs2aaetTs6ytRv2GBf0uPXZWFfK1lzbsCPftX5LjtvkzYfwY4M+B9yfmlmIdd/GjAJLTNuPaPe+zL1u417WUZm+rEGdMh8BzMNlnzI2fHlHetGwelEQL4j6MY6PCV30qeu5sXpOWf1OL0cuW2/XbgzZ6O3bgPGTGgnaHwaQzF+Swu9l7FTE4lUb2XAC5kH4+S+nAYZnkKf3rjowk0Pdwb1k0F49Hg7K5y3m97NtxuxowQAABA8IvP7BvOW0AYAAoh2/952zMI426vQPoJgvWARG2OfPJUgEFONYj7kXBhsgMABHor5i3Q6LTczEChoC6QFMSN2HVeAFk8r0o+w+QSK/xsWn7GJO5gdCfARGwQqg+INtzj5MQLGCI3xk60gmM3IMKxvjR/RRdtV4LHMKQMHM2i5BIuCXxKZbT++AjY+OWfsnG63tkw3W/HGUg9GcvAgf8vbRsYe2JG6rg+eQRMemEjgPzPTZMdZRkx0cNf321ZcXgrvJGRu91mSP7lxyUB7+ucfbztXuCoKzksATLEAg8Egw4OeNVyAFB4GmjFW2AQz6IsCgTjZBwKKsI1AEC2thmZeMEqy1zsiMlBet2ECZDBPKNKkEkzqBRQCElQQRQAEAVtmBQOADEPoBBaKdeZU5FCTeeiRIyAb61A9/remirss89y2kjwDagUZA6a7GnIALKMCoDKJnABJ8DsnSNdstt6gqyBLPbPIr9NT6Pi91SPpryske7se2dvQGv3O3XgrPJN/zJnoAps+0Z2PXgcLvJNgPP5xt8Uvn2sj1k/bgT2dtuL/RZs1f6W8p4xBvLZYgLYhOJEjAQR0RHAJGWdmE9YAHKSNRFhDKJsok4TYBhgQl7Q6L1uR5yJI8m0ABHGWX5Wu3uX9VQkY4y5BdAIHgU5e08WQKZRJEX3z0IRhK/QClt56gAocu8AAADPoC5D4FIJz/ul/p4o+4oIf/lMA8QML8AhABCoFlfYH6f2DSDgRHSLLdGX0gUKyvuiwMifvvTzwJ9irIItv9+GJf7kYEAYsOAvuObLAp/nc2Ptju2eLeQIsV74xRKre5kcutqWSTRUYt5+1jE7FsMmLTsWxW+I6gAFFG4bedchgoHVkEG5DwYfHLJ6CoA4bmECC6pwAmz451CYqY1emUlVEQZT27MosyicqAwebrmNGdQ+e+LH0IHNKfCZQpCLYHvfizU3yF6Q9q4T+ESfo60oWY/oKJeXR/QWQXfQAoewELz4NV2bPJmpRsG7k34UAM9V3yIwYLJBMBODv3llhscjaA/Dv4nXVmFvG/f8HGD7PBM2dHWtW+ZfbFxRpbGJPI26hNDDY5TW+WLoKITcTSh41FlPEzVvcCAkTgwmB4HUDxAQFZgYALGPy0UwcKHVmM1TFG9sICH9mCOvNieX5lFYEjaOmr3yaY+R1AxG/Ez3PrdwEKmYaMoYyC9OYq9etrTV9x+lQnO+gTXX8V5iuGr5rw10z47zD6nAUaxgEYsDCnMhJrKFshACWrkM30bLqvrFiXaXOiEi2/uNrvKEPDY3b56qCVHG2wmLgtAMLv+w44JP0TKC8JDJsbGbVSRwcbzKYqM/gm6i3TpVDZRNAomzAWOJT6BYbW0ZGjo0P3DawyA5BwV8GndvpLuhsxH2PkByjWQZS1Hr9JfZXx9GyCCR/PjQSQoNGLoiNK0AAQLw+B0TGg/47QxRRY9NmubAII+vM9FunzHYs4lhgnKHTppUwmYT1lDEkXb73QgnxV0n/Ys74XqcowLCWBayiyifQjE5OgsBJCDdMwEStMEWMmDcOIoIvSigpGbdzZnd3V3VnbZnbm/P5x5pwzc+bHzi7LChZ131V3XbWz1EX9C0EZPj3fK4cy9spuLLp4+L7vzDnvd5j3+Z73Pe+bw7GTDL2n3sfR15jkv34Gx0+dxVvviUr+ToXceQtJAPyP/yAKhcI/wi0kSbNwsk3kiTIlc568VMrlpKSxjqcjxXdMnJ6htN7LkzJADOYKtWMf52d++ET1dYZmkC/quDhmInexLOCaMa8K/s6ETrvdBt/PXJ9ljD/B+JwhsjyVGZ66DGN7hrKc5enMUqqzrJxmKd8CltszRFaBDb4sezNZ9moyRJb9GgEbfBk2+GS+cE2QYbn+NMv23yTzX//WZCW23fsSzQ77QQmLWjHL3uECLH8OfsQ8wu7A8HrQnC7HOZlz5HUqBn+z1NpqwXS7MM0mHDNGGHQFrhHCqZhwKwY8Xtf1CKadwOB9rhHBdlq0Oyv27IC5jCN7cV++Q7wIk+rDMCT/I32a1m5E8VOlOzdioDjh4Fz+c9rrwKV92wjFtut14RN1N0Fc1RGWq4gmJ2EVizdW0UHiiDThVEZ386tix+6D8ilKeRa5Tz8f/1IE+pVy9y0dltBhDdq4mh93vicRritijE3YKLFXUBzXMXrJkPV4ycUwX5L3MZ4Gt9vgu05i/MRxmRLcpxQrLCuQGH0SRUAJ77Ny2WecX1IjHd0nQfp0uowkybIaSQSZq5GEWSJBZE0s8d5lPvcjezi/tOZZEWVVNOl+gZDkqEcME8Gcgjjd8WZhEQ4Jo+au3+NaoBxKtOEHPXhum85pIiBCq47EjdA0fTRqJsKKhlizEHNdtyLUnQbkPs4Dt0UndmS/wCep3A6c+gKJuihjseTjo0/LDHUT4ksm+KqEIDWlNJc7zLD75js5vPE2/XhhGmNXAiG4Q1u+FUP2cxJEukuiGGiQLHapLL0byZiVOhw6dBzP7TmIzdt2YP3GrViz/kFsfXwXnmcOkOYi6SlfocFHAnB92SYslKZ9TBEjozWMjGkYvWxiYjrARDnEEJ/79zX4voLfuIqwsUiSLKAeCkGEEDZJkoJEkD/dsNsQsnh/Xov4TOzS6WaAyPDQ1EwkRMe00dE5r+lo6wbimoWGEyGyQsROjNjmnKM65UEwS2eSZD4dW2feoic4P0RlPzeFD3IlnORhfnbfy3hgy3YM0H/rBh8RX97P9WPb9+DpXQewc+9LePXFwzh65AQVfgaaFgsRQzsmSVqyDwks7+FcqdxYlXZoVaKz/8AxKc0rcty1ZhCr127EqtXr8cSOfWliKiGJiY2Q5G8NPlGIoVFD8FklwiRJkR+uYnjMwPAlE0KgSQ+5gnbnNfh67J90r4larNjgo40wnIej1KM+D5+w/Z4QQZSCBKkZLVEM52aYkJDBuSiAUoK610JER8hJrZki602ia9loGxY6mo5WuYykUkViByRHKCBBxIkkh9gI/TbqDFEByVdzuviQ5DhNdVDJ9r4XjuChrU8JQdYQazc8LFDzDZu2CWEG1m3CfRs3YxfJcur0Wbx7Jo/iSAW+P4tA7UFV8U3uW7MhSpJKO/MQyfr37n9FjCiS3E3cMzCILY8+KZ+LzPwFnEtoIlkkk78ZFlxx/vnhGnMPDeNTnpDiQmFGcHFEI1EsJXF0vn7nNfjabOMnbKJxvmKDj8+6TouK0BZSpMphGA0YXFdNQm9Bp4LoFkdTiALPoVM9OpUkoZNFGRq6g7ZSDt0SWW+bthClR3Q0TVSlaZBIViDhKPEaQoww6IiNyKMtlQNRRf5g1dqe2jrOOE5jO05wcBw7vrip7YS6jp3E4CbGcQ3mYtBFR0jiAgYDAknofkEXIQGSECAJJCEECGRMjLHjemq3D+1kpn9BX9y8tH1y2zz0sS996bQznek0/vX7djgzdHpJO1Nmvtnds2fPrvb329+3ux+h+CrcviSM9gl0DzjRfL0Zx09f3E0SkXKZrXKnzHbw0EkYOoYx6piCzR1HmjDj/cn9jc/IHgrbWN16USGOmK16tN5sx42a7+L8u+dRta8Sx1/ZJ+zY/gocfessqi/W4aCQrjN4u7oWF2sbcOXCB7jRqIZKN4TWtk5ovlcPjcIASUmm0EOr1EPXqoVWoUO71AO9YQjt+gFobkqiT5WiA+pmNdpuaqFsUkDV0IK2JiXa6pvR1tAqrLVRCWVjG5TKTihpjCpNL0Tb9gHw2LWd5v9LgM9Nvtw5NgN3IA053uEMZOClVeryp6huFt7wPBy06oR5E/DR+zZHFFZXHCO2CCzOmMi7CDQn1Vsdk/B44wiF0wiEU5iIZBANJjEVnsX0+AxmonOYDiWQDMUxH8sgNzWH7OQsZqNUH00hMZFBIpZHLFZAZHIRE+NpTISo/cQ8JmNLMDsm0NltgsEwCB3Nq/7qR+i68C0crazCnn1voGKXvbS3Ci9Ruofz5B1epvL1t9+CkrDQ62+jg77BisLj9tL4/b4EAsEZhMMpjt34oNbehpIAU1y7DmVtDaRvn8K1Ywdx+cRh1Fafwwfvf4RDR06jomLfjh0QPu/6x9egunQR0uUPob1aB4lIwOSQVJ2CIIamNjEAHfk+raYLGnqulm5BIoA1zSqoVF2CKJr6JkEWVYskiMKkUNS3QNEsQUkEUrQSOWSS8DtEKG4ndQzz2P/nAJ/FPQ2zK/EPAT6rbwajBLKdUypzPQPOhPC4p+D1xOAdXxBEcBAxnLYwnPR81B6G2RqCccQPMxHF7qFJ9s/S6p4Wkx0JkkXmEYnmECWQYwTwDBGALZ3IIR1JIjMxi/lEFoXZPPLJLFKJPObiOcwkFpFMFBBPFJGgdjG2aAaCNLEiwkQcJm9Pnw1dHUPo6LVB32OB+vhe7N1P5JBJQXb+0EF8eLgSZ6uqcOxgFW4cfRWD1YfEom2nhdzXb2VCi+85vNNEjjn4A0mEgskdkkh90NY3wPDJx7DUnsHQpbNov3IZyqufoPF6C1ounMOlY29g754D2FPxmrAjr76O5mtN4p2OKzXoqauBRknKoOmBmsDXMFladdAajJC0/ZCkXoRV9ae0NzVfMlFYTdSkOmpqo20gkrA6kDF5NA3NRJwbkIQ1yaojiKIi0rCpWzRCVTSUMunaO03QdozwLTHn2SVy/l8G+G4bfSzPTBjhy4dtEbIoTNawyIvjozUKi53yliBcRIQxzySCISKPPQqHfRw2yxgsRBSrNQibcwqDpgARSEwyq5FIg0SMCClIOJoXgEYn80hMLggSpOMLyM3kUYjPkYLMIpfMYXm+iEJ2DdnUCnKzBWTmVpFKr2Nubg0z00uITS9jmmxqeoVdOH2zAB+pm9EcxK0BF/qG/RCn1Npz6DlTCc03K6E8VQnVyddgqD4Kw8lX0HNqP/pPH4Dt7EvQNymYYEKJLPQ7HM5JIkgSXiILk9sfIqJ4pl5U0KSJAB+DxaBJBJJaBosAYoXoqr2AvvdOCIbWHT4AxTHRGRTsBhg8Xt1EDgFWl2UHsGEGjY3BYcD+MqDrfs+maKzTSL2/0ygNv9EQedjkvlkVuG+Rb2wl4jYKEqiZFLvqWFE4ZWOisCLxd7h/uc//NsA3bA5gyORnUogJHvUkYXJMClWQSTNiG4eLFGaM1MHlnoTXFiAlCQlXY7cFWVEEyWy8CslNucML8EWyiMSXxaqfSiwjmlhFMn0XqVQJC+kSCgslLOXKWJ1fRmmhiOLCKlbzZawV7mCF0lJuDYuLm8gX7iGb20QqU0aaLbvJBwFBkvH4CvzUD4/3lnFMzDOrJu9Nxi4egvudl+H4TiWc51+HpB8UC0N39QoGL1dDalFjcGSMyOUQrtLhSwoXyr+TVZPdIv/eRGLpeQVNVhd9+I8MKk+ovBI5z89YYeS9g/P9ozCd3g/TO69iqPZdfs7gcZuvC/B9Rflfkl0YbW8/1dFtvtrZYVRpDcPPZUJJBCwDzi6EwVZJfQw2qxwTUH7GasL9cpmJwe/weGWC8Li5/LUBvgFTkFfePwX4RiwhWEfHYDX7BAFGRwMYGQ0LdfGGMnDTszFHEF5XFB6rHx4iTcArXBI8fpboWYxHs8JiyVVMp+6wEohLrAxt2vNLWyitbKG8/Ck2yw/4Ek1caol8aRPC1qhu/T42yg9RXvsM6+uPsFZ6gOXCXW5P3+GrhbK4qIxn6HBAG3zPeBa6TpNYGKyO/aagcK+MgRx/kjHhhdzZ7xTuqfuWjUkm3Cz/Pg8RPUBuJjKe+Wo2WfzBzxq+USH+OMMgyhIt+3SewN0BPgZSamhm0ETHDArvQxggav+fAnxf0vutBNCbxq7b+436rhMkcR5q/wcGkr/BwLIbYlfF32O3xeTh51zPZVktpJsS981lbsM/mlMeO6sFl5kgnP7bAF/PgEdM1O4AH5PGZI/AOOxlBREybhtxwz7sEBPJexmPPQy3h4hh98NFbmfUlYAnlNnZ6NEER3JikxlLFIWCpFJryM+XkF9+iEU6ga0R6HdK29hauYNHO/chP3zyOb6//VScep58ur1zR/KQLtIei1PRFh1NN+g4XS4/xmrpIZaKW5hf3MJc/gGyS/f51Mggi/0ILTzoO81yzEmk8l5NLCiq10o94l1dez/02l5SzXF2j7xBJ6KkEYlm/8qckE0miTCaxN/Lfp0mk43zcrCLywwGAyaDx2VO5QCY/A85sqRz2xqqe5PSkwTUYYvOcISAPN6n663R37IPUtsXTAaZHHw6ko1BZmAFGVt1u+t4DLJxO24vK6G8L5JVRhjnZXWU/wfG0G0hVxPAoNGD3gGnOCkMDdjZ+P7gz0PDvl+PDtmeewfNvyWyPCf38wuH2fNTuz36NDRi/txnsv/EZgs9pU3qE5cn9nTMNf4jrzf21B/O/JhOMM+ILF9MJEvPknPrP6cLxmfZpe1nS4XNL4qLd3+1Xij/aaN4F9ukGo/ocm27fB/3iuuivL1+j/JrQl3ubDwWR93i0j0ix33hgubnVjCTEf83jFRuixWFN9REACM0mm5WlN0nPDlKz5gIMtwe8TPhxWbd5p2GQ1gCTkoDkYW/0eVc3d/ZN3uUCqIYjL4FiY2vEhs73YcrsnBDLsPOVh44zTiFojkDBz5FsQ6kCJmfuZh3k0muc3MySP7dKBoZgeDbJPjc4EuCz3u236H7EnxD8DnOZiePAxVJgo8PlMuhHLXll0/b4hCcofOzC4rzIfjaEXzap21qn8m/px00OS0QfBuTbpMtkoQeovN12hB8PQm+sCcD2ucySBTmdmGDb8MJpHZKCM639d9rHFtShuDrSfBZvgzmn/21/i7F8z2TlDMoN643CBDXIxzbaOS6oSnBNwSf4j37bC2HBpPjlT1I6t/BVRLveHX7eXa8lneh6WjXF5c34Azct5+0F8E3BJ/oB8/ZwM18sH/lGERWx8Zu9ImPaGsSfDiIoEArBIfUXDAvfQi+Ifjs8vdcu7mOzTI6jsNuA++VIHmT4BOKIihwkNcIFB0lN4Pzh+BrQ/CZ2QwYf4Md/ojHjBf04vnTob6kPkvwIfmG2xsp+IQWRxiCrxfBhzYrYqclx8yBaL8lEkCr5IFMcl7yWNnggwn1TTRlm8pzo2wIvpYEn8HgmgqdJSbXZ4x5qcC7+wZn1QTf15v2jgN/2+AzEIbga0vwqV2smjksMdzz+ac/Cb6vJuvgOmIYBAJoI6kuDaQIV5SiUgMMp3w4+O1hnpBWlmFmjJYovzDIHYRnIQ5y4SdEDiKD2PiKgtAwQpAYZN46MoPgIHr33rMEaGMTpYnbDHij85vozQSlQxShy5VSTHCjPeUZ4/et6SDv78z0glnueecVU93azp17Z8DFDLLj7RPfXnmW/O49ai11HtR663B71FZqPai71LhocSMZnmacRnYzS/sKs3DdxNceQoawYZZZuFaGYUbXGEYYHWV0jp2/MWMMYxxcS4voJHH1RCeJDrJx+7+y72vGaCK/kE/JreRU9CrmMH8ufzrV/W7O6Afx2PvnrK9Pk/wD0zZEjTon3bcAAAAASUVORK5CYII=",
+      };
+      TWDB.Lang = {
+        en: {
+
+        },
+        el: {
+
+        }
       };
       TWDB.Util = (function (e) {
         var t = {};
@@ -275,6 +285,7 @@
         var Images = _base.images;
         var Script = _base.script;
         var ClothCalc = _base.ClothCalc;
+        var Language = _base.Lang;
         var Debugger = (function (e) {
           var t = {};
           return t;
@@ -1030,6 +1041,7 @@
               [0, "close_all_wear", "Προσθήκη ενός κουμπιού για το αυτόματο κλείσιμο μόνο των παραθύρων των Αποθεμάτων", false],
               [0, "button_church", "Προσθήκη ενός κουμπιού για ευκολότερο άνοιγμα του παραθύρου χτισίματος εκκλησίας", false],
               [0, "profile_duel_exp", "Εμφάνιση της εμπειρία μονομαχίας στα προφίλ παικτών", false],
+              [0, "regen_timers", "Προσθήκη χρόνων αναγέννησης στο πορτρέτο του παίκτη", false],
               [9, "", "Μικρός χάρτης", false],
               [0, "show_bonus_jobs", "Προσθήκη επιλογής εμφάνισης δουλειών με μπόνους", false],
               [0, "show_coordinates", "Προσθήκη επιλογής για μετακίνηση σε καθορισμένες συντεταγμένες", false],
@@ -1047,6 +1059,8 @@
               [0, "weekly_crafting", "Προσθήκη ειδοποίησης για την λήξη περιόδου αναμονής των δημιουργιών", false],
               [0, "telegram_bb_codes", "Προσθήκη ενός κουμπιού για να αλλαγή σε μη μορφοποιημένο κείμενο στα τηλεγραφήματα", false],
               [0, "enhanced_rankings", "Βελτίωση των καρτελών Κατάταξης και προσθήκη διαφοράς παικτών", false],
+              [0, "select_forum_text", "Μαρκάρισμα κειμένου στο Φόρουμ Πόλης", false],
+              [0, "pin_important_el", "Κρατήστε τη γραμμή Μενού, Εμπειρίας και script πάντα στην κορυφή", false],
               [9, "", "Premium ρυθμίσεις", false],
               [0, "no_work_queue_pa", "Απενεργοποίηση ειδοποιήσεων για την αγορά Premium Αυτοματισμού", false],
               [0, "no_fetch_all_pa", "Απενεργοποίηση Premium προτροπής όταν λαμβάνεις αντικείμενα από την αγορά", false],
@@ -4357,8 +4371,17 @@
             if (Settings.get("enhanced_rankings", true)) {
               addEnchancedRankings();
             }
-            if (Settings.get("profile_duel_exp", true)) {
+            if (Settings.get("profile_duel_exp", false)) {
               addDuelXpInProfiles();
+            }
+            if (Settings.get("regen_timers", true)) {
+              addRegenTimers();
+            }
+            if (Settings.get("select_forum_text", true)) {
+              selectForumText();
+            }
+            if (Settings.get("pin_important_el", true)) {
+              TWDB.Util.addCss(`#ui_bottombar, #ui_menubar, #ui_experience_bar {z-index: 20!important;}`);
             }
             var e = new ServerDate().date;
             loader.ready = true;
@@ -5341,6 +5364,124 @@
                 maxLvl = dlvl == '450' ? '450' : getLvl(maxXp, 0.9);
                 target.append(' <div class="tw2gui-iconset tw2gui-icon-question-priority-4" title="<span>Επίπεδα μονομαχίας που μπορείς να μονομαχίσεις: ' + range.min + ' - ' + range.max + '<br><br>Τρέχουσα εμπειρία μονομαχίας που θα κερδίσεις: ' + minXp + ' - ' + maxXp + '<br>Μυστηριώδες φίλτρο -10% ⇒ Επίπεδο Μονομαχίας ' + minLvl + (maxLvl > minLvl ? ' - ' + maxLvl : '') + '</span>" style="display:inline-block;vertical-align:top;cursor:pointer;"></div>');
               };
+          };
+          var addRegenTimers = function () {
+            try {
+              TWDB.Util.addCss(`
+                #rt_container {width: 16px; top: 144px; left: 8px; position: relative; display: flex; flex-direction: column; align-items: center;}
+                #rt_container img {cursor: help; margin: 2px 0; padding: 0 12px 0 6px; filter: hue-rotate(-50deg) saturate(777%);}
+              `);
+              const charPanel = $("#ui_character_container");
+              const container = $('<div id="rt_container">');
+              const createTimerImage = (id) => {
+                const popup = new MousePopup();
+                const $img = $(`<img id="${id}" src="${Images.iconRegen}" alt="sleeping">`).addMousePopup(popup);
+                return { $img, popup };
+              };
+              const timers = [
+                {id: "rt_health", maxKey: "maxHealth", regenKey: "healthRegen", currentKey: "health", dateKey: "healthDate", popup: null,},
+                {id: "rt_energy", maxKey: "maxEnergy", regenKey: "energyRegen", currentKey: "energy", dateKey: "energyDate", popup: null,},
+              ];
+              timers.forEach((timer) => {
+                const widget = createTimerImage(timer.id);
+                timer.$img = widget.$img;
+                timer.popup = widget.popup;
+                container.append(widget.$img);
+              });
+              function RegenTimer(maxKey, regenKey, currentKey, dateKey, renderFn) {
+                let maxVal = Character[maxKey];
+                let regenVal = Character[regenKey];
+                let currentVal = Character[currentKey];
+                let lastUpdate = Character[dateKey];
+                let perHour, secondsToFull, nextTick, percentMissing;
+                const recalc = () => {
+                  perHour = maxVal * regenVal;
+                  const oneTick = 3600 / perHour;
+                  const missing = maxVal - currentVal;
+                  secondsToFull = missing * oneTick;
+                  nextTick = oneTick - Game.getServerTime() + lastUpdate;
+                  percentMissing = Math.round((100 / maxVal) * missing);
+                };
+                const checkForChanges = () => {
+                  if (
+                    maxVal !== Character[maxKey] ||
+                    regenVal !== Character[regenKey] ||
+                    currentVal !== Character[currentKey] ||
+                    lastUpdate !== Character[dateKey]
+                  ) {
+                    maxVal = Character[maxKey];
+                    regenVal = Character[regenKey];
+                    currentVal = Character[currentKey];
+                    lastUpdate = Character[dateKey];
+                    recalc();
+                  }
+                };
+                const formatTime = (v) => v.formatDuration();
+                recalc();
+                setInterval(() => {
+                  checkForChanges();
+                  if (secondsToFull > 1) secondsToFull--;
+                  if (nextTick > 1) nextTick--;
+                  renderFn(formatTime(secondsToFull), perHour, formatTime(nextTick), percentMissing);
+                }, 1000);
+              }
+              timers.forEach((timer) => {
+                new RegenTimer(
+                  timer.maxKey,
+                  timer.regenKey,
+                  timer.currentKey,
+                  timer.dateKey,
+                  (timeStr, perHour, nextStr, percentMissing) => {
+                    timer.popup.setXHTML(
+                      s(
+                        `Χρόνος για την πλήρη ${timer.id.includes("health") ? "υγεία" : "ενέργεια"}: <b>%1</b><br>` +
+                        `Λείπει: <b>%4%</b>&boxv;` + `Αναγέννηση ανά ώρα: <b>%2</b><br>` +
+                        `Επόμενος πόντος ${timer.id.includes("health") ? "υγείας" : "ενέργειας"} σε: <b>%3</b><br>`,
+                        timeStr,
+                        perHour,
+                        nextStr,
+                        percentMissing
+                      )
+                    );
+                  }
+                );
+              });
+              charPanel.append(container);
+            } catch (e) {
+              Error.report(e, "RegenTimers");
+            }
+          };
+          var selectForumText = function () {
+            try {
+                const style = $(`
+                    <style>
+                    #forum, #ui_chat, div#ui_topbar > div, #ui_character_container, .tw2gui_window {
+                      -webkit-user-select: text !important;
+                      -khtml-user-select: text !important;
+                      -moz-user-select: text !important;
+                      -ms-user-select: text !important;
+                      user-select: text !important;
+                    }
+                    </style>
+                `);
+                const makeForumSelectable = () => {
+                    $("iframe[src='forum.php']").on("load", function () {
+                        const content = $(this).contents();
+                        content.find("head").append(style);
+                    });
+                };
+                const observer = new MutationObserver((mutations) => {
+                    mutations.forEach((mut) => {
+                        mut.addedNodes.forEach((node) => {
+                            if (node.tagName === "IFRAME") {
+                                makeForumSelectable();
+                            }
+                        });
+                    });
+                });
+                observer.observe(document.body, { childList: true, subtree: true });
+                makeForumSelectable();
+            } catch (e) {console.error("Error enabling selectable text:", e);}
           };
           return _self;
         })($);
@@ -7152,10 +7293,10 @@
             if (Settings.get("declare_report", true)) {
               declareShowFort();
             }
-            if (Settings.get("owned_forts_tab", true)) {
+            if (Settings.get("owned_forts_tab", false)) {
               ownedForts();
             }
-            if (Settings.get("cemetery_critical", true)) {
+            if (Settings.get("cemetery_critical", false)) {
               setupCemeteryCritHits();
             }
             loader.ready = true;
@@ -7164,11 +7305,11 @@
           var inject = function () {
             TWDB.Util.addCss(`
               .fortbattle .trows .status {text-align: center;}
-              .fortbattle .trows .health_points {width: 85px; text-align: center; margin-left: -5px;}
+              .fortbattle .trows .health_points {width: 90px; text-align: center; margin-left: -8px;}
               .fortbattle .tfoot .name, .fortbattle .tfoot .town, .fortbattle .tfoot .class {width: 100px; position: relative; top: 10px; margin-right: 10px;}
               .fortbattle .tfoot .name {text-align: left; width: 75px; margin: 0 -5px 0 5px;}
               .fort_battle_recruitlist span.tw2gui_textfield {position: relative; top: 10px;}
-              .fortbattle .trows .health_points p {font-size: 12px!important;}
+              .fortbattle .trows .health_points p {font-size: 13px!important;}
               .cell_3.class {margin-left: -15px; margin-right: 8px;}
               .cell_4 .sort-class {margin-left: -8px;}
               .cell_5 .sort-status {margin-left: -20px;}
