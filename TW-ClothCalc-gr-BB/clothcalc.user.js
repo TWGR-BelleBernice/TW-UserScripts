@@ -1,9 +1,9 @@
   // ==UserScript==
   // @name The West - TW-DB.info Cloth Calc [gr] - BB
   // @namespace    https://github.com/TWGR-BelleBernice/TW-UserScripts
-  // @version 0.24.0
+  // @version 0.25.0
   // @description The West Script: Cloth Calculation for game version 1.34 or higher
-  // @author Bluep, scoobydoo, Dun, Petee [tw-db.info], Belle Bernice
+  // @author [tw-db.info] Team, Belle Bernice
   // @homepageURL  https://TWGR-BelleBernice.github.io/TW-UserScripts
   // @supportURL   https://github.com/TWGR-BelleBernice/TW-UserScripts/issues
   // @source       https://github.com/TWGR-BelleBernice/TW-UserScripts
@@ -36,7 +36,7 @@
     } else {
       TWDB = {};
       TWDB.script = new Object({
-        version: "24.0",
+        version: "25.0",
         name: "The West - TW-DB.info Cloth Calc [gr] - BB",
         name_max: "The%20West%20-%20TW-DBinfo%20Cloth%20Calc%20%5Bgr%5D%20-%20BB",
         name_min: "clothcalc",
@@ -51,7 +51,7 @@
       });
       try {
         TWDB.script.notes = JSON.parse(
-          '[{"version":"24.0","notes":"[feature] Προσθήκη Χρόνων Αναγέννησης στο πορτρέτο του παίκτη<br>[feature] Προσθήκη μαρκαρίσματος κειμένου στα Φόρουμ Πόλεων<br>[feature] Προσθήκη επιλογής καρφιτσώματος της γραμμής Μενού, Εμπειρίας και UserScript στην οθόνη<br>[feature] Προσθήκη εμπειρίας μονομαχίας στο προφίλ του παίκτη<br>[bugfix] Διόρθωση καρτέλας Στρατολόγησης<br>[bugfix] Απενεργοποίηση της αυτόματης ενεργοποίησης κάποιων λειτουργιών"},{"version":"23.0","notes":"[bugfix] Διόρθωση κάποιων μηνυμάτων ρυθμίσεων<br>[bugfix] Διόρθωση καρτέλας Στρατολόγησης"},{"version":"22.0","notes":"[feature] Προσθήκη κρίσιμων χτυπημάτων και γύρων με φάντασμα στο νεκροταφείο οχυρού <br>[feature] Προσθήκη παραθύρου για ιδιόκτητα και συμμαχικά οχυρά στο παράθυρο πόλεων <br>[feature] Προσθήκη αυτόματου ανοίγματος οχυρού ξεθαψίματος τσεκουριού από την αναφορά του <br>[feature] Βελτίωση όλων των πινάκων Κατάταξης <br>[feature] Βελτίωση του παραθύρου Στρατολόγησης πριν την μάχη οχυρού <br>[feature] Αφαίρεση του αναβοσβήματος του κουμπιού Πόλης εάν υπάρχει νέο μήνυμα στο Φόρουμ Πόλης"},{"version":"21.0","notes":"[feature] Προσθήκη προόδου κτιρίου στην καρτέλα χτισίματος <br>[feature] Προσθήκη επιπλέον επιπέδων εκκλησίας <br>[feature] Προσθήκη λειτουργίας εμφάνισης μόνο κτιρίων που δεν έχουν κατασκευαστεί πλήρως στο Δημαρχείο <br>[feature] Προσθήκη ενός νέου κουμπιού για εύκολο άνοιγμα της καρτέλας χτισίματος Εκκλησίας <br>[feature] Προσθήκη ενός κουμπιού για κλείσιμο μόνο των παραθύρων Αποθεμάτων"},{"version":"20.0","notes":"[bugfix] Ουπς! Διόρθωση κώδικα έκδοσης"},{"version":"19.0","notes":"[bugfix] Διόρθωση συνδέσμου νέας έκδοσης"},{"version":"18.0","notes":"[bugfix] Διόρθωση έκδοσης σε κάποια σημεία, ας ελπίσουμε!"},{"version":"17.1","notes":"[bugfix] Διόρθωση έκδοσης σε κάποια σημεία"},{"version":"17.0","notes":"[main] Αφαίρεση revision"},{"version":"16.0","notes":"[bugfix] Αλλαγή συνδέσμου νέας έκδοσης χαρακτηριστικών"},{"version":"15.0","notes":"[bugfix] Διόρθωση καταργημένου κώδικα που χρησιμοποιούσε το UserScript"},{"version":"14.0","notes":"[main] Αφαίρεση περιττού κώδικα <br>[main] Αλλαγή λεπτομερειών στο παράθυρο Στρατολόγησης"},{"version":"13.0","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"12.0","notes":"[bugfix] Διόρθωση λανθασμένης version"},{"version":"11.0","notes":"[main] Αφαίρεση περιττού κώδικα στο παράθυρο Στρατολόγησης <br>[main] Αλλαγή Updater"},{"version":"10.0","notes":"[bugfix] Διόρθωση της πινέζας αντικειμένων για σωστή εμφάνιση στο vanilla και TWIR παράθυρο Αποθεμάτων <br>[bugfix] Διόρθωση ορθογραφικών λαθών της λέξης bugfix στα Χαρακτηριστικά Έκδοσης"},{"version":"9.0","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"8.0","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"7.0","notes":"[bugfix] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"6.0","notes":"[bugfix] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"5.0","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"4.0","notes":"[bugfix] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"3.0","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"2.0","notes":"[bugfix] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"1.0","notes":"** Δημιουργία UserScript από το clothcalc_sk **<br><br>"}]'
+          '[{"version":"25.0","notes":"[feature] Προσθήκη επιλογής Σκούρου θέματος για τον Χάρτη του The-West<br>[feature] Βελτίωση του εικονιδίου αναφοράς πώλησης στο παράθυρο αγορών του κτηρίου Αγοράς<br>[feature] Προσθήκη εικονιδίου για το εάν οι προσφορές της αγοράς είναι δημόσιες, μόνο για μέλη της συμμαχίας ή πόλης<br>[feature] Προσθήκη ενός νέου κουμπιού για εύκολο άνοιγμα του παραθύρου της Αγοράς"},{"version":"24.0","notes":"[feature] Προσθήκη Χρόνων Αναγέννησης στο πορτρέτο του παίκτη<br>[feature] Προσθήκη μαρκαρίσματος κειμένου στα Φόρουμ Πόλεων<br>[feature] Προσθήκη επιλογής καρφιτσώματος της γραμμής Μενού, Εμπειρίας και UserScript στην οθόνη<br>[feature] Προσθήκη εμπειρίας μονομαχίας στο προφίλ του παίκτη<br>[bugfix] Διόρθωση καρτέλας Στρατολόγησης<br>[bugfix] Απενεργοποίηση της αυτόματης ενεργοποίησης κάποιων λειτουργιών"},{"version":"23.0","notes":"[bugfix] Διόρθωση κάποιων μηνυμάτων ρυθμίσεων<br>[bugfix] Διόρθωση καρτέλας Στρατολόγησης"},{"version":"22.0","notes":"[feature] Προσθήκη κρίσιμων χτυπημάτων και γύρων με φάντασμα στο νεκροταφείο οχυρού <br>[feature] Προσθήκη παραθύρου για ιδιόκτητα και συμμαχικά οχυρά στο παράθυρο πόλεων <br>[feature] Προσθήκη αυτόματου ανοίγματος οχυρού ξεθαψίματος τσεκουριού από την αναφορά του <br>[feature] Βελτίωση όλων των πινάκων Κατάταξης <br>[feature] Βελτίωση του παραθύρου Στρατολόγησης πριν την μάχη οχυρού <br>[feature] Αφαίρεση του αναβοσβήματος του κουμπιού Πόλης εάν υπάρχει νέο μήνυμα στο Φόρουμ Πόλης"},{"version":"21.0","notes":"[feature] Προσθήκη προόδου κτιρίου στην καρτέλα χτισίματος <br>[feature] Προσθήκη επιπλέον επιπέδων εκκλησίας <br>[feature] Προσθήκη λειτουργίας εμφάνισης μόνο κτιρίων που δεν έχουν κατασκευαστεί πλήρως στο Δημαρχείο <br>[feature] Προσθήκη ενός νέου κουμπιού για εύκολο άνοιγμα της καρτέλας χτισίματος Εκκλησίας <br>[feature] Προσθήκη ενός κουμπιού για κλείσιμο μόνο των παραθύρων Αποθεμάτων"},{"version":"20.0","notes":"[bugfix] Ουπς! Διόρθωση κώδικα έκδοσης"},{"version":"19.0","notes":"[bugfix] Διόρθωση συνδέσμου νέας έκδοσης"},{"version":"18.0","notes":"[bugfix] Διόρθωση έκδοσης σε κάποια σημεία, ας ελπίσουμε!"},{"version":"17.1","notes":"[bugfix] Διόρθωση έκδοσης σε κάποια σημεία"},{"version":"17.0","notes":"[main] Αφαίρεση revision"},{"version":"16.0","notes":"[bugfix] Αλλαγή συνδέσμου νέας έκδοσης χαρακτηριστικών"},{"version":"15.0","notes":"[bugfix] Διόρθωση καταργημένου κώδικα που χρησιμοποιούσε το UserScript"},{"version":"14.0","notes":"[main] Αφαίρεση περιττού κώδικα <br>[main] Αλλαγή λεπτομερειών στο παράθυρο Στρατολόγησης"},{"version":"13.0","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"12.0","notes":"[bugfix] Διόρθωση λανθασμένης version"},{"version":"11.0","notes":"[main] Αφαίρεση περιττού κώδικα στο παράθυρο Στρατολόγησης <br>[main] Αλλαγή Updater"},{"version":"10.0","notes":"[bugfix] Διόρθωση της πινέζας αντικειμένων για σωστή εμφάνιση στο vanilla και TWIR παράθυρο Αποθεμάτων <br>[bugfix] Διόρθωση ορθογραφικών λαθών της λέξης bugfix στα Χαρακτηριστικά Έκδοσης"},{"version":"9.0","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"8.0","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"7.0","notes":"[bugfix] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"6.0","notes":"[bugfix] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"5.0","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"4.0","notes":"[bugfix] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"3.0","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"2.0","notes":"[bugfix] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"1.0","notes":"** Δημιουργία UserScript από το clothcalc_sk **<br><br>"}]'
         );
       } catch (e) { }
       TheWestApi.version = Game.version = parseInt(Game.version, 10)
@@ -131,6 +131,8 @@
           "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAZCAIAAAD8NuoTAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpFRkU1NkIxNzg1N0VFMjExQTJEQUMwQTIxNTUxREQyOSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpBNEZCQUJBMDg5QkUxMUUyODZDMkNGRjA0OThCNDIwNiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpBNEZCQUI5Rjg5QkUxMUUyODZDMkNGRjA0OThCNDIwNiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjBGMDUxMUFGQkQ4OUUyMTE5MTMyRjkyRDBERDlFNjRDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkVGRTU2QjE3ODU3RUUyMTFBMkRBQzBBMjE1NTFERDI5Ii8+IDwvcmRmOkRlc2NyaXB0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",
         iconAlarm:
           "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo5Q0JGRTU5MDhBOEFFMjExQkM0RkRGRTM4QUMzODJBMCIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpDMjVGQjlCMDhBOEExMUUyODFBMTg4RUE2RTEwNTY4QiIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpDMjVGQjlBRjhBOEExMUUyODFBMTg4RUE2RTEwNTY4QiIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjlEQkZFNTkwOEE4QUUyMTFCQzRGREZFMzhBQzM4MkEwIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjlDQkZFNTkwOEE4QUUyMTFCQzRGREZFMzhBQzM4MkEwIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+bLqFjQAAA3tJREFUeNqsVVlIm0EQ3kRr1UgVTY23tR5oQKFFBKGKBwoKSl+qb0JREEQJ0vqgqFh8yYOFgDRajQ+tF6KgjXhGqxRCFashFCvxQoxgDPFITRRzTWd/+H+iEfriwPLvZme+neObCQ8AyEMKnzyweN/9YWhoqGJpaSk7KirKWF5e/iU5OVnnfq9Wq1+OjIxU2Gw2QWlp6WRxcbHyFgANmV39/f3SlJQUiIuLg/DwcOjs7FSwd5eXl8RkMpH29vYfERERkJCQAOnp6TA7O1vnjsFjc7i1tfW8trZ2b39/n+Tk5OgrKyvfnZ6eRi0sLBQg0AtUcQqFwl9FRUVKLy8vS1dXl3x1dTUkKyvLOjAwIPLx8bHe8hANX8XGxgICaYxGo7ijo0MRFhYGYrEYJBKJq6amxpWUlASYCujp6fmAD+cVFBQYMjIy4Pr6OoTF4QBdLpdfU1PT8tra2puGhobFgIAAmJ6ehpubG1hfXwetVgsWiwW6u7sBvQGFQvENPZQ0Nzer0J7nAcguzNsEhgQajQZYqa+vh8bGRu48NTUFAoEAlErlR2pjNpvJvYB2u12YmpoKUqmUMRweHobx8XEOyGAwwMXFBbPPz8+HkpISx8nJCf/8/NwTcHd3lwwODlZFR0fDwcEBIC0AQwJ61ul0cHV1xVSfeudwOGBsbAwSExNhY2Mj290pjtiYWIJVfRoaGkrQgFaaiEQisrOzQ5BvJD4+nszNzZGYmBhSVlZGsDjE29ubhht8dnbmSWyqEBkZacKwCJ/PJzMzM8TX15dgAcj8/DxNBwNKv729vZTgjB6uc+rMvcRGujyj1Ghra4P/CfIRCgsLAdnxxB3DnTbMt6+v709gYCCsrKxwxq2trdDS0sKdVSoV+Pv7w/Ly8ve7LOE2TqeT3T9G4ytqMDo6yvBwcXGRAaGFwQdZHpqprrszt1qPFazwI71e/xYHhEwul/vRIiBFmKLRXFKKYANYc3Nz32NP9wUHB9vvHQ57e3uMMoanplQ5PDx8jUuB57/Yjq7q6mqXTCa7QJ1Pm5ubdTQt+OBXaosU43C4KqMxsVqtBDtAhfyKRgL/RpJPYGWrsI+ZiiMQCQoKItvb23lpaWl6nEw/maHK53vSho4nmkfs4UkEwkdt+uPjY4YmOGUItiPjydHREfVEm5mZ+RnTsURt6R0rvIf+C/gnwABBPec5UzOlgQAAAABJRU5ErkJggg==",
+        buttonMarket:
+          "data:image/png;base64,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",
         buttonChurch:
           "data:image/webp;base64,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",
         buttonBurning:
@@ -429,7 +431,7 @@
               "TW-DB.info - Cloth Calc - BB",
               "2.04",
               String(Script.game_version),
-              "scoobydoo, Dun, Petee, Bluep, Tom Robert, xShteff [tw-db.info] - BB",
+              "[tw-db.info] Team - BB",
               "https://tw-db.info"
             );
             var n =
@@ -1025,6 +1027,8 @@
               [0, "market_map", "Προσθήκη παραθύρου Χάρτη Αγοράς", false],
               [0, "market_reminder", "Προσθήκη μιας υπενθύμισης για τις δημοπρασίες της Αγοράς", false],
               [0, "market_sell_dialog", "Βελτίωση του παραθύρου πωλήσεων στην Αγορά", false],
+              [0, "market_report", "Βελτίωση του εικονιδίου Αναφοράς πώλησης στην Αγορά", false],
+              [0, "improved_market", "Βελτίωση του παραθύρου αγορών στην Αγορά", false],
               [9, "", "Δουλειές", false],
               [0, "job_show_lp", "Προσθήκη των Πόντων εργασίας στα παράθυρα δουλειών", false],
               [9, "", "Λίστα εργασιών", false],
@@ -1042,6 +1046,7 @@
               [0, "button_church", "Προσθήκη ενός κουμπιού για ευκολότερο άνοιγμα του παραθύρου χτισίματος εκκλησίας", false],
               [0, "profile_duel_exp", "Εμφάνιση της εμπειρία μονομαχίας στα προφίλ παικτών", false],
               [0, "regen_timers", "Προσθήκη χρόνων αναγέννησης στο πορτρέτο του παίκτη", false],
+              [0, "button_market", "Προσθήκη ενός κουμπιού για ευκολότερο άνοιγμα του παραθύρου της Αγοράς", false],
               [9, "", "Μικρός χάρτης", false],
               [0, "show_bonus_jobs", "Προσθήκη επιλογής εμφάνισης δουλειών με μπόνους", false],
               [0, "show_coordinates", "Προσθήκη επιλογής για μετακίνηση σε καθορισμένες συντεταγμένες", false],
@@ -1061,6 +1066,7 @@
               [0, "enhanced_rankings", "Βελτίωση των καρτελών Κατάταξης και προσθήκη διαφοράς παικτών", false],
               [0, "select_forum_text", "Μαρκάρισμα κειμένου στο Φόρουμ Πόλης", false],
               [0, "pin_important_el", "Κρατήστε τη γραμμή Μενού, Εμπειρίας και script πάντα στην κορυφή", false],
+              [0, "night_mode", "Λειτουργία Σκούρου Θέματος για τον χάρτη του The-West", false],
               [9, "", "Premium ρυθμίσεις", false],
               [0, "no_work_queue_pa", "Απενεργοποίηση ειδοποιήσεων για την αγορά Premium Αυτοματισμού", false],
               [0, "no_fetch_all_pa", "Απενεργοποίηση Premium προτροπής όταν λαμβάνεις αντικείμενα από την αγορά", false],
@@ -2134,7 +2140,7 @@
               };
               l.rows.sort(r);
               for (var i = 0; i < l.rows.length; i++) {
-                l.bodyscroll.appendContent(l.rows[i]);
+                l.body_scroll.appendContent(l.rows[i]);
               }
             } catch (s) {
               Error.report(s, "Analyser sort");
@@ -2226,7 +2232,7 @@
               "</span>" +
               "</div>" +
               '<div class="cell_8 view-rewards" style="width:50px; text-align:center;">' +
-              '<span title="Λιποθύμισες">' +
+              '<span title="Λιποθύμησες">' +
               '<img src="' +
               Images.iconKilled +
               '" />' +
@@ -2554,9 +2560,9 @@
               });
               n++;
             }
-            l.bodyscroll = new west.gui.Scrollpane();
-            e(l.bodyscroll.getMainDiv()).css("height", "300px");
-            t.find(".tbody").append(l.bodyscroll.getMainDiv());
+            l.body_scroll = new west.gui.Scrollpane();
+            e(l.body_scroll.getMainDiv()).css("height", "300px");
+            t.find(".tbody").append(l.body_scroll.getMainDiv());
             l.footer = t.find(".row_foot");
             var m = e(
               '<div class="cell_0" style="width:71px; text-align:center;" ></div>'
@@ -4309,6 +4315,9 @@
             if (Settings.get("button_church", true)) {
               GameInject.MenuButton(TWDB.images.buttonChurch, 'Χτίσιμο Εκκλησίας', addConstructionButton);
             }
+            if (Settings.get("button_market", false)) {
+              GameInject.MenuButton(TWDB.images.buttonMarket, 'Άνοιγμα Αγοράς', addMarketButton);
+            }
             if (Settings.get("close_all_wear", true)) {
               addCloseAllWearButton();
             }
@@ -4353,7 +4362,7 @@
               GameInject.injectTelegramWindowAppendTelegramDisplaySource();
             }
             if (Settings.get("no_shop_sale", false)) {
-              supressOnGoingEntries();
+              suppressOnGoingEntries();
             }
             if (Settings.get("exp_bar", true)) {
               expBarValues();
@@ -4369,7 +4378,7 @@
               removeForumBlink();
             }
             if (Settings.get("enhanced_rankings", true)) {
-              addEnchancedRankings();
+              addEnhancedRankings();
             }
             if (Settings.get("profile_duel_exp", false)) {
               addDuelXpInProfiles();
@@ -4382,6 +4391,18 @@
             }
             if (Settings.get("pin_important_el", true)) {
               TWDB.Util.addCss(`#ui_bottombar, #ui_menubar, #ui_experience_bar {z-index: 20!important;}`);
+            }
+            if (Settings.get("night_mode", false)) {
+              addNightMode();
+            }
+            if (Settings.get("market_report", true)) {
+              TWDB.Util.addCss(`
+                .mpb_pickup, .wih_pickup {padding-left: 0!important; width: 65px!important; margin-left: -10px!important;}
+              `);
+              reworkMarketReport();
+            }
+            if (Settings.get("improved_market", false)) {
+              improvedMarket();
             }
             var e = new ServerDate().date;
             loader.ready = true;
@@ -4442,6 +4463,31 @@
                 }
               }, 50);
           };
+          var addMarketButton = function() {
+            if (Character.homeTown.town_id) {
+              Ajax.remoteCallMode(
+                "town",
+                "get_town",
+                {
+                  x: Character.homeTown.x,
+                  y: Character.homeTown.y,
+                },
+                function (json) {
+                  if (json.error) return new UserMessage(json.msg).show();
+                  MarketWindow.open(
+                    Character.homeTown.town_id,
+                    json.allBuildings.market.stage
+                  );
+                }
+              );
+            } else {
+              MarketWindow.open();
+              new UserMessage(
+                "Δεν είσαι μέλος μιας πόλης!",
+                UserMessage.TYPE_ERROR
+              ).show();
+            }
+          };
           var repositionEventCounters = function () {
             TWDB.Util.addCss("@media (min-width: 1320px) { .custom_unit_counter {top: -1px!important; margin-left: 310px!important;} #hiro_friends_container {top: -1px!important; margin-right: 304px!important;} }");
           };
@@ -4500,12 +4546,12 @@
               this.table.clearBody();
               for (var i = 0; i < data.length; i++) {
                 var r = data[i];
-                var buildtext;
+                var build_text;
                 if (!this.main.ownTown) {
                   this.table.appendRow();
-                  buildtext = r.name;
+                  build_text = r.name;
                   this.table
-                    .appendToCell(-1, "building_foreign", buildtext)
+                    .appendToCell(-1, "building_foreign", build_text)
                     .appendToCell(-1, "stage", r.stage + " / " + (
                       r.infinite
                         ? "<img src='https://westgr.innogamescdn.com/images/xp_inf_000.png' style='padding-bottom: 4px;'/>"
@@ -4513,7 +4559,7 @@
                 } else if (r.stage == r.maxStage && !r.infinite) {
                 } else {
                   this.table.appendRow();
-                  buildtext =
+                  build_text =
                     '<a href="#" onClick="javascript:void(BuildWindow.open(' +
                     Character.homeTown.town_id +
                     ", " +
@@ -4526,7 +4572,7 @@
                     r.name +
                     "</a></span>";
                   this.table
-                    .appendToCell(-1, "building", buildtext)
+                    .appendToCell(-1, "building", build_text)
                     .appendToCell(-1, "stage", r.stage + " / " + (
                       r.infinite
                         ? "<img src='https://westgr.innogamescdn.com/images/xp_inf_000.png' style='padding-bottom: 4px;'/>"
@@ -4674,7 +4720,7 @@
             EventHandler.listen("character_tracking_achievement_changed", t);
             t();
           };
-          var supressOnGoingEntries = function () {
+          var suppressOnGoingEntries = function () {
             var e = ["shop_sale"];
             var t = function (e) {
               if ($.isArray(e)) {
@@ -5206,7 +5252,7 @@
                 $("#TWM_bottombar div.city > div.Stadt").removeClass("TWM_highlight");
               }, 1000);
           };
-          var addEnchancedRankings = function () {
+          var addEnhancedRankings = function () {
             var playerChars = JSON.parse(localStorage.getItem(rankPlayerCache) || '{}');
             var rankPlayerCache = 'twdb_' + Character.playerId + '_playercategory';
             var charClass = [null, 'greenhorn', 'duelist', 'adventurer', 'worker', 'soldier'];
@@ -5482,6 +5528,90 @@
                 observer.observe(document.body, { childList: true, subtree: true });
                 makeForumSelectable();
             } catch (e) {console.error("Error enabling selectable text:", e);}
+          };
+          var addNightMode = function () {
+            try {
+              $("#map").css({ "filter": "brightness(55%)", "-webkit-filter": "brightness(55%)" });
+            } catch (e) {console.error("Error enabling Night Mode:", e);}
+          };
+          var reworkMarketReport = function () {
+            if (document.getElementsByClassName("marketplace").length > 0) {
+              document.querySelectorAll('[id^="mpb_marketOfferReport"]').forEach(img => {
+                var row = img.parentNode.parentNode;
+                var offerMsgImg = row.querySelector(".cell_8").querySelector("img");
+                if (offerMsgImg !== null) {
+                  img.src = "https://westgr.innogamescdn.com/images/icons/warn_circle.png";
+                  img.height = 16;
+                  offerMsgImg.parentNode.insertBefore(img, offerMsgImg);
+                }
+                else { img.remove(); }
+              }
+              );
+            }
+            if (Settings.get("improved_market", true)) {
+              return;
+            }
+            else {
+              MarketWindow.Buy.updateTable_backup = MarketWindow.Buy.updateTable_backup || MarketWindow.Buy.updateTable;
+              MarketWindow.Buy.updateTable = function () {
+                MarketWindow.Buy.updateTable_backup.apply(this, arguments);
+                if (Character.homeTown.town_id) {
+                  reworkMarketReport();
+                }
+              };
+            }
+          };
+          var improvedMarket = function () {
+            try {
+              MarketWindow.sellRights = [
+                    { i: 'town_new', t: 'Πόλη' },
+                    { i: 'friends', t: 'Συμμαχία' },
+                    { i: 'welt', t: 'Οποιοσδήποτε' }
+                  ];
+                  var getRights = function (page) {
+                    Ajax.remoteCall('building_market', 'search', {
+                      page: page,
+                      sort: 'distance',
+                      visibility: 0
+                    }, function (json) {
+                      var results = json.msg.search_result;
+                      for (var i = 0; i < results.length; i++) {
+                        var jsr = results[i];
+                        if (jsr.seller_name === Character.name) {
+                          $('.marketSellsData_' + jsr.market_offer_id + ' .mps_pickup')
+                            .prepend('<img src="images/icons/' +
+                              MarketWindow.sellRights[jsr.sell_rights].i +
+                              '.png" title="' +
+                              MarketWindow.sellRights[jsr.sell_rights].t + '">');
+                        }
+                      }
+                      if (page === 1 && json.msg.next) getRights(2);
+                    });
+                  };
+                  MarketWindow.Sell.updateTable_backup = MarketWindow.Sell.updateTable_backup || MarketWindow.Sell.updateTable;
+                  MarketWindow.Sell.updateTable = function () {
+                    MarketWindow.Sell.updateTable_backup.apply(this, arguments);
+                    if (Character.homeTown.town_id) {
+                      getRights(1);
+                    }
+                  };
+                  MarketWindow.Buy.updateTable_backup = MarketWindow.Buy.updateTable;
+                  MarketWindow.Buy.updateTable = function (data) {
+                    MarketWindow.Buy.updateTable_backup.call(this, data);
+                    if (Character.homeTown.town_id) {
+                      for (var i = 0; i < data.length; i++) {
+                        $('#mpb_vendor_' + data[i].market_offer_id)
+                          .before('<img src="images/icons/' +
+                            MarketWindow.sellRights[data[i].sell_rights].i +
+                            '.png" title="' +
+                            MarketWindow.sellRights[data[i].sell_rights].t + '">');
+                      }
+                      reworkMarketReport();
+                    }
+                  };
+            } catch (e) {
+              Error.report(e, "improvedMarket");
+            }
           };
           return _self;
         })($);
@@ -6365,23 +6495,22 @@
             }
           };
           _self.MenuButton = function (image, title, onclick) {
-            var that = this;
-            this.onClick = onclick;
-            var clicked = function (e) {
-              if (that.onClick) {
-                that.onClick(that, e);
-              }
-            },
-            mouseIn = function () {
-              that.obj.css('background-position', '-25px 0px');
-            },
-            mouseOut = function () {
-              that.obj.css('background-position', '0px 0px');
-            };
-            this.obj = $('<div class="menulink" title="' + title + '">').css('background-image', 'url(' + image + ')');
-            this.obj.on('mouseenter', mouseIn).on('mouseleave', mouseOut);
-            this.obj.click(clicked);
-            $('#TWDB_ClothCalc_menubuttons').append(this.obj);
+            var onClick = onclick || function(){};
+            var $obj = $('<div class="menulink" title="' + title + '">')
+              .css({
+                'background-image': 'url(' + image + ')',
+                'background-repeat': 'no-repeat',
+                'background-position': '0px 0px',
+              });
+            var button = { obj: $obj, setOnClick: function(cb){ onClick = cb; } };
+            function clicked(e) { if (onClick) onClick(button, e); }
+            function mouseIn() { $obj.css('background-position', '-25px 0px'); }
+            function mouseOut() { $obj.css('background-position', '0px 0px'); }
+            $obj.on('mouseenter', mouseIn)
+                .on('mouseleave', mouseOut)
+                .on('click', clicked);
+            $('#TWDB_ClothCalc_menubuttons').append($obj);
+            return button;
           };
           return _self;
         })($);
