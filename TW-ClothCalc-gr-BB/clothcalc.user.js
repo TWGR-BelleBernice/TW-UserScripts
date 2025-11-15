@@ -1,7 +1,7 @@
   // ==UserScript==
   // @name The West - TW-DB.info Cloth Calc [gr] - BB
   // @namespace    https://github.com/TWGR-BelleBernice/TW-UserScripts
-  // @version 0.25.0
+  // @version 0.26.0
   // @description The West Script: Cloth Calculation for game version 1.34 or higher
   // @author [tw-db.info] Team, Belle Bernice
   // @homepageURL  https://TWGR-BelleBernice.github.io/TW-UserScripts
@@ -36,7 +36,7 @@
     } else {
       TWDB = {};
       TWDB.script = new Object({
-        version: "25.0",
+        version: "26.0",
         name: "The West - TW-DB.info Cloth Calc [gr] - BB",
         name_max: "The%20West%20-%20TW-DBinfo%20Cloth%20Calc%20%5Bgr%5D%20-%20BB",
         name_min: "clothcalc",
