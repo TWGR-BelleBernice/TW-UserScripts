@@ -1,1 +1,1 @@
-try{TWDB.Updater.check('25.0','clothcalc');}catch(e){};
+try{TWDB.Updater.check('26.0','clothcalc');}catch(e){};

@@ -46,12 +46,12 @@
         check: "version.js",
         url: "tw-db.info",
         protocol: location.protocol.match(/^(.+):$/)[1],
-        game_version: 2.254,
+        game_version: 2.255,
         lang: "gr",
       });
       try {
         TWDB.script.notes = JSON.parse(
-          '[{"version":"25.0","notes":"[feature] Προσθήκη επιλογής Σκούρου θέματος για τον Χάρτη του The-West<br>[feature] Βελτίωση του εικονιδίου αναφοράς πώλησης στο παράθυρο αγορών του κτηρίου Αγοράς<br>[feature] Προσθήκη εικονιδίου για το εάν οι προσφορές της αγοράς είναι δημόσιες, μόνο για μέλη της συμμαχίας ή πόλης<br>[feature] Προσθήκη ενός νέου κουμπιού για εύκολο άνοιγμα του παραθύρου της Αγοράς"},{"version":"24.0","notes":"[feature] Προσθήκη Χρόνων Αναγέννησης στο πορτρέτο του παίκτη<br>[feature] Προσθήκη μαρκαρίσματος κειμένου στα Φόρουμ Πόλεων<br>[feature] Προσθήκη επιλογής καρφιτσώματος της γραμμής Μενού, Εμπειρίας και UserScript στην οθόνη<br>[feature] Προσθήκη εμπειρίας μονομαχίας στο προφίλ του παίκτη<br>[bugfix] Διόρθωση καρτέλας Στρατολόγησης<br>[bugfix] Απενεργοποίηση της αυτόματης ενεργοποίησης κάποιων λειτουργιών"},{"version":"23.0","notes":"[bugfix] Διόρθωση κάποιων μηνυμάτων ρυθμίσεων<br>[bugfix] Διόρθωση καρτέλας Στρατολόγησης"},{"version":"22.0","notes":"[feature] Προσθήκη κρίσιμων χτυπημάτων και γύρων με φάντασμα στο νεκροταφείο οχυρού <br>[feature] Προσθήκη παραθύρου για ιδιόκτητα και συμμαχικά οχυρά στο παράθυρο πόλεων <br>[feature] Προσθήκη αυτόματου ανοίγματος οχυρού ξεθαψίματος τσεκουριού από την αναφορά του <br>[feature] Βελτίωση όλων των πινάκων Κατάταξης <br>[feature] Βελτίωση του παραθύρου Στρατολόγησης πριν την μάχη οχυρού <br>[feature] Αφαίρεση του αναβοσβήματος του κουμπιού Πόλης εάν υπάρχει νέο μήνυμα στο Φόρουμ Πόλης"},{"version":"21.0","notes":"[feature] Προσθήκη προόδου κτιρίου στην καρτέλα χτισίματος <br>[feature] Προσθήκη επιπλέον επιπέδων εκκλησίας <br>[feature] Προσθήκη λειτουργίας εμφάνισης μόνο κτιρίων που δεν έχουν κατασκευαστεί πλήρως στο Δημαρχείο <br>[feature] Προσθήκη ενός νέου κουμπιού για εύκολο άνοιγμα της καρτέλας χτισίματος Εκκλησίας <br>[feature] Προσθήκη ενός κουμπιού για κλείσιμο μόνο των παραθύρων Αποθεμάτων"},{"version":"20.0","notes":"[bugfix] Ουπς! Διόρθωση κώδικα έκδοσης"},{"version":"19.0","notes":"[bugfix] Διόρθωση συνδέσμου νέας έκδοσης"},{"version":"18.0","notes":"[bugfix] Διόρθωση έκδοσης σε κάποια σημεία, ας ελπίσουμε!"},{"version":"17.1","notes":"[bugfix] Διόρθωση έκδοσης σε κάποια σημεία"},{"version":"17.0","notes":"[main] Αφαίρεση revision"},{"version":"16.0","notes":"[bugfix] Αλλαγή συνδέσμου νέας έκδοσης χαρακτηριστικών"},{"version":"15.0","notes":"[bugfix] Διόρθωση καταργημένου κώδικα που χρησιμοποιούσε το UserScript"},{"version":"14.0","notes":"[main] Αφαίρεση περιττού κώδικα <br>[main] Αλλαγή λεπτομερειών στο παράθυρο Στρατολόγησης"},{"version":"13.0","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"12.0","notes":"[bugfix] Διόρθωση λανθασμένης version"},{"version":"11.0","notes":"[main] Αφαίρεση περιττού κώδικα στο παράθυρο Στρατολόγησης <br>[main] Αλλαγή Updater"},{"version":"10.0","notes":"[bugfix] Διόρθωση της πινέζας αντικειμένων για σωστή εμφάνιση στο vanilla και TWIR παράθυρο Αποθεμάτων <br>[bugfix] Διόρθωση ορθογραφικών λαθών της λέξης bugfix στα Χαρακτηριστικά Έκδοσης"},{"version":"9.0","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"8.0","notes":"[main] Καθαρισμός κώδικα - part 1"},{"version":"7.0","notes":"[bugfix] Ανανέωση συνδέσμων για αυτόματη ενημέρωση"},{"version":"6.0","notes":"[bugfix] Αλλαγή μερικών υπερ-συνδέσμων"},{"version":"5.0","notes":"[bugfix] Ουπς! Διόρθωση του UserScript"},{"version":"4.0","notes":"[bugfix] Διόρθωση για την αφαίρεση χαρακτηριστικών"},{"version":"3.0","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών"},{"version":"2.0","notes":"[bugfix] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br>"},{"version":"1.0","notes":"** Δημιουργία UserScript από το clothcalc_sk **<br><br>"}]'
+          '[{"version":"26.0","notes":"[feature] Προσθήκη της εισαγωγής μαχών οχυρού στην βάση δεδομένων της ιστοσελίδας (westforts.com)<br>[feature] Προσθήκη λειτουργίας αλλαγής ήχου Ψιθύρου<br>[feature] Προσθήκη προκαλούμενης ζημιάς σε κάθε παίκτη κατά τη διάρκεια μιας μάχης οχυρού<br>[feature] Προσθήκη βολών κάθε γύρας κατά τη διάρκεια μιας μάχης οχυρού<br>[feature] Προσθήκη χρώματος στις αποστολές που μπορούν να ολοκληρωθούν<br>[feature] Προσθήκη κουμπιού για αυτόματη αποδοχή και ολοκλήρωση αποστολών που μπορούν να ολοκληρωθούν<br>[bugfix] Επαναφορά κώδικα για την πώληση όλων εκτός από ένα επιλεγμένο αντικείμενο στον Έμπορο<br>[bugfix] Διόρθωση παλαιού κώδικα της επιλογής που εμφανίζει τους πόντους εργασίας στο παράθυρο δουλειών<br>[bugfix] Διόρθωση του κώδικα της επιλογής αυτόματου ανοίγματος της Αγοράς, ώστε το παράθυρο ρουχισμού να ελαχιστοποιείται<br>[bugfix] Διόρθωση κώδικα στην καρτέλα κατασκευής εάν το TWIR είναι παρόν<br>[main] Ανακατάταξη των κατηγοριών στην καρτέλα Ρυθμίσεων<br><br>"},{"version":"25.0","notes":"[feature] Προσθήκη επιλογής Σκούρου θέματος για τον Χάρτη του The-West<br>[feature] Βελτίωση του εικονιδίου αναφοράς πώλησης στο παράθυρο αγορών του κτηρίου Αγοράς<br>[feature] Προσθήκη εικονιδίου για το εάν οι προσφορές της αγοράς είναι δημόσιες, μόνο για μέλη της συμμαχίας ή πόλης<br>[feature] Προσθήκη ενός νέου κουμπιού για εύκολο άνοιγμα του παραθύρου της Αγοράς<br><br>"},{"version":"24.0","notes":"[feature] Προσθήκη Χρόνων Αναγέννησης στο πορτρέτο του παίκτη<br>[feature] Προσθήκη μαρκαρίσματος κειμένου στα Φόρουμ Πόλεων<br>[feature] Προσθήκη επιλογής καρφιτσώματος της γραμμής Μενού, Εμπειρίας και UserScript στην οθόνη<br>[feature] Προσθήκη εμπειρίας μονομαχίας στο προφίλ του παίκτη<br>[bugfix] Διόρθωση καρτέλας Στρατολόγησης<br>[bugfix] Απενεργοποίηση της αυτόματης ενεργοποίησης κάποιων λειτουργιών<br><br>"},{"version":"23.0","notes":"[bugfix] Διόρθωση κάποιων μηνυμάτων ρυθμίσεων<br>[bugfix] Διόρθωση καρτέλας Στρατολόγησης<br><br>"},{"version":"22.0","notes":"[feature] Προσθήκη κρίσιμων χτυπημάτων και γύρων με φάντασμα στο νεκροταφείο οχυρού <br>[feature] Προσθήκη παραθύρου για ιδιόκτητα και συμμαχικά οχυρά στο παράθυρο πόλεων <br>[feature] Προσθήκη αυτόματου ανοίγματος οχυρού ξεθαψίματος τσεκουριού από την αναφορά του <br>[feature] Βελτίωση όλων των πινάκων Κατάταξης <br>[feature] Βελτίωση του παραθύρου Στρατολόγησης πριν την μάχη οχυρού <br>[feature] Αφαίρεση του αναβοσβήματος του κουμπιού Πόλης εάν υπάρχει νέο μήνυμα στο Φόρουμ Πόλης<br><br>"},{"version":"21.0","notes":"[feature] Προσθήκη προόδου κτιρίου στην καρτέλα χτισίματος <br>[feature] Προσθήκη επιπλέον επιπέδων εκκλησίας <br>[feature] Προσθήκη λειτουργίας εμφάνισης μόνο κτιρίων που δεν έχουν κατασκευαστεί πλήρως στο Δημαρχείο <br>[feature] Προσθήκη ενός νέου κουμπιού για εύκολο άνοιγμα της καρτέλας χτισίματος Εκκλησίας <br>[feature] Προσθήκη ενός κουμπιού για κλείσιμο μόνο των παραθύρων Αποθεμάτων<br><br>"},{"version":"20.0","notes":"[bugfix] Ουπς! Διόρθωση κώδικα έκδοσης<br><br>"},{"version":"19.0","notes":"[bugfix] Διόρθωση συνδέσμου νέας έκδοσης<br><br>"},{"version":"18.0","notes":"[bugfix] Διόρθωση έκδοσης σε κάποια σημεία, ας ελπίσουμε!<br><br>"},{"version":"17.1","notes":"[bugfix] Διόρθωση έκδοσης σε κάποια σημεία<br><br>"},{"version":"17.0","notes":"[main] Αφαίρεση revision<br><br>"},{"version":"16.0","notes":"[bugfix] Αλλαγή συνδέσμου νέας έκδοσης χαρακτηριστικών<br><br>"},{"version":"15.0","notes":"[bugfix] Διόρθωση καταργημένου κώδικα που χρησιμοποιούσε το UserScript<br><br>"},{"version":"14.0","notes":"[main] Αφαίρεση περιττού κώδικα <br>[main] Αλλαγή λεπτομερειών στο παράθυρο Στρατολόγησης<br><br>"},{"version":"13.0","notes":"[bugfix] Ουπς! Διόρθωση του UserScript<br><br>"},{"version":"12.0","notes":"[bugfix] Διόρθωση λανθασμένης version<br><br>"},{"version":"11.0","notes":"[main] Αφαίρεση περιττού κώδικα στο παράθυρο Στρατολόγησης <br>[main] Αλλαγή Updater<br><br>"},{"version":"10.0","notes":"[bugfix] Διόρθωση της πινέζας αντικειμένων για σωστή εμφάνιση στο vanilla και TWIR παράθυρο Αποθεμάτων <br>[bugfix] Διόρθωση ορθογραφικών λαθών της λέξης bugfix στα Χαρακτηριστικά Έκδοσης<br><br>"},{"version":"9.0","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερ-συνδέσμων<br><br>"},{"version":"8.0","notes":"[main] Καθαρισμός κώδικα - part 1<br><br>"},{"version":"7.0","notes":"[bugfix] Ανανέωση συνδέσμων για αυτόματη ενημέρωση<br><br>"},{"version":"6.0","notes":"[bugfix] Αλλαγή μερικών υπερ-συνδέσμων<br><br>"},{"version":"5.0","notes":"[bugfix] Ουπς! Διόρθωση του UserScript<br><br>"},{"version":"4.0","notes":"[bugfix] Διόρθωση για την αφαίρεση χαρακτηριστικών<br><br>"},{"version":"3.0","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών<br><br>"},{"version":"2.0","notes":"[bugfix] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br><br>"},{"version":"1.0","notes":"** Δημιουργία UserScript από το clothcalc_sk **<br><br>"}]'
         );
       } catch (e) { }
       TheWestApi.version = Game.version = parseInt(Game.version, 10)
@@ -111,6 +111,8 @@
           "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAIAAAC0D9CtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsIAAA7CARUoSoAAAAKNSURBVDhPfZPNTxNBFMBn9rvbL9bSsnAglGLwA2OCUj8IJl49GA56II2pB0PSi4RE5aAJ3DASrwT9B0jUBEMMJEjCSYlGEkPlwoHSokCBAm13W7bbdnzT6UEP+svOm/cxb/J25g1+GhtACCUNIZfPO2RJlGQwAbtkVSwTFF52gtS8De7qkSQKoNMR3ylKyL58utlGqmnmwVMuHtGIKoLOFbZBfl1NguztaoU0fLu/v6NFezh4r2oXCvt7vvdz3sVlObULK0y9Id3Xlepuror8bqb49lvesKrXOgNcpVwOhs5CAt7cCMWe6a/fOTZ+ceUKfK7gudDKTvjlvHJoOlXRp3lOCkbJLnO8IBhGtpo90B89V5K0DAYZGEA3+vD6ums3e/HVkmWWbF5lIQ6GbaSdbz78lTAygoaH8YsJZrrT2fYvCbFSYCYHfw+TZ+EzsxHPk8lJPDaG7keRTUOMUJyeAYMrWSWYlJ9pajmdZGYGx2JIEPDHRbS2hmZnUVMTRLT9LF1Qg9ZGIYRKrxdPTaFolORzqKWF2DYZGkLp2nZ/UM8xdI1O29tobo5IEtZOkelp3NuLE4laHB01epgCcBVexrnNvXAHs4muo/FxMvIERyLIpH3AWD/fVtcgxyGQzPFJ6nrQ0L3UMTqKIhF6YqzaGsd+T/xSfVOgXhvc9PfBm/nwBTQxgRcWmJMBCfN3wkjm6zYcbXfP1czOViDgsxzqZrv7xDQU05KKJcLhTKBh9cqZpVs9OdV9XBSX4wmt0e93ifjxg7uffqQU1eX3+2AP6GvoaEHmylYV+hpuQpIlaO2tZBLWdDYpLqdK3wK00MrG4f4e7ct/0doWbHUTURHdiqP+fgDIZMp/oO8Hod/QgQVXD60mfgAAAABJRU5ErkJggg==",
         iconPhantom:
           "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAARCAIAAAC0D9CtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAJySURBVDhPfZPPaxNBFMd3dmdmf5htGpvUtmlLLKnF0FNJC6L5A/RQiuBBsD0KXgQ9iKB4EC969aDoVT3o1V8gHiyKVYzQKiIp9GdMm6T5tclms7vZXd+wQYNQP+y8+c7Me2/fzs6gaxfOchy32cBavS6LlFARhoBtmY6pgxDEA2BDwV7VrVCCQbP2bcegnJ0cH7Q5RdfrMNM2KmxFIaD5Zg7s55VNsMcnRyEMzc7NxYdCF8/Pu3ZT16pqKHxwJCEH+8GjXtjYWn5TXF0CvVsynn2pN0z32ES/EI/Hp6eS4yO9TksLRY8MJVJU6eF5AR5J7Ts0PsPzuJL94SG0rZF8YS8aVnkB40ajBgFYDkbGpiDlP8SmZ3uGJ5uWYwuKP8NDsxt5s6WHohMIoVL2Z2F9xV/b2/peXF8GEZs6aTqYOE1/HsPXQ2eVy0rvQCWXWXx0Q6J45sx1KGDp6S0oMXn6KtTse/vwlmlB17JrWFSgdIkSDiGBiDymgiBwHMJUwkTyvX3YXgNGrQA2ODB2YuE2CDU8DDa1cMfzXDU8wjy6YN8DmLbrC/D2A4BAX/RPQNv1fAHwjiAibUMkneD9cDo5GbyMvVK15doGDPTKjueyRcvQzKYGwvM8rfSLOXbxN31+9dO7B5fTL+/p1cLik5uv7l+pl3JfXz98fvdSJv1W6KoDnZufN7Irp1JHAzJFrmG1Wd2aCTvG2R5PEHstiEYLv/iYCYUjiQEZD4qtD4b0+H0xEumDFIRKcKKxiNqm65ga/AkqUjja25trkhIYVVlGdhcsu51eKxcLuzDej9HYYQggElEluXN/AIj0xX9g94fjfgNTw/ZOJuuzRAAAAABJRU5ErkJggg==",
+        iconTotalDMG:
+          "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAG2UExURewbJOwbJewdJe0dJ+0dKO0eKO0cJOsaJfIeJv4kKfwRIP0KG+wcJPIeJP8lJPEcIO4YHu0bJe4bJP8lJfQbHu4cJO8aIesfKe0dJu4bI+0dJfMSGO4cI/8AAP0FCPwHCPkLDu0bIvAeJu0dI+0bI/AfJu0aI+wfJe8XIvAcJO4dJe8bI/IYIe4dJPAbIe4bIe8eJvAUHfEXHvAYJewcI+0aIuoVKuscI+scJPMZHPMZHvAXJO0dJe0cJPwLHe8aJewcJO4ZH+0cJO0bJe0bI+0cJe0cJO4cJOwcJOwbJewbJfEdI/IYHe8aIe0cJOwcJOweJuweJuwdJe0cJOwbJO0aIe0cJO0cJO0dJfMSGPEVHO0cJO0bI+0dJO0cJO4cJO4bI+0bJO8aIfwFBu0cJO0cJO0bI+4cJO8dJO4cJO4aIvAaIe8aIfAfJe0dJO4bIu8bIu8dJO0cJO0dJO0cJO0bI+4cJO0cJO0cJOwfJe4bI+4bIe8bIe4cIu0cJO4cIvAbIe0bIu0bI+0ZJO4cI+4bJfISIu8ZJe8eJO0aIuoVKu4eJu4YH+4bIvQZHe0cJe0cJP///9fC3GwAAACPdFJOUwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADEQDbUTePELD+3sDUhbHANuhugLFrH5wHlV+CQfA6T8ZZfOnW9DHgWE96lGBK7bSBUd9/5ldca3/YWwlgkBFEeSc/QUInFMA2jtEj4RAgF6bD4LuZgJtgAAAAFiS0dEkQ8NvpoAAAAJcEhZcwAACxMAAAsTAQCanBgAAAAHdElNRQffCh0QMyVkNoG+AAAA6UlEQVQY02NgYGRkZGJmYWW1sWUDAQagADsHJxe3nb0DiM8DFuDl4xdwdHIWBAIhiICwiIurm7uoqCibGIOHpxcjm7ePb7+fP5O4hKQYQ0BgUHBIaNiECW7hEeJSQAHpyKgJYBDtFiMjKSTGICsrFwsRmRAXn5CYBBRITgmDikxITUtnkJdXyMiEcLOycxRlGJSUlHLzIAL5BcoqMgyqqqqFRcVAbklpWWp5hRqDunpllUb1hJraunrNhsamZqCAupZ2S2ubTnuHrp5+ZxeDARCodvcYGhmbmOjpm5oxmAOBRW+fpZU1RAAAWP9FxOOwpA4AAAAASUVORK5CYII=",
         iconRegen:
           "data:image/webp;base64,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",
         button:
@@ -997,9 +999,28 @@
             } else {
               n = {};
             }
-            TWDB.Util.addCss(
-              "span.twdb_sett_capt { font-size: 115%; font-weight: bold; font-style: italic; display: inline-block; margin-top: 8px; text-shadow: 2px 1px 2px #643; }"
-            );
+            TWDB.Util.addCss(`
+              span.twdb_sett_capt { font-size: 115%; font-weight: bold; font-style: italic; display: inline-block; margin-top: 8px; text-shadow: 2px 1px 2px #643; }
+              .build_progress > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 264px; }
+              .rp_row_jobdata > .rp_jobdata_text > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 125px; }
+              #character-shadow > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 95px; }
+              #char_crafting_progress > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 144px; }
+              .dal_status > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 294px; }
+              .job_progress_jobstars > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 219px; }
+              .cell.cell_2.progress > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill, .saloon_duel_moti > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 194px; }
+              .flfi_progressbar > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 324px; }
+              .dl_motivation > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 330px; }
+              .duels-TWXDuelMap > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 766px; }
+              .sheriff-TWXSheriff > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 581px; }
+              .messages-analyser-job > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 692px; }
+              .achievement-categories-total > .entry > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 204px; }
+              .achievement-total-completed > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 623px; }
+              #achievement_progress > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 450px; }
+              .achievement-list > .achievement-list-scroll-wrapper > .tw2gui_scrollpane > .tw2gui_scrollpane_clipper > .tw2gui_scrollpane_clipper_contentpane > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 475px; }
+              [class^="TWFBT_"] > .tw2gui_window_content_pane > .tw2gui_scrollpane > .tw2gui_scrollpane_clipper > .tw2gui_scrollpane_clipper_contentpane > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 677px; }
+              .TWDS_fbs_basestats_content table thead tr {position: sticky; top: 0px; background: wheat;}
+              div.job_bestwearbutton {top: 5px !important;}
+            `);
             r = Window.addTab("settings", "Ρυθμίσεις", "Ρυθμίσεις", o);
             i.ready = true;
           };
@@ -1015,9 +1036,25 @@
             var s = [
               [9, "", "Αποθέματα", false],
               [0, "collector", "Σημείωση αντικειμένων στον Έμπορο και την Αγορά που δεν έχετε ακόμα στα αποθέματά σας", false],
+              [0, "collector_sell", "Προσθήκη ενός κουμπιού για την πώληση όλων εκτός από ένα επιλεγμένο αντικείμενο στον Έμπορα", false],
               [0, "pin_items", "Καρφίτσωμα αντικειμένων στο παράθυρο των Αποθεμάτων", false],
               [9, "", "Αποστολές", false],
               [0, "quest_cancel", "Επιβεβαίωση ακύρωσης αποστολής", false],
+              [0, "instant_quest", "Ολοκλήρωση μιας αποστολής απευθείας, εάν πληρούνται όλες οι απαιτήσεις", false],
+              [0, "colored_quest", "Αλλαγή του χρώματος των αποστολών που μπορούν να ολοκληρωθούν", false],
+              [9, "", "Δουλειές", false],
+              [0, "job_show_lp", "Προσθήκη των Πόντων εργασίας στα παράθυρα δουλειών", false],
+              [9, "", "Λίστα εργασιών", false],
+              [0, "task_list_points", "Προσθήκη ένδειξης Πόντων εργασίας και συμβουλές πόντων ζωής στην Λίστα εργασιών&nbsp;-&nbsp;[Κάτω δεξιά]", false],
+              [9, "", "Οχυρό", false],
+              [0, "import_westforts", "Προσθήκη του κουμπιού εισαγωγής μαχών οχυρού στο site (westforts)", false],
+              [0, "fort_recruitment", "Προσθήκη της επισκόπησης Στρατολόγησης οχυρού", false],
+              [0, "enhanced_fort_recruitment", "Βελτίωση της καρτέλας Στρατολόγησης πριν την μάχη οχυρού", false],
+              [0, "declare_report", "Σύνδεση της αναφοράς ξεθαψίματος τσεκουριού μάχης στο συγκεκριμένο οχυρό επίθεσης", false],
+              [0, "owned_forts_tab", "Ιδιοκτησία Οχυρών στο προφίλ των πόλεων", false],
+              [0, "cemetery_critical", "Κρίσιμα χτυπήματα και Γύρες με Φάντασμα στο νεκροταφείο οχυρού", false],
+              [0, "total_dmg_battle", "Συνολική προκαλούμενη ζημιά στην περιγραφή κάθε παίκτη κατά τη διάρκεια μάχης οχυρού", false],
+              [0, "battle_info_round", "Εύστοχα χτυπήματα, άστοχες βολές, λαμβανόμενα χτυπήματα και αποφυγές βολών σε κάθε γύρο", false],
               [9, "", "Πόλη", false],
               [0, "building_progress", "Εμφάνιση της προόδου κατασκευής σε ένα παράθυρο κτιρίου", false],
               [0, "church_levels", "Εμφάνιση επιπλέον επιπέδων εκκλησίας που μπορείτε να χτίσετε", false],
@@ -1029,10 +1066,6 @@
               [0, "market_sell_dialog", "Βελτίωση του παραθύρου πωλήσεων στην Αγορά", false],
               [0, "market_report", "Βελτίωση του εικονιδίου Αναφοράς πώλησης στην Αγορά", false],
               [0, "improved_market", "Βελτίωση του παραθύρου αγορών στην Αγορά", false],
-              [9, "", "Δουλειές", false],
-              [0, "job_show_lp", "Προσθήκη των Πόντων εργασίας στα παράθυρα δουλειών", false],
-              [9, "", "Λίστα εργασιών", false],
-              [0, "task_list_points", "Προσθήκη ένδειξης Πόντων εργασίας και συμβουλές πόντων ζωής στην Λίστα εργασιών&nbsp;-&nbsp;[Κάτω δεξιά]", false],
               [9, "", "Γραφικά", false],
               [0, "duel_motivation", "Προσθήκη ενός μόνιμου δείκτη για το Κίνητρο Μονομαχίας&nbsp;-&nbsp;[Κάτω από τον δείκτη Ενέργειας]", false],
               [0, "direct_sleep", "Προσθήκη ενός κουμπιού για την απευθείας μετάβαση στο Ξενοδοχείο ή στους Στρατώνες", false],
@@ -1043,19 +1076,17 @@
               [0, "custom_event_counter", "Μετακίνηση μετρητή εκδηλώσεων σε μεγάλες οθόνες (Νόμισμα Εκδήλωσης, Hiro&#38;#39;s script)", false],
               [0, "no_scrollbars", "Απενεργοποίηση των γραμμών κύλισης σε μικρές οθόνες ή όταν μετακινείτε τα παράθυρα πολύ μακριά", false],
               [0, "close_all_wear", "Προσθήκη ενός κουμπιού για το αυτόματο κλείσιμο μόνο των παραθύρων των Αποθεμάτων", false],
-              [0, "button_church", "Προσθήκη ενός κουμπιού για ευκολότερο άνοιγμα του παραθύρου χτισίματος εκκλησίας", false],
               [0, "profile_duel_exp", "Εμφάνιση της εμπειρία μονομαχίας στα προφίλ παικτών", false],
               [0, "regen_timers", "Προσθήκη χρόνων αναγέννησης στο πορτρέτο του παίκτη", false],
-              [0, "button_market", "Προσθήκη ενός κουμπιού για ευκολότερο άνοιγμα του παραθύρου της Αγοράς", false],
+              [0, "button_church", "Προσθήκη ενός κουμπιού για ευκολότερο άνοιγμα του παραθύρου χτισίματος Εκκλησίας", "Κουμπιά αυτοματοποίησης στα δεξιά"],
+              [0, "button_market", "Προσθήκη ενός κουμπιού για ευκολότερο άνοιγμα του παραθύρου της Αγοράς", "Κουμπιά αυτοματοποίησης στα δεξιά"],
               [9, "", "Μικρός χάρτης", false],
               [0, "show_bonus_jobs", "Προσθήκη επιλογής εμφάνισης δουλειών με μπόνους", false],
               [0, "show_coordinates", "Προσθήκη επιλογής για μετακίνηση σε καθορισμένες συντεταγμένες", false],
-              [9, "", "Οχυρό", false],
-              [0, "fort_recruitment", "Προσθήκη της επισκόπησης Στρατολόγησης οχυρού", false],
-              [0, "enhanced_fort_recruitment", "Βελτίωση της καρτέλας Στρατολόγησης πριν την μάχη οχυρού", false],
-              [0, "declare_report", "Σύνδεση της αναφοράς ξεθαψίματος τσεκουριού μάχης στο συγκεκριμένο οχυρό επίθεσης", false],
-              [0, "owned_forts_tab", "Ιδιοκτησία Οχυρών στο προφίλ των πόλεων", false],
-              [0, "cemetery_critical", "Κρίσιμα χτυπήματα και Γύρες με Φάντασμα στο νεκροταφείο οχυρού", false],
+              [9, "", "Premium ρυθμίσεις", false],
+              [0, "no_work_queue_pa", "Απενεργοποίηση ειδοποιήσεων για την αγορά Premium Αυτοματισμού", false],
+              [0, "no_fetch_all_pa", "Απενεργοποίηση Premium προτροπής όταν λαμβάνεις αντικείμενα από την αγορά", false],
+              [0, "no_wof_nuggets", "Απενεργοποίηση Σβόλων ως προεπιλεγμένο μέσο πληρωμών σε εκδηλώσεις (όταν είναι διαθέσιμο)", false],
               [9, "", "Διάφορα", false],
               [0, "chat", "Ενεργοποίηση της βελτίωσης συνομιλίας - [Χρώματα στο chat]", false],
               [0, "notes", "Προσθήκη των Σημειώσεων στο παράθυρο Τηλεγραφείου/Αναφορών", false],
@@ -1067,10 +1098,7 @@
               [0, "select_forum_text", "Μαρκάρισμα κειμένου στο Φόρουμ Πόλης", false],
               [0, "pin_important_el", "Κρατήστε τη γραμμή Μενού, Εμπειρίας και script πάντα στην κορυφή", false],
               [0, "night_mode", "Λειτουργία Σκούρου Θέματος για τον χάρτη του The-West", false],
-              [9, "", "Premium ρυθμίσεις", false],
-              [0, "no_work_queue_pa", "Απενεργοποίηση ειδοποιήσεων για την αγορά Premium Αυτοματισμού", false],
-              [0, "no_fetch_all_pa", "Απενεργοποίηση Premium προτροπής όταν λαμβάνεις αντικείμενα από την αγορά", false],
-              [0, "no_wof_nuggets", "Απενεργοποίηση Σβόλων ως προεπιλεγμένο μέσο πληρωμών σε εκδηλώσεις (όταν είναι διαθέσιμο)", false],
+              [0, "improved_whisper", "Βελτίωση του ήχου Ψιθύρου στα διάφορα chat Σαλούν (Όσο είναι ενεργοποιημένη η ρύθμιση, μπορείτε να ακούσετε και να αλλάξετε κατευθείαν τον ήχο από την παρακάτω λίστα)", false],
             ];
             var o = {};
             var a = e("<table />");
@@ -1144,7 +1172,51 @@
                 a.append(h);
               }
             }
-            var m = new west.gui.Combobox();
+            try {
+              var iwRow = e("<tr />");
+              var iwCell = e("<td />");
+              var currentSoundSetting = t.get("beeperSound", 9);
+              var combo = new west.gui.Combobox("beeper_change_sound_settings")
+                .addItem(0, "Προεπιλεγμένος ήχος")
+                .addItem(1, "Bum")
+                .addItem(2, "Chime")
+                .addItem(3, "Coin")
+                .addItem(4, "Coin 2")
+                .addItem(5, "ICQ")
+                .addItem(6, "QIP")
+                .addItem(7, "Tinkle")
+                .addItem(8, "Trumpet")
+                .addItem(9, "VK")
+                .addItem(10, "Επιλέξτε αρχείο...")
+                .select(typeof currentSoundSetting === "string" ? 10 : currentSoundSetting)
+                .addListener(function (v) {
+                  var stored = t.get("beeperSound", 9);
+                  var next = v;
+                  if (v === 10 || v === "10") {
+                    var example = "https://             .mp3";
+                    var input = prompt("Επιλέξτε αρχείο:", example);
+                    if (!input && input !== example) {
+                      combo.select(typeof stored === "string" ? 10 : stored);
+                      return;
+                    }
+                    next = input;
+                  } else if (typeof v === "string" && /^-?\\d+$/.test(v)) {
+                    next = parseInt(v, 10);
+                  }
+                  t.set("beeperSound", next);
+                  if (window.ChatBeeper && typeof window.ChatBeeper.updateSound === "function") {
+                    window.ChatBeeper.updateSound();
+                  }
+                });
+              var listenBtn = new west.gui.Button("Ακούστε", function () {
+                if (window.ChatBeeper && typeof window.ChatBeeper.play === "function") {
+                  window.ChatBeeper.play();
+                }
+              }).getMainDiv();
+              iwCell.append(combo.getMainDiv(), e(listenBtn));
+              iwRow.append(e('<td style="width:25px;" />'), iwCell);
+              a.append(iwRow);
+            } catch (ex) {}
             a.append(e("<tr><td>&nbsp;</td></tr>"));
             var g = new west.gui.Button("Αποθήκευση", function () {
               u(o);
@@ -1190,48 +1262,6 @@
         })($);
         _base.Settings = Settings;
         Debugger.Settings = Settings;
-        var JobWindowCC = (function (e) {
-          var t = {};
-          var n = {};
-          var r = function () {
-            if (n.ready) {
-              return;
-            }
-            if (Settings.get("job_show_lp", true)) {
-              s();
-            }
-            n.ready = true;
-          };
-          var s = function () {
-            try {
-              JobWindow.prototype.__twdb__initView =
-                JobWindow.prototype.__twdb__initView ||
-                JobWindow.prototype.initView;
-              JobWindow.prototype.initView = function () {
-                var t = JobWindow.prototype.__twdb__initView.apply(
-                  this,
-                  arguments
-                );
-                var n =
-                  "&nbsp;&nbsp;(" +
-                  (this.currSkillpoints - this.job.workpoints) +
-                  "&nbsp;Π.Ε.)";
-                e(
-                  "div.tw2gui_inner_window_title > .textart_title",
-                  this.window.divMain
-                ).append(n);
-                return t;
-              };
-            } catch (t) {
-              Error.report(t, "manipulate JobWindow.prototype.initView");
-            }
-          };
-          n = Loader.add("JobWindowCC", "tw-db Job window", r, {
-            Settings: true,
-            ClothCalc: true,
-          });
-          return t;
-        })($);
         var Updater = (function (e) {
           var t = {};
           var n = {};
@@ -4321,6 +4351,9 @@
             if (Settings.get("close_all_wear", true)) {
               addCloseAllWearButton();
             }
+            if (Settings.get("collector_sell", true)) {
+              GameInject.injectWanderingTraderSellDialog();
+            }
             if (Settings.get("custom_event_counter", true)) {
               repositionEventCounters();
             }
@@ -4404,6 +4437,21 @@
             if (Settings.get("improved_market", false)) {
               improvedMarket();
             }
+            if (Settings.get("job_show_lp", true)) {
+              jobWindowLP();
+            }
+            if (Settings.get("improved_whisper", true)) {
+              improvedWhisper();
+            }
+            if (Settings.get("instant_quest", false)) {
+              addInstantQuests();
+            }
+            if (Settings.get("colored_quest", false)) {
+              addColoredQuests();
+            }
+            if (Settings.get("import_westforts", true)) {
+              importWestForts();
+            }
             var e = new ServerDate().date;
             loader.ready = true;
           };
@@ -4478,6 +4526,7 @@
                     Character.homeTown.town_id,
                     json.allBuildings.market.stage
                   );
+                  if (Wear && Wear.window) { Wear.window.divMain.style.display = "none"; }
                 }
               );
             } else {
@@ -4511,7 +4560,7 @@
               var tmp = $(
                   '<div class="rp_row_jobdata row_build_' +
                     "hammer" +
-                    '" style="margin:-2px 0 -24px 0;" title="' +
+                    '" style="margin:-2px 0 ' + ($('.twir_bestwear').length ? '-24px' : '0') + ' 0;" title="' +
                     "Πρόοδος:&nbsp;Η πρόοδος δείχνει πόσο χτίσιμο χρειάζεται ακόμη το κτίριο για το επόμενο επίπεδο" +
                     '">' +
                     '<span class="rp_jobdata_label_icon"><img src="https://westgr.innogamescdn.com/images/icons/' +
@@ -4810,7 +4859,7 @@
           var activateFortRecruitment = function () {
             TWDB.Util.addCss(`
               .twir_fb_sector_map_btn {display: none;}
-              .TWDS_charinfocolor {margin-top: 35px;}
+              .TWDS_charinfocolor {margin-top: 20px;}
             `);
             try {
               FortBattleWindow.__twdb__getInfoArea = FortBattleWindow.__twdb__getInfoArea || FortBattleWindow.getInfoArea;
@@ -5408,7 +5457,7 @@
                 maxXp = dlvl == '450' ? '<b>∞</b>' : getXp(dlvl + 1 - clvl),
                 minLvl = getLvl(minXp, 0.9),
                 maxLvl = dlvl == '450' ? '450' : getLvl(maxXp, 0.9);
-                target.append(' <div class="tw2gui-iconset tw2gui-icon-question-priority-4" title="<span>Επίπεδα μονομαχίας που μπορείς να μονομαχίσεις: ' + range.min + ' - ' + range.max + '<br><br>Τρέχουσα εμπειρία μονομαχίας που θα κερδίσεις: ' + minXp + ' - ' + maxXp + '<br>Μυστηριώδες φίλτρο -10% ⇒ Επίπεδο Μονομαχίας ' + minLvl + (maxLvl > minLvl ? ' - ' + maxLvl : '') + '</span>" style="display:inline-block;vertical-align:top;cursor:pointer;"></div>');
+                target.append(' <div class="tw2gui-iconset tw2gui-icon-question-priority-4" title="<span>Επίπεδα μονομαχίας που μπορείς να μονομαχήσεις: ' + range.min + ' - ' + range.max + '<br><br>Τρέχουσα εμπειρία μονομαχίας που θα κερδίσεις: ' + minXp + ' - ' + maxXp + '<br>Μυστηριώδες φίλτρο -10% ⇒ Επίπεδο Μονομαχίας ' + minLvl + (maxLvl > minLvl ? ' - ' + maxLvl : '') + '</span>" style="display:inline-block;vertical-align:top;cursor:pointer;"></div>');
               };
           };
           var addRegenTimers = function () {
@@ -5609,8 +5658,279 @@
                       reworkMarketReport();
                     }
                   };
+                  // MarketWindow.WhatIsHot.updateTable_backup = MarketWindow.WhatIsHot.updateTable;
+                  // MarketWindow.WhatIsHot.updateTable = function (data) {
+                  //   MarketWindow.WhatIsHot.updateTable_backup.call(this, data);
+                  //   if (Character.homeTown.town_id) {
+                  //     for (var i = 0; i < data.length; i++) {
+                  //       $('#mpb_vendor_' + data[i].market_offer_id)
+                  //         .before('<img src="images/icons/' +
+                  //           MarketWindow.sellRights[data[i].sell_rights].i +
+                  //           '.png" title="' +
+                  //           MarketWindow.sellRights[data[i].sell_rights].t + '">');
+                  //     }
+                  //     reworkMarketReport();
+                  //   }
+                  // };
             } catch (e) {
               Error.report(e, "improvedMarket");
+            }
+          };
+          var improvedWhisper = function () {
+            try {
+              var soundBaseURL = Script.protocol + "://" + Script.folder_url + "whispers/";
+              var soundOptions = [
+                "tw",
+                "bum",
+                "chime",
+                "coin",
+                "coin2",
+                "icq",
+                "qip",
+                "tinkle",
+                "trumpet",
+                "vk",
+              ];
+              var soundID = 9;
+              var eventContext = {};
+              var enableKey = "improved_whisper";
+              var soundKey = "beeperSound";
+              var currentSound = soundBaseURL + soundOptions[soundID] + ".mp3";
+              var normalizeStoredSound = function (value) {
+                if (typeof value === "string" && value !== "" && /^-?\d+$/.test(value)) {
+                  return parseInt(value, 10);
+                }
+                return value;
+              };
+              var getStoredSound = function () {
+                return normalizeStoredSound(Settings.get(soundKey, soundID));
+              };
+              var setStoredSound = function (value) {
+                Settings.set(soundKey, value);
+              };
+              Settings.get(enableKey, true);
+              var updateSound = function () {
+                var soundSetting = getStoredSound();
+                if (typeof soundSetting === "number" && soundOptions[soundSetting]) {
+                  currentSound = soundBaseURL + soundOptions[soundSetting] + ".mp3";
+                } else if (typeof soundSetting === "string" && soundSetting) {
+                  currentSound = soundSetting;
+                } else {
+                  currentSound = soundBaseURL + soundOptions[soundID] + ".mp3";
+                }
+              };
+              var playSound = function () {
+                try {
+                  new Audio(currentSound).play();
+                } catch (err) {
+                  Error.report(err, "improvedWhisper.playSound");
+                }
+              };
+              var enable = function () {
+                EventHandler.listen("chat_tell_received", playSound, eventContext);
+                if (!AudioController.play_whisper) {
+                  AudioController.play_whisper = AudioController.play;
+                  AudioController.play = function (soundName) {
+                    if (soundName === "newmsg") return;
+                    AudioController.play_whisper.apply(this, arguments);
+                  };
+                }
+              };
+              var disable = function () {
+                EventHandler.unlistenByContext("chat_tell_received", eventContext);
+                if (AudioController.play_whisper) {
+                  AudioController.play = AudioController.play_whisper;
+                  delete AudioController.play_whisper;
+                }
+              };
+              updateSound();
+              if (Settings.get(enableKey, true)) enable();
+              window.ChatBeeper = {
+                updateSound: updateSound,
+                play: playSound,
+                enable: enable,
+                disable: disable,
+              };
+            } catch (e) {
+              Error.report(e, "improvedWhisper");
+            }
+          };
+          var jobWindowLP = function () {
+            try {
+              JobWindow.prototype.__twdb__initView = JobWindow.prototype.__twdb__initView || JobWindow.prototype.initView;
+              JobWindow.prototype.initView = function () {
+                var t = JobWindow.prototype.__twdb__initView.apply(this, arguments);
+                if (this.job && typeof this.currSkillpoints === "number") {
+                  var n = "&nbsp;&nbsp;(" + (this.currSkillpoints - this.job.workpoints) + "&nbsp;Π.Ε.)";
+                  $("div.tw2gui_inner_window_title > .textart_title", this.window.divMain).append(n);
+                }
+                return t;
+              };
+            } catch (t) {
+              Error.report(t, "manipulate JobWindow.prototype.initView");
+            }
+          };
+          var addInstantQuests = function() {
+            if (!QuestEmployerView?.showQuest) return;
+
+            QuestEmployerView.showQuest_backup = QuestEmployerView.showQuest;
+
+            QuestEmployerView.showQuest = questData => {
+              QuestEmployerView.showQuest_backup(questData);
+
+              const isUnaccepted = questData.accepted === false;
+              const hasNoRewardOptions = !questData.questRewardsOptions;
+
+              if (isUnaccepted && hasNoRewardOptions) {
+                const requirements = questData.requirements || [];
+                const solvedCount = requirements.filter(r => r.solved === true).length;
+                const allSolved = solvedCount === requirements.length;
+
+                if (allSolved) {
+                  const buttonArea = $(`div.quest_button_area_${questData.id}`);
+                  if (!buttonArea.length) return;
+
+                  const finishButton = new west.gui.Button(`Αποδοχή & Ολοκλήρωση αποστολής`, () => {
+                    QuestWindow.acceptQuest(questData.id);
+
+                    let attempts = 0;
+                    const checkInterval = setInterval(() => {
+                      const questExists = QuestLog.quests?.[questData.id];
+
+                      if (questExists) {
+                        clearInterval(checkInterval);
+                        QuestWindow.finishQuest(questData.id);
+                      } else if (++attempts === 20) {
+                        clearInterval(checkInterval);
+                      }
+                    }, 200);
+                  }).getMainDiv();
+
+                  buttonArea.empty().append(finishButton);
+                }
+              }
+            };
+          };
+          var addColoredQuests = function () {
+            const formatRequirement = (requirement, solvedClass) => {
+              if (requirement.jsInfo?.metatype === "FRONTEND") {
+                const key = requirement.jsInfo.key;
+                if (QuestLog.windows_opened[key] || QuestLog.tabs_opened[key]) {
+                  requirement.solved = true;
+                }
+              }
+              const infoText = requirement.info.replace(/ (\(?\d+\/\d+\)?)/g, "&nbsp;$1");
+              const style = requirement.solved && !solvedClass ? "color:gray;" : "";
+              return `<li class="quest_requirement ${requirement.solved && solvedClass ? solvedClass : ""}" style="${style}">- ${infoText}</li>`;
+            };
+
+            const originalBuildQuestLog = QuestEmployerView.buildQuestLog;
+            QuestEmployerView.buildQuestLog = function (questData) {
+              originalBuildQuestLog.apply(this, arguments);
+
+              try {
+                questData.open.forEach(quest => {
+                  const questLink = $(`#open_quest_employerlink_${quest.id}`);
+                  if (!questLink || !questLink.is(":visible")) return;
+
+                  let solvedCount = 0;
+                  let requirementHtml = '<div style="max-width: 300px; min-width: 150px;"><ul class="requirement_container">';
+
+                  quest.requirements.forEach(req => {
+                    if (req.solved || (req.type === "wear_changed" && Bag.getItemByItemId(req.id))) {
+                      solvedCount++;
+                    } else if (!req.solved) {
+                      requirementHtml += formatRequirement(req);
+                    }
+                  });
+
+                  requirementHtml += "</ul></div>";
+                  requirementHtml += `<div style="text-align: center;">${Quest.getRewards(quest.questRewards, quest.questRewardsOptions, false)}</div>`;
+
+                  const questIcon = questLink.children("img");
+                  if (requirementHtml.trim() !== "") questIcon.addMousePopup(requirementHtml);
+
+                  if (quest.limited?.length) {
+                    questIcon.after(
+                      $('<div class="hourglass_quest" style="display: inline-block; vertical-align: middle; margin-bottom: 3px; margin-right: 2px;"></div>')
+                        .addMousePopup(quest.limited)
+                    );
+                  }
+
+                  if (Settings.get("colored_quest")) {
+                    questLink.addClass("twdb_quest_entrie");
+                    const totalReq = quest.requirements.length;
+
+                    if (solvedCount === totalReq && quest.accepted) {
+                      // Solved
+                      questLink.css({ color: "#666", "font-style": "italic" });
+                    } else if (solvedCount === totalReq || (solvedCount + 1 === totalReq && quest.duel?.isNPCDuel)) {
+                      // Can be solved
+                      questLink.css({ color: "#070" });
+                    } else if ((solvedCount / totalReq) * 100 >= 66) {
+                      // 66% done
+                      questLink.css({ color: "#b75c00" });
+                    }
+                  }
+                });
+              } catch (err) {
+                Error.report(err, "QuestEmployerView.buildQuestLog");
+              }
+            };
+
+            TWDB.Util.addCss(".twdb_quest_entrie:hover { color: #1479A8 !important; }");
+          };
+          var importWestForts = function () {
+              if (location.href.includes(".the-west.") && location.href.includes("game.php")) {
+                if (document.getElementById('westforts_js')) return;
+                const westfortsScript = document.createElement('script');
+                westfortsScript.type = 'text/javascript';
+                westfortsScript.id = 'westforts_js';
+                westfortsScript.innerHTML = `(() => {
+                    const ICON_ACTIVE = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAuxJREFUeNqkk0tvG1UYQM+987A9nrEdP+rEIWmaNE0wbdVSsaBUrVRVVAIiVoVFaWGBlH/CijVSVrAEiQVClRIJCQkEEm1BitomTcijMa3z8Cvx28k4Hq5dhLdI3MXc2XznO/d7CM/z6J7Z2dmXP//xzM3Nie4tuoBu8O7eDmtr69y9M8M7Ny7jOA625cfnM9B8fvYLFe4/+A0pSvy50WTzr3oPIrvB0bAks7VJemqMU6MjmD6L4cEEiUSUoGUjjiX1VofMXhNT15ia8BGP6r3EelcjGjXRDcnDxVU++PA9Js5McFA8oPxCZXv0lOUny1QqDVwfnB9/hY6ncWbcplA6oAeINQ+4PhGjNh4jqTXJLP5Bdnuf+flfMEzJ6VPDFCtV3GYNx5pEai0sS9H4B1DdLTAZCrBbbfHDt/cIBEzCpkZIqadfu8zioyeUcnkuXkkjpMTQTQ7dTq+YPcB6vsGYJYj4DX7eLJCttolZOh0hWHq+oPTLiIDOrbE4Qkikgkjh9QGrRZeca5C2D3n/xiWWci2+X/i1l6nseKSSDh/fvspA2KJ93FHBqm4Bfx9wfeYSFwYtNh4/4+sfn3I2FeTTt6d5uJojPjLEJx+9hWZoNFquarxUFso2aPUAsvtJqIJUyxUO92sUCzl+WspQrrXQEIQjFo4dpNP2MBXE1iUJdfsRfYOA3iYSsjkO6tw8l2JhJc93v29jdDoMjTWJmzYD0kfNbREJBNVcuLQ90TcYTEVpHkkaeFx9fZRr6SEM6TGcjKgJrPLZ59/wxVcLJJ0QW+tZCrl9dAX516CsurCV2aVed0k0jjg9EGD7RJAd9eZitkCuWCEWtnmR/ZKpkzFuz7xJvVTqG6xuVBlR2c5emGZvr8pjNYF19xjpKqBf48q5k9w8P8rK5g5vXHwVvxr1+eXmS0B3IZ7lj9jOQWogTl6Z3X9eZiVfI6WGazLk49a711QrTzA96JCMRbm3WODBWrG3TOL/rvPfAgwA2+cl/CVOsykAAAAASUVORK5CYII=';
+                    const ICON_INACTIVE = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAjRJREFUeNqkU8lqYlEULOcpGolDjEYMiJugIR+QTVy4kCSQhd/gL+kX+AluRNdBBHWRoHFAE6QVFY1znLrrgKa3TR+4XN6959SpU/WuYr/fgxGPx3/hHyKZTLq4KwjA4j+B9/d3xGIxhMNhmM1mGI1GaLVaWaPRCC8vL1gul2Bur9cTEDWLmdhsNhEIBODz+aDX6+FyuaRwt9thvV7j+/sbg8EAp6enOD8/x3w+l8Zq0jg5OYFKpUK5XMbz8zP8fr90ZKdKpYLX11dMp1Nst1vY7XYBvbi4EMYCoFAocH19LV10Oh3e3t6EYjabFeCrqysBXCwWMJlMkm8wGH4AeEla3NPptIzABHa6vb0VZt1uF6FQSIo5GsdiCAAvrVaroLM7gTgWBf74+MDX1xeUSiUuLy9lP6wjAOnOZjOZ7/7+Hp1OB5lMBhqNRlQ/OzvD09MTLBaL6EAWdOkIcHd3B4/Hg0ajgVwuJ50ikQiq1aqM9vj4KFqsVisp/htAeXBhMpmISP1+H6VSSVQnTd4dxiEjisxvtVr9w4DoRKTHB9Hy+bwA0C7qwyJ6zzEoLteRgcPhwGazERtvbm4QDAalmOfj8RiJRAKpVAo2mw3tdlt+qEMIA9L//PyUZHZzOp1wu91yzoLhcCjndMvr9SIajUruEYCqs4h0aVur1RLBSJPUKSodKhQKeHh4kH+EOskIfBCkxG5UnHbW63UBpX0EZke+DTpFoGKxiFqtJo9J8b/P+bcAAwD2STF0+3hwkQAAAABJRU5ErkJggg==';
+                    let scriptArmed = false;
+                    const originalFortStats = FortBattle.makeStats;
+                    const originalCemeteryTable = CemeteryWindow.showStatUpdateTable;
+                    const westfortsButton = document.createElement('div');
+                    westfortsButton.id = 'westforts_link_div';
+                    const TITLE_DEFAULT = '<b>Άνοιγμα εισαγωγής μαχών στο West Forts</b>';
+                    const TITLE_ARMED = '<b>Κλείσιμο εισαγωγής μαχών στο West Forts</b>';
+                    westfortsButton.title = TITLE_DEFAULT;
+                    westfortsButton.style.cssText = 'position:absolute; z-index:10; cursor:pointer; text-align:center; color:#fff; font-size:12px; padding:0px 3px 1px 9px; right:0; top:0; background:url("/images/interface/minimap/minimapbg.png") no-repeat scroll 0px -7px';
+                    westfortsButton.innerHTML = \`<img id="westforts_icon_img" src="\${ICON_INACTIVE}" /><div style="float:right;margin-left:5px;margin-top:1px;">West Forts</div>\`;
+                    westfortsButton.onclick = () => {
+                        const iconImg = document.getElementById('westforts_icon_img');
+                        if (scriptArmed) {
+                            // Disarm
+                            westfortsButton.style.color = '#fff';
+                            iconImg.src = ICON_INACTIVE;
+                            westfortsButton.title = TITLE_DEFAULT;
+                            scriptArmed = false;
+                            const existingScript = document.getElementById('wfScript');
+                            if (existingScript) existingScript.remove();
+                            FortBattle.makeStats = originalFortStats;
+                            CemeteryWindow.showStatUpdateTable = originalCemeteryTable;
+                            const form = document.getElementById('wfForm');
+                            if (form) form.remove();
+                        } else {
+                            // Arm
+                            if (!document.getElementById('wfScript')) {
+                                const script = document.createElement('script');
+                                script.id = 'wfScript';
+                                script.type = 'text/javascript';
+                                script.src = 'https://www.westforts.com/js/import.js?' + Date.now();
+                                document.body.appendChild(script);
+                            }
+                            westfortsButton.style.color = '#01DF00';
+                            iconImg.src = ICON_ACTIVE;
+                            westfortsButton.title = TITLE_ARMED;
+                            scriptArmed = true;
+                        }
+                    };
+                    document.body.appendChild(westfortsButton);
+                })();`;
+                document.body.appendChild(westfortsScript);
             }
           };
           return _self;
@@ -6346,7 +6666,7 @@
                 "left: 0px!important; }" +
                 "div#CC_pin_items.pinact { background-position: bottom; }" +
                 "div.actions:has(.bag_resize) div#CC_pin_items {" +
-                "left: 24px!important; }";
+                "left: 34px!important; position: absolute !important;}";
               TWDB.Util.addCss(e, "pinning");
             } catch (t) {
               Error.report(t, "manipulate Inventory.addItems (pin items)");
@@ -6494,6 +6814,38 @@
               );
             }
           };
+          _self.injectWanderingTraderSellDialog = function () {
+            try {
+                west.window.shop.view.__proto__.__twdb__showSellDialog = west.window.shop.view.__proto__.showSellDialog;
+                west.window.shop.view.__proto__.showSellDialog = function (e) {
+                    var t = this.getController(),
+                        n = Bag.getItemByItemId(e),
+                        r = n.count,
+                        i,
+                        s;
+                    this.__twdb__showSellDialog.apply(this, arguments);
+                    if (r < 3) {
+                        return;
+                    }
+                    i = $("div.tw2gui_dialog").has("div.textart_title:contains(" + n.getName() + ")");
+                    if (i.length === 1) {
+                        r--;
+                        s = "Max-1 (" + r + "x = $ " + r * n.getSellPrice() + ")";
+                        i.children("div.tw2gui_dialog_actions").prepend(
+                            new west.gui.Button(
+                                s,
+                                function () {
+                                    t.requestSell({ inv_id: n.inv_id, count: r });
+                                    i.find("div.tw2gui_button").last().click();
+                                }.bind(this)
+                            ).getMainDiv()
+                        );
+                    }
+                };
+            } catch (e) {
+                Error.report(e, "manipulate .showSellDialog (wandering trader - sell all but one)");
+            }
+        };
           _self.MenuButton = function (image, title, onclick) {
             var onClick = onclick || function(){};
             var $obj = $('<div class="menulink" title="' + title + '">')
@@ -7412,6 +7764,7 @@
         var Fort = (function ($) {
           var _self = {};
           var loader = {};
+          var battleStats = {};
           var init = function () {
             if (loader.ready) {
               return;
@@ -7427,6 +7780,15 @@
             }
             if (Settings.get("cemetery_critical", false)) {
               setupCemeteryCritHits();
+            }
+            if (Settings.get("total_dmg_battle", false)) {
+              totalDMGinBattle();
+            }
+            if (Settings.get("battle_info_round", false)) {
+              battleInfoPerRound();
+            }
+            if (Settings.get("total_dmg_battle", true) || Settings.get("battle_info_round", true)) {
+              initBattleInfo();
             }
             loader.ready = true;
           };
@@ -7462,6 +7824,7 @@
                     "totalCnt=0, totalCntTotal=0, gradeCountTotal={ '-2':0, '-1':0, '0':0, '1':0, '2':0, '3':0, '4':0, '5':0 };"],
                   [/gradeCount\[g\]/,
                     "'<span style=\"font-size:15px;\"><span style=\"font-weight:700;text-align:center;width:45px;display:inline-block;margin-left:-10px;top:2px;position:relative;color:'+(gradeCount[g]===gradeCountTotal[g]?(gradeCount[g]>0?'forestgreen':'lightslategray'):'crimson')+';\">'+gradeCount[g]+'</span></span>'"],
+                  [/\+\s{0,1}totalCnt\s{0,1}\+/, "+totalCnt+' ['+totalCntTotal+']'+"],
                   [/if\(this\.preBattle\.isHidden\(list\[i\]\['class'\], ?'rank_' ?\+ ?priv\)\)/,
                     "totalCntTotal++;gradeCountTotal[priv]++;if(this.preBattle.isHidden(list[i]['class'],'rank_'+priv,list[i].coords.x,list[i].coords.y))"],
                   [/getGradeImg\(priv, ?true, ?'recruitplayer recruitplayer-'\+ ?i\)/,
@@ -7562,11 +7925,17 @@
             };
           };
           var ownedForts = function () {
+            var data = {};
+            var lang = {
+              forts: "Οχυρά",
+              fort_size: "Μέγεθος",
+              fort_sizes: { 0: "Μικρό", 1: "Μεσαίο", 2: "Μεγάλο" },
+            };
             $(document).on("click", ".tow_profileheader img", function () {
               var windowEl = $(this).closest(".tw2gui_window");
-              var match = /CityhallWindow\.open\((.*)?\); return false;/.exec(
-                windowEl.find(".imagemap_cityhall").attr("onclick")
-              );
+              var mapAttr = windowEl.find(".imagemap_cityhall").attr("onclick");
+              if (!mapAttr) return;
+              var match = /CityhallWindow\.open\((.*)?\); return false;/.exec(mapAttr);
               if (!match) return;
 
               var townId = parseInt(match[1]);
@@ -7576,27 +7945,31 @@
                   ? "owned"
                   : "members";
 
-              if (data[townId] && data[townId][prop].length !== 0) {
+              if (!data[townId]) {
+                Ajax.get("map", "get_minimap", {}, function (json) {
+                  buildData(json);
+                  if (data[townId]) openWindow(townId, prop);
+                });
+              } else {
                 openWindow(townId, prop);
               }
             });
 
             document.styleSheets[0].insertRule(
-              ".west-toolkit-forts-container .fortname {width:75%;}"
+              ".twdb-forts-container .fortname {width:75%;}"
             );
             document.styleSheets[0].insertRule(
-              ".west-toolkit-forts-container .fortsize {width:25%;text-align:center;}"
+              ".twdb-forts-container .fortsize {width:25%;text-align:center;}"
             );
             document.styleSheets[0].insertRule(
               '.tow_profileheader img[src*="fort_mini_icon"] {cursor:pointer;}'
             );
 
-            Ajax.get("map", "get_minimap", {}, function (json) {
+            var buildData = function (json) {
               for (var i in json.forts) {
                 for (var j in json.forts[i]) {
                   var fort = json.forts[i][j];
                   if (!fort.fort) continue;
-
                   var owner = fort.fort.town_id;
                   var members = fort.townIds || [];
                   var fortData = {
@@ -7606,28 +7979,23 @@
                     y: fort.fort.y,
                     name: fort.fort.name,
                   };
-
                   if (!data[owner]) data[owner] = { owned: [], members: [] };
                   data[owner].owned.push(fortData);
-
                   for (var k = 0; k < members.length; k++) {
                     if (!data[members[k]]) data[members[k]] = { owned: [], members: [] };
                     data[members[k]].members.push(fortData);
                   }
                 }
               }
-            });
-
-            var data = {};
-            var lang = {
-              forts: "Οχυρά",
-              fort_size: "Μέγεθος",
-              fort_sizes: { 1: "Μικρό", 2: "Μεσαίο", 3: "Μεγάλο" },
             };
+
+            Ajax.get("map", "get_minimap", {}, function (json) {
+              buildData(json);
+            });
 
             var openWindow = function (townId, type) {
               var fortsContainer = $(
-                '<div class="west-toolkit-forts-container" style="height:100%"></div>'
+                '<div class="twdb-forts-container" style="height:100%"></div>'
               );
               var table = new west.gui.Table();
               table
@@ -7666,9 +8034,9 @@
               fortsContainer.html(table.getMainDiv());
               wman
                 .open(
-                  "west-toolkit-forts-container",
+                  "twdb-forts-container",
                   null,
-                  "west-toolkit-forts-container noreload nocloseall nominimize dontminimize"
+                  "twdb-forts-container noreload nocloseall nominimize dontminimize"
                 )
                 .setTitle(lang.forts)
                 .setMiniTitle(lang.forts)
@@ -7726,6 +8094,79 @@
                 sortHelpers +
                 "})(jQuery);"
             );
+          };
+          var totalDMGinBattle = function () {
+            if (typeof FortBattle === "undefined") return;
+            try {
+              if (!FortBattle.flashShowCharacterInfo_backup && typeof FortBattle.flashShowCharacterInfo === "function") {
+                FortBattle.flashShowCharacterInfo_backup = FortBattle.flashShowCharacterInfo;
+                FortBattle.flashShowCharacterInfo = function () {
+                  FortBattle.flashShowCharacterInfo_backup.apply(FortBattle, arguments);
+                  var args = arguments;
+                  $("div.recruitlist_name", "#fort_battle_" + args[0] + "_infoarea").html(
+                    '<span onclick="PlayerProfileWindow.open(' + args[1] + ');" style="cursor:pointer;">' + $("div.recruitlist_name").text() + "</span>"
+                  );
+                };
+              }
+              if (!FortBattle.getCharDataSheet_backup && typeof FortBattle.getCharDataSheet === "function") {
+                FortBattle.getCharDataSheet_backup = FortBattle.getCharDataSheet;
+                FortBattle.getCharDataSheet = function (data) {
+                  return (
+                    FortBattle.getCharDataSheet_backup(data) +
+                    '<div><img src="' +
+                    Images.iconTotalDMG +
+                    '" title="Προκαλούμενη ζημιά" /> %totalDmg%</div>'
+                  );
+                };
+              }
+            } catch (e) {}
+          };
+          var battleInfoPerRound = function () {
+            try {
+              FortBattle.addRoundStatusMessage_backup = FortBattle.addRoundStatusMessage;
+              FortBattle.addRoundStatusMessage = function (fortId, queue) {
+                FortBattle.addRoundStatusMessage_backup(fortId, queue);
+                if (!battleStats[fortId]) {
+                  battleStats[fortId] = { hit: 0, missed: 0, gotshot: 0, dodge: 0 };
+                }
+                var stats = battleStats[fortId];
+                for (var i = 0; i < queue.length; i++) {
+                  var msg = queue[i];
+                  switch (msg.action) {
+                    case "gotshot":
+                      if (msg.damage === 0) {
+                        stats.dodge++;
+                      } else {
+                        stats.gotshot++;
+                      }
+                      break;
+                    case "shot":
+                      if (msg.damage === 0) {
+                        stats.missed++;
+                      } else {
+                        stats.hit++;
+                      }
+                      break;
+                  }
+                }
+                if (queue.length !== 0) {
+                  FortBattle.showMessage(
+                    fortId,
+                    "<strong>Σύνολο | Εύστοχα χτυπήματα : </strong>" + stats.hit +
+                      "<strong> | Άστοχες βολές : </strong>" + stats.missed +
+                      "<strong> | Λαμβανόμενα χτυπήματα : </strong>" + stats.gotshot +
+                      "<strong> | Αποφυγή βολών : </strong>" + stats.dodge
+                  );
+                }
+              };
+            } catch (e) {}
+          };
+          var initBattleInfo = function () {
+            FortBattle.addFinishMessage_backup = FortBattle.addFinishMessage;
+            FortBattle.addFinishMessage = function (fortId, msg) {
+              FortBattle.addFinishMessage_backup(fortId, msg);
+              battleStats[fortId] = { hit: 0, missed: 0, gotshot: 0, dodge: 0 };
+            };
           };
           return _self;
         })($);
