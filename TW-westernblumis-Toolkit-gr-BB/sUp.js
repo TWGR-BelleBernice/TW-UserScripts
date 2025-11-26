@@ -40,7 +40,10 @@ scriptUp = {
 	// TWIRn:'Buff categorization fixed, MassOpener removed',
 	cs: ["Aktualizovat", "NovÃ¡ verze scriptu je dostupnÃ¡"],
 	de: ["Update", "FÃ¼r das Script ist eine neue Version erhÃ¤ltlich"],
-	el: ["ΟΚ", "Μια νέα έκδοση είναι διαθέσιμη για το UserScript, παρακαλώ κάντε κλικ στο OK για να το ανανεώσετε.",],
+	el: [
+		"ΟΚ",
+		"Μια νέα έκδοση είναι διαθέσιμη για το UserScript, παρακαλώ κάντε κλικ στο OK για να το ανανεώσετε.",
+	],
 	en: ["Update", "A new version of the script is available"],
 	es: ["ActualizaciÃ³n", "Una nueva versiÃ³n del script estÃ¡ disponible"],
 	fr: ["Mise Ã  jour", "Une nouvelle version du script est disponible"],
@@ -50,7 +53,7 @@ scriptUp = {
 	pl: ["Aktualizacja", "Nowa wersja skryptu jest dostÄ™pna"],
 	pt: ["AtualizaÃ§Ã£o", "Uma nova versÃ£o do script estÃ¡ disponÃ­vel"],
 	ro: ["Actualizare", "O nouÄƒ versiune este disponibilÄƒ"],
-	ru: ["ÐžÐ±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ", "Ð”Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ ÑÐºÑ€Ð¸Ð¿Ñ‚Ð°",],
+	ru: ["ÐžÐ±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ", "Ð”Ð¾ÑÑ‚ÑƒÐ¿Ð½Ð¾ Ð¾Ð±Ð½Ð¾Ð²Ð»ÐµÐ½Ð¸Ðµ ÑÐºÑ€Ð¸Ð¿Ñ‚Ð°"],
 	sk: ["AktualizovaÅ¥", "NovÃ¡ verzia scriptu je dostupnÃ¡"],
 	tr: ["GÃ¼ncelleÅŸtir", "Scriptin yeni bir sÃ¼rÃ¼mÃ¼"],
 	cD: 0,
@@ -83,10 +86,10 @@ scriptUp = {
 	// 	}
 	// 	this.cD = 1;
 	// },
-};
-var sI = setInterval(function () {
+}
+var sI = setInterval(() => {
 	if (scriptUp.cD) {
-		clearInterval(sI);
+		clearInterval(sI)
 		// var x = ["LT", "CT", "QIS", "NPC", "MBB", "BS", "KoM"],
 		// 	z = "";
 		// for (var y of x) if (window[y]) z += "- " + window[y].name + "<br>";
@@ -122,4 +125,4 @@ var sI = setInterval(function () {
 		// 	"div#CC_pin_items{left:24px}\n .inventory .open_search {left:-9px}\n .inventory .actions .upgrade_items {margin-left:32px}\n .inventory .bag_resize {right:-9px}\n .TWX_sellable_button {left:23px!important}";
 		// document.head.appendChild(style);
 	}
-}, 5000);
+}, 5000)
