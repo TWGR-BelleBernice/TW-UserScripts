@@ -17,6 +17,8 @@
 	"listen": "Listen",
 	"export_settings": "Export",
 	"import_settings": "Import",
+	"save_settings": "Save",
+	"reset_settings": "Reset Settings",
 	"export_dialog_title": "Export Settings",
 	"export_copy_failed": "Automatic copy failed or is not supported. Please manually copy the Settings from the box below.",
 	"import_dialog_title": "Import Settings",
