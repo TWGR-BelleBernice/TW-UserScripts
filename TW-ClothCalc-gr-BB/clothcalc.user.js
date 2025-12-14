@@ -8,30 +8,30 @@
   // @supportURL   https://github.com/TWGR-BelleBernice/TW-UserScripts/issues
   // @source       https://github.com/TWGR-BelleBernice/TW-UserScripts
   // @icon         data:image/png;base64,UklGRlIDAABXRUJQVlA4TEUDAAAvGAAGAAfkKpIkxRpevsfvfZGH51/VHqMNt5EkKdLwwjGod5a8/5a8zPy/4Da2bVW58nj6JSLixxDRBv0HFOLw7d4z/8EmbVRRFEi2uEVgYKg8BdTBXmYT7LBWOADUj+wipwRKQZDAB7BWB0QzL4I4IziqAewsCkAzRUEGM4qJ4CRs/0ehwFa/uryjlhXpJIhmSCyyQA49jMAQvvpkambevvx9Ac8r/iauN4ffiTqqPacg2KhXwRkaCLYmmtFetOmhP7lVZsOJTEjWM+z0FimQ2uwvMmsnqZKBBIb0T8COtiD6o8BnxKka37Ml/rz8TNeJpdHycXkVmkbaOYYDzz3xTFKEARxVGoVwgL9Ig5JATCKjan2R5b87zwMmgWGnWARXATnV5LSf/LY36yZWzdwsqHO7Lu75LKha72L8L97jxelw95cbg0Rt25YoAoYeu7vF7u7ubpAl/FdGpmxlbE9+rz2F743of/YMTVQX17S+d7R0dVS2UWt7Z60mSK9ace+hyP3/ieMP+gyN4wUCCASIAMATx3M1C6OcAImeSZdIIDyTRhLpSoz7PecEWSIN0KV/nkmOK0I38aqG17y4TIjrki6J0rvzHteljX5RL1QL8qj6yLn6C/usIfozNVaQp81vilFhVVGnl7xhrk0UpJyLy8Zcsbq0IxQUFU4nmQsfgE1mIj0WUVvR5oyUq5u6vXJcBgQg2FY6GG6uL1jZknOdydB2GRDAtU+/LbrzOnP585u8fvnILJcF5Dun3zhxrWRw1t42v8vHE4+e5fqJZNY+ATFYqdDsrd3v59Tw8dpyk/cZZpku82FmUmbEbxqcyh4fbI+5NjECXMdPhic637TPiWePlPEsmyjwbXJYQDSS43cQi9pv7oDwyvVAPksggBm1ybOGWvU2HCazj3dANplIJ9LX5ofRwm9s8oouVzvJuwxRmADgH3cOrBly555Y3dLZ1DlhekGYJuacTozvbhvUtTYpV380FTTU1pSUfr5/vaAkUsur9Fe174UjgZdI1ohIJQAgwosiFO2pvKypiq5WlhQTiFBZCpTFtIblOYmTBUWUhZgkxAgiFAGcumOsrfa3dXVWvGpRXeNA/+DGD2hvvW9x4QcA
-  // @downloadURL https://update.greasyfork.org/scripts/547843/The%20West%20-%20TW-DBinfo%20Cloth%20Calc%20%5Bgr%5D%20-%20BB.user.js
-  // @updateURL https://update.greasyfork.org/scripts/547843/The%20West%20-%20TW-DBinfo%20Cloth%20Calc%20%5Bgr%5D%20-%20BB.meta.js
   // @include http://*.the-west.*/game.php*
   // @include https://*.the-west.*/game.php*
   // @include http://*.tw.innogames.*/game.php*
   // @include https://*.tw.innogames.*/game.php*
   // @grant none
+// @downloadURL https://update.greasyfork.org/scripts/547843/The%20West%20-%20TW-DBinfo%20Cloth%20Calc%20%5Bgr%5D%20-%20BB.user.js
+// @updateURL https://update.greasyfork.org/scripts/547843/The%20West%20-%20TW-DBinfo%20Cloth%20Calc%20%5Bgr%5D%20-%20BB.meta.js
   // ==/UserScript==
 
   (function (f) {
     var d = document,
       s = d.createElement("script");
     s.setAttribute("type", "application/javascript");
-    s.textContent = "(" + f.toString() + ")()";
+    s.textContent = `(${f.toString()})()`;
     (d.body || d.head || d.documentElement).appendChild(s);
     s.parentNode.removeChild(s);
   })(function () {
     if (isDefined(window.TWDB)) {
       new west.gui.Dialog(
         TWDB.script.name,
-        '<div class="txcenter"><b><br>Το UserScript ClothCalc έχει εγκατασταθεί δυο φορές, με δυο διαφορετικές γλώσσες. Θα πρέπει να απενεργοποιήσετε μία από τις δυο γλώσσες για να λειτουργήσει το UserScript κανονικά.</br></b></div>',
+        `<div class="txcenter"><b><br>${TWDB.lang.duplicate_installation}</br></b></div>`,
         west.gui.Dialog.SYS_WARNING
       )
-        .addButton("OK")
+        .addButton(TWDB.lang.ok)
         .show();
     } else {
       TWDB = {};
@@ -48,12 +48,47 @@
         protocol: location.protocol.match(/^(.+):$/)[1],
         game_version: 2.255,
         lang: "gr",
+        langs: {
+          base_url: "TWGR-BelleBernice.github.io/TW-UserScripts/TW-ClothCalc-gr-BB/langs/",
+          en_US: "en_US.json",
+          el_GR: "el_GR.json",
+        },
+        notes: {
+          base_url: "TWGR-BelleBernice.github.io/TW-UserScripts/TW-ClothCalc-gr-BB/changelog/",
+          filename: "notes.json",
+        },
+        preferences: {
+          lang: null,
+        },
       });
-      try {
-        TWDB.script.notes = JSON.parse(
-          '[{"version":"27.0","notes":"[feature] Προσθήκη λειτουργίας Εισαγωγής/Εξαγωγής Ρυθμίσεων<br><br>"},{"version":"26.0","notes":"[feature] Προσθήκη της εισαγωγής μαχών οχυρού στην βάση δεδομένων της ιστοσελίδας (westforts.com)<br>[feature] Προσθήκη λειτουργίας αλλαγής ήχου Ψιθύρου<br>[feature] Προσθήκη προκαλούμενης ζημιάς σε κάθε παίκτη κατά τη διάρκεια μιας μάχης οχυρού<br>[feature] Προσθήκη βολών κάθε γύρας κατά τη διάρκεια μιας μάχης οχυρού<br>[feature] Προσθήκη χρώματος στις αποστολές που μπορούν να ολοκληρωθούν<br>[feature] Προσθήκη κουμπιού για αυτόματη αποδοχή και ολοκλήρωση αποστολών που μπορούν να ολοκληρωθούν<br>[bugfix] Επαναφορά κώδικα για την πώληση όλων εκτός από ένα επιλεγμένο αντικείμενο στον Έμπορο<br>[bugfix] Διόρθωση παλαιού κώδικα της επιλογής που εμφανίζει τους πόντους εργασίας στο παράθυρο δουλειών<br>[bugfix] Διόρθωση του κώδικα της επιλογής αυτόματου ανοίγματος της Αγοράς, ώστε το παράθυρο ρουχισμού να ελαχιστοποιείται<br>[bugfix] Διόρθωση κώδικα στην καρτέλα κατασκευής εάν το TWIR είναι παρόν<br>[main] Ανακατάταξη των κατηγοριών στην καρτέλα Ρυθμίσεων<br><br>"},{"version":"25.0","notes":"[feature] Προσθήκη επιλογής Σκούρου θέματος για τον Χάρτη του The-West<br>[feature] Βελτίωση του εικονιδίου αναφοράς πώλησης στο παράθυρο αγορών του κτηρίου Αγοράς<br>[feature] Προσθήκη εικονιδίου για το εάν οι προσφορές της αγοράς είναι δημόσιες, μόνο για μέλη της συμμαχίας ή πόλης<br>[feature] Προσθήκη ενός νέου κουμπιού για εύκολο άνοιγμα του παραθύρου της Αγοράς<br><br>"},{"version":"24.0","notes":"[feature] Προσθήκη Χρόνων Αναγέννησης στο πορτρέτο του παίκτη<br>[feature] Προσθήκη μαρκαρίσματος κειμένου στα Φόρουμ Πόλεων<br>[feature] Προσθήκη επιλογής καρφιτσώματος της γραμμής Μενού, Εμπειρίας και UserScript στην οθόνη<br>[feature] Προσθήκη εμπειρίας μονομαχίας στο προφίλ του παίκτη<br>[bugfix] Διόρθωση καρτέλας Στρατολόγησης<br>[bugfix] Απενεργοποίηση της αυτόματης ενεργοποίησης κάποιων λειτουργιών<br><br>"},{"version":"23.0","notes":"[bugfix] Διόρθωση κάποιων μηνυμάτων ρυθμίσεων<br>[bugfix] Διόρθωση καρτέλας Στρατολόγησης<br><br>"},{"version":"22.0","notes":"[feature] Προσθήκη κρίσιμων χτυπημάτων και γύρων με φάντασμα στο νεκροταφείο οχυρού <br>[feature] Προσθήκη παραθύρου για ιδιόκτητα και συμμαχικά οχυρά στο παράθυρο πόλεων <br>[feature] Προσθήκη αυτόματου ανοίγματος οχυρού ξεθαψίματος τσεκουριού από την αναφορά του <br>[feature] Βελτίωση όλων των πινάκων Κατάταξης <br>[feature] Βελτίωση του παραθύρου Στρατολόγησης πριν την μάχη οχυρού <br>[feature] Αφαίρεση του αναβοσβήματος του κουμπιού Πόλης εάν υπάρχει νέο μήνυμα στο Φόρουμ Πόλης<br><br>"},{"version":"21.0","notes":"[feature] Προσθήκη προόδου κτιρίου στην καρτέλα χτισίματος <br>[feature] Προσθήκη επιπλέον επιπέδων εκκλησίας <br>[feature] Προσθήκη λειτουργίας εμφάνισης μόνο κτιρίων που δεν έχουν κατασκευαστεί πλήρως στο Δημαρχείο <br>[feature] Προσθήκη ενός νέου κουμπιού για εύκολο άνοιγμα της καρτέλας χτισίματος Εκκλησίας <br>[feature] Προσθήκη ενός κουμπιού για κλείσιμο μόνο των παραθύρων Αποθεμάτων<br><br>"},{"version":"20.0","notes":"[bugfix] Ουπς! Διόρθωση κώδικα έκδοσης<br><br>"},{"version":"19.0","notes":"[bugfix] Διόρθωση συνδέσμου νέας έκδοσης<br><br>"},{"version":"18.0","notes":"[bugfix] Διόρθωση έκδοσης σε κάποια σημεία, ας ελπίσουμε!<br><br>"},{"version":"17.1","notes":"[bugfix] Διόρθωση έκδοσης σε κάποια σημεία<br><br>"},{"version":"17.0","notes":"[main] Αφαίρεση revision<br><br>"},{"version":"16.0","notes":"[bugfix] Αλλαγή συνδέσμου νέας έκδοσης χαρακτηριστικών<br><br>"},{"version":"15.0","notes":"[bugfix] Διόρθωση καταργημένου κώδικα που χρησιμοποιούσε το UserScript<br><br>"},{"version":"14.0","notes":"[main] Αφαίρεση περιττού κώδικα <br>[main] Αλλαγή λεπτομερειών στο παράθυρο Στρατολόγησης<br><br>"},{"version":"13.0","notes":"[bugfix] Ουπς! Διόρθωση του UserScript<br><br>"},{"version":"12.0","notes":"[bugfix] Διόρθωση λανθασμένης version<br><br>"},{"version":"11.0","notes":"[main] Αφαίρεση περιττού κώδικα στο παράθυρο Στρατολόγησης <br>[main] Αλλαγή Updater<br><br>"},{"version":"10.0","notes":"[bugfix] Διόρθωση της πινέζας αντικειμένων για σωστή εμφάνιση στο vanilla και TWIR παράθυρο Αποθεμάτων <br>[bugfix] Διόρθωση ορθογραφικών λαθών της λέξης bugfix στα Χαρακτηριστικά Έκδοσης<br><br>"},{"version":"9.0","notes":"[main] Καθαρισμός κώδικα - part 2 <br>[main] Αλλαγή μερικών υπερ-συνδέσμων<br><br>"},{"version":"8.0","notes":"[main] Καθαρισμός κώδικα - part 1<br><br>"},{"version":"7.0","notes":"[bugfix] Ανανέωση συνδέσμων για αυτόματη ενημέρωση<br><br>"},{"version":"6.0","notes":"[bugfix] Αλλαγή μερικών υπερ-συνδέσμων<br><br>"},{"version":"5.0","notes":"[bugfix] Ουπς! Διόρθωση του UserScript<br><br>"},{"version":"4.0","notes":"[bugfix] Διόρθωση για την αφαίρεση χαρακτηριστικών<br><br>"},{"version":"3.0","notes":"[main] Αφαίρεση πολλών άχρηστων χαρακτηριστικών<br><br>"},{"version":"2.0","notes":"[bugfix] Διόρθωση μερικών ορθογραφικών λαθών <br>[main] Αλλαγή φόρμουλας version <br><br>"},{"version":"1.0","notes":"** Δημιουργία UserScript από το clothcalc_sk **<br><br>"}]'
-        );
-      } catch (e) { }
+      TWDB.lang = {};
+      // Load notes file
+      var notesFilename = TWDB.script.notes.filename;
+      var notesUrl = `${TWDB.script.notes.base_url + notesFilename}?${TWDB.script.version * 100}`;
+      if (TWDB.script.protocol === "https") {
+        notesUrl = `https://${notesUrl}`;
+      } else {
+        notesUrl = `http://${notesUrl}`;
+      }
+
+      $.getJSON(notesUrl, function(notes) {
+        TWDB.script.notes = notes;
+      }).fail(function() {
+        // Fallback: try to load from local file structure
+        var localNotesUrl = `${TWDB.script.folder_url}changelog/${notesFilename}`;
+        if (TWDB.script.protocol === "https") {
+          localNotesUrl = `https://${localNotesUrl}`;
+        } else {
+          localNotesUrl = `http://${localNotesUrl}`;
+        }
+        $.getJSON(`${localNotesUrl}?${TWDB.script.version * 100}`, function(notes) {
+          TWDB.script.notes = notes;
+        }).fail(function() {
+          // Final fallback: use empty array
+          TWDB.script.notes = [];
+        });
+      });
+
       TheWestApi.version = Game.version = parseInt(Game.version, 10)
         ? Game.version
         : TWDB.script.game_version;
@@ -61,17 +96,24 @@
       TWDB.script.isDev = function () {
         return this.check.search("dev_version") !== -1;
       };
-      Number.prototype.round = function (e) {
-        var t = Math.pow(10, e);
-        return Math.round(this * t) / t;
+      // Number.prototype.round = function (e) {
+      //   // biome-ignore lint/style/useExponentiationOperator: tested
+      //   var t = Math.pow(10, e);
+      //   return Math.round(this * t) / t;
+      // };
+      function round (num, decimals = 0) {
+        const factor = 10 ** decimals;
+        return Math.round((num + Number.EPSILON) * factor) / factor;
+      }
+      const twiceHTMLUnescape = str => {
+        const el = document.createElement("textarea");
+        el.innerHTML = str; //once
+        el.innerHTML = el.value; //twice
+        return el.value;
       };
-      String.prototype.twdb_twiceHTMLUnescape = function () {
-        return $($.parseHTML($($.parseHTML(String(this))).text())).text();
-      };
-      window.debLog =
-        TWDB.script.isDev() && console.info
-          ? function (e) { console.info.apply(console, ["CC:"].concat(Array.prototype.slice.call(arguments))); }
-          : function (e) { };
+      window.debLog = TWDB.script.isDev() && console?.info
+        ? (...args) => console.info("CC:", ...args)
+        : () => {};
       TWDB.images = {
         iconName:
           "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAYAAAByUDbMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAqBJREFUeNqslEtvElEUxy90gOHRDhQpDBIEaysKNQZpYpqiLroxaUjUrV/Bpd/BD6IrdySGmK5cVzf1sSgNgrzDAB0QBpgZxnPonYZSSLvwJj/unXMP/3vOfRyDpmnkfzUGf1Kp1Lw5A7BEwTYGVNpfaul0+kxsQbMAHOCmi/aBFtAF5IWRLbC7gLtPGOalPBpZG7J8cmKxHIDtN3AKaNcVw6gCYZNp/4XV+kaRJNKs16V3wSBG9pdyKTrjgr1aBsK7LPtqPBwStdsl1mbTGiuX98HuB6zzIpgnZgJuAHfWNc2ndjpEabcn3KtUtnERupfG64jZAH7XbN5bHg5ZVRTJT0Kq416PhATBsyJJUZj3AOarxPB7BQhuGo2Rcb9PTiVpcMDzuOnErCjMVqmUpKnarxLD1TxOgyF2X1F4TPHQbC4KNtug4HY30CFSrW5AFwKcswc4K4ar3YwbjU8xLQVSPOK4iUjW5xOw94miixfFBAy9s6kyc+5WOCHLG0qrRfqtlhLv93mcZGX53PdBsZisclwGhjlA0u8cM3O3vAFNiztrNccwlyOGdpvZPju9Cw1S9X+OxdZh+IO+itG0mH63go+bzWeD4+PJ3apxXPvChiqKabXXczgGAzaRz+99DYUOwVyeFdNTDNzK5dZQCDf8/c4OPp/vgAisAY/eZjLP8VTDjUYExHALHHRe08WwMrDJQuEhW6+zaMh7PFnoPgFH9Pngg69mvd5otFy+vVmr8RClq2W3W+hBqtNpDj2CsCQ4HGX40H75/R/A9g11cQ7A0xyD2EevKL4GH3WrWFz5Eoko9P/EgMUR6hk+oVVMkz4lrFsVSofWMIberQBNGX1qug/Us/PIVFpWMII/9Kgl+j2e8hGpraRnAwx0n38CDAD3lwpCS51YdAAAAABJRU5ErkJggg==",
@@ -150,25 +192,68 @@
         duelMotBar:
           "data:image/png;base64,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",
       };
-      TWDB.Lang = {
-        en: {
 
-        },
-        el: {
+      // Initialize language preferences
+      if (localStorage.getItem("TWDB_preferences")) {
+        var storage = JSON.parse(localStorage.getItem("TWDB_preferences"));
+        for (var key in TWDB.script.preferences) {
+          if (storage[key] === undefined) {
+            storage[key] = TWDB.script.preferences[key];
+          }
+        }
+        TWDB.script.preferences = storage;
+      }
 
+      // Determine language
+      TWDB.script.preferences.lang = TWDB.script.preferences.lang == null
+        ? (TWDB.script.langs[Game.locale] ? Game.locale : "el_GR")
+        : TWDB.script.preferences.lang;
+
+      // Load language file
+      var langUrl = `${TWDB.script.langs.base_url + TWDB.script.langs[TWDB.script.preferences.lang]}?${TWDB.script.version * 100}`;
+      if (TWDB.script.protocol === "https") {
+        langUrl = `https://${langUrl}`;
+      } else {
+        langUrl = `http://${langUrl}`;
+      }
+
+      var triggerLangLoaded = function() {
+        if (TWDB.Eventer && typeof TWDB.Eventer.trigger === "function") {
+          TWDB.Eventer.trigger("TWDBLangLoaded");
         }
       };
+
+      $.getJSON(langUrl, function(translation) {
+        TWDB.lang = translation;
+        triggerLangLoaded();
+      }).fail(function() {
+        // Fallback: try to load from local file structure
+        var localLangUrl = `${TWDB.script.folder_url}langs/${TWDB.script.langs[TWDB.script.preferences.lang]}`;
+        if (TWDB.script.protocol === "https") {
+          localLangUrl = `https://${localLangUrl}`;
+        } else {
+          localLangUrl = `http://${localLangUrl}`;
+        }
+        $.getJSON(`${localLangUrl}?${TWDB.script.version * 100}`, function(translation) {
+          TWDB.lang = translation;
+          triggerLangLoaded();
+        }).fail(function() {
+          // Final fallback: use empty object
+          TWDB.lang = {};
+          triggerLangLoaded();
+        });
+      });
       TWDB.Util = (function (e) {
         var t = {};
         var n = function (t, n) {
           var r = "twdb_css";
           if (typeof n !== "undefined" && typeof n === "string") {
-            r += "_" + n.replace(/\W+/g, "");
+            r += `_${n.replace(/\W+/g, "")}`;
           }
-          if (e("head style#" + r).append("\n" + t).length === 1) {
+          if (e(`head style#${r}`).append(`\n${t}`).length === 1) {
             return;
           } else {
-            e("head").append(e('<style type="text/css" id="' + r + '">').text(t));
+            e("head").append(e(`<style type="text/css" id="${r}">`).text(t));
           }
         };
         t.addCss = function (e, t) {
@@ -177,10 +262,9 @@
         var s = function () {
           var e = [],
             t,
-            n,
-            r = "twdb_" + Character.playerId + "_",
+            r = `twdb_${Character.playerId}_`,
             i;
-          if (localStorage.getItem(r + "embackup") === true) {
+          if (localStorage.getItem(`${r}embackup`) === true) {
             return;
           }
           for (i = 0; i < localStorage.length; i++) {
@@ -191,16 +275,16 @@
             ) {
               e.push({
                 key: t,
-                newkey: "backup_" + t,
+                newkey: `backup_${t}`,
                 val: localStorage.getItem(t),
               });
             }
           }
           for (i = 0; i < e.length; i++) {
             localStorage.setItem(e[i].newkey, e[i].val);
-            console.log("key " + e[i].key.substr(r.length) + " saved.");
+            console.log(`key ${e[i].key.substr(r.length)} saved.`);
           }
-          localStorage.setItem(r + "embackup", true);
+          localStorage.setItem(`${r}embackup`, true);
         };
         t.backupData = function () {
           return s();
@@ -260,7 +344,7 @@
           TWDB.Eventer.set("TWDBdataLoaded", function () {
             e.handleTWDBData();
           });
-          this.gui.copyright = jQuery('<div style="position:absolute;bottom:0px;left:0px;height:15px;display:block;font-size:10px;color:#000000;">.:powered by TW-DB Team:. | <a href="https://tw-db.info" style="font-weight:normal;color:#000000;" target="_blank">.:TW-DB.info:.</a> | ' + "0." + TWDB.script.version + " | BB</div>");
+          this.gui.copyright = jQuery(`<div style="position:absolute;bottom:0px;left:0px;height:15px;display:block;font-size:10px;color:#000000;">.:powered by TW-DB Team:. | <a href="https://tw-db.info" style="font-weight:normal;color:#000000;" target="_blank">.:TW-DB.info:.</a> | 0.${TWDB.script.version} | BB</div>`);
           this.gui.cache = jQuery('<div style="position:absolute;top:10px;right:8px;width:20px;height:20px;cursor:pointer;" />');
           if (!TWDB.Updater.wasUpdated()) {
             var t = TWDB.Cache.load("calcdata");
@@ -291,8 +375,8 @@
         var Images = _base.images;
         var Script = _base.script;
         var ClothCalc = _base.ClothCalc;
-        var Language = _base.Lang;
-        var Debugger = (function (e) {
+        var _Language = _base.lang;
+        var Debugger = (function (_e) {
           var t = {};
           return t;
         })($);
@@ -321,7 +405,7 @@
                   function () {
                     s();
                   },
-                  "TW-DB.info: Παρουσιάστηκε σφάλμα",
+                  TWDB.lang.error_occurred,
                   "tip"
                 )
               );
@@ -348,8 +432,8 @@
             t.appendContent(i);
             var o = wman
               .open(n, null, "noreload")
-              .setMiniTitle("TWDB Errorlog")
-              .setTitle("TW-DB.info - Errorlog")
+              .setMiniTitle(TWDB.lang.errorlog_minititle)
+              .setTitle(TWDB.lang.errorlog_title)
               .appendToContentPane(t.getMainDiv());
           };
           return t;
@@ -397,7 +481,7 @@
               } catch (e) {
                 Error.report(e, "");
                 new UserMessage(
-                  "Η εγγραφή του UserScript TW-DB.info στο TheWestApi απέτυχε.",
+                  TWDB.lang.api_registration_failed,
                   UserMessage.TYPE_FATAL
                 ).show();
                 return d();
@@ -429,30 +513,44 @@
               return true;
             }
           };
-          var h = function () {
-            var t = w.TheWestApi.register(
-              "twdb_clothcalc",
-              "TW-DB.info - Cloth Calc - BB",
-              "2.04",
-              String(Script.game_version),
-              "[tw-db.info] Team - BB",
-              "https://tw-db.info"
+          const h = () => {
+            const scriptInfo = {
+              id: "twdb_clothcalc",
+              name: "TW-DB.info - Cloth Calc - BB",
+              version: "2.04",
+              gameVersion: String(Script.game_version),
+              author: "[tw-db.info] Team - BB",
+              website: "https://tw-db.info",
+            };
+            const paypalForm = `
+              <br><br>
+              <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+                <input name="cmd" value="_s-xclick" type="hidden">
+                <input name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----" type="hidden">
+                <input type="image" src="https://www.paypalobjects.com/en_US/DE/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="${TWDB.lang.paypal_alt}">
+                <img width="1" border="0" height="1" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" alt="">
+              </form>
+              <br>
+            `;
+            // Register the script using object destructuring for cleaner arguments
+            const registeredScript = w.TheWestApi.register(
+              scriptInfo.id,
+              scriptInfo.name,
+              scriptInfo.version,
+              scriptInfo.gameVersion,
+              scriptInfo.author,
+              scriptInfo.website,
             );
-            var n =
-              '<br><br><form action="https://www.paypal.com/cgi-bin/webscr" method="post">' +
-              '<input name="cmd" value="_s-xclick" type="hidden">' +
-              '<input name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----" type="hidden">' +
-              '<input type="image" src="https://www.paypalobjects.com/en_US/DE/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - Ο ασφαλέστερος και ευκολότερος τρόπος για να πληρώνετε online!">' +
-              '<img width="1" border="0" height="1" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" alt=""></form><br>';
-            var r = e(
-              "<div style='font-family:comic sans ms; font-size:13pt; padding-top:10px; text-align:center;' />"
-            ).append(
-              "Το UserScript ClothCalc είναι ένα έργο που δημιουργήθηκε από την ομάδα TW-DB.info. Προσφέρει πολλές δυνατότητες και επεκτάσεις που θα σας δώσει μια βελτιωμένη εμπειρία παιχνιδιού - εξοικονόμηση του χρόνου σας και τη βελτιστοποίηση σε ορισμένες από τις δραστηριότητες σας.",
-              n,
-              "Ευχαριστούμε!"
-            );
-            t.setGui(r);
-            if (t.isOutdated()) {
+            // Create the GUI element using a template literal for better readability
+            const guiContent = e(`
+              <div style="font-family: 'comic sans ms'; font-size: 13pt; padding-top: 10px; text-align: center;">
+                ${TWDB.lang.script_description}
+                ${paypalForm}
+                ${TWDB.lang.thank_you}
+              </div>
+            `);
+            registeredScript.setGui(guiContent);
+            if (registeredScript.isOutdated()) {
               w.TheWestApi.displayOutdated();
             }
           };
@@ -466,7 +564,7 @@
               if (a) {
                 Error.report(
                   { message: "deadlock detected" },
-                  "failed to load module: " + o.key
+                  `failed to load module: ${o.key}`
                 );
                 i[o.key] = true;
                 return p();
@@ -486,7 +584,7 @@
             try {
               o.call();
             } catch (t) {
-              Error.report(t, "failed to load module: " + o.key);
+              Error.report(t, `failed to load module: ${o.key}`);
               i[o.key] = true;
               return p();
             }
@@ -496,7 +594,7 @@
           var d = function () {
             w.clearInterval(s);
             w.setTimeout(function () {
-              delete t;
+              t = null;
             }, 1e3);
           };
           t.stack = n;
@@ -521,7 +619,7 @@
             if (n.ready) {
               return;
             }
-            r = "twdb_" + Character.playerId + "_";
+            r = `twdb_${Character.playerId}_`;
             i = t.load("keys");
             if (!i) {
               i = { keys: true };
@@ -533,7 +631,7 @@
             try {
               return JSON.parse(decodeURIComponent(localStorage.getItem(r + e)));
             } catch (n) {
-              Error.report(n, "load " + e + " from cache");
+              Error.report(n, `load ${e} from cache`);
               t.save(e, null);
               return null;
             }
@@ -544,7 +642,7 @@
               localStorage.setItem(r + e, encodeURIComponent(JSON.stringify(n)));
               return true;
             } catch (i) {
-              Error.report(i, "save " + e + " to cache");
+              Error.report(i, `save ${e} to cache`);
               t.save(e, null);
               return false;
             }
@@ -560,19 +658,17 @@
                   }
                 }
                 new UserMessage(
-                  "Η επαναφορά ολοκληρώθηκε, η σελίδα θα φορτωθεί ξανά",
+                  TWDB.lang.cache_reset_complete,
                   UserMessage.TYPE_SUCCESS
                 ).show();
                 location.href = location.href.replace(location.hash || "#", "");
               } else {
-                var u = e(
-                  "<div><h2>Θέλετε σίγουρα να επαναφέρετε ολόκληρο το Cache του tw-db UserScript;</h2></div>"
-                );
+                var u = e(`<div><h2>Θέλετε σίγουρα να επαναφέρετε ολόκληρο το Cache του tw-db UserScript;</h2></div>`);
                 var a = new west.gui.Textfield("twdb_cache_key")
                   .setSize(40)
-                  .setLabel("Key:");
+                  .setLabel(TWDB.lang.cache_reset_key_label);
                 u.append(a.getMainDiv());
-                var f = new west.gui.Checkbox("all Keys").setSelected(true);
+                var f = new west.gui.Checkbox(TWDB.lang.cache_reset_all_keys).setSelected(true);
                 f.setCallback(function (e) {
                   if (e) {
                     a.setValue("");
@@ -588,18 +684,18 @@
                   e('<div style="display:block;" />').append(f.getMainDiv())
                 );
                 new west.gui.Dialog(
-                  "Επαναφορά Cache tw-db",
+                  TWDB.lang.cache_reset_title,
                   u,
                   west.gui.Dialog.SYS_QUESTION
                 )
-                  .addButton("ΟΚ", function () {
+                  .addButton(TWDB.lang.ok, function () {
                     if (f.isSelected()) {
                       t.reset(true);
                     } else {
                       t.reset(true, a.getValue());
                     }
                   })
-                  .addButton("Ακύρωση")
+                  .addButton(TWDB.lang.cancel)
                   .show();
               }
             } catch (l) {
@@ -611,7 +707,7 @@
         })($);
         _base.Cache = Cache;
         Debugger.Cache = Cache;
-        var Worker = (function (e) {
+        var Worker = (function (_e) {
           var t = {};
           var n = [];
           var r = false;
@@ -636,7 +732,7 @@
             } catch (t) {
               Error.report(t, "Worker");
             }
-            if (n.length == 0) {
+            if (n.length === 0) {
               w.clearInterval(r);
               r = false;
             }
@@ -676,14 +772,14 @@
               i[h.name.toLowerCase()] = h.id;
               s[h.shortname.toLowerCase()] = h.id;
               for (var p in h.yields) {
-                if (isNaN(p) || c[p]) {
+                if (Number.isNaN(p) || c[p]) {
                   continue;
                 }
                 c[p] = true;
                 o.push(Number(p));
               }
             }
-            u = (function (e) {
+            u = (function (_e) {
               var t = {
                 description: "",
                 duration: 1800,
@@ -755,7 +851,7 @@
             }
             var r = e.extend(true, {}, n);
             var i = 1;
-            if (w.Character.charClass == "adventurer") {
+            if (w.Character.charClass === "adventurer") {
               if (w.Premium.hasBonus("character")) {
                 i *= 1.2;
               } else {
@@ -766,11 +862,11 @@
               i *= 1.5;
             }
             for (var s = 0; s < r.randomyields.length; s++) {
-              r.randomyields[s] = (r.randomyields[s] * i).round(2);
+              r.randomyields[s] = round(r.randomyields[s] * i, 2);
             }
-            if (typeof r.yields.length == "undefined") {
+            if (typeof r.yields.length === "undefined") {
               for (var o in r.yields) {
-                r.yields[o].prop = (r.yields[o].prop * i).round(2);
+                r.yields[o].prop = round(r.yields[o].prop * i, 2);
               }
             }
             return r;
@@ -797,7 +893,7 @@
                 "</span>" +
                 '<div class="job" style="position:relative;left:50%;margin:10px -25px;">' +
                 "<div " +
-                (!isDefined(n) ? "" : 'class="featured ' + n + '"') +
+                (!isDefined(n) ? "" : `class="featured ${n}"`) +
                 "></div>" +
                 '<img src="' +
                 Game.cdnURL +
@@ -806,7 +902,8 @@
                 '.png" class="job_icon" >' +
                 "</div>";
             }
-            return (r += "</div>");
+            r += "</div>";
+            return r;
           };
           return t;
         })($);
@@ -824,7 +921,7 @@
               return;
             }
             var t = e('<div title="TW-DB.info | BB" class="menulink" />')
-              .css("background-image", "url(" + Images.button + ")")
+              .css("background-image", `url(${Images.button})`)
               .on("mouseenter", function () {
                 e(this).css("background-position", "-25px 0px");
               })
@@ -866,10 +963,10 @@
               if (!isDefined(o)) {
                 o = u;
               }
-              if (t == u) {
+              if (t === u) {
                 o = u;
               }
-              r.addTab(s[u].name, u, function (e, t) {
+              r.addTab(s[u].name, u, function (_e, t) {
                 f(t);
               });
               s[u].gui.children().remove();
@@ -888,7 +985,7 @@
               return;
             }
             if (s[e].title !== "") {
-              r.setTitle("TW-DB.info - " + s[e].title);
+              r.setTitle(`TW-DB.info - ${s[e].title}`);
             } else {
               r.setTitle("");
             }
@@ -907,13 +1004,13 @@
           return t;
         })($);
         Debugger.Window = Window;
-        var Timer = (function (e) {
+        var Timer = (function (_e) {
           var t = {};
           var n = 0;
           var r = 0;
           var i = 0;
           t.getTimeout = function () {
-            var e = new Date().getTime();
+            var e = Date.now();
             if (e - n < 2e3) {
               r++;
             } else {
@@ -937,7 +1034,7 @@
           return t;
         })($);
         Debugger.Timer = Timer;
-        var Eventer = (function (e) {
+        var Eventer = (function (_e) {
           var t = {};
           var n = {};
           t.set = function (e, t, r) {
@@ -947,7 +1044,7 @@
             if (!isDefined(r)) {
               var r = false;
             }
-            var i = Number(new Date().getTime());
+            var i = Number(Date.now());
             while (n[e][i]) i++;
             n[e][i] = { id: i, call: t, count: r };
             return i;
@@ -962,17 +1059,16 @@
                 continue;
               }
               w.setTimeout(n[e][r].call, 10);
-              if (n[e][r].count == false) {
+              if (n[e][r].count === false) {
                 t++;
                 continue;
               }
               n[e][r].count--;
               if (n[e][r].count > 0) {
                 t++;
-                continue;
               }
             }
-            if (t == 0) {
+            if (t === 0) {
               delete n[e];
             }
           };
@@ -986,22 +1082,26 @@
         })($);
         _base.Eventer = Eventer;
         Debugger.Eventer = Eventer;
-        var Settings = (function (e) {
-          var t = {};
-          var n = {};
-          var r = null;
-          var i = {};
-          var s = function () {
-            if (i.ready) {
+        var Settings = (function ($) {
+          var settings = {}; // Stores the current settings
+          var cache = {}; // Used to load and save settings
+          var settingsWindowTab = null;
+          var loaderModule = {};
+          // Initializes the settings module
+          var initialize = function () {
+            if (loaderModule.ready) {
               return;
             }
-            var e = Cache.load("settings");
-            if (typeof e === "object" && e !== null) {
-              n = e;
+            // Load settings from cache
+            var loadedSettings = Cache.load("settings");
+            if (typeof loadedSettings === "object" && loadedSettings !== null) {
+              settings = loadedSettings;
             } else {
-              n = {};
+              settings = {};
             }
+            // Add custom CSS rules
             TWDB.Util.addCss(`
+              /* Existing CSS for progress bars and other elements */
               span.twdb_sett_capt { font-size: 115%; font-weight: bold; font-style: italic; display: inline-block; margin-top: 8px; text-shadow: 2px 1px 2px #643; }
               .build_progress > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 264px; }
               .rp_row_jobdata > .rp_jobdata_text > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 125px; }
@@ -1018,167 +1118,179 @@
               .achievement-categories-total > .entry > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 204px; }
               .achievement-total-completed > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 623px; }
               #achievement_progress > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 450px; }
-              .achievement-list > .achievement-list-scroll-wrapper > .tw2gui_scrollpane > .tw2gui_scrollpane_clipper > .tw2gui_scrollpane_clipper_contentpane > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 475px; }
+              .achievement-list > .achievement-list-scroll-wrapper > .tw2gui_scrollpane > .tw2gui_scrollpane_clipper > .tw2gui_scrollpane_clipper_contentpane > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 490px; }
               [class^="TWFBT_"] > .tw2gui_window_content_pane > .tw2gui_scrollpane > .tw2gui_scrollpane_clipper > .tw2gui_scrollpane_clipper_contentpane > .tw2gui_progressbar > .tw2gui_progressbar_progress > .tw2gui_progressbar_fill { max-width: 677px; }
               .TWDS_fbs_basestats_content table thead tr {position: sticky; top: 0px; background: wheat;}
               div.job_bestwearbutton {top: 5px !important;}
+              .fort_battle_button_analyzer {left: 304px!important;}
+              .fort_battle_buttons {left: 98px!important;}
+
+              /* New CSS for the refactored settings layout */
+              .settings-container {display: flex; flex-direction: column;
+                gap: 2px; /* Spacing between setting rows/categories */}
+
+              .settings-item {display: flex; align-items: center;
+                gap: 4px; /* Spacing between checkbox and text */}
+
+              .settings-category-header {font-size: 115%; font-weight: bold; font-style: italic; display: block; margin-top: 8px; text-shadow: 2px 1px 2px #643;}
+              .settings-item-checkbox {flex-shrink: 0; width: 25px;}
+              .settings-item-label {flex-grow: 1; cursor: pointer;}
+              .settings-group-header {display: flex; align-items: center; cursor: pointer; margin-top: 8px; padding: 4px 0; border-radius: 3px;}
+              .settings-group-header .icon {width: 16px; height: 16px; background-repeat: no-repeat; margin-left: 5px; margin-right: 5px;}
+              .settings-group-header .butMinus {background-image: url(${Game.cdnURL}/images/scrollbar/scroll_down.png);}
+              .settings-group-header .butPlus {background-image: url(${Game.cdnURL}/images/scrollbar/scroll_up.png);}
+              .settings-group-content {padding-left: 30px; display: none; flex-direction: column; gap: 3px;}
+              .beeper-sound-settings {display: flex; align-items: center; gap: 10px; padding: 4px 0;}
+              .active_tab_id_settings > *, .active_tab_id_notes > * {user-select: none;}
             `);
-            r = Window.addTab("settings", "Ρυθμίσεις", "Ρυθμίσεις", o);
-            i.ready = true;
+            // Add the settings tab to the game window
+            settingsWindowTab = Window.addTab("settings", "Ρυθμίσεις", "Ρυθμίσεις", renderSettingsTab);
+            loaderModule.ready = true;
           };
-          i = Loader.add("Settings", "tw-db Settingssystem", s, {
+          loaderModule = Loader.add("Settings", "tw-db Settingssystem", initialize, {
             Cache: true,
             Window: true,
           });
-          var o = function () {
-            r.children().remove();
-            var i = new west.gui.Scrollpane();
-            e(i.getMainDiv()).css("height", "300px");
-            r.append(i.getMainDiv());
-            var s = [
-              [9, "", "Αποθέματα", false],
-              [0, "collector", "Σημείωση αντικειμένων στον Έμπορο και την Αγορά που δεν έχετε ακόμα στα αποθέματά σας", false],
-              [0, "collector_sell", "Προσθήκη ενός κουμπιού για την πώληση όλων εκτός από ένα επιλεγμένο αντικείμενο στον Έμπορα", false],
-              [0, "pin_items", "Καρφίτσωμα αντικειμένων στο παράθυρο των Αποθεμάτων", false],
-              [9, "", "Αποστολές", false],
-              [0, "quest_cancel", "Επιβεβαίωση ακύρωσης αποστολής", false],
-              [0, "instant_quest", "Ολοκλήρωση μιας αποστολής απευθείας, εάν πληρούνται όλες οι απαιτήσεις", false],
-              [0, "colored_quest", "Αλλαγή του χρώματος των αποστολών που μπορούν να ολοκληρωθούν", false],
-              [9, "", "Δουλειές", false],
-              [0, "job_show_lp", "Προσθήκη των Πόντων εργασίας στα παράθυρα δουλειών", false],
-              [9, "", "Λίστα εργασιών", false],
-              [0, "task_list_points", "Προσθήκη ένδειξης Πόντων εργασίας και συμβουλές πόντων ζωής στην Λίστα εργασιών&nbsp;-&nbsp;[Κάτω δεξιά]", false],
-              [9, "", "Οχυρό", false],
-              [0, "import_westforts", "Προσθήκη του κουμπιού εισαγωγής μαχών οχυρού στο site (westforts)", false],
-              [0, "fort_recruitment", "Προσθήκη της επισκόπησης Στρατολόγησης οχυρού", false],
-              [0, "enhanced_fort_recruitment", "Βελτίωση της καρτέλας Στρατολόγησης πριν την μάχη οχυρού", false],
-              [0, "declare_report", "Σύνδεση της αναφοράς ξεθαψίματος τσεκουριού μάχης στο συγκεκριμένο οχυρό επίθεσης", false],
-              [0, "owned_forts_tab", "Ιδιοκτησία Οχυρών στο προφίλ των πόλεων", false],
-              [0, "cemetery_critical", "Κρίσιμα χτυπήματα και Γύρες με Φάντασμα στο νεκροταφείο οχυρού", false],
-              [0, "total_dmg_battle", "Συνολική προκαλούμενη ζημιά στην περιγραφή κάθε παίκτη κατά τη διάρκεια μάχης οχυρού", false],
-              [0, "battle_info_round", "Εύστοχα χτυπήματα, άστοχες βολές, λαμβανόμενα χτυπήματα και αποφυγές βολών σε κάθε γύρο", false],
-              [9, "", "Πόλη", false],
-              [0, "building_progress", "Εμφάνιση της προόδου κατασκευής σε ένα παράθυρο κτιρίου", false],
-              [0, "church_levels", "Εμφάνιση επιπλέον επιπέδων εκκλησίας που μπορείτε να χτίσετε", false],
-              [0, "improved_ch_tab", "Εμφάνιση μόνο κτιρίων που δεν έχουν κατασκευαστεί πλήρως", false],
-              [0, "town_forum_blink", "Αφαίρεση του αναβοσβήματος του κουμπιού Πόλης εάν υπάρχει νέο μήνυμα στο Φόρουμ Πόλης", false],
-              [9, "", "Αγορά", false],
-              [0, "market_map", "Προσθήκη παραθύρου Χάρτη Αγοράς", false],
-              [0, "market_reminder", "Προσθήκη μιας υπενθύμισης για τις δημοπρασίες της Αγοράς", false],
-              [0, "market_sell_dialog", "Βελτίωση του παραθύρου πωλήσεων στην Αγορά", false],
-              [0, "market_report", "Βελτίωση του εικονιδίου Αναφοράς πώλησης στην Αγορά", false],
-              [0, "improved_market", "Βελτίωση του παραθύρου αγορών στην Αγορά", false],
-              [9, "", "Γραφικά", false],
-              [0, "duel_motivation", "Προσθήκη ενός μόνιμου δείκτη για το Κίνητρο Μονομαχίας&nbsp;-&nbsp;[Κάτω από τον δείκτη Ενέργειας]", false],
-              [0, "direct_sleep", "Προσθήκη ενός κουμπιού για την απευθείας μετάβαση στο Ξενοδοχείο ή στους Στρατώνες", false],
-              [0, "deposit", "Προσθήκη ενός κουμπιού για την Κατάθεση χρημάτων στην Τράπεζα που βρίσκεσαι", false],
-              [0, "no_shop_sale", "Απενεργοποίηση της ειδοποίησης για ΠΩΛΗΣΗ&nbsp;-&nbsp;[Κάτω από το κουμπί Σαλούν]", false],
-              [0, "exp_bar", "Προσθήκη τιμών στην Μπάρα Εμπειρίας - Εύσημα και ευχαριστίες σε (Leones/Slygoxx/Belle Bernice)", false],
-              [0, "mini_chat_gui", "Προσθήκη ενός κουμπιού για την σμίκρυνση των Δωματίων chat", false],
-              [0, "custom_event_counter", "Μετακίνηση μετρητή εκδηλώσεων σε μεγάλες οθόνες (Νόμισμα Εκδήλωσης, Hiro&#38;#39;s script)", false],
-              [0, "no_scrollbars", "Απενεργοποίηση των γραμμών κύλισης σε μικρές οθόνες ή όταν μετακινείτε τα παράθυρα πολύ μακριά", false],
-              [0, "close_all_wear", "Προσθήκη ενός κουμπιού για το αυτόματο κλείσιμο μόνο των παραθύρων των Αποθεμάτων", false],
-              [0, "profile_duel_exp", "Εμφάνιση της εμπειρία μονομαχίας στα προφίλ παικτών", false],
-              [0, "regen_timers", "Προσθήκη χρόνων αναγέννησης στο πορτρέτο του παίκτη", false],
-              [0, "button_church", "Προσθήκη ενός κουμπιού για ευκολότερο άνοιγμα του παραθύρου χτισίματος Εκκλησίας", "Κουμπιά αυτοματοποίησης στα δεξιά"],
-              [0, "button_market", "Προσθήκη ενός κουμπιού για ευκολότερο άνοιγμα του παραθύρου της Αγοράς", "Κουμπιά αυτοματοποίησης στα δεξιά"],
-              [9, "", "Μικρός χάρτης", false],
-              [0, "show_bonus_jobs", "Προσθήκη επιλογής εμφάνισης δουλειών με μπόνους", false],
-              [0, "show_coordinates", "Προσθήκη επιλογής για μετακίνηση σε καθορισμένες συντεταγμένες", false],
-              [9, "", "Premium ρυθμίσεις", false],
-              [0, "no_work_queue_pa", "Απενεργοποίηση ειδοποιήσεων για την αγορά Premium Αυτοματισμού", false],
-              [0, "no_fetch_all_pa", "Απενεργοποίηση Premium προτροπής όταν λαμβάνεις αντικείμενα από την αγορά", false],
-              [0, "no_wof_nuggets", "Απενεργοποίηση Σβόλων ως προεπιλεγμένο μέσο πληρωμών σε εκδηλώσεις (όταν είναι διαθέσιμο)", false],
-              [9, "", "Διάφορα", false],
-              [0, "chat", "Ενεργοποίηση της βελτίωσης συνομιλίας - [Χρώματα στο chat]", false],
-              [0, "notes", "Προσθήκη των Σημειώσεων στο παράθυρο Τηλεγραφείου/Αναφορών", false],
-              [0, "auto_deposit", "Προσθήκη ειδοποίησης για κατάθεση, εάν φτάσετε στην πόλη σας με χρήματα", false],
-              [0, "chest_analyser", "Προσθήκη του Αναλυτή Θηκών στο παράθυρο Τηλεγραφείου/Αναφορών", false],
-              [0, "weekly_crafting", "Προσθήκη ειδοποίησης για την λήξη περιόδου αναμονής των δημιουργιών", false],
-              [0, "telegram_bb_codes", "Προσθήκη ενός κουμπιού για να αλλαγή σε μη μορφοποιημένο κείμενο στα τηλεγραφήματα", false],
-              [0, "enhanced_rankings", "Βελτίωση των καρτελών Κατάταξης και προσθήκη διαφοράς παικτών", false],
-              [0, "select_forum_text", "Μαρκάρισμα κειμένου στο Φόρουμ Πόλης", false],
-              [0, "pin_important_el", "Κρατήστε τη γραμμή Μενού, Εμπειρίας και script πάντα στην κορυφή", false],
-              [0, "night_mode", "Λειτουργία Σκούρου Θέματος για τον χάρτη του The-West", false],
-              [0, "improved_whisper", "Βελτίωση του ήχου Ψιθύρου στα διάφορα chat Σαλούν (Όσο είναι ενεργοποιημένη η ρύθμιση, μπορείτε να ακούσετε και να αλλάξετε κατευθείαν τον ήχο από την παρακάτω λίστα)", false],
+          // Renders the settings tab content
+          var renderSettingsTab = function () {
+            settingsWindowTab.children().remove();
+            var scrollpane = new west.gui.Scrollpane();
+            $(scrollpane.getMainDiv()).css("height", "294px").css("margin-bottom", "6px");
+            settingsWindowTab.append(scrollpane.getMainDiv());
+            // Define setting options using an array of objects
+            const settingOptions = [
+              { type: 'category', title: 'Αποθέματα' },
+              { id: 'collector', text: 'Σημείωση αντικειμένων στον Έμπορο και την Αγορά που δεν έχετε ακόμα στα αποθέματά σας' },
+              { id: 'collector_sell', text: 'Προσθήκη ενός κουμπιού για την πώληση όλων εκτός από ένα επιλεγμένο αντικείμενο στον Έμπορα' },
+              { id: 'pin_items', text: 'Καρφίτσωμα αντικειμένων στο παράθυρο των Αποθεμάτων' },
+              { type: 'category', title: 'Αποστολές' },
+              { id: 'quest_cancel', text: 'Επιβεβαίωση ακύρωσης αποστολής' },
+              { id: 'instant_quest', text: 'Ολοκλήρωση μιας αποστολής απευθείας, εάν πληρούνται όλες οι απαιτήσεις' },
+              { id: 'colored_quest', text: 'Αλλαγή του χρώματος των αποστολών που μπορούν να ολοκληρωθούν' },
+              { type: 'category', title: 'Δουλειές' },
+              { id: 'job_show_lp', text: 'Προσθήκη των Πόντων εργασίας στα παράθυρα δουλειών' },
+              { type: 'category', title: 'Λίστα εργασιών' },
+              { id: 'task_list_points', text: 'Προσθήκη ένδειξης Πόντων εργασίας και συμβουλές πόντων ζωής στην Λίστα εργασιών&nbsp;-&nbsp;[Κάτω δεξιά]' },
+              { type: 'category', title: 'Οχυρό' },
+              { id: 'import_westforts', text: 'Προσθήκη του κουμπιού εισαγωγής μαχών οχυρού στο site (westforts)' },
+              { id: 'fort_recruitment', text: 'Προσθήκη της επισκόπησης Στρατολόγησης οχυρού' },
+              { id: 'enhanced_fort_recruitment', text: 'Βελτίωση της καρτέλας Στρατολόγησης πριν την μάχη οχυρού' },
+              { id: 'declare_report', text: 'Σύνδεση της αναφοράς ξεθαψίματος τσεκουριού μάχης στο συγκεκριμένο οχυρό επίθεσης' },
+              { id: 'owned_forts_tab', text: 'Ιδιοκτησία Οχυρών στο προφίλ των πόλεων' },
+              { id: 'cemetery_critical', text: 'Κρίσιμα χτυπήματα και Γύρες με Φάντασμα στο νεκροταφείο οχυρού' },
+              { id: 'total_dmg_battle', text: 'Συνολική προκαλούμενη ζημιά στην περιγραφή κάθε παίκτη κατά τη διάρκεια μάχης οχυρού' },
+              { id: 'battle_info_round', text: 'Εύστοχα χτυπήματα, άστοχες βολές, λαμβανόμενα χτυπήματα και αποφυγές βολών σε κάθε γύρο' },
+              { type: 'category', title: 'Πόλη' },
+              { id: 'building_progress', text: 'Εμφάνιση της προόδου κατασκευής σε ένα παράθυρο κτιρίου' },
+              { id: 'church_levels', text: 'Εμφάνιση επιπλέον επιπέδων εκκλησίας που μπορείτε να χτίσετε' },
+              { id: 'improved_ch_tab', text: 'Εμφάνιση μόνο κτιρίων που δεν έχουν κατασκευαστεί πλήρως' },
+              { id: 'town_forum_blink', text: 'Αφαίρεση του αναβοσβήματος του κουμπιού Πόλης εάν υπάρχει νέο μήνυμα στο Φόρουμ Πόλης' },
+              { type: 'category', title: 'Αγορά' },
+              { id: 'market_map', text: 'Προσθήκη παραθύρου Χάρτη Αγοράς' },
+              { id: 'market_reminder', text: 'Προσθήκη μιας υπενθύμισης για τις δημοπρασίες της Αγοράς' },
+              { id: 'market_sell_dialog', text: 'Βελτίωση του παραθύρου πωλήσεων στην Αγορά' },
+              { id: 'market_report', text: 'Βελτίωση του εικονιδίου Αναφοράς πώλησης στην Αγορά' },
+              { id: 'improved_market', text: 'Βελτίωση του παραθύρου αγορών στην Αγορά' },
+              { type: 'category', title: 'Γραφικά' },
+              { id: 'duel_motivation', text: 'Προσθήκη ενός μόνιμου δείκτη για το Κίνητρο Μονομαχίας&nbsp;-&nbsp;[Κάτω από τον δείκτη Ενέργειας]' },
+              { id: 'direct_sleep', text: 'Προσθήκη ενός κουμπιού για την απευθείας μετάβαση στο Ξενοδοχείο ή στους Στρατώνες' },
+              { id: 'deposit', text: 'Προσθήκη ενός κουμπιού για την Κατάθεση χρημάτων στην Τράπεζα που βρίσκεσαι' },
+              { id: 'no_shop_sale', text: 'Απενεργοποίηση της ειδοποίησης για ΠΩΛΗΣΗ&nbsp;-&nbsp;[Κάτω από το κουμπί Σαλούν]' },
+              { id: 'exp_bar', text: 'Προσθήκη τιμών στην Μπάρα Εμπειρίας - Εύσημα και ευχαριστίες σε (Leones/Slygoxx/Belle Bernice)' },
+              { id: 'mini_chat_gui', text: 'Προσθήκη ενός κουμπιού για την σμίκρυνση των Δωματίων chat' },
+              { id: 'custom_event_counter', text: 'Μετακίνηση μετρητή εκδηλώσεων σε μεγάλες οθόνες (Νόμισμα Εκδήλωσης, Hiro&#38;#39;s script)' },
+              { id: 'no_scrollbars', text: 'Απενεργοποίηση των γραμμών κύλισης σε μικρές οθόνες ή όταν μετακινείτε τα παράθυρα πολύ μακριά' },
+              { id: 'close_all_wear', text: 'Προσθήγη ενός κουμπιού για το αυτόματο κλείσιμο μόνο των παραθύρων των Αποθεμάτων' },
+              { id: 'profile_duel_exp', text: 'Εμφάνιση της εμπειρία μονομαχίας στα προφίλ παικτών' },
+              { id: 'regen_timers', text: 'Προσθήκη χρόνων αναγέννησης στο πορτρέτο του παίκτη' },
+              { id: 'button_church', text: 'Προσθήκη ενός κουμπιού για ευκολότερο άνοιγμα του παραθύρου χτισίματος Εκκλησίας', group: 'Κουμπιά αυτοματοποίησης στα δεξιά' },
+              { id: 'button_market', text: 'Προσθήκη ενός κουμπιού για ευκολότερο άνοιγμα του παραθύρου της Αγοράς', group: 'Κουμπιά αυτοματοποίησης στα δεξιά' },
+              { type: 'category', title: 'Μικρός χάρτης' },
+              { id: 'show_bonus_jobs', text: 'Προσθήκη επιλογής εμφάνισης δουλειών με μπόνους' },
+              { id: 'show_coordinates', text: 'Προσθήκη επιλογής για μετακίνηση σε καθορισμένες συντεταγμένες' },
+              { type: 'category', title: 'Premium ρυθμίσεις' },
+              { id: 'no_work_queue_pa', text: 'Απενεργοποίηση ειδοποιήσεων για την αγορά Premium Αυτοματισμού' },
+              { id: 'no_fetch_all_pa', text: 'Απενεργοποίηση Premium προτροπής όταν λαμβάνεις αντικείμενα από την αγορά' },
+              { id: 'no_wof_nuggets', text: 'Απενεργοποίηση Σβόλων ως προεπιλεγμένο μέσο πληρωμών σε εκδηλώσεις (όταν είναι διαθέσιμο)' },
+              { type: 'category', title: 'Διάφορα' },
+              { id: 'chat', text: 'Ενεργοποίηση της βελτίωσης συνομιλίας - [Χρώματα στο chat]' },
+              { id: 'notes', text: 'Προσθήκη των Σημειώσεων στο παράθυρο Τηλεγραφείου/Αναφορών' },
+              { id: 'auto_deposit', text: 'Προσθήκη ειδοποίησης για κατάθεση, εάν φτάσετε στην πόλη σας με χρήματα' },
+              { id: 'chest_analyser', text: 'Προσθήκη του Αναλυτή Θηκών στο παράθυρο Τηλεγραφείου/Αναφορών' },
+              { id: 'weekly_crafting', text: 'Προσθήκη ειδοποίησης για την λήξη περιόδου αναμονής των δημιουργιών' },
+              { id: 'telegram_bb_codes', text: 'Προσθήκη ενός κουμπιού για να αλλαγή σε μη μορφοποιημένο κείμενο στα τηλεγραφήματα' },
+              { id: 'enhanced_rankings', text: 'Βελτίωση των καρτελών Κατάταξης και προσθήκη διαφοράς παικτών' },
+              { id: 'select_forum_text', text: 'Μαρκάρισμα κειμένου στο Φόρουμ Πόλης' },
+              { id: 'pin_important_el', text: 'Κρατήστε τη γραμμή Μενού, Εμπειρίας και script πάντα στην κορυφή' },
+              { id: 'night_mode', text: 'Λειτουργία Σκούρου Θέματος για τον χάρτη του The-West' },
+              { id: 'improved_whisper', text: 'Βελτίωση του ήχου Ψιθύρου στα διάφορα chat Σαλούν (Όσο είναι ενεργοποιημένη η ρύθμιση, μπορείτε να ακούσετε και να αλλάσετε κατευθείαν τον ήχο από την παρακάτω λίστα)' },
             ];
-            var o = {};
-            var a = e("<table />");
-            var f = {};
-            for (var l = 0; l < s.length; l++) {
-              var c = s[l][1];
-              o[c] = t.get(c);
-              var h = e("<tr />");
-              if (s[l][0] === 9) {
-                h.append(
-                  e('<td colspan="2" />').append(
-                    e('<span class="twdb_sett_capt" />').text(
-                      (s[l][2] + "").twdb_twiceHTMLUnescape()
-                    )
-                  )
+            var settingsContentContainer = $("<div class='settings-container' />");
+            var groupedSettingsContainers = {};
+            settingOptions.forEach(option => {
+              if (option.type === 'category') {
+                settingsContentContainer.append(
+                  $(`<div class='settings-category-header' />`).text(twiceHTMLUnescape(option.title))
                 );
-                a.append(h);
-                continue;
+                return;
               }
-              if (s[l][0] === 8) {
-                h.addClass("placeholder_" + s[l][1]);
-                a.append(h);
-                continue;
-              }
-              switch (s[l][0]) {
-                case 0:
-                  var p = (function (e) {
-                    return function () {
-                      o[e] = !o[e];
-                    };
-                  })(c);
-                  var d = new west.gui.Checkbox(
-                    "",
-                    !o[c] ? "" : "tw2gui_checkbox_checked",
-                    p
-                  );
-                  h.append(
-                    e('<td style="width:25px;" />').append(d.getMainDiv())
-                  );
-                  break;
-              }
-              h.append(e("<td />").text((s[l][2] + "").twdb_twiceHTMLUnescape()));
-              if (s[l][3]) {
-                var v = s[l][3];
-                if (!isDefined(f[v])) {
-                  f[v] = e("<table />").hide();
-                  a.append(
-                    e(
-                      '<tr><td style="width:25px;cursor:pointer;" /><td style="cursor:pointer;" class="item_sell"><span class="twdb_cat butMinus" style="margin-top: -3px;background: no-repeat url(https://westgr.innogamescdn.com/images/scrollbar/scroll_down.png);width: 350px;height: 16px;" />&nbsp;&nbsp;&nbsp;&nbsp;' +
-                      v.twdb_twiceHTMLUnescape() +
-                      "</td></tr>"
-                    ).click(
-                      (function (t) {
-                        return function () {
-                          e(f[t]).toggle();
-                          e(this)
-                            .find("span.twdb_cat")
-                            .toggleClass("butMinus")
-                            .toggleClass("butPlus");
-                        };
-                      })(v)
-                    ),
-                    e("<tr>").append(
-                      e('<td style="width:25px;">'),
-                      e("<td>").append(f[v])
-                    )
-                  );
+              var isChecked = cache.get(option.id);
+              // The original handler for toggling the setting in `cache`
+              var checkboxHandler = (function (id) {
+                return function () {
+                  cache.set(id, !cache.get(id));
+                };
+              })(option.id);
+              // Create the west.gui.Checkbox instance
+              var checkboxGui = new west.gui.Checkbox(
+                "",
+                !isChecked ? "" : "tw2gui_checkbox_checked",
+                checkboxHandler // This handler is what actually changes the setting in `settings`
+              );
+              const checkboxElement = checkboxGui.getMainDiv(); // This is the div for the checkbox visual
+              // Create the overall settings item wrapper
+              var settingItem = $("<div class='settings-item' />");
+              // Append the checkbox GUI element
+              settingItem.append(
+                $('<div class="settings-item-checkbox" />').append(checkboxElement)
+              );
+              // Append the text label
+              // Changed to div from label as west.gui.Checkbox has its own click
+              const labelTextElement = $(`<div class="settings-item-label" />`).text(twiceHTMLUnescape(option.text));
+              // Make ONLY the labelTextElement clickable to trigger the checkbox toggle
+              labelTextElement.on('click', function() {
+                checkboxGui.toggle(); // Explicitly tell the west.gui.Checkbox component to toggle
+                // The `updateSettingHandler` passed to `west.gui.Checkbox` constructor will
+                // also be called by `checkboxGui.toggle()` internally.
+              });
+              settingItem.append(labelTextElement);
+              if (option.group) {
+                if (!groupedSettingsContainers[option.group]) {
+                  // Create the header for the group
+                  const groupHeader = $(`
+                    <div class="settings-group-header">
+                      <span class="icon butMinus"></span>
+                      <span>${twiceHTMLUnescape(option.group)}</span>
+                    </div>
+                  `);
+                  const groupContent = $("<div class='settings-group-content' />");
+                  groupHeader.click(function () {
+                    groupContent.toggle();
+                    $(this).find(".icon").toggleClass("butMinus").toggleClass("butPlus");
+                  });
+                  settingsContentContainer.append(groupHeader);
+                  settingsContentContainer.append(groupContent);
+                  groupedSettingsContainers[option.group] = groupContent;
                 }
-                f[v].append(h);
+                groupedSettingsContainers[option.group].append(settingItem);
               } else {
-                a.append(h);
+                settingsContentContainer.append(settingItem);
               }
-            }
+            });
             try {
-              var iwRow = e("<tr />");
-              var iwCell = e("<td />");
-              var currentSoundSetting = t.get("beeperSound", 9);
-              var combo = new west.gui.Combobox("beeper_change_sound_settings")
+              var whisperSoundContainer = $("<div class='beeper-sound-settings' />");
+              var currentSoundSetting = cache.get("beeperSound", 9);
+              var soundCombobox = new west.gui.Combobox("beeper_change_sound_settings")
                 .addItem(0, "Προεπιλεγμένος ήχος")
                 .addItem(1, "Bum")
                 .addItem(2, "Chime")
@@ -1191,37 +1303,38 @@
                 .addItem(9, "VK")
                 .addItem(10, "Επιλέξτε αρχείο...")
                 .select(typeof currentSoundSetting === "string" ? 10 : currentSoundSetting)
-                .addListener(function (v) {
-                  var stored = t.get("beeperSound", 9);
-                  var next = v;
-                  if (v === 10 || v === "10") {
-                    var example = "https://             .mp3";
-                    var input = prompt("Επιλέξτε αρχείο:", example);
-                    if (!input && input !== example) {
-                      combo.select(typeof stored === "string" ? 10 : stored);
+                .addListener(function (value) {
+                  var stored = cache.get("beeperSound", 9);
+                  var nextValue = value;
+                  if (value === 10 || value === "10") {
+                    var exampleUrl = "https://example.com/sound.mp3";
+                    var input = prompt(TWDB.lang.select_file, exampleUrl);
+                    if (!input && input !== exampleUrl) {
+                      soundCombobox.select(typeof stored === "string" ? 10 : stored);
                       return;
                     }
-                    next = input;
-                  } else if (typeof v === "string" && /^-?\\d+$/.test(v)) {
-                    next = parseInt(v, 10);
+                    nextValue = input;
+                  } else if (typeof value === "string" && /^-?\d+$/.test(value)) {
+                    nextValue = parseInt(value, 10);
                   }
-                  t.set("beeperSound", next);
+                  cache.set("beeperSound", nextValue);
                   if (window.ChatBeeper && typeof window.ChatBeeper.updateSound === "function") {
                     window.ChatBeeper.updateSound();
                   }
                 });
-              var listenBtn = new west.gui.Button("Ακούστε", function () {
+              var listenButton = new west.gui.Button(TWDB.lang.listen, function () {
                 if (window.ChatBeeper && typeof window.ChatBeeper.play === "function") {
                   window.ChatBeeper.play();
                 }
               }).getMainDiv();
-              iwCell.append(combo.getMainDiv(), e(listenBtn));
-              iwRow.append(e('<td style="width:25px;" />'), iwCell);
-              a.append(iwRow);
-            } catch (ex) {}
-            a.append(e("<tr><td>&nbsp;</td></tr>"));
+              whisperSoundContainer.append(soundCombobox.getMainDiv(), $(listenButton));
+              // Append the container directly. Spacing handled by CSS margin-top.
+              settingsContentContainer.append(whisperSoundContainer);
+            } catch (e) {
+              console.error("Error setting up whisper sound options:", e);
+            }
             function showTextDialog(options) {
-              const inputField = e('<input type="text" />').css({
+              const inputField = $('<input type="text" />').css({
                 width: 'calc(100% - 10px)',
                 maxWidth: '450px',
                 padding: '5px',
@@ -1234,52 +1347,52 @@
                   this.select();
                 });
               }
-              const dialogContent = e('<div>').css({ maxWidth: '470px' }).append(
+              const dialogContent = $('<div>').css({ maxWidth: '470px' }).append(
                 (options.mode === 'export' ?
-                  e('<p>').text('Η αυτόματη αντιγραφή απέτυχε ή δεν υποστηρίζεται. Παρακαλώ αντιγράψτε χειροκίνητα τις Ρυθμίσεις από το παρακάτω πλαίσιο.') :
-                  e('<p>').text('Παρακαλώ επικολλήστε τις Ρυθμίσεις σας στο παρακάτω πλαίσιο και πατήστε Εισαγωγή.')
+                  $('<p>').text(TWDB.lang.export_copy_failed) :
+                  $('<p>').text(TWDB.lang.import_paste_instructions)
                 ),
                 inputField
               );
               const dialog = new west.gui.Dialog(options.title, dialogContent);
               if (options.mode === 'import') {
-                dialog.addButton('Εισαγωγή', function () {
+                dialog.addButton(TWDB.lang.import_settings, function () {
                   if (options.onConfirm) {
                     options.onConfirm(inputField.val());
                   }
                   this.close();
                 });
               }
-              dialog.addButton((options.mode === 'export' ? 'Κλείσιμο' : 'Ακύρωση'), function () {
+              dialog.addButton((options.mode === 'export' ? (TWDB.lang.close) : (TWDB.lang.cancel)), function () {
                 this.close();
                 if (options.mode === 'import') {
-                  new UserMessage("Η εισαγωγή ρυθμίσεων ακυρώθηκε.", UserMessage.TYPE_INFO).show();
+                  new UserMessage(TWDB.lang.import_cancelled, UserMessage.TYPE_INFO).show();
                 }
               }).show();
             }
-            var exportButton = new west.gui.Button("Εξαγωγή", function () {
-              var settingsJson = JSON.stringify(n, null, 2); // Pretty-print for readability
+            var exportButton = new west.gui.Button(TWDB.lang.export_settings, function () {
+              var settingsJson = JSON.stringify(settings, null, 2); // Pretty-print for readability
               console.log(
-                "%c--- ΑΡΧΗ ΕΞΑΓΩΓΗΣ ΡΥΘΜΙΣΕΩΝ ---",
+                `%c--- ${TWDB.lang.export_start} ---`,
                 "color: green; font-weight: bold; font-size: 1.2em;"
               );
               console.log(settingsJson);
               console.log(
-                "%c--- ΤΕΛΟΣ ΕΞΑΓΩΓΗΣ ΡΥΘΜΙΣΕΩΝ ---",
+                `%c--- ${TWDB.lang.export_end} ---`,
                 "color: green; font-weight: bold; font-size: 1.2em;"
               );
-              if (navigator.clipboard && navigator.clipboard.writeText) {
+              if (navigator.clipboard?.writeText) {
                 navigator.clipboard.writeText(settingsJson).then(
                   function () {
                     new UserMessage(
-                      "Οι ρυθμίσεις αντιγράφηκαν αυτόματα στο πρόχειρο.",
+                      TWDB.lang.export_clipboard_success,
                       UserMessage.TYPE_SUCCESS
                     ).show();
                   },
                   function (err) {
-                    console.warn("Αποτυχία αυτόματης αντιγραφής:", err);
+                    console.warn(TWDB.lang.export_clipboard_failed, err);
                     showTextDialog({
-                        title: 'Εξαγωγή Ρυθμίσεων',
+                        title: TWDB.lang.export_dialog_title,
                         initialText: settingsJson,
                         mode: 'export'
                     });
@@ -1287,29 +1400,29 @@
                 );
               } else {
                 showTextDialog({
-                    title: 'Εξαγωγή Ρυθμίσεων',
+                    title: TWDB.lang.export_dialog_title,
                     initialText: settingsJson,
                     mode: 'export'
                 });
               }
             });
-            var importButton = new west.gui.Button("Εισαγωγή", async function () {
-              if (!window.confirm("Προσοχή: Η εισαγωγή ρυθμίσεων θα αντικαταστήσει τις τρέχουσες ρυθμίσεις. Έχετε διαβάσει την προειδοποίηση;")) {
+            var importButton = new west.gui.Button(TWDB.lang.import_settings, async function () {
+              if (!window.confirm(TWDB.lang.import_warning)) {
                 return;
               }
               const performImport = function (settingsString) {
                 if (!settingsString) {
                     new UserMessage(
-                        "Δεν εισήχθησαν ρυθμίσεις στο πλαίσιο. Η εισαγωγή ακυρώθηκε.",
+                        TWDB.lang.import_no_data,
                         UserMessage.TYPE_INFO
                     ).show();
                     return;
                 }
                 console.log(
-                  "%c--- ΕΙΣΑΓΩΓΗ ΡΥΘΜΙΣΕΩΝ ---",
+                  `%c--- ${TWDB.lang.import_start} ---`,
                   "color: blue; font-weight: bold; font-size: 1.2em;"
                 );
-                console.log("Το ακόλουθο JSON θα εισαχθεί: \n\n" + settingsString + "\n");
+                console.log(`${TWDB.lang.import_json_preview} \n\n${settingsString}\n`);
                 console.log(
                   "%c------------------------------------------",
                   "color: blue; font-weight: bold; font-size: 1.2em;"
@@ -1317,24 +1430,24 @@
                 try {
                   var importedSettings = JSON.parse(settingsString);
                   for (var key in importedSettings) {
-                    if (importedSettings.hasOwnProperty(key)) {
-                      n[key] = importedSettings[key];
+                    if (Object.hasOwn(importedSettings, key)) {
+                      settings[key] = importedSettings[key];
                     }
                   }
-                  Cache.save("settings", n);
+                  Cache.save("settings", settings);
                   new west.gui.Dialog(
-                    "Εισαγωγή Ρυθμίσεων",
-                    "Φορτώστε ξανά το παιχνίδι για την αποθήκευση.",
+                    TWDB.lang.import_dialog_title,
+                    TWDB.lang.import_success_reload,
                     "ok"
                   )
                     .setModal(true, false, true)
                     .show();
                 } catch (error) {
                   new UserMessage(
-                    "Σφάλμα στην εισαγωγή ρυθμίσεων. Ελέγξτε αν το κείμενο είναι σωστό JSON.",
+                    TWDB.lang.import_error,
                     UserMessage.TYPE_ERROR
                   ).show();
-                  console.error("Σφάλμα εισαγωγής ρυθμίσεων:", error);
+                  console.error(TWDB.lang.import_error_log, error);
                 }
               };
               try {
@@ -1343,76 +1456,132 @@
                 }
                 navigator.clipboard.readText().then(
                   function (str) {
-                    new UserMessage("Οι Ρυθμίσεις αναγνώστηκαν από το πρόχειρο. Προχωράμε στην εισαγωγή...", UserMessage.TYPE_SUCCESS).show();
+                    new UserMessage(TWDB.lang.import_clipboard_success, UserMessage.TYPE_SUCCESS).show();
                     performImport(str);
                   },
                   function (err) {
-                    console.warn("Αποτυχία αυτόματης ανάγνωσης προχείρου:", err);
-                    new UserMessage("Αποτυχία αυτόματης ανάγνωσης προχείρου.", UserMessage.TYPE_INFO).show();
+                    console.warn(TWDB.lang.import_clipboard_failed, err);
+                    new UserMessage(TWDB.lang.import_clipboard_failed, UserMessage.TYPE_INFO).show();
                     throw err;
                   }
-                ).catch(function(err) {
+                ).catch(function() {
                     showTextDialog({
-                        title: 'Εισαγωγή Ρυθμίσεων',
+                        title: TWDB.lang.import_dialog_title,
                         initialText: '',
                         mode: 'import',
                         onConfirm: performImport
                     });
                 });
               } catch (err) {
-                console.warn("Σφάλμα στο try/catch για ανάγνωση προχείρου, ενεργοποίηση χειροκίνητης εισαγωγής:", err);
+                console.warn(TWDB.lang.import_clipboard_error, err);
                 showTextDialog({
-                    title: 'Εισαγωγή Ρυθμίσεων',
+                    title: TWDB.lang.import_dialog_title,
                     initialText: '',
                     mode: 'import',
                     onConfirm: performImport
                 });
               }
             });
-            var g = new west.gui.Button("Αποθήκευση", function () {
-              u(o);
+            var saveButton = new west.gui.Button(TWDB.lang.save_settings, function () {
+              saveSettings(settings);
             });
-            var y = e('<div style="width:100%;text-align:right;" />').append(
-              e(
-                '<img style="position:relative;top:-20px;cursor:pointer;" title=" Επαναφορά Ρυθμίσεων" src="' +
+            var resetButton = $(
+              `<div style="position: absolute; right: 0; top: calc(100% - 18px); width: auto; text-align: right;" />`
+            ).append(
+              $(
+                `<img style="cursor:pointer;" title="${TWDB.lang.reset_settings}" src="` +
                 Images.iconReset +
                 '" />'
               ).click(function () {
                 Cache.reset();
+                new UserMessage(
+                  TWDB.lang.cache_reset_complete,
+                  UserMessage.TYPE_INFO
+                ).show();
+                // Optionally reload the settings tab to reflect changes
+                renderSettingsTab();
               })
             );
-            i.appendContent(a);
-            r.append(g.getMainDiv())
+            scrollpane.appendContent(settingsContentContainer);
+            // Language selector
+            var langLabel = $(`<div style="font-weight:bold;float: inline-start; align-items: center; display: flex; height: 26px; margin-right: 4px;">${TWDB.lang.script_lang}</div>`);
+            var langCombobox = new west.gui.Combobox()
+              .addItem("en_US", "English")
+              .addItem("el_GR", "Ελληνικά")
+              .select(TWDB.script.preferences.lang || "el_GR")
+              .addListener(function (val) {
+                TWDB.script.preferences.lang = val;
+                localStorage.setItem("TWDB_preferences", JSON.stringify(TWDB.script.preferences));
+                // Reload language file
+                var langUrl = `${TWDB.script.langs.base_url + TWDB.script.langs[TWDB.script.preferences.lang]}?${TWDB.script.version * 100}`;
+                if (TWDB.script.protocol === "https") {
+                  langUrl = `https://${langUrl}`;
+                } else {
+                  langUrl = `http://${langUrl}`;
+                }
+                $.getJSON(langUrl, function (translation) {
+                  TWDB.lang = translation;
+                  new UserMessage(`${TWDB.lang.script_lang} ${TWDB.lang.cache_reset_complete}`, UserMessage.TYPE_INFO).show();
+                  // Re-render settings tab to update with new language strings
+                  renderSettingsTab();
+                }).fail(function () {
+                  var localLangUrl = `${TWDB.script.folder_url}langs/${TWDB.script.langs[TWDB.script.preferences.lang]}`;
+                  if (TWDB.script.protocol === "https") {
+                    localLangUrl = `https://${localLangUrl}`;
+                  } else {
+                    localLangUrl = `http://${localLangUrl}`;
+                  }
+                  $.getJSON(`${localLangUrl}?${TWDB.script.version * 100}`, function (translation) {
+                    TWDB.lang = translation;
+                    new UserMessage(`${TWDB.lang.script_lang} ${TWDB.lang.cache_reset_complete}`, UserMessage.TYPE_INFO).show();
+                    // Re-render settings tab to update with new language strings
+                    renderSettingsTab();
+                  }).fail(function () {
+                    new UserMessage(`${TWDB.lang.script_lang} ${TWDB.lang.cache_reset_complete}`, UserMessage.TYPE_INFO).show();
+                    // Even if failed, try to re-render to ensure consistency
+                    renderSettingsTab();
+                  });
+                });
+              });
+            var langContainer = $('<div style="float: right; margin-right:4px;"></div>')
+              .append(langLabel)
+              .append(langCombobox.getMainDiv());
+            settingsWindowTab
+              .append(langContainer)
+              .append(saveButton.getMainDiv())
               .append(exportButton.getMainDiv())
               .append(importButton.getMainDiv())
-              .append(y);
+              .append(resetButton);
             Window.hideLoader();
           };
-          t.get = function (e, r) {
-            if (!isDefined(n[e])) {
-              t.set(e, r);
-              return r;
+          cache.get = function (key, defaultValue) {
+            if (!isDefined(settings[key])) {
+              cache.set(key, defaultValue);
+              return defaultValue;
             }
-            return n[e];
+            return settings[key];
           };
-          t.set = function (e, t) {
-            n[e] = t;
-            Cache.save("settings", n);
+          cache.set = function (key, value) {
+            settings[key] = value;
+            Cache.save("settings", settings);
           };
-          var u = function (e) {
-            for (var t in e) {
-              n[t] = e[t];
+          // Saves the settings to cache
+          var saveSettings = function (newSettings) {
+            for (var key in newSettings) {
+              if (Object.hasOwn(newSettings, key)) {
+                settings[key] = newSettings[key];
+              }
             }
-            if (Cache.save("settings", n)) {
+            if (Cache.save("settings", settings)) {
               new UserMessage(
                 "Αποθήκευση επιτυχής",
                 UserMessage.TYPE_SUCCESS
               ).show();
             } else {
-              new UserMessage("?save_error", UserMessage.TYPE_ERROR).show();
+              new UserMessage(TWDB.lang.save_error, UserMessage.TYPE_ERROR).show();
             }
           };
-          return t;
+          return cache; // Return the cache object as the public interface
         })($);
         _base.Settings = Settings;
         Debugger.Settings = Settings;
@@ -1442,12 +1611,11 @@
               Cache.save("version", Script.version);
               i = true;
               var e = "Το UserScript έχει ενημερωθεί!";
-              var t =
-                '<div class="txcenter">Το UserScript =1= ανανεώθηκε. Θέλετε να δείτε τα χαρακτηριστικά έκδοσης;</div>';
-              t = t.replace("=1=", "<b>" + Script.name + "</b>");
+              var t = `<div class="txcenter">Το UserScript =1= ανανεώθηκε. Θέλετε να δείτε τα χαρακτηριστικά έκδοσης;</div>`;
+              t = t.replace("=1=", `<b>${Script.name}</b>`);
               new west.gui.Dialog(e, t, "warning")
-                .addButton("Όχι")
-                .addButton("Ναι", function () {
+                .addButton(TWDB.lang.no)
+                .addButton(TWDB.lang.yes, function () {
                   Window.open("notes");
                 })
                 .show();
@@ -1460,18 +1628,10 @@
           });
           var o = function (e) {
             var n = "Το UserScript χρειάζεται ανανέωση";
-            var r =
-              '<div class="txcenter">Μια νέα έκδοση είναι διαθέσιμη για το UserScript =1=, παρακαλώ κάντε κλικ στο OK για να το ανανεώσετε.</div>';
-            r = r.replace("=1=", "<b>" + Script.name + "</b>");
-            r +=
-              "<div><br />Τρέχουσα έκδοση: " +
-              "0." +
-              Script.version +
-              "<br />Νέα έκδοση: " +
-              "0." +
-              e +
-              "</div>";
-            var i = Script.protocol + "://" + Script.update_link + Script.name_max + Script.update_suffix;
+            var r = `<div class="txcenter">Μια νέα έκδοση είναι διαθέσιμη για το UserScript =1=, παρακαλώ κάντε κλικ στο OK για να το ανανεώσετε.</div>`;
+            r = r.replace("=1=", `<b>${Script.name}</b>`);
+            r += `<div><br />Τρέχουσα έκδοση: 0.${Script.version}<br />Νέα έκδοση: 0.${e}</div>`;
+            var i = `${Script.protocol}://${Script.update_link}${Script.name_max}${Script.update_suffix}`;
             var s = function () {
               window.open(i);
               new west.gui.Dialog(
@@ -1483,8 +1643,8 @@
                 .show();
             };
             new west.gui.Dialog(n, r, west.gui.Dialog.SYS_WARNING)
-              .addButton("Όχι τώρα")
-              .addButton("ΟΚ", s)
+              .addButton(TWDB.lang.not_now)
+              .addButton(TWDB.lang.ok, s)
               .show();
           };
           t.wasUpdated = function () {
@@ -1496,17 +1656,12 @@
             e(t.getMainDiv()).css("height", "335px");
             var n = false;
             for (var i = 0; i < Script.notes.length; i++) {
-              var s = e(
-                "<h3><a>Έκδοση - " +
-                "0." +
-                String(Script.notes[i].version) +
-                "</a></h3>"
-              )
+              var s = e(`<h3><a>Έκδοση - 0.${String(Script.notes[i].version)}</a></h3>`)
                 .css("border-bottom", "1px solid black")
                 .click(function () {
                   e(this).next().toggle();
                 });
-              var o = e("<div>" + Script.notes[i].notes + "</div>");
+              var o = e(`<div>${Script.notes[i].notes}</div>`);
               t.appendContent(s).appendContent(o);
               if (n) {
                 o.hide();
@@ -1518,17 +1673,10 @@
           };
           t.query = function () {
             setTimeout(function () {
-              e.getScript(
-                Script.protocol +
-                "://" +
-                Script.folder_url +
-                Script.check +
-                "?" +
-                new Date().getTime()
-              );
+              e.getScript(`${Script.protocol}://${Script.folder_url}${Script.check}?${Date.now()}`);
             }, 500);
           };
-          t.check = function (e, n) {
+          t.check = function (e) {
             if (Script.version !== e) {
               o(e);
             }
@@ -1569,7 +1717,7 @@
                 "ul.tw2gui_selectbox_content.twdb_sleepmenu > li {padding-right: 20px!important;}";
               TWDB.Util.addCss(e);
               s = Cache.load("barracks");
-              if (s == null || typeof s !== "object") {
+              if (s === null || typeof s !== "object") {
                 s = {};
               }
               v();
@@ -1585,7 +1733,7 @@
           var v = function () {
             n = GameInject.CharacterButton.add(Images.buttonSleep);
             n.addMousePopup("Ύπνος").click(function (e) {
-              if (w.Character.homeTown.town_id !== 0 && r.length == 0) b();
+              if (w.Character.homeTown.town_id !== 0 && r.length === 0) b();
               else y(e);
             });
           };
@@ -1629,7 +1777,7 @@
               function (r) {
                 if (r.error) return new UserMessage(r.msg).show();
                 h[e].stage = r.hotel_level;
-                if (++c == t) m(h, n, t);
+                if (++c === t) m(h, n, t);
               }
             );
           };
@@ -1646,8 +1794,8 @@
               var n = h.length > 5 ? 5 : h.length;
               c = 0;
               for (var i = 0; i < n; i++) {
-                if (h[i].hasOwnProperty("stage")) {
-                  if (++c == n) m(h, e, n);
+                if (Object.hasOwn(h[i], "stage")) {
+                  if (++c === n) m(h, e, n);
                 } else g(i, n, e);
               }
             } else {
@@ -1685,7 +1833,7 @@
             });
           };
           var x = function () {
-            if (w.Character.homeTown.alliance_id == 0)
+            if (w.Character.homeTown.alliance_id === 0)
               Ajax.remoteCall("fort_overview", "", {}, function (e) {
                 for (var t in e.js) {
                   var n = e.js[t],
@@ -1733,7 +1881,7 @@
               e.extend(s[n], { id: n, x: t.x, y: t.y, name: t.name });
               if (
                 s[n].stage !== 5 &&
-                s[n].time + o * 86400 > new Date().getTime() / 1e3
+                s[n].time + o * 86400 > Date.now()/ 1e3
               ) {
                 r.push(s[n]);
                 if (i.length > 0) {
@@ -1753,7 +1901,7 @@
                   if (e.error) {
                     new UserMessage(e.error).show();
                   } else {
-                    s[n].time = Number(new Date().getTime() / 1e3).round(0);
+                    s[n].time = Math.floor(Date.now() / 1e3);
                     if (isDefined(e.barrackStage)) {
                       s[n].stage = e.barrackStage;
                     }
@@ -1775,23 +1923,920 @@
           return t;
         })($);
         Debugger.Sleep = Sleep;
-        var Analyser = (function (e) {
-          var t = {};
-          var n = false;
-          var r = null;
-          var s = null;
-          var o = false;
-          var u = [];
-          var a = [];
-          var f = 0;
-          var l = {};
-          var c = {};
-          t.extra = false;
-          var h = {};
-          var p = function () {
-            if (h.ready) {
-              return;
+        var Analyser = (function (jQuery) { // 'e' is now 'jQuery' for clarity
+          // --- Module-level private state variables (renamed from t, n, r, s, o, u, a, f, l, c, h) ---
+          var publicApi = {}; // Renamed from 't'. This will be the object returned by the IIFE.
+          // var isModuleReady = false; // Renamed from 'n', but now `analyserLoaderConfig.isReady` serves this.
+          var statisticData = null; // Renamed from 'r'. Stores all main statistics.
+          var initialStatisticSnapshot = null; // Renamed from 's'. Snapshot for restore.
+          var isReportFetchingActive = false; // Renamed from 'o'. Flag for fetching state.
+          var reportFetchQueue = []; // Renamed from 'u'. Queue of reports to process.
+          var failedReportIds = []; // Renamed from 'a'. List of reports that failed parsing.
+          var currentReportFetchPage = 0; // Renamed from 'f'. Current page number being fetched.
+          // UI-related state (renamed from 'l')
+          var uiState = {
+            currentWindowElement: null, // The jQuery object for the specific analyser tab's content.
+            progressBar: null,
+            tableRows: [], // jQuery objects for table rows, used for sorting.
+            tableFooter: null, // jQuery object for the table footer.
+            tableBodyScrollpane: null, // west.gui.Scrollpane instance for table body.
+          };
+          // Sort and Average state (renamed from 'c')
+          var sortAndDisplayState = {
+            order: 1, // 1 for ascending, -1 for descending.
+            sortByColumn: 0, // Index of the column currently being sorted.
+            displayMode: "avg", // "avg" or "sum" for display.
+          };
+          // Loader configuration object (renamed from 'h').
+          // Will contain `isReady` property instead of separate `n` flag.
+          var analyserLoaderConfig = {};
+          publicApi.extra = false; // Renamed from 't.extra'. Public flag for extra data presence.
+          // --- Helper Functions for Data Reset (renamed from handleResetLogic, displayResetConfirmationDialog) ---
+          /**
+           * Performs the actual statistic reset logic based on type and an initial value.
+           * Renamed from `handleResetLogic`.
+           * @param {string} type - "job", "duel", "chest", "all"
+           * @param {string|number|null} [initialValue] - The report link or report ID.
+           */
+          function executeStatisticReset(type, initialValue) {
+            let processedValue;
+            if (!initialValue) {
+              processedValue = 0;
+            } else {
+              const reportRegex = /\[report=([0-9]+)([A-Fa-f0-9]{10})\]/;
+              const match = String(initialValue).match(reportRegex);
+              if (match) {
+                processedValue = match[1]; // Extract the report ID
+              } else {
+                processedValue = initialValue; // Use original value if no match
+              }
             }
+            let finalValue;
+            const parsedValue = parseInt(processedValue, 10);
+            if (Number.isNaN(parsedValue)) {
+              finalValue = 0;
+            } else {
+              finalValue = parsedValue - 1;
+            }
+            switch (type) {
+              case "job":
+                statisticData[type] = { last: finalValue, items: { last: 0 } };
+                break;
+              case "duel":
+                statisticData[type] = { last: finalValue };
+                break;
+              case "chest":
+                statisticData[type] = {};
+                break;
+              case "all":
+                statisticData = { ver: 4 }; // Uses 'statisticData'
+                // Recursively call for individual types with a reset start point
+                executeStatisticReset("job", finalValue + 1);
+                executeStatisticReset("duel", finalValue + 1);
+                executeStatisticReset("chest", finalValue + 1);
+                break;
+            }
+          }
+          /**
+           * Displays a confirmation dialog for resetting analyser statistics.
+           * Renamed from `displayResetConfirmationDialog`.
+           * @param {string} type - The analyser type to reset ("job", "duel", "chest").
+           */
+          function showResetConfirmationDialog(type) {
+            const dialogContent = jQuery(`
+              <div><h2>Θέλετε πραγματικά να επαναφέρετε τα στατιστικά του Αναλυτή Δουλειών;</h2><span style="font-size:12px"><br />Δώστε τον σύνδεσμο αναφοράς της πρώτης αναφοράς που θα πρέπει να διαβαστεί μετά την επαναφορά</span></div>
+            `);
+            const linkTextfield = new west.gui.Textfield("twdb_analyser_last").setSize(40);
+            linkTextfield.setLabel(TWDB.lang.report_link_label);
+            dialogContent.append(linkTextfield.getMainDiv());
+            const useAllCheckbox = new west.gui.Checkbox(TWDB.lang.use_all_reports);
+            const useFutureCheckbox = new west.gui.Checkbox(TWDB.lang.use_future_reports);
+            useAllCheckbox.setCallback(function (checked) {
+              if (checked) {
+                useFutureCheckbox.setSelected(false);
+                linkTextfield.setValue("");
+              }
+            });
+            useFutureCheckbox.setCallback(function (checked) {
+              if (checked) {
+                useAllCheckbox.setSelected(false);
+                linkTextfield.setValue("");
+              }
+            });
+            jQuery(linkTextfield.getMainDiv()).find("span").css("font-size", "12px");
+            jQuery(linkTextfield.getMainDiv())
+              .find("input")
+              .keyup(function () {
+                useAllCheckbox.setSelected(false);
+                useFutureCheckbox.setSelected(false);
+              });
+            dialogContent.append(
+              jQuery('<div style="display:block;" />')
+                .append(useAllCheckbox.getMainDiv())
+                .append(useFutureCheckbox.getMainDiv())
+            );
+            const dialog = new west.gui.Dialog(TWDB.lang.reset_report_analyser, dialogContent);
+            dialog.addButton(TWDB.lang.ok, function () {
+              if (useAllCheckbox.isSelected()) {
+                executeStatisticReset(type);
+              } else if (useFutureCheckbox.isSelected()) {
+                executeStatisticReset(type, statisticData[type].last + 1);
+              } else {
+                executeStatisticReset(type, linkTextfield.getValue());
+              }
+              dialog.hide();
+              MessagesWindow.open(`analyser-${type}`);
+            });
+            dialog.addButton(TWDB.lang.cancel); // Assuming TWDB.lang.cancel is defined, else "Ακύρωση"
+            dialog.show();
+          }
+          /**
+           * Main dispatcher for reset actions. (renamed from `d`)
+           * @param {string} type - The analyser type.
+           * @param {boolean} [shouldExecuteImmediately=false] - If true, skips dialog.
+           * @param {*} [initialValue] - Value to pass for reset logic.
+           */
+          var dispatchResetAction = function (type, shouldExecuteImmediately = false, initialValue) {
+            if (shouldExecuteImmediately) {
+              executeStatisticReset(type, initialValue);
+            } else {
+              showResetConfirmationDialog(type);
+            }
+          };
+          // --- Report Fetching and Processing Functions (renamed from m, g, y, b, w, E, S, x) ---
+          /** Initiates fetching reports for a given type. (renamed from `m`) */
+          var startReportFetchProcess = function (type) {
+            if (isReportFetchingActive) return;
+            isReportFetchingActive = true;
+            reportFetchQueue = []; // Clear previous queue
+            currentReportFetchPage = 0; // Reset page counter
+            fetchReportsPage(type, 1);
+          }
+          /** Fetches a single page of reports. (renamed from `g`) */
+          var fetchReportsPage = function (type, pageNum) {
+            if (!pageNum) {
+              pageNum = 1;
+            }
+            currentReportFetchPage = pageNum;
+            Ajax.remoteCall(
+              "reports",
+              "get_reports",
+              { page: pageNum, folder: type },
+              function (response) {
+                processFetchedReportsResponse(type, response);
+              }
+            );
+          }
+          /** Processes the response from a report fetch. (renamed from `y`) */
+          var processFetchedReportsResponse = function (type, response) {
+            let continueFetching = true;
+            if (typeof response.reports !== "object" || response.reports === null) {
+              response.reports = [];
+              continueFetching = false;
+            }
+            // Ensure we are processing the page we requested, helps with out-of-order responses
+            if (typeof response.page === "undefined" || currentReportFetchPage !== response.page) {
+              response.reports = [];
+              continueFetching = false;
+            }
+            for (let i = 0; i < response.reports.length; i++) {
+              const report = response.reports[i];
+              // Stop if we encounter a report that's already processed
+              if (report.report_id <= statisticData[type].last) {
+                continueFetching = false;
+                break;
+              }
+              reportFetchQueue.push({ id: report.report_id, hash: report.hash, type: type });
+            }
+            uiState.progressBar.setMaxValue(reportFetchQueue.length); // Update progress bar max value
+            if (continueFetching) {
+              window.setTimeout(() => fetchReportsPage(type, currentReportFetchPage + 1), Timer.getTimeout());
+            } else {
+              processNextReportFromQueue(type); // Start processing the gathered reports
+            }
+          }
+          /** Processes reports from the queue one by one. (renamed from `b`) */
+          var processNextReportFromQueue = function (type) {
+            if (reportFetchQueue.length > 0) {
+              uiState.progressBar.setValue(uiState.progressBar.getValue() + 1);
+              fetchSingleReportDetails(reportFetchQueue.pop()); // Pop and fetch oldest report
+            } else {
+              Cache.save("statistic", statisticData);
+              isReportFetchingActive = false;
+              displayAnalyserTab(type, true); // Refresh UI with new data
+            }
+          }
+          /** Fetches full details for a single report. (renamed from `w`) */
+          var fetchSingleReportDetails = function (reportMeta) {
+            jQuery.post(
+              "game.php?window=reports&mode=show_report",
+              { flash: null, hash: reportMeta.hash, report_id: reportMeta.id },
+              function (reportDetails) {
+                handleFetchedReportDetails(reportMeta.type, reportDetails);
+              },
+              "json"
+            );
+          }
+          /** Handles the detailed report data, parsing and saving. (renamed from `E`) */
+          var handleFetchedReportDetails = function (type, reportDetails) {
+            if (!reportDetails || !reportDetails.report_id || !reportDetails.publishHash) {
+              new UserMessage(
+                "empty Server Response",
+                UserMessage.TYPE_ERROR
+              ).show();
+              return false;
+            }
+            if (typeof reportDetails.page !== "string" ||
+                typeof reportDetails.title !== "string" ||
+                typeof reportDetails.js !== "string") {
+              failedReportIds.push(reportDetails.report_id); // Malformed report
+            } else {
+              switch (type) {
+                case "job":
+                  parseAndStoreJobReport(reportDetails); // Calls specific parser
+                  break;
+                case "duel":
+                  parseAndStoreDuelReport(reportDetails); // Calls specific parser
+                  break;
+              }
+              statisticData[type].last = reportDetails.report_id; // Update last processed report ID
+            }
+            window.setTimeout(() => processNextReportFromQueue(type), Timer.getTimeout());
+          }
+          /** Parses and stores data from a Job report. (renamed from `x`) */
+          var parseAndStoreJobReport = function (reportDetails) {
+            const jobData = {
+              id: null, hash: null, job: null, motivation: null, duration: null,
+              wage: null, bond: null, experience: null, injury: 0, killed: false,
+              date_received: null, items: {},
+            };
+            try {
+              jobData.id = reportDetails.report_id;
+              jobData.hash = reportDetails.publishHash;
+              const jobInfo = Jobs.getJobByName(reportDetails.title.slice(reportDetails.title.indexOf(":") + 1));
+              if (!jobInfo) {
+                failedReportIds.push(jobData.id);
+                return false;
+              }
+              jobData.job = jobInfo.id;
+              jobData.date_received = reportDetails.date_received;
+              const reportPage = jQuery(reportDetails.page);
+              reportPage.find(".rp_row_jobdata").each(function (idx) {
+                let valueText = jQuery.trim(jQuery(this).children("span:last-child").html());
+                valueText = valueText.split("&nbsp;").join(" "); // Normalize spaces
+                switch (idx) {
+                  case 0: jobData.motivation = parseInt(valueText.slice(0, valueText.indexOf(" ")), 10); break;
+                  case 1: {
+                    const durationFloat = parseFloat(valueText);
+                    jobData.duration = durationFloat === 1 ? 3600 : durationFloat === 10 ? 600 : durationFloat === 15 ? 15 : null;
+                    if (!jobData.duration) {
+                      Error.report({ message: `Unrecognized time on report:${valueText}` }, "Job-Analyser");
+                    }
+                    break;
+                  }
+                  case 2: jobData.wage = parseInt(valueText.slice(valueText.indexOf(" ") + 1), 10); break;
+                  case 3: jobData.bond = parseInt(valueText, 10); break;
+                  case 4: jobData.experience = parseInt(valueText.slice(0, valueText.indexOf(" ")), 10); break;
+                }
+              });
+              reportPage.find(".rp_hurtmessage_text").each(function () {
+                const regex = /[0-9]+/;
+                jobData.injury = Number(regex.exec(jQuery(this).html()));
+              });
+              reportPage.find(".rp_row_killmessage").each(function () {
+                jobData.killed = true;
+              });
+              const jsCodeLines = reportDetails.js.split(";");
+              jQuery(jsCodeLines).each(function () {
+                const itemRegex = /\s*ItemManager\.get\(([0-9]+)\)\s*\)\.setCount\(([0-9]+)\)/m;
+                const match = itemRegex.exec(this);
+                if (match) {
+                  jobData.items[Number(match[1])] = Number(match[2]);
+                }
+              });
+              // Update statisticData
+              if (!statisticData.job[jobData.job]) {
+                statisticData.job[jobData.job] = { count: 0, products: {} };
+              }
+              const jobStats = statisticData.job[jobData.job];
+              jobStats.count++;
+              if (!jobStats[jobData.motivation]) {
+                jobStats[jobData.motivation] = {
+                  count: 0, duration: 0, wage: 0, bond: 0, experience: 0,
+                  injury: {}, killed: 0, items: {}, extraitems: {},
+                };
+              }
+              const motivationStats = jobStats[jobData.motivation];
+              if (!isDefined(motivationStats.duration)) { motivationStats.duration = 0; }
+              motivationStats.count++;
+              motivationStats.duration += jobData.duration;
+              motivationStats.wage += jobData.wage;
+              motivationStats.bond += jobData.bond;
+              motivationStats.experience += jobData.experience;
+              if (!motivationStats.injury[jobData.injury]) { motivationStats.injury[jobData.injury] = 0; }
+              motivationStats.injury[jobData.injury]++;
+              if (jobData.killed) { motivationStats.killed++; }
+              for (const itemId in jobData.items) {
+                const parsedItemId = Number(itemId);
+                const bountyBagId = 138000; // Specific item ID
+                // Handle Bounty Bags (specific extra item)
+                if (parsedItemId === bountyBagId) {
+                  if (!isDefined(statisticData.extra)) {
+                    statisticData.extra = { count: 0 };
+                    publicApi.extra = true; // Flag for public API if extra is present
+                  }
+                  statisticData.extra.count++;
+                  statisticData.extra[statisticData.extra.count] = jobData;
+                }
+                const itemCount = jobData.items[parsedItemId];
+                const itemObject = ItemManager.get(parsedItemId);
+                // Handle Job Products
+                if (Jobs.isProduct(parsedItemId) !== -1) {
+                  if (!jobStats.products[parsedItemId]) {
+                    jobStats.products[parsedItemId] = { last: 0 };
+                  }
+                  const productStats = jobStats.products[parsedItemId];
+                  for (let k = 0; k < itemCount; k++) {
+                    const occurrencesSinceLast = jobStats.count - productStats.last;
+                    productStats.last = jobStats.count;
+                    if (!productStats[occurrencesSinceLast]) { productStats[occurrencesSinceLast] = 0; }
+                    productStats[occurrencesSinceLast]++;
+                  }
+                }
+                // Handle Extra Items (price 0)
+                else if (itemObject.price === 0) {
+                  if (!motivationStats.extraitems[parsedItemId]) { motivationStats.extraitems[parsedItemId] = 0; }
+                  motivationStats.extraitems[parsedItemId]++;
+                }
+                // Handle other general items (luck-related)
+                else {
+                  // luck = true; // This 'luck' variable is unused and undeclared here, likely a remnant
+                  if (!motivationStats.items[parsedItemId]) { motivationStats.items[parsedItemId] = 0; }
+                  motivationStats.items[parsedItemId]++;
+                }
+              }
+            } catch (error) {
+              failedReportIds.push(jobData.id);
+              Error.report(error, "Job-Analyser parseAndStoreJobReport");
+              return false;
+            }
+          }
+          /**
+           * Placeholder function for processing Duel reports. (renamed from `S`)
+           * Parameter `_reportData` is passed but unused as functionality is not implemented.
+           * @param {*} _reportData - The duel report data.
+           */
+          var parseAndStoreDuelReport = function (_reportData) { };
+          // --- UI Rendering & Interaction for Jobs (renamed from T, N, C, k, L) ---
+          /**
+           * Main function to display the analyser tab content. (renamed from `T`)
+           * @param {string} type - The analyser type ("job", "duel", "chest").
+           * @param {boolean} [forceRefresh=false] - If true, re-renders tables immediately.
+           */
+          var displayAnalyserTab = function (type, forceRefresh) {
+            if (!MessagesWindow.window) return;
+            uiState.currentWindowElement = jQuery(MessagesWindow.window.getContentPane()).find(
+              `.messages-analyser-${type}`
+            );
+            if (typeof forceRefresh === "undefined") {
+              MessagesWindow.window.showLoader();
+              uiState.progressBar = new west.gui.Progressbar(0, reportFetchQueue.length); // Initialize with 0 max
+              uiState.currentWindowElement.children().remove();
+              uiState.currentWindowElement.append(uiState.progressBar.getMainDiv());
+              startReportFetchProcess(type);
+            } else {
+              uiState.currentWindowElement.children().remove();
+              let contentElement;
+              switch (type) {
+                case "job": contentElement = renderJobAnalyserTable(); break;
+                case "duel": contentElement = renderDuelAnalyserTable(); break; // showDuels
+              }
+              uiState.currentWindowElement.append(contentElement);
+              applyTableSorting(); // Apply sorting after render
+              applyTableDisplayMode(); // Apply sum/avg after render
+              applyTableSorting(); // Called again as in original, perhaps for consistency with default sort?
+              MessagesWindow.window.hideLoader();
+            }
+          }
+          /**
+           * Sorts the job analyser table rows based on current `sortAndDisplayState`. (renamed from `N`)
+           * @param {number} [columnIndex] - Optional column index to sort by. If undefined, uses current state.
+           */
+          var applyTableSorting = function (columnIndex) {
+            try {
+              if (typeof columnIndex !== "undefined") {
+                if (sortAndDisplayState.sortByColumn === columnIndex) {
+                  sortAndDisplayState.order *= -1; // Toggle order if same column
+                } else {
+                  sortAndDisplayState.order = 1; // Default to ascending for new column
+                  sortAndDisplayState.sortByColumn = columnIndex;
+                }
+              } else {
+                columnIndex = sortAndDisplayState.sortByColumn; // Use current state if no new column given
+              }
+              const currentOrder = sortAndDisplayState.order;
+              const sortFunction = (row1, row2) => {
+                const val1 = jQuery(row1).find(`.cell_${columnIndex}`).html();
+                const val2 = jQuery(row2).find(`.cell_${columnIndex}`).html();
+                if (Number(val1) === parseFloat(val1)) { // Check if it's a number
+                  return (parseFloat(val1) > parseFloat(val2) ? currentOrder : -currentOrder);
+                } else {
+                  return (val1 > val2 ? currentOrder : -currentOrder);
+                }
+              };
+              uiState.tableRows.sort(sortFunction); // Sort the stored jQuery row objects
+              // Re-append sorted rows to the scrollpane
+              for (let i = 0; i < uiState.tableRows.length; i++) {
+                uiState.tableBodyScrollpane.appendContent(uiState.tableRows[i]);
+              }
+            } catch (error) {
+              Error.report(error, "Analyser applyTableSorting");
+            }
+          }
+          /**
+           * Toggles between 'sum' and 'avg' display modes for table data. (renamed from `C`)
+           */
+          var applyTableDisplayMode = function () {
+            sortAndDisplayState.displayMode = (sortAndDisplayState.displayMode === "avg") ? "sum" : "avg";
+            jQuery(uiState.currentWindowElement)
+              .find("div.row div")
+              .each(function (_param) { // `_param` is an unused index, renamed for clarity
+                const element = jQuery(this);
+                const displayValue = element.data(String(sortAndDisplayState.displayMode));
+                const titleValue = element.data(`${String(sortAndDisplayState.displayMode)}-t`);
+                element.html(displayValue).attr("title", titleValue);
+              });
+          }
+          /**
+           * Renders the Job Analyser table HTML and populates it with data. (renamed from `k`)
+           * @returns {jQuery} The rendered table element.
+           */
+          var renderJobAnalyserTable = function () {
+            uiState.currentWindowElement.addClass("view-rewards"); // Default view
+            sortAndDisplayState = { order: 1, sortByColumn: 0, displayMode: "avg" }; // Explicit initialization
+            const tableHtml = jQuery(`
+              <div class="fancytable">
+              <div class="_bg tw2gui_bg_tl"></div><div class="_bg tw2gui_bg_tr"></div>
+              <div class="_bg tw2gui_bg_bl"></div><div class="_bg tw2gui_bg_br"></div>
+              <div class="trows">
+              <div class="thead statics">
+              <div class="row row_head">
+              <div class="cell_0 view-rewards view-items" style="width:91px; text-align:center;"><span title="Όνομα" style="cursor:pointer, margin-bottom:3px;"><img src="${Images.iconName}"/></span></div><div class="cell_1 view-rewards view-items" style="width:50px; text-align:center;"><span title="Αριθμός"><img src="${Images.iconCount}"/></span></div><div class="cell_2 view-rewards view-items" style="width:50px; text-align:center;"><span title="Διάρκεια"><img src="${Images.iconClock}"/></span></div><div class="cell_3 view-rewards" style="width:50px; text-align:center;"><span title="Εμπειρία"><img src="${Images.iconExperience}"/></span></div><div class="cell_4 view-rewards" style="width:50px; text-align:center;"><span title="Χρήματα"><img src="${Images.iconDollar}"/></span></div><div class="cell_5 view-rewards" style="width:50px; text-align:center;"><span title="Ομόλογα"><img src="${Images.iconUpb}"/></span></div><div class="cell_6 view-rewards" style="width:50px; text-align:center;"><span title="Κίνητρο"><img src="${Images.iconMoti}"/></span></div><div class="cell_7 view-rewards" style="width:50px; text-align:center;"><span title="Κίνδυνος"><img src="${Images.iconDanger}"/></span></div><div class="cell_8 view-rewards" style="width:50px; text-align:center;"><span title="Λιποθύμησες"><img src="${Images.iconKilled}"/></span></div><div class="cell_9 view-rewards" style="width:50px; text-align:center;"><span title="Προϊόντα"><img src="${Images.iconYield}"/></span></div><div class="cell_9 view-items" style="width:63px; text-align:center;"><span title="Προϊόντα"><img src="${Images.iconYield}"/></span></div><div class="cell_10 view-rewards" style="width:50px; text-align:center;"><span title="Αντικείμενα"><img src="${Images.iconItem}"/></span></div><div class="cell_10 view-items" style="width:378px; text-align:center;"><span title="Αντικείμενα"><img src="${Images.iconItem}"/></span></div><div class="cell_11 view-rewards" style="width:41px; text-align:center;"><span title="Τύχη"><img src="${Images.iconLuck}"/></span></div><div class="cell_reset view-rewards view-items" style="width:20px; text-align:right;"><span title="Επαναφορά"><img src="${Images.iconReset}"/></span></div></div></div>
+                      <div class="tbody">
+                      <div class="_bg tw2gui_bg_l"></div><div class="_bg tw2gui_bg_r"></div></div>
+                      <div class="tfoot statics">
+                      <div class="row row_foot"></div></div></div>
+            `);
+            // Attach header click handlers for sorting and resetting
+            tableHtml.find(".row_head > div").each(function () {
+              const headerDiv = jQuery(this);
+              const match = headerDiv.attr("class").match(/cell_(\d+|reset)/);
+              const cellIdentifier = match ? match[1] : null;
+              if (cellIdentifier === "reset") {
+                headerDiv.click(function () {
+                  dispatchResetAction("job"); // Calls dispatchResetAction
+                });
+              } else if (cellIdentifier !== null) {
+                headerDiv.click(((colIdx) => () => applyTableSorting(colIdx))(Number(cellIdentifier)));
+              }
+            });
+            tableHtml.find(".row_head").find("img").css("cursor", "pointer");
+            // Aggregate overall statistics for the job analyser
+            const totalAnalyserStats = {
+              jobs: 0, count: 0, duration: 0, experience: 0, wage: 0, bond: 0,
+              motivation: 0, injury: 0, killed: 0, products: 0, items: 0, luck: 0,
+            };
+            const jobStatistics = statisticData.job;
+            uiState.tableRows = []; // Clear previous rows
+            for (const jobId in jobStatistics) {
+              const jobDetails = Jobs.getJobById(jobId);
+              if (!jobDetails) continue;
+              const jobAggregateStats = {
+                count: 0, duration: 0, experience: 0, wage: 0, bond: 0, motivation: 0,
+                injury: 0, killed: 0, products: 0, items: 0, luck: 0,
+                all_products: {}, all_items: {},
+              };
+              const currentJobStats = jobStatistics[jobId];
+              jobAggregateStats.count = currentJobStats.count;
+              // Calculate potential product yield chance
+              let totalYieldChance = 0;
+              if (Array.isArray(jobDetails.randomyields)) {
+                for (let i = 0; i < jobDetails.randomyields.length; i++) {
+                  totalYieldChance += jobDetails.randomyields[i];
+                }
+              }
+              if (typeof jobDetails.yields === 'object' && jobDetails.yields !== null) {
+                  for (const yieldKey in jobDetails.yields) {
+                      totalYieldChance += jobDetails.yields[yieldKey].prop;
+                  }
+              }
+              // Aggregate product data
+              for (const productId in currentJobStats.products) {
+                if (productId === "last") continue;
+                for (const countKey in currentJobStats.products[productId]) { // Renamed from 'm'
+                  const count = Number(currentJobStats.products[productId][countKey]);
+                  jobAggregateStats.products += count;
+                  const item = ItemManager.get(productId);
+                  if (item) { jobAggregateStats.luck += Number(item.price * count); }
+                  jobAggregateStats.all_products[productId] = (jobAggregateStats.all_products[productId] || 0) + count;
+                }
+              }
+              // Aggregate motivation-specific data
+              for (const motivationKey in currentJobStats) {
+                if (motivationKey === "count" || motivationKey === "products") continue;
+                const motivationStats = currentJobStats[motivationKey];
+                jobAggregateStats.motivation += Number(motivationKey) * motivationStats.count;
+                jobAggregateStats.bond += motivationStats.bond;
+                jobAggregateStats.duration += motivationStats.duration || 0;
+                jobAggregateStats.experience += motivationStats.experience;
+                for (const injuryVal in motivationStats.injury) {
+                  jobAggregateStats.injury += Number(injuryVal) * motivationStats.injury[injuryVal];
+                }
+                for (const itemId in motivationStats.items) {
+                  const count = Number(motivationStats.items[itemId]);
+                  jobAggregateStats.items += count;
+                  const item = ItemManager.get(itemId);
+                  if (item) { jobAggregateStats.luck += Number(item.price * count); }
+                  jobAggregateStats.all_items[itemId] = (jobAggregateStats.all_items[itemId] || 0) + count;
+                }
+                jobAggregateStats.killed += motivationStats.killed;
+                jobAggregateStats.wage += motivationStats.wage;
+              }
+              // Create HTML row for this job
+              const rowElement = jQuery(`<div class="row row_${jobId}" />`);
+              const rowCellsData = [
+                // Cell 0: Job Name
+                {
+                  classes: "cell_0 view-rewards view-items",
+                  style: "width:91px; text-align:left;cursor:pointer;font-size:11px;",
+                  sum: jobDetails.name, sumT: jobDetails.name,
+                  avg: jobDetails.name, avgT: jobDetails.name
+                },
+                // Cell 1: Count
+                {
+                  classes: "cell_1 view-rewards view-items",
+                  style: "width:50px; text-align:center;cursor:pointer;",
+                  sum: jobAggregateStats.count, sumT: jobAggregateStats.count,
+                  avg: jobAggregateStats.count, avgT: jobAggregateStats.count
+                },
+                // Cell 2: Duration
+                {
+                  classes: "cell_2 view-rewards view-items",
+                  style: "width:50px; text-align:center;cursor:pointer;",
+                  sum: round(jobAggregateStats.duration / 3600, 2), sumT: `${String(round(jobAggregateStats.duration / 3600, 2))} ώρες`,
+                  avg: round(jobAggregateStats.duration / (3600 * jobAggregateStats.count), 2), avgT: `&Oslash; ${String(round(jobAggregateStats.duration / (3600 * jobAggregateStats.count), 2))} ώρες`
+                },
+                // Cell 3: Experience
+                {
+                  classes: "cell_3 view-rewards",
+                  style: "width:50px; text-align:center;cursor:pointer;",
+                  sum: jobAggregateStats.experience, sumT: String(jobAggregateStats.experience),
+                  avg: round(jobAggregateStats.experience / jobAggregateStats.count, 2), avgT: `&Oslash; ${String(round(jobAggregateStats.experience / jobAggregateStats.count, 2))}`
+                },
+                // Cell 4: Wage
+                {
+                  classes: "cell_4 view-rewards",
+                  style: "width:50px; text-align:center;cursor:pointer;",
+                  sum: jobAggregateStats.wage, sumT: `$${String(jobAggregateStats.wage)}`,
+                  avg: round(jobAggregateStats.wage / jobAggregateStats.count, 2), avgT: `&Oslash; $${String(round(jobAggregateStats.wage / jobAggregateStats.count, 2))}`
+                },
+                // Cell 5: Bond
+                {
+                  classes: "cell_5 view-rewards",
+                  style: "width:50px; text-align:center;cursor:pointer;",
+                  sum: jobAggregateStats.bond, sumT: String(jobAggregateStats.bond),
+                  avg: round((jobAggregateStats.bond / jobAggregateStats.count) * 100, 2), avgT: `&Oslash; ${String(round((jobAggregateStats.bond / jobAggregateStats.count) * 100, 2))}%`
+                },
+                // Cell 6: Motivation
+                {
+                  classes: "cell_6 view-rewards",
+                  style: "width:50px; text-align:center;cursor:pointer;",
+                  sum: jobAggregateStats.motivation, sumT: `${String(jobAggregateStats.motivation)}%`,
+                  avg: round(jobAggregateStats.motivation / jobAggregateStats.count, 2), avgT: `&Oslash; ${String(round(jobAggregateStats.motivation / jobAggregateStats.count, 2))}%`
+                },
+                // Cell 7: Injury
+                {
+                  classes: "cell_7 view-rewards",
+                  style: "width:50px; text-align:center;cursor:pointer;",
+                  sum: jobAggregateStats.injury, sumT: String(jobAggregateStats.injury),
+                  avg: round(jobAggregateStats.injury / jobAggregateStats.count, 2), avgT: `&Oslash; ${String(round(jobAggregateStats.injury / jobAggregateStats.count, 2))}`
+                },
+                // Cell 8: Killed
+                {
+                  classes: "cell_8 view-rewards",
+                  style: "width:50px; text-align:center;cursor:pointer;",
+                  sum: jobAggregateStats.killed, sumT: String(jobAggregateStats.killed),
+                  avg: round((jobAggregateStats.killed / jobAggregateStats.count) * 100, 2), avgT: `&Oslash; ${String(round((jobAggregateStats.killed / jobAggregateStats.count) * 100, 2))}%`
+                },
+                // Cell 9 (rewards): Products count
+                {
+                  classes: "cell_9 view-rewards",
+                  style: "width:50px; text-align:center;cursor:pointer;",
+                  sum: jobAggregateStats.products, sumT: String(jobAggregateStats.products),
+                  avg: round((jobAggregateStats.products / jobAggregateStats.count) * 100, 2), avgT: `&Oslash; ${String(round((jobAggregateStats.products / jobAggregateStats.count) * 100, 2))}% [${totalYieldChance * 100}%]`
+                },
+                // Cell 9 (items): Product images
+                {
+                  classes: "cell_9 view-items",
+                  style: "width:63px; text-align:center;cursor:pointer;",
+                  sum: jQuery.map(jobAggregateStats.all_products, (count, id) => new tw2widget.Item(ItemManager.get(id)).setCount(count).getMainDiv()),
+                  avg: jQuery.map(jobAggregateStats.all_products, (count, id) => new tw2widget.Item(ItemManager.get(id)).setCount(count).getMainDiv()),
+                  // sumT and avgT are not directly applicable here as it's content
+                },
+                // Cell 10 (rewards): Items count
+                {
+                  classes: "cell_10 view-rewards",
+                  style: "width:50px; text-align:center;cursor:pointer;",
+                  sum: jobAggregateStats.items, sumT: String(jobAggregateStats.items),
+                  avg: round((jobAggregateStats.items / jobAggregateStats.count) * 100, 2), avgT: `&Oslash; ${String(round((jobAggregateStats.items / jobAggregateStats.count) * 100, 2))}%`
+                },
+                // Cell 10 (items): Item images
+                {
+                  classes: "cell_10 view-items",
+                  style: "width:390px; text-align:center;cursor:pointer;",
+                  sum: jQuery.map(jobAggregateStats.all_items, (count, id) => new tw2widget.Item(ItemManager.get(id)).setCount(count).getMainDiv()),
+                  avg: jQuery.map(jobAggregateStats.all_items, (count, id) => new tw2widget.Item(ItemManager.get(id)).setCount(count).getMainDiv()),
+                  // sumT and avgT are not directly applicable here as it's content
+                },
+                // Cell 11: Luck
+                {
+                  classes: "cell_11 view-rewards",
+                  style: "width:50px; text-align:center;cursor:pointer;",
+                  sum: jobAggregateStats.luck, sumT: `$${String(jobAggregateStats.luck)}`,
+                  avg: round(jobAggregateStats.luck / jobAggregateStats.count, 2), avgT: `&Oslash; $${String(round(jobAggregateStats.luck / jobAggregateStats.count, 2))}`
+                }
+              ];
+
+              rowCellsData.forEach((cellData, index) => {
+                const cell = jQuery(`<div class="${cellData.classes}" style="${cellData.style}" ></div>`);
+                cell.data("sum", cellData.sum);
+                cell.data("sum-t", cellData.sumT);
+                cell.data("avg", cellData.avg);
+                cell.data("avg-t", cellData.avgT);
+                if (typeof cellData.sum === 'object' && cellData.sum !== null) { // For item images, append directly
+                    cell.append(cellData.sum);
+                }
+                rowElement.append(cell);
+              });
+              totalAnalyserStats.jobs++; // Only incremented once per job, so outside loop for cells
+              totalAnalyserStats.count += jobAggregateStats.count;
+              totalAnalyserStats.duration += jobAggregateStats.duration;
+              totalAnalyserStats.experience += jobAggregateStats.experience;
+              totalAnalyserStats.wage += jobAggregateStats.wage;
+              totalAnalyserStats.bond += jobAggregateStats.bond;
+              totalAnalyserStats.motivation += jobAggregateStats.motivation;
+              totalAnalyserStats.injury += jobAggregateStats.injury;
+              totalAnalyserStats.killed += jobAggregateStats.killed;
+              totalAnalyserStats.products += jobAggregateStats.products;
+              totalAnalyserStats.items += jobAggregateStats.items;
+              totalAnalyserStats.luck += jobAggregateStats.luck;
+              uiState.tableRows.push(rowElement);
+              rowElement.click(function () {
+                showJobDetailsPopup(jQuery(this).children(".cell_0").html());
+              });
+            }
+            // Set up the body scrollpane
+            uiState.tableBodyScrollpane = new west.gui.Scrollpane();
+            jQuery(uiState.tableBodyScrollpane.getMainDiv()).css("height", "300px");
+            tableHtml.find(".tbody").append(uiState.tableBodyScrollpane.getMainDiv());
+            // Populate footer with total/average statistics
+            uiState.tableFooter = tableHtml.find(".row_foot");
+            const footerCellsData = [
+                // Cell 0: Jobs Count
+                {
+                  classes: "cell_0",
+                  style: "width:71px; text-align:center;",
+                  sum: totalAnalyserStats.jobs, sumT: `${totalAnalyserStats.jobs} Δουλειές`,
+                  avg: totalAnalyserStats.jobs, avgT: `${totalAnalyserStats.jobs} Δουλειές`
+                },
+                // Cell 0 (view-rewards view-items): Sum/Avg toggle button
+                {
+                  classes: "cell_0 view-rewards view-items",
+                  style: "width:87px; text-align:center;cursor:pointer;color:#444;",
+                  sum: "&sum;", sumT: "Αλλαγή σε &Oslash; μέσο όρο",
+                  avg: "&Oslash;", avgT: "Αλλαγή σε &sum; σύνολο",
+                  onClick: applyTableDisplayMode,
+                  onMouseEnter: function() { jQuery(this).css("color", "#888"); },
+                  onMouseLeave: function() { jQuery(this).css("color", "#444"); }
+                },
+                // Cell 1: Total Count
+                {
+                  classes: "cell_1 view-rewards view-items",
+                  style: "width:50px; text-align:center;",
+                  sum: totalAnalyserStats.count, sumT: totalAnalyserStats.count,
+                  avg: totalAnalyserStats.count, avgT: totalAnalyserStats.count
+                },
+                // Cell 2: Total Duration
+                {
+                  classes: "cell_2 view-rewards view-items",
+                  style: "width:50px; text-align:center;",
+                  sum: round(totalAnalyserStats.duration / 3600, 2), sumT: `${String(round(totalAnalyserStats.duration / 3600, 2))} ώρες`,
+                  avg: round(totalAnalyserStats.duration / (3600 * totalAnalyserStats.count), 2), avgT: `&Oslash; ${String(round(totalAnalyserStats.duration / (3600 * totalAnalyserStats.count), 2))} ώρες`
+                },
+                // Cell 3: Total Experience
+                {
+                  classes: "cell_3 view-rewards",
+                  style: "width:50px; text-align:center;",
+                  sum: totalAnalyserStats.experience, sumT: String(totalAnalyserStats.experience),
+                  avg: round(totalAnalyserStats.experience / totalAnalyserStats.count, 2), avgT: `&Oslash; ${String(round(totalAnalyserStats.experience / totalAnalyserStats.count, 2))}`
+                },
+                // Cell 4: Total Wage
+                {
+                  classes: "cell_4 view-rewards",
+                  style: "width:50px; text-align:center;",
+                  sum: totalAnalyserStats.wage, sumT: `$${String(totalAnalyserStats.wage)}`,
+                  avg: round(totalAnalyserStats.wage / totalAnalyserStats.count, 2), avgT: `&Oslash; $${String(round(totalAnalyserStats.wage / totalAnalyserStats.count, 2))}`
+                },
+                // Cell 5: Total Bond
+                {
+                  classes: "cell_5 view-rewards",
+                  style: "width:50px; text-align:center;",
+                  sum: totalAnalyserStats.bond, sumT: String(totalAnalyserStats.bond),
+                  avg: round((totalAnalyserStats.bond / totalAnalyserStats.count) * 100, 2), avgT: `&Oslash; ${String(round((totalAnalyserStats.bond / totalAnalyserStats.count) * 100, 2))}%`
+                },
+                // Cell 6: Total Motivation
+                {
+                  classes: "cell_6 view-rewards",
+                  style: "width:50px; text-align:center;",
+                  sum: totalAnalyserStats.motivation, sumT: `${String(totalAnalyserStats.motivation)}%`,
+                  avg: round(totalAnalyserStats.motivation / totalAnalyserStats.count, 2), avgT: `&Oslash; ${String(round(totalAnalyserStats.motivation / totalAnalyserStats.count, 2))}%`
+                },
+                // Cell 7: Total Injury
+                {
+                  classes: "cell_7 view-rewards",
+                  style: "width:50px; text-align:center;",
+                  sum: totalAnalyserStats.injury, sumT: String(totalAnalyserStats.injury),
+                  avg: round(totalAnalyserStats.injury / totalAnalyserStats.count, 2), avgT: `&Oslash; ${String(round(totalAnalyserStats.injury / totalAnalyserStats.count, 2))}`
+                },
+                // Cell 8: Total Killed
+                {
+                  classes: "cell_8 view-rewards",
+                  style: "width:50px; text-align:center;",
+                  sum: totalAnalyserStats.killed, sumT: String(totalAnalyserStats.killed),
+                  avg: round((totalAnalyserStats.killed / totalAnalyserStats.count) * 100, 2), avgT: `&Oslash; ${String(round((totalAnalyserStats.killed / totalAnalyserStats.count) * 100, 2))}%`
+                },
+                // Cell 9 (rewards): Total Products Count
+                {
+                  classes: "cell_9 view-rewards",
+                  style: "width:50px; text-align:center;",
+                  sum: totalAnalyserStats.products, sumT: String(totalAnalyserStats.products),
+                  avg: round((totalAnalyserStats.products / totalAnalyserStats.count) * 100, 2), avgT: `&Oslash; ${String(round((totalAnalyserStats.products / totalAnalyserStats.count) * 100, 2))}%`
+                },
+                // Cell 9 (items): Total Products placeholder (same data as above)
+                {
+                  classes: "cell_9 view-items",
+                  style: "width:63px; text-align:center;",
+                  sum: totalAnalyserStats.products, sumT: String(totalAnalyserStats.products),
+                  avg: round((totalAnalyserStats.products / totalAnalyserStats.count) * 100, 2), avgT: `&Oslash; ${String(round((totalAnalyserStats.products / totalAnalyserStats.count) * 100, 2))}%`
+                },
+                // Cell 10 (rewards): Total Items Count
+                {
+                  classes: "cell_10 view-rewards",
+                  style: "width:50px; text-align:center;",
+                  sum: totalAnalyserStats.items, sumT: String(totalAnalyserStats.items),
+                  avg: round((totalAnalyserStats.items / totalAnalyserStats.count) * 100, 2), avgT: `&Oslash; ${String(round((totalAnalyserStats.items / totalAnalyserStats.count) * 100, 2))}%`
+                },
+                // Cell 10 (items): Total Items placeholder (same data as above)
+                {
+                  classes: "cell_10 view-items",
+                  style: "width:390px; text-align:center;",
+                  sum: totalAnalyserStats.items, sumT: String(totalAnalyserStats.items),
+                  avg: round((totalAnalyserStats.items / totalAnalyserStats.count) * 100, 2), avgT: `&Oslash; ${String(round((totalAnalyserStats.items / totalAnalyserStats.count) * 100, 2))}%`
+                },
+                // Cell 11: Total Luck
+                {
+                  classes: "cell_11 view-rewards",
+                  style: "width:50px; text-align:center;",
+                  sum: totalAnalyserStats.luck, sumT: `$${String(totalAnalyserStats.luck)}`,
+                  avg: round(totalAnalyserStats.luck / totalAnalyserStats.count, 2), avgT: `&Oslash; $${String(round(totalAnalyserStats.luck / totalAnalyserStats.count, 2))}`
+                }
+              ];
+            footerCellsData.forEach((cellData) => {
+                const cell = jQuery(`<div class="${cellData.classes}" style="${cellData.style}" ></div>`);
+                cell.data("sum", cellData.sum);
+                cell.data("sum-t", cellData.sumT);
+                cell.data("avg", cellData.avg);
+                cell.data("avg-t", cellData.avgT);
+                if (cellData.onClick) {cell.click(cellData.onClick);}
+                if (cellData.onMouseEnter) {cell.on("mouseenter", cellData.onMouseEnter);}
+                if (cellData.onMouseLeave) {cell.on("mouseleave", cellData.onMouseLeave);}
+                uiState.tableFooter.append(cell);
+            });
+            const controlsAndTableWrapper = jQuery('<div style="margin: 0px 6px 0px 6px;width:680px;" />')
+              .append(
+                jQuery(
+                  '<a href="#">Εναλλαγή μεταξύ ανταμοιβών και αντικειμένων που έχουν βρεθεί</a>'
+                )
+                  .css({ marginTop: "-8px", display: "block", textAlign: "center" })
+                  .click(function () {
+                    jQuery(".messages-analyser-job").toggleClass("view-rewards view-items");
+                  })
+              )
+              .append(tableHtml);
+            return controlsAndTableWrapper;
+          }
+          /**
+           * Placeholder for rendering Duel Analyser table.
+           * Renamed from `showDuels`.
+           * @returns {jQuery}
+           */
+          var renderDuelAnalyserTable = function () {
+              return jQuery('<div/>').text('Duel Analyser coming soon!');
+          }
+          /**
+           * Placeholder for displaying detailed job information in a popup.
+           * Renamed from `L`. Parameter `_jobName` is passed but unused as functionality is not implemented.
+           * @param {string} _jobName - The name of the job to display details for.
+           */
+          var showJobDetailsPopup = function (_jobName) { };
+          // --- Chest Analyser Functions (renamed from 'v') ---
+          var ChestAnalyserModule = (function (jQuery) { // Renamed from 'v', param 'e' to 'jQuery'
+            var api = {};
+            /**
+             * Adds chest opening data to statistics.
+             * @param {object} event - The game event object.
+             * @param {object} data - Data from the event, including msg.effects.
+             */
+            api.add = function (event, data) {
+              let chestHandled = false;
+              for (let i = 0; i < data.msg.effects.length; i += 1) {
+                const effect = data.msg.effects[i];
+                if (effect.type === "lottery" || effect.type === "content") {
+                  // Ensure statisticData.chest exists for this chest type
+                  if (!isDefined(statisticData.chest[event.item_id])) {
+                    statisticData.chest[event.item_id] = { count: 0, items: {} };
+                  }
+                  const chestStats = statisticData.chest[event.item_id];
+                  // Increment chest count only once per chest opening
+                  if (!chestHandled) {
+                    chestStats.count++;
+                    chestHandled = true;
+                  }
+                  // Aggregate items received from the chest
+                  effect.items.each(function (item) {
+                    if (!isDefined(chestStats.items[item.item_id])) {
+                      chestStats.items[item.item_id] = 0;
+                    }
+                    chestStats.items[item.item_id] += item.count;
+                  });
+                } else if (effect.type === "learn_recipe") {
+                  TWDB.ClothCalc.recipes[effect.recipe] = 1; // Update recipe status
+                }
+              }
+              Cache.save("statistic", statisticData);
+            };
+            /**
+             * Displays the Chest Analyser UI.
+             */
+            api.show = function () {
+              if (!MessagesWindow.window) return;
+              const chestAnalyserWindow = jQuery(MessagesWindow.window.getContentPane()).find(
+                ".messages-analyser-chest"
+              );
+              MessagesWindow.window.showLoader();
+              chestAnalyserWindow.children().remove();
+              const scrollpane = new west.gui.Scrollpane();
+              jQuery(scrollpane.getMainDiv()).css("height", "385px");
+              chestAnalyserWindow.append(scrollpane.getMainDiv());
+              for (const chestId in statisticData.chest) {
+                const chestStats = statisticData.chest[chestId];
+                // Display the chest itself
+                const chestItemWidget = new tw2widget.Item(ItemManager.get(chestId), "item_inventory").setCount(chestStats.count);
+                chestItemWidget.getImgEl().addClass("item_inventory_img");
+                scrollpane.appendContent(
+                  jQuery(
+                    '<div style="float:left;position:relative;height:61px;width:61px;" />'
+                  ).append(chestItemWidget.getMainDiv())
+                );
+                // Display items obtained from the chest
+                let itemsCount = 0;
+                const itemsContainer = jQuery(
+                  '<div style="float:left;position:relative;width:610px;" />'
+                );
+                for (const itemId in chestStats.items) {
+                  itemsCount++;
+                  const itemWidget = new tw2widget.Item(ItemManager.get(itemId), "item_inventory").setCount(chestStats.items[itemId]);
+                  itemWidget.getImgEl().addClass("item_inventory_img");
+                  itemsContainer.append(itemWidget.getMainDiv());
+                }
+                // Calculate height for divider based on number of items (10 items per row roughly 61px high)
+                const dividerHeight = String(Math.ceil(itemsCount / 10) * 61);
+                scrollpane
+                  .appendContent(
+                    `<div style="float:left;position:relative;width:10px;height:${dividerHeight}px;background: url(/images/window/report/devider_report.png) repeat-y;" />`
+                  )
+                  .appendContent(itemsContainer)
+                  .appendContent(
+                    '<div style="clear:both;position:relative;height:10px;display:block;background: url(/images/window/dailyactivity/wood_devider_horiz.png) repeat-x;" />'
+                  );
+              }
+              MessagesWindow.window.hideLoader();
+            };
+            return api;
+          })(jQuery);
+          // --- Module Initialization (renamed from 'p') ---
+          var initializeAnalyser = function () {
+            if (analyserLoaderConfig.ready) return;
             TWDB.Util.addCss(
               ".messages-analyser-job .item img.tw_item { width: 30px; height: 27px; }" +
               ".messages-analyser-job .item .count { bottom: -4px; }" +
@@ -1801,1138 +2846,83 @@
               ".messages-analyser-job.view-items div.fancytable .row > div.view-items { display: inline-block; }" +
               "div.tw2gui_window .messages-analyser-job div.fancytable div.trows div.tbody div.row { height: auto; }"
             );
-            var t = Cache.load("statistic");
-            if (typeof t == "object" && t !== null) {
-              r = t;
+            // Load statistic data from cache
+            const loadedStats = Cache.load("statistic");
+            if (typeof loadedStats === "object" && loadedStats !== null) {
+              statisticData = loadedStats;
             } else {
-              d("all", true);
+              dispatchResetAction("all", true); // Calls dispatcher
             }
-            if (!r.ver) {
-              d("all", true);
+            // Ensure version exists and migrate if needed
+            if (!statisticData || !statisticData.ver) {
+              dispatchResetAction("all", true); // Calls dispatcher
             }
-            switch (r.ver) {
-              case 1:
-                d("job", true, 1);
-                d("duel", true, 1);
-                r.ver = 2;
-              case 2:
-                d("job", true, 1);
-                d("duel", true, 1);
-                r.ver = 3;
-              case 3:
-                d("chest", true, 1);
-                r.ver = 4;
+            // Version migration logic (with explicit fallthrough comments)
+            switch (statisticData.ver) {
+              // biome-ignore lint/suspicious/noFallthroughSwitchClause: <testing>
+              case 1: {
+                dispatchResetAction("job", true, 1);
+                dispatchResetAction("duel", true, 1);
+                statisticData.ver = 2;
+              }
+              // biome-ignore lint/suspicious/noFallthroughSwitchClause: <testing>
+              case 2: {
+                dispatchResetAction("job", true, 1);
+                dispatchResetAction("duel", true, 1);
+                statisticData.ver = 3;
+              }
+              case 3: {
+                dispatchResetAction("chest", true, 1);
+                statisticData.ver = 4;
+              } break;
             }
-            s = e.extend(true, {}, r);
+            // Create a snapshot for restore functionality
+            initialStatisticSnapshot = jQuery.extend(true, {}, statisticData);
+            // Add tabs to messages window
             GameInject.addTabOnMessagesWindow(
               "Αναλυτής Δουλειών",
               "analyser-job",
               function () {
-                T("job");
+                displayAnalyserTab("job");
               }
             );
+            // Conditionally enable chest analyser
             if (Settings.get("chest_analyser", true)) {
-              GameInject.ItemUse(v.add);
+              GameInject.ItemUse(ChestAnalyserModule.add);
               GameInject.addTabOnMessagesWindow(
                 "Αναλυτής Θήκης",
                 "analyser-chest",
-                function () {
-                  v.show();
-                }
+                ChestAnalyserModule.show
               );
             }
-            h.ready = true;
-          };
-          h = Loader.add("Analyser", "tw-db Job-Analyser", p, {
-            Cache: true,
-            Settings: true,
-            Jobs: true,
+            analyserLoaderConfig.ready = true;
+          }
+          // Attach the initializer to the Loader (renamed from original 'h' assignment)
+          analyserLoaderConfig = Loader.add("Analyser", "tw-db Job-Analyser", initializeAnalyser, {
+            Cache: true, Settings: true, Jobs: true,
           });
-          t.restore = function () {
-            r = e.extend(true, {}, s);
-          };
-          t.debug = function () {
-            console.log(r);
-            console.log(c);
-          };
-          var d = function (t, n, i) {
-            if (n == true) {
-              if (!i) {
-                var i = 0;
-              } else {
-                var s = /\[report=([0-9]+)([A-Fa-f0-9]{10})\]/;
-                var o = String(i).match(s);
-                if (o) {
-                  var i = o[1];
-                }
-              }
-              if (isNaN(parseInt(i, 10))) {
-                var u = 0;
-              } else {
-                var u = parseInt(i, 10) - 1;
-              }
-              switch (t) {
-                case "job":
-                  r[t] = { last: u, items: { last: 0 } };
-                  break;
-                case "duel":
-                  r[t] = { last: u };
-                  break;
-                case "chest":
-                  r[t] = {};
-                  break;
-                case "all":
-                  r = { ver: 4 };
-                  d("job", true, u + 1);
-                  d("duel", true, u + 1);
-                  d("chest", true, u + 1);
-                  break;
-              }
-            } else {
-              var a = e(
-                '<div><h2>Θέλετε πραγματικά να επαναφέρετε τα στατιστικά του Αναλυτή Δουλειών;</h2><span style="font-size:12px"><br />Δώστε τον σύνδεσμο αναφοράς της πρώτης αναφοράς που θα πρέπει να διαβαστεί μετά την επαναφορά</span></div>'
-              );
-              var f = new west.gui.Textfield("twdb_analyser_last").setSize(40);
-              f.setLabel("Σύνδεσμος-Αναφοράς:");
-              a.append(f.getMainDiv());
-              var l = new west.gui.Checkbox(
-                "ή χρησιμοποιήστε όλες τις αναφορές&nbsp;&nbsp;"
-              );
-              var c = new west.gui.Checkbox(
-                "ή χρησιμοποιήστε μόνο μελλοντικές αναφορές"
-              );
-              l.setCallback(function (e) {
-                if (e) {
-                  c.setSelected(false);
-                  f.setValue("");
-                }
-              });
-              c.setCallback(function (e) {
-                if (e) {
-                  l.setSelected(false);
-                  f.setValue("");
-                }
-              });
-              e(f.getMainDiv()).find("span").css("font-size", "12px");
-              e(f.getMainDiv())
-                .find("input")
-                .keyup(function () {
-                  l.setSelected(false);
-                  c.setSelected(false);
-                });
-              a.append(
-                e('<div style="display:block;" />')
-                  .append(l.getMainDiv())
-                  .append(c.getMainDiv())
-              );
-              var h = new west.gui.Dialog("Επαναφορά - ReportAnalyser", a);
-              h.addButton("ΟΚ", function () {
-                if (l.isSelected()) {
-                  d(t, true);
-                } else if (c.isSelected()) {
-                  d(t, true, r[t].last + 1);
-                } else {
-                  d(t, true, f.getValue());
-                }
-                h.hide();
-                MessagesWindow.open("analyser-" + t);
-              });
-              h.addButton("Ακύρωση");
-              h.show();
+          // --- Public API methods (from original `t` object, renamed for clarity) ---
+          publicApi.restore = function () {
+            statisticData = jQuery.extend(true, {}, initialStatisticSnapshot);
+            Cache.save("statistic", statisticData);
+            // Re-render current tab if it's open, or just ensure next render uses restored data
+            const activeTab = MessagesWindow.getActiveTab(); // Assuming this returns the ID
+            if (activeTab?.startsWith('analyser-')) {
+                const type = activeTab.split('-')[1];
+                displayAnalyserTab(type, true); // Force refresh
             }
           };
-          var v = (function (e) {
-            var t = {};
-            t.add = function (e, t) {
-              var n = false;
-              for (i = 0; i < t.msg.effects.length; i += 1) {
-                var s = t.msg.effects[i];
-                if (s.type == "lottery" || s.type == "content") {
-                  if (!isDefined(r.chest[e])) {
-                    r.chest[e] = { count: 0, items: {} };
-                  }
-                  var o = r.chest[e];
-                  if (!n) {
-                    o.count++;
-                    n = true;
-                  }
-                  s.items.each(function (e) {
-                    if (!isDefined(o.items[e.item_id])) {
-                      o.items[e.item_id] = 0;
-                    }
-                    o.items[e.item_id] += e.count;
-                  });
-                } else if (s.type == "learn_recipe")
-                  TWDB.ClothCalc.recipes[s.recipe] = 1;
-              }
-              Cache.save("statistic", r);
-            };
-            t.show = function () {
-              if (!MessagesWindow.window) {
-                return;
-              }
-              var t = e(MessagesWindow.window.getContentPane()).find(
-                ".messages-analyser-chest"
-              );
-              MessagesWindow.window.showLoader();
-              t.children().remove();
-              var n = new west.gui.Scrollpane();
-              e(n.getMainDiv()).css("height", "385px");
-              t.append(n.getMainDiv());
-              for (var i in r.chest) {
-                var s = r.chest[i];
-                var o = new tw2widget.Item(
-                  ItemManager.get(i),
-                  "item_inventory"
-                ).setCount(s.count);
-                o.getImgEl().addClass("item_inventory_img");
-                n.appendContent(
-                  e(
-                    '<div style="float:left;position:relative;height:61px;width:61px;" />'
-                  ).append(o.getMainDiv())
-                );
-                var u = 0;
-                var a = e(
-                  '<div style="float:left;position:relative;width:610px;" />'
-                );
-                for (var f in s.items) {
-                  u++;
-                  var o = new tw2widget.Item(
-                    ItemManager.get(f),
-                    "item_inventory"
-                  ).setCount(s.items[f]);
-                  o.getImgEl().addClass("item_inventory_img");
-                  a.append(o.getMainDiv());
-                }
-                n.appendContent(
-                  '<div style="float:left;position:relative;width:10px;height:' +
-                  String(Math.ceil(u / 10) * 61) +
-                  'px;background: url(/images/window/report/devider_report.png) repeat-y;" />'
-                )
-                  .appendContent(a)
-                  .appendContent(
-                    '<div style="clear:both;position:relative;height:10px;display:block;background: url(/images/window/dailyactivity/wood_devider_horiz.png) repeat-x;" />'
-                  );
-              }
-              MessagesWindow.window.hideLoader();
-            };
-            return t;
-          })(e);
-          var m = function (e) {
-            if (o) {
-              return;
-            }
-            o = true;
-            u = [];
-            g(e);
+          publicApi.debug = function () {
+            console.log("Current Statistic Data:", statisticData);
+            console.log("Current Sort/Display State:", sortAndDisplayState);
+            console.log("Report Queue:", reportFetchQueue);
+            console.log("Failed Report IDs:", failedReportIds);
           };
-          var g = function (e, t) {
-            if (!t) {
-              t = 1;
-            }
-            f = t;
-            Ajax.remoteCall(
-              "reports",
-              "get_reports",
-              { page: t, folder: e },
-              function (t) {
-                y(e, t);
-              }
-            );
+          publicApi.getExtra = function () {
+            return isDefined(statisticData.extra) ? statisticData.extra : null;
           };
-          var y = function (e, t) {
-            var n = true;
-            if (typeof t.reports !== "object") {
-              t.reports = [];
-              n = false;
-            }
-            if (typeof t.page == "undefined" || f !== t.page) {
-              t.reports = [];
-              n = false;
-            }
-            for (var i = 0; i < t.reports.length; i++) {
-              var s = t.reports[i];
-              if (s.report_id <= r[e].last) {
-                n = false;
-                break;
-              }
-              u.push({ id: s.report_id, hash: s.hash, type: e });
-            }
-            l.bar.setMaxValue(u.length);
-            if (n) {
-              window.setTimeout(function () {
-                g(e, f + 1);
-              }, Timer.getTimeout());
-            } else {
-              b(e);
-            }
-          };
-          var b = function (e) {
-            if (u.length > 0) {
-              l.bar.setValue(l.bar.getValue() + 1);
-              w(u.pop());
-            } else {
-              Cache.save("statistic", r);
-              o = false;
-              T(e, true);
-            }
-          };
-          var w = function (t) {
-            e.post(
-              "game.php?window=reports&mode=show_report",
-              { flash: null, hash: t.hash, report_id: t.id },
-              function (e) {
-                E(t.type, e);
-              },
-              "json"
-            );
-          };
-          var E = function (e, t) {
-            if (!t || !t.report_id || !t.publishHash) {
-              new UserMessage(
-                "empty Server Response",
-                UserMessage.TYPE_ERROR
-              ).show();
-              return false;
-            }
-            if (
-              typeof t.page !== "string" ||
-              typeof t.title !== "string" ||
-              typeof t.js !== "string"
-            ) {
-              a.push(t.report_id);
-            } else {
-              switch (e) {
-                case "job":
-                  x(t);
-                  break;
-                case "duel":
-                  S(t);
-                  break;
-              }
-              r[e].last = t.report_id;
-            }
-            window.setTimeout(function () {
-              b(e);
-            }, Timer.getTimeout());
-          };
-          var S = function (e) { };
-          var x = function (n) {
-            try {
-              data = {
-                id: null,
-                hash: null,
-                job: null,
-                motivation: null,
-                duration: null,
-                wage: null,
-                bond: null,
-                experience: null,
-                injury: 0,
-                killed: false,
-                date_received: null,
-                items: {},
-              };
-              data.id = n.report_id;
-              data.hash = n.publishHash;
-              var i = Jobs.getJobByName(n.title.slice(n.title.indexOf(":") + 1));
-              if (!i) {
-                a.push(data.id);
-                return false;
-              }
-              data.job = i.id;
-              data.date_received = n.date_received;
-              var s = e(n.page);
-              s.find(".rp_row_jobdata").each(function (t) {
-                var n = e.trim(e(this).children("span:last-child").html());
-                n = n.split("&nbsp;").join(" ");
-                switch (t) {
-                  case 0:
-                    data.motivation = parseInt(n.slice(0, n.indexOf(" ")), 10);
-                    break;
-                  case 1:
-                    var r = parseFloat(n);
-                    data.duration =
-                      r == 1 ? 3600 : r == 10 ? 600 : r == 15 ? 15 : null;
-                    if (!data.duration)
-                      Error.report(
-                        { message: "Unrecognized time on report:" + n },
-                        "Job-Analyser"
-                      );
-                    break;
-                  case 2:
-                    data.wage = parseInt(n.slice(n.indexOf(" ") + 1), 10);
-                    break;
-                  case 3:
-                    data.bond = parseInt(n, 10);
-                    break;
-                  case 4:
-                    data.experience = parseInt(n.slice(0, n.indexOf(" ")), 10);
-                    break;
-                }
-              });
-              s.find(".rp_hurtmessage_text").each(function () {
-                var t = new RegExp("[0-9]+");
-                data.injury = Number(t.exec(e(this).html()));
-              });
-              s.find(".rp_row_killmessage").each(function () {
-                data.killed = true;
-              });
-              var s = n.js.split(";");
-              e(s).each(function () {
-                var e = new RegExp(
-                  /\s*ItemManager\.get\(([0-9]+)\)\s*\)\.setCount\(([0-9]+)\)/m
-                );
-                var t = e.exec(this);
-                if (t) {
-                  data.items[Number(t[1])] = Number(t[2]);
-                }
-              });
-              if (!r.job[data.job]) {
-                r.job[data.job] = { count: 0, products: {} };
-              }
-              var o = r.job[data.job];
-              o.count++;
-              if (!o[data.motivation]) {
-                o[data.motivation] = {
-                  count: 0,
-                  duration: 0,
-                  wage: 0,
-                  bond: 0,
-                  experience: 0,
-                  injury: {},
-                  killed: 0,
-                  items: {},
-                  extraitems: {},
-                };
-              }
-              var u = o[data.motivation];
-              if (!isDefined(u.duration)) {
-                u.duration = 0;
-              }
-              u.count++;
-              u.duration += data.duration;
-              u.wage += data.wage;
-              u.bond += data.bond;
-              u.experience += data.experience;
-              if (!u.injury[data.injury]) {
-                u.injury[data.injury] = 0;
-              }
-              u.injury[data.injury]++;
-              if (data.killed) {
-                u.killed++;
-              }
-              for (var f in data.items) {
-                var l = Number(f);
-                var c = 138e3;
-                if (l === c) {
-                  if (!isDefined(r.extra)) {
-                    r.extra = { count: 0 };
-                    t.extra = true;
-                  }
-                  r.extra.count++;
-                  r.extra[r.extra.count] = data;
-                }
-                var h = data.items[l];
-                var p = ItemManager.get(l);
-                if (Jobs.isProduct(l) !== -1) {
-                  if (!o.products[l]) {
-                    o.products[l] = { last: 0 };
-                  }
-                  var s = o.products[l];
-                  for (var d = 0; d < h; d++) {
-                    var v = o.count - s.last;
-                    s.last = o.count;
-                    if (!s[v]) {
-                      s[v] = 0;
-                    }
-                    s[v]++;
-                  }
-                } else if (p.price == 0) {
-                  if (!u.extraitems[l]) {
-                    u.extraitems[l] = 0;
-                  }
-                  u.extraitems[l]++;
-                } else {
-                  luck = true;
-                  if (!u.items[l]) {
-                    u.items[l] = 0;
-                  }
-                  u.items[l]++;
-                }
-              }
-            } catch (m) {
-              a.push(data.id);
-              return false;
-            }
-          };
-          var T = function (t, n) {
-            if (!MessagesWindow.window) {
-              return;
-            }
-            l.window = e(MessagesWindow.window.getContentPane()).find(
-              ".messages-analyser-" + t
-            );
-            if (typeof n == "undefined") {
-              MessagesWindow.window.showLoader();
-              l.bar = new west.gui.Progressbar(0, u.length);
-              l.window.children().remove();
-              l.window.append(l.bar.getMainDiv());
-              m(t);
-            } else {
-              switch (t) {
-                case "job":
-                  var r = k();
-                  break;
-                case "duel":
-                  var r = showDuels();
-                  break;
-              }
-              l.window.children().remove();
-              l.window.append(r);
-              N();
-              C();
-              N();
-              MessagesWindow.window.hideLoader();
-            }
-          };
-          var N = function (t) {
-            try {
-              if (typeof t != "undefined") {
-                if (c.type == t) {
-                  c.ord *= -1;
-                } else {
-                  c.ord = 1;
-                  c.type = t;
-                }
-              } else {
-                var t = c.type;
-              }
-              var n = c.ord;
-              var r = function (r, i) {
-                var s = e(r)
-                  .find(".cell_" + t)
-                  .html();
-                var o = e(i)
-                  .find(".cell_" + t)
-                  .html();
-                if (Number(s) == s) {
-                  return s * 1 > o * 1 ? n : -n;
-                } else {
-                  return s > o ? n : -n;
-                }
-              };
-              l.rows.sort(r);
-              for (var i = 0; i < l.rows.length; i++) {
-                l.body_scroll.appendContent(l.rows[i]);
-              }
-            } catch (s) {
-              Error.report(s, "Analyser sort");
-            }
-          };
-          var C = function () {
-            switch (c.avg) {
-              case "avg":
-                c.avg = "sum";
-                break;
-              case "sum":
-                c.avg = "avg";
-                break;
-            }
-            e(l.window)
-              .find("div.row div")
-              .each(function (t) {
-                var n = e(this).data(String(c.avg));
-                var r = e(this).data(String(c.avg) + "-t");
-                e(this).html(n).attr("title", r);
-              });
-          };
-          var k = function () {
-            l.window.addClass("view-rewards");
-            c = { ord: 1, type: 0, avg: "avg" };
-            var t = e(
-              '<div class="fancytable">' +
-              '<div class="_bg tw2gui_bg_tl"></div>' +
-              '<div class="_bg tw2gui_bg_tr"></div>' +
-              '<div class="_bg tw2gui_bg_bl"></div>' +
-              '<div class="_bg tw2gui_bg_br"></div>' +
-              '<div class="trows">' +
-              '<div class="thead statics">' +
-              '<div class="row row_head">' +
-              '<div class="cell_0 view-rewards view-items" style="width:91px; text-align:center;">' +
-              '<span title="Όνομα" style="cursor:pointer, margin-bottom:3px;">' +
-              '<img src="' +
-              Images.iconName +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_1 view-rewards view-items" style="width:50px; text-align:center;">' +
-              '<span title="Αριθμός">' +
-              '<img src="' +
-              Images.iconCount +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_2 view-rewards view-items" style="width:50px; text-align:center;">' +
-              '<span title="Διάρκεια">' +
-              '<img src="' +
-              Images.iconClock +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_3 view-rewards" style="width:50px; text-align:center;">' +
-              '<span title="Εμπειρία">' +
-              '<img src="' +
-              Images.iconExperience +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_4 view-rewards" style="width:50px; text-align:center;">' +
-              '<span title="Χρήματα">' +
-              '<img src="' +
-              Images.iconDollar +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_5 view-rewards" style="width:50px; text-align:center;">' +
-              '<span title="Ομόλογα">' +
-              '<img src="' +
-              Images.iconUpb +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_6 view-rewards" style="width:50px; text-align:center;">' +
-              '<span title="Κίνητρο">' +
-              '<img src="' +
-              Images.iconMoti +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_7 view-rewards" style="width:50px; text-align:center;">' +
-              '<span title="Κίνδυνος">' +
-              '<img src="' +
-              Images.iconDanger +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_8 view-rewards" style="width:50px; text-align:center;">' +
-              '<span title="Λιποθύμησες">' +
-              '<img src="' +
-              Images.iconKilled +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_9 view-rewards" style="width:50px; text-align:center;">' +
-              '<span title="Προϊόντα">' +
-              '<img src="' +
-              Images.iconYield +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_9 view-items" style="width:63px; text-align:center;">' +
-              '<span title="Προϊόντα">' +
-              '<img src="' +
-              Images.iconYield +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_10 view-rewards" style="width:50px; text-align:center;">' +
-              '<span title="Αντικείμενα">' +
-              '<img src="' +
-              Images.iconItem +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_10 view-items" style="width:378px; text-align:center;">' +
-              '<span title="Αντικείμενα">' +
-              '<img src="' +
-              Images.iconItem +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_11 view-rewards" style="width:41px; text-align:center;">' +
-              '<span title="Τύχη">' +
-              '<img src="' +
-              Images.iconLuck +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              '<div class="cell_reset view-rewards view-items" style="width:20px; text-align:right;">' +
-              '<span title="Επαναφορά">' +
-              '<img src="' +
-              Images.iconReset +
-              '" />' +
-              "</span>" +
-              "</div>" +
-              "</div>" +
-              "</div>" +
-              '<div class="tbody">' +
-              '<div class="_bg tw2gui_bg_l"></div>' +
-              '<div class="_bg tw2gui_bg_r"></div>' +
-              "</div>" +
-              '<div class="tfoot statics">' +
-              '<div class="row row_foot"></div>' +
-              "</div>" +
-              "</div>" +
-              "</div>"
-            );
-            t.find(".row_head > div").each(function () {
-              var t = e(this)
-                .attr("class")
-                .match(/cell_(\d+|reset)/)[1],
-                n = e(this).find("img");
-              if (t == "reset") {
-                e(this).click(function () {
-                  d("job");
-                });
-              } else {
-                e(this).click(
-                  (function (e) {
-                    return function () {
-                      N(e);
-                    };
-                  })(t * 1)
-                );
-              }
-            });
-            t.find(".row_head").find("img").css("cursor", "pointer");
-            var n = 0;
-            var i = {
-              jobs: 0,
-              count: 0,
-              duration: 0,
-              experience: 0,
-              wage: 0,
-              bond: 0,
-              motivation: 0,
-              injury: 0,
-              killed: 0,
-              products: 0,
-              items: 0,
-              luck: 0,
-            };
-            var s = r.job;
-            var o = e();
-            l.rows = [];
-            for (var u in s) {
-              var a = Jobs.getJobById(u);
-              if (!a) {
-                continue;
-              }
-              var f = {
-                count: 0,
-                duration: 0,
-                experience: 0,
-                wage: 0,
-                bond: 0,
-                motivation: 0,
-                injury: 0,
-                killed: 0,
-                products: 0,
-                items: 0,
-                luck: 0,
-                all_products: {},
-                all_items: {},
-              };
-              var h = s[u];
-              f.count = h.count;
-              var p = 0;
-              for (var n = 0; n < a.randomyields.length; n++) {
-                p += a.randomyields[n];
-              }
-              if (typeof a.yields.length == "undefined") {
-                for (var v in a.yields) {
-                  p += a.yields[v].prop;
-                }
-              }
-              for (var v in h.products) {
-                for (var m in h.products[v]) {
-                  if (m == "last") {
-                    continue;
-                  }
-                  var g = ItemManager.get(v);
-                  f.products += Number(h.products[v][m]);
-                  f.luck += Number(g.price * h.products[v][m]);
-                  f.all_products[v] = (f.all_products[v] || 0) + h.products[v][m];
-                }
-              }
-              for (var y in h) {
-                if (y == "count" || y == "products") {
-                  continue;
-                }
-                var m = h[y];
-                f.motivation += y * m.count;
-                f.bond += m.bond;
-                f.duration += m.duration || 0;
-                f.experience += m.experience;
-                for (var b in m.injury) {
-                  f.injury += b * m.injury[b];
-                }
-                for (var v in m.items) {
-                  var g = ItemManager.get(v);
-                  f.items += Number(m.items[v]);
-                  f.luck += Number(g.price * m.items[v]);
-                  f.all_items[v] = (f.all_items[v] || 0) + m.items[v];
-                }
-                f.killed += m.killed;
-                f.wage += m.wage;
-              }
-              var w = e('<div class="row row_' + n + '" />');
-              var m = e(
-                '<div class="cell_0 view-rewards view-items" style="width:91px; text-align:left;cursor:pointer;font-size:11px;" ></div>'
-              );
-              m.data("sum", a.name);
-              m.data("sum-t", a.name);
-              m.data("avg", a.name);
-              m.data("avg-t", a.name);
-              w.append(m);
-              i.jobs++;
-              var m = e(
-                '<div class="cell_1 view-rewards view-items" style="width:50px; text-align:center;cursor:pointer;" ></div>'
-              );
-              m.data("sum", f.count);
-              m.data("sum-t", f.count);
-              m.data("avg", f.count);
-              m.data("avg-t", f.count);
-              w.append(m);
-              i.count += f.count;
-              var m = e(
-                '<div class="cell_2 view-rewards view-items" style="width:50px; text-align:center;cursor:pointer;" ></div>'
-              );
-              m.data("sum", (f.duration / 3600).round(2));
-              m.data("sum-t", String((f.duration / 3600).round(2)) + " ώρες");
-              m.data("avg", (f.duration / (3600 * f.count)).round(2));
-              m.data(
-                "avg-t",
-                "&Oslash; " +
-                String((f.duration / (3600 * f.count)).round(2)) +
-                " ώρες"
-              );
-              w.append(m);
-              i.duration += f.duration;
-              var m = e(
-                '<div class="cell_3 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>'
-              );
-              m.data("sum", f.experience);
-              m.data("sum-t", String(f.experience));
-              m.data("avg", (f.experience / f.count).round(2));
-              m.data(
-                "avg-t",
-                "&Oslash; " + String((f.experience / f.count).round(2))
-              );
-              w.append(m);
-              i.experience += f.experience;
-              var m = e(
-                '<div class="cell_4 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>'
-              );
-              m.data("sum", f.wage);
-              m.data("sum-t", "$" + String(f.wage));
-              m.data("avg", (f.wage / f.count).round(2));
-              m.data("avg-t", "&Oslash; $" + String((f.wage / f.count).round(2)));
-              w.append(m);
-              i.wage += f.wage;
-              var m = e(
-                '<div class="cell_5 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>'
-              );
-              m.data("sum", f.bond);
-              m.data("sum-t", String(f.bond));
-              m.data("avg", ((f.bond / f.count) * 100).round(2));
-              m.data(
-                "avg-t",
-                "&Oslash; " + String(((f.bond / f.count) * 100).round(2)) + "%"
-              );
-              w.append(m);
-              i.bond += f.bond;
-              var m = e(
-                '<div class="cell_6 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>'
-              );
-              m.data("sum", f.motivation);
-              m.data("sum-t", String(f.motivation) + "%");
-              m.data("avg", (f.motivation / f.count).round(2));
-              m.data(
-                "avg-t",
-                "&Oslash; " + String((f.motivation / f.count).round(2)) + "%"
-              );
-              w.append(m);
-              i.motivation += f.motivation;
-              var m = e(
-                '<div class="cell_7 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>'
-              );
-              m.data("sum", f.injury);
-              m.data("sum-t", String(f.injury));
-              m.data("avg", (f.injury / f.count).round(2));
-              m.data(
-                "avg-t",
-                "&Oslash; " + String((f.injury / f.count).round(2))
-              );
-              w.append(m);
-              i.injury += f.injury;
-              var m = e(
-                '<div class="cell_8 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>'
-              );
-              m.data("sum", f.killed);
-              m.data("sum-t", String(f.killed));
-              m.data("avg", ((f.killed / f.count) * 100).round(2));
-              m.data(
-                "avg-t",
-                "&Oslash; " + String(((f.killed / f.count) * 100).round(2)) + "%"
-              );
-              w.append(m);
-              i.killed += f.killed;
-              var m = e(
-                '<div class="cell_9 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>'
-              );
-              m.data("sum", f.products);
-              m.data("sum-t", String(f.products));
-              m.data("avg", ((f.products / f.count) * 100).round(2));
-              m.data(
-                "avg-t",
-                "&Oslash; " +
-                String(((f.products / f.count) * 100).round(2)) +
-                "% [" +
-                p * 100 +
-                "%]"
-              );
-              w.append(m);
-              i.products += f.products;
-              var m = e(
-                '<div class="cell_9 view-items" style="width:63px; text-align:center;cursor:pointer;" ></div>'
-              );
-              var E = e.map(f.all_products, function (e, t) {
-                return new tw2widget.Item(ItemManager.get(t))
-                  .setCount(e)
-                  .getMainDiv();
-              });
-              m.data("sum", E);
-              m.data("avg", E);
-              w.append(m);
-              var m = e(
-                '<div class="cell_10 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>'
-              );
-              m.data("sum", f.items);
-              m.data("sum-t", String(f.items));
-              m.data("avg", ((f.items / f.count) * 100).round(2));
-              m.data(
-                "avg-t",
-                "&Oslash; " + String(((f.items / f.count) * 100).round(2)) + "%"
-              );
-              w.append(m);
-              i.items += f.items;
-              var m = e(
-                '<div class="cell_10 view-items" style="width:390px; text-align:center;cursor:pointer;" ></div>'
-              );
-              var E = e.map(f.all_items, function (e, t) {
-                return new tw2widget.Item(ItemManager.get(t))
-                  .setCount(e)
-                  .getMainDiv();
-              });
-              m.data("sum", E);
-              m.data("avg", E);
-              w.append(m);
-              var m = e(
-                '<div class="cell_11 view-rewards" style="width:50px; text-align:center;cursor:pointer;" ></div>'
-              );
-              m.data("sum", f.luck);
-              m.data("sum-t", "$" + String(f.luck));
-              m.data("avg", (f.luck / f.count).round(2));
-              m.data("avg-t", "&Oslash; $" + String((f.luck / f.count).round(2)));
-              w.append(m);
-              i.luck += f.luck;
-              l.rows.push(w);
-              w.click(function () {
-                L(e(this).children(".cell_0").html());
-              });
-              n++;
-            }
-            l.body_scroll = new west.gui.Scrollpane();
-            e(l.body_scroll.getMainDiv()).css("height", "300px");
-            t.find(".tbody").append(l.body_scroll.getMainDiv());
-            l.footer = t.find(".row_foot");
-            var m = e(
-              '<div class="cell_0" style="width:71px; text-align:center;" ></div>'
-            );
-            m.data("sum", i.jobs);
-            m.data("sum-t", i.jobs + " Δουλειές");
-            m.data("avg", i.jobs);
-            m.data("avg-t", i.jobs + " Δουλειές");
-            l.footer.append(m);
-            var m = e(
-              '<div class="cell_0 view-rewards view-items" style="width:87px; text-align:center;cursor:pointer;color:#444;" ></div>'
-            );
-            m.on("mouseenter", function () {
-              e(this).css("color", "#888");
-            }).on("mouseleave", function () {
-              e(this).css("color", "#444");
-            });
-            m.click(function () {
-              C();
-            });
-            m.data("sum", "&sum;");
-            m.data("sum-t", "Αλλαγή σε &Oslash; μέσο όρο");
-            m.data("avg", "&Oslash;");
-            m.data("avg-t", "Αλλαγή σε &sum; σύνολο");
-            l.footer.append(m);
-            var m = e(
-              '<div class="cell_1 view-rewards view-items" style="width:50px; text-align:center;" ></div>'
-            );
-            m.data("sum", i.count);
-            m.data("sum-t", i.count);
-            m.data("avg", i.count);
-            m.data("avg-t", i.count);
-            l.footer.append(m);
-            var m = e(
-              '<div class="cell_2 view-rewards view-items" style="width:50px; text-align:center;" ></div>'
-            );
-            m.data("sum", (i.duration / 3600).round(2));
-            m.data("sum-t", String((i.duration / 3600).round(2)) + " ώρες");
-            m.data("avg", (i.duration / (3600 * i.count)).round(2));
-            m.data(
-              "avg-t",
-              "&Oslash; " +
-              String((i.duration / (3600 * i.count)).round(2)) +
-              " ώρες"
-            );
-            l.footer.append(m);
-            var m = e(
-              '<div class="cell_3 view-rewards" style="width:50px; text-align:center;" ></div>'
-            );
-            m.data("sum", i.experience);
-            m.data("sum-t", String(i.experience));
-            m.data("avg", (i.experience / i.count).round(2));
-            m.data(
-              "avg-t",
-              "&Oslash; " + String((i.experience / i.count).round(2))
-            );
-            l.footer.append(m);
-            var m = e(
-              '<div class="cell_4 view-rewards" style="width:50px; text-align:center;" ></div>'
-            );
-            m.data("sum", i.wage);
-            m.data("sum-t", "$" + String(i.wage));
-            m.data("avg", (i.wage / i.count).round(2));
-            m.data("avg-t", "&Oslash; $" + String((i.wage / i.count).round(2)));
-            l.footer.append(m);
-            var m = e(
-              '<div class="cell_5 view-rewards" style="width:50px; text-align:center;" ></div>'
-            );
-            m.data("sum", i.bond);
-            m.data("sum-t", String(i.bond));
-            m.data("avg", ((i.bond / i.count) * 100).round(2));
-            m.data(
-              "avg-t",
-              "&Oslash; " + String(((i.bond / i.count) * 100).round(2)) + "%"
-            );
-            l.footer.append(m);
-            var m = e(
-              '<div class="cell_6 view-rewards" style="width:50px; text-align:center;" ></div>'
-            );
-            m.data("sum", i.motivation);
-            m.data("sum-t", String(i.motivation) + "%");
-            m.data("avg", (i.motivation / i.count).round(2));
-            m.data(
-              "avg-t",
-              "&Oslash; " + String((i.motivation / i.count).round(2)) + "%"
-            );
-            l.footer.append(m);
-            var m = e(
-              '<div class="cell_7 view-rewards" style="width:50px; text-align:center;" ></div>'
-            );
-            m.data("sum", i.injury);
-            m.data("sum-t", String(i.injury));
-            m.data("avg", (i.injury / i.count).round(2));
-            m.data("avg-t", "&Oslash; " + String((i.injury / i.count).round(2)));
-            l.footer.append(m);
-            var m = e(
-              '<div class="cell_8 view-rewards" style="width:50px; text-align:center;" ></div>'
-            );
-            m.data("sum", i.killed);
-            m.data("sum-t", String(i.killed));
-            m.data("avg", ((i.killed / i.count) * 100).round(2));
-            m.data(
-              "avg-t",
-              "&Oslash; " + String(((i.killed / i.count) * 100).round(2)) + "%"
-            );
-            l.footer.append(m);
-            var m = e(
-              '<div class="cell_9 view-rewards" style="width:50px; text-align:center;" ></div>'
-            );
-            m.data("sum", i.products);
-            m.data("sum-t", String(i.products));
-            m.data("avg", ((i.products / i.count) * 100).round(2));
-            m.data(
-              "avg-t",
-              "&Oslash; " + String(((i.products / i.count) * 100).round(2)) + "%"
-            );
-            l.footer.append(m);
-            var m = e(
-              '<div class="cell_9 view-items" style="width:63px; text-align:center;" ></div>'
-            );
-            m.data("sum", i.products);
-            m.data("sum-t", String(i.products));
-            m.data("avg", ((i.products / i.count) * 100).round(2));
-            m.data(
-              "avg-t",
-              "&Oslash; " + String(((i.products / i.count) * 100).round(2)) + "%"
-            );
-            l.footer.append(m);
-            var m = e(
-              '<div class="cell_10 view-rewards" style="width:50px; text-align:center;" ></div>'
-            );
-            m.data("sum", i.items);
-            m.data("sum-t", String(i.items));
-            m.data("avg", ((i.items / i.count) * 100).round(2));
-            m.data(
-              "avg-t",
-              "&Oslash; " + String(((i.items / i.count) * 100).round(2)) + "%"
-            );
-            l.footer.append(m);
-            var m = e(
-              '<div class="cell_10 view-items" style="width:390px; text-align:center;" ></div>'
-            );
-            m.data("sum", i.items);
-            m.data("sum-t", String(i.items));
-            m.data("avg", ((i.items / i.count) * 100).round(2));
-            m.data(
-              "avg-t",
-              "&Oslash; " + String(((i.items / i.count) * 100).round(2)) + "%"
-            );
-            l.footer.append(m);
-            var m = e(
-              '<div class="cell_11 view-rewards" style="width:50px; text-align:center;" ></div>'
-            );
-            m.data("sum", i.luck);
-            m.data("sum-t", "$" + String(i.luck));
-            m.data("avg", (i.luck / i.count).round(2));
-            m.data("avg-t", "&Oslash; $" + String((i.luck / i.count).round(2)));
-            l.footer.append(m);
-            var o = e('<div style="margin: 0px 6px 0px 6px;width:680px;" />')
-              .append(
-                e(
-                  '<a href="#">Εναλλαγή μεταξύ ανταμοιβών και αντικειμένων που έχουν βρεθεί</a>'
-                )
-                  .css({
-                    marginTop: "-8px",
-                    display: "block",
-                    textAlign: "center",
-                  })
-                  .click(function () {
-                    e(".messages-analyser-job").toggleClass(
-                      "view-rewards view-items"
-                    );
-                  })
-              )
-              .append(t);
-            return o;
-          };
-          var L = function (e) { };
-          t.getExtra = function () {
-            if (isDefined(r.extra)) {
-              return r.extra;
-            }
-            return null;
-          };
-          return t;
-        })($);
+          return publicApi; // Returns the public API object (formerly 't')
+        })(jQuery); // Renamed parameter 'e' to 'jQuery', passed 'jQuery' assuming it's the global jQuery.
         Debugger.Analyser = Analyser;
         var Notes = (function (e) {
           var t = {};
@@ -3092,7 +3082,7 @@
               var f = r[o][1] - s.y;
               var l = Math.sqrt(a * a + f * f);
               var c = window.GameMap.calcWayTime({ x: r[o][0], y: r[o][1] }, s);
-              var h = Number((Math.atan(f / a) * 180) / Math.PI).round(0);
+              var h = round((Math.atan(f / a) * 180) / Math.PI);
               if (a < 0) {
                 h -= 180;
               }
@@ -3125,7 +3115,7 @@
               if (
                 !MinimapWindow.window ||
                 e(MinimapWindow.window.divMain).find(".tw2gui_jobsearch_string")
-                  .length == 0 ||
+                  .length === 0 ||
                 !e(MinimapWindow.window.divMain)
                   .find(".tw2gui_jobsearch_string")
                   .is(":visible")
@@ -3253,7 +3243,7 @@
                 .find("input")
                 .keyup(function (t) {
                   window.setTimeout(function () {
-                    if (t.ctrlKey && t.keyCode == 86 && !t.altKey) {
+                    if (t.ctrlKey && t.keyCode === 86 && !t.altKey) {
                       var n = new RegExp("^([0-9]{1,5})$").exec(
                         e.trim(r.getValue())
                       );
@@ -3265,11 +3255,11 @@
                       }
                       r.setValue(s);
                     }
-                    if (t.keyCode == 13) {
+                    if (t.keyCode === 13) {
                       o();
                       return;
                     }
-                    if (String(e.trim(r.getValue())).length == 0) {
+                    if (String(e.trim(r.getValue())).length === 0) {
                       s = r.getValue();
                       return;
                     }
@@ -3278,7 +3268,7 @@
                     );
                     if (n) {
                       r.setValue(n[1]);
-                      if (String(n[1]).length == 5) {
+                      if (String(n[1]).length === 5) {
                         e(r.getMainDiv()).find("input").focus();
                       }
                       s = r.getValue();
@@ -3353,19 +3343,19 @@
               var h = c.getTime();
               if (
                 f.getUTCHours() < l ||
-                (f.getUTCHours() == l && f.getMinutes() < 15)
+                (f.getUTCHours() === l && f.getMinutes() < 15)
               )
                 h -= 24 * 60 * 60 * 1e3;
               n = Cache.load("bonusjobs") || {};
               i = Cache.load("bonusdisplay") || { gold: false, silver: false };
               for (e in n) {
-                if (!n.hasOwnProperty(e)) {
+                if (!Object.hasOwn(n, e)) {
                   continue;
                 }
                 t = n[e];
                 s = 0;
                 for (a in t) {
-                  if (!t.hasOwnProperty(a)) {
+                  if (!Object.hasOwn(t, a)) {
                     continue;
                   }
                   if (t[a].gold) {
@@ -3378,7 +3368,7 @@
                     delete t[a];
                   }
                 }
-                if (s == 0) {
+                if (s === 0) {
                   delete n[e];
                 }
               }
@@ -3398,23 +3388,23 @@
                 return;
               }
               if (
-                !isDefined(window.GameMap.JobHandler.Featured[t.x + "-" + t.y])
+                !isDefined(window.GameMap.JobHandler.Featured[`${t.x}-${t.y}`])
               ) {
-                if (isDefined(n[t.x + "-" + t.y])) {
-                  delete n[t.x + "-" + t.y];
+                if (isDefined(n[`${t.x}-${t.y}`])) {
+                  delete n[`${t.x}-${t.y}`];
                   Cache.save("bonusjobs", n);
                 }
                 return;
               }
-              var r = window.GameMap.JobHandler.Featured[t.x + "-" + t.y],
+              var r = window.GameMap.JobHandler.Featured[`${t.x}-${t.y}`],
                 i;
-              n[t.x + "-" + t.y] = {};
+              n[`${t.x}-${t.y}`] = {};
               for (i in r) {
-                if (!r.hasOwnProperty(i)) {
+                if (!Object.hasOwn(r, i)) {
                   continue;
                 }
-                n[t.x + "-" + t.y][i] = r[i];
-                n[t.x + "-" + t.y][i]["time"] = new Date().getTime();
+                n[`${t.x}-${t.y}`][i] = r[i];
+                n[`${t.x}-${t.y}`][i].time = Date.now();
               }
               Cache.save("bonusjobs", n);
             };
@@ -3423,63 +3413,48 @@
             });
           };
           var u = function () {
-            var t =
-              "div#mmap_twdb_bonusjobs {position:absolute; top:40px; right:10px;}\n" +
-              'div#mmap_twdb_bonusjobs > input[type="checkbox"] {margin-left:6px; cursor:pointer;}\n' +
-              "div#mmap_twdb_bonusjobs > div {position:relative; display:inline-block; height:9px; width:9px; margin:1px;}\n" +
-              "div#mmap_twdb_bonusjobs > img {margin-left:3px; cursor:pointer; position:relative; display:inline-block; height:16px; width:16px; top:-4px;}";
+            var t = `div#mmap_twdb_bonusjobs {position:absolute; top:40px; right:10px;}
+              div#mmap_twdb_bonusjobs > input[type="checkbox"] {margin-left:6px; cursor:pointer;}
+              div#mmap_twdb_bonusjobs > div {position:relative; display:inline-block; height:9px; width:9px; margin:1px;}
+              div#mmap_twdb_bonusjobs > img {margin-left:3px; cursor:pointer; position:relative; display:inline-block; height:16px; width:16px; top:-4px;}`;
             TWDB.Util.addCss(t, "minimap");
             var n = function () {
               var t = e('<div id="mmap_twdb_bonusjobs" />')
                 .append(
                   e(
-                    '<input title="Εμφάνιση Χρυσών δουλειών" type="checkbox" ' +
-                    (i.gold ? 'checked="checked"' : "") +
-                    " />"
+                    `<input title="${TWDB.lang.show_gold_jobs}" type="checkbox" ${i.gold ? 'checked="checked"' : ""} />`
                   ).change(function () {
                     i.gold = e(this).is(":checked");
                     a();
                   })
                 )
-                .append(
-                  '<div title="Εμφάνιση Χρυσών δουλειών" style="background-color:yellow; border:1px solid red;" />'
-                )
+                .append(`<div title="${TWDB.lang.gold_jobs}" style="background-color:yellow; border:1px solid red;" />`)
                 .append(
                   e(
-                    '<input title="Εμφάνιση Ασημένιων δουλειών" type="checkbox" ' +
-                    (i.silver ? 'checked="checked"' : "") +
-                    " />"
+                    `<input title="${TWDB.lang.show_silver_jobs}" type="checkbox" ${i.silver ? 'checked="checked"' : ""}" />`
                   ).change(function () {
                     i.silver = e(this).is(":checked");
                     a();
                   })
                 )
-                .append(
-                  '<div title="Εμφάνιση Ασημένιων δουλειών" style="background-color:white; border:1px solid black;" />'
-                )
+                .append(`<div title="${TWDB.lang.silver_jobs}" style="background-color:white; border:1px solid black;" />`)
                 .append(
                   e(
-                    '<img title="Εισαγωγή - Δουλειών με μπόνους" src="' +
-                    Images.iconExport +
-                    '" />'
+                    `<img title="${TWDB.lang.export_jobs_bonus}" src="${Images.iconExport}" />`
                   ).click(function () {
                     f();
                   })
                 )
                 .append(
                   e(
-                    '<img title="Εξαγωγή - Δουλειών με μπόνους" src="' +
-                    Images.iconImport +
-                    '" />'
+                    `<img title="${TWDB.lang.import_jobs_bonus}" src="${Images.iconImport}" />`
                   ).click(function () {
                     l();
                   })
                 )
                 .append(
                   e(
-                    '<img title="Επαναφορά - Δουλειών με μπόνους" src="' +
-                    Images.iconReset2 +
-                    '" />'
+                    `<img title="${TWDB.lang.reset_jobs_bonus}" src="${Images.iconReset2}" />`
                   ).click(function () {
                     c();
                   })
@@ -3503,39 +3478,23 @@
               var a = parseInt(n * o, 10) + 2;
               var f = "";
               if (i > 1) {
-                f =
-                  "-moz-transform:rotate(45deg);-webkit-transform:rotate(45deg);-o-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg);";
+                f = "-moz-transform:rotate(45deg);-webkit-transform:rotate(45deg);-o-transform:rotate(45deg);-ms-transform:rotate(45deg);transform:rotate(45deg);";
               }
               var l = e(
-                '<div class="TWDBbonusjob" style="z-index:7;position:absolute;display:block;width:4px;height:4px;background-color:' +
-                (r ? "yellow" : "white") +
-                ";left:" +
-                u +
-                "px;top:" +
-                a +
-                "px;" +
-                f +
-                "border:1px solid " +
-                (r ? "red" : "black") +
-                ';" />'
-              )
-                .click(
+                `<div class="TWDBbonusjob" style="z-index:7;position:absolute;display:block;width:4px;height:4px;background-color:${r ? "yellow" : "white"};left:${u}px;top:${a}px;${f}border:1px solid ${r ? "red" : "black"};" />`
+              ).click(
                   (function (e, t) {
                     return function () {
                       window.GameMap.center(e, t);
                     };
                   })(t, n)
                 )
-                .addMousePopup(
-                  '<div style="min-width:60px;text-align:center">' +
-                  s.join('<div class="marker_popup_divider"></div>') +
-                  "</div>"
-                );
+                .addMousePopup(`<div style="min-width:60px;text-align:center">${s.join('<div class="marker_popup_divider"></div>')}</div>`);
               e(MinimapWindow.window.divMain).find("#minimap_worldmap").append(l);
             };
             var r = n;
             for (key in r) {
-              if (!r.hasOwnProperty(key)) {
+              if (!Object.hasOwn(r, key)) {
                 continue;
               }
               var s = r[key];
@@ -3543,7 +3502,7 @@
               var u = 0;
               var a = [];
               for (var f in s) {
-                if (!s.hasOwnProperty(f)) {
+                if (!Object.hasOwn(s, f)) {
                   continue;
                 }
                 if (s[f].gold) {
@@ -3572,12 +3531,12 @@
           var f = function () {
             var t = [];
             for (var r in n) {
-              if (!n.hasOwnProperty(r)) {
+              if (!Object.hasOwn(n, r)) {
                 continue;
               }
               var i = n[r];
               for (var s in i) {
-                if (!i.hasOwnProperty(s)) {
+                if (!Object.hasOwn(i, s)) {
                   continue;
                 }
                 var o = Jobs.getJobById(s);
@@ -3619,21 +3578,11 @@
               var i = "";
               for (var s = 0; s < t.length; s++) {
                 var o = t[s];
-                if (f == "country" && i !== o.country) {
+                if (f === "country" && i !== o.country) {
                   i = o.country;
-                  r += "-- ?country " + i + " --" + "\n";
+                  r += `-- ${TWDB.lang.country} ${i} --\n`;
                 }
-                r +=
-                  o.name +
-                  "; " +
-                  o.bonus +
-                  "; " +
-                  o.x +
-                  "-" +
-                  o.y +
-                  "; " +
-                  o.id +
-                  "\n";
+                r += `${o.name}; ${o.bonus}; ${o.x}-${o.y}; ${o.id}\n`;
               }
               a.val(r);
             };
@@ -3646,29 +3595,18 @@
                 display: "block",
               })
               .append(
-                e(
-                  '<img src="' +
-                  Images.iconName +
-                  '" title=" Ταξινόμηση κατά Όνομα "  style="margin:0px 2px 0px 2px;cursor:pointer;" />'
-                ).click(function () {
+                e(`<img src="${Images.iconName}" title="${TWDB.lang.sort_by_name}" style="margin:0px 2px 0px 2px;cursor:pointer;" /> `).click(function () {
                   c("name");
                 })
               )
               .append(
-                e(
-                  '<img src="' +
-                  Images.iconCount +
-                  '" title=" Ταξινόμηση κατά Κομητεία " style="margin:0px 2px 0px 2px;cursor:pointer;" />'
-                ).click(function () {
+                e(`<img src="${Images.iconCount}" title="${TWDB.lang.sort_by_county}" style="margin:0px 2px 0px 2px;cursor:pointer;" /> `).click(function () {
                   c("country");
                 })
               );
-            new west.gui.Dialog(
-              "Εξαγωγή - Δουλειών με μπόνους",
-              e("<div />").append(h).append(a)
-            )
-              .addButton("ΟΚ")
-              .show();
+            new west.gui.Dialog(TWDB.lang.export_jobs_bonus, e("<div />").append(h).append(a))
+            .addButton(TWDB.lang.ok)
+            .show();
           };
           var l = function () {
             var t = e("<textarea />").css({ width: "400px", height: "100px" });
@@ -3696,15 +3634,15 @@
                 }
                 f = Number(o[3]);
                 l = {
-                  gold: e.trim(o[1]) == "gold" ? true : false,
+                  gold: e.trim(o[1])  === "gold",
                   group_id: Jobs.getJobById(f).groupid,
                   job_id: f,
-                  silver: e.trim(o[1]) == "gold" ? false : true,
+                  silver: e.trim(o[1]) !=="gold",
                   x: Number(u[0]),
                   y: Number(u[1]),
-                  time: new Date().getTime(),
+                  time: Date.now(),
                 };
-                c = Number(u[0]) + "-" + Number(u[1]);
+                c = `${Number(u[0])}-${Number(u[1])}`;
                 if (!isDefined(n[c])) {
                   n[c] = {};
                 }
@@ -3713,59 +3651,58 @@
               Cache.save("bonusjobs", n);
               a();
             };
-            new west.gui.Dialog("Εισαγωγή - Δουλειών με μπόνους", t)
-              .addButton("ΟΚ", r)
-              .addButton("Ακύρωση")
+            new west.gui.Dialog(TWDB.lang.import_jobs_bonus, t)
+              .addButton(TWDB.lang.ok, r)
+              .addButton(TWDB.lang.cancel)
               .show();
           };
           var c = function (e) {
             try {
               if (e) {
                 for (var t in n) {
-                  if (!n.hasOwnProperty(t)) {
+                  if (!Object.hasOwn(n, t)) {
                     continue;
                   }
                   var r = n[t];
                   var i = 0;
                   for (var s in r) {
-                    if (!r.hasOwnProperty(s)) {
+                    if (!Object.hasOwn(r, s)) {
                       continue;
                     }
-                    if (e == "gold" && r[s].gold) {
+                    if (e === "gold" && r[s].gold) {
                       i++;
                       continue;
                     }
-                    if (e == "silver" && r[s].silver) {
+                    if (e === "silver" && r[s].silver) {
                       i++;
                       continue;
                     }
                     delete r[s];
                   }
-                  if (i == 0) {
+                  if (i === 0) {
                     delete n[t];
                   }
                 }
                 Cache.save("bonusjobs", n);
                 a();
                 new UserMessage(
-                  "Επαναφορά - Δουλειών με μπόνους",
+                  TWDB.lang.reset_jobs_bonus,
                   UserMessage.TYPE_SUCCESS
                 ).show();
               } else {
-                var o = "tw-db Επαναφορά";
-                var u =
-                  '<div class="txcenter">Επαναφορά - Δουλειών με μπόνους</div>';
+                var o = TWDB.lang.reset_jobs_bonus;
+                var u = `<div class="txcenter">${TWDB.lang.reset_jobs_bonus_confirm}</div>`;
                 new west.gui.Dialog(o, u, west.gui.Dialog.SYS_QUESTION)
-                  .addButton("Όλες", function () {
+                  .addButton(TWDB.lang.reset_all_jobs_bonus, function () {
                     c("all");
                   })
-                  .addButton("Χρυσές", function () {
+                  .addButton(TWDB.lang.reset_silver_jobs_bonus, function () {
                     c("silver");
                   })
-                  .addButton("Ασημένιες", function () {
+                  .addButton(TWDB.lang.reset_gold_jobs_bonus, function () {
                     c("gold");
                   })
-                  .addButton("Ακύρωση")
+                  .addButton(TWDB.lang.cancel)
                   .show();
               }
             } catch (f) {
@@ -3819,7 +3756,7 @@
                 a(e);
               });
               var e = Cache.load("chathistory");
-              if (typeof e == "object" && e !== null) {
+              if (typeof e === "object" && e !== null) {
                 if (e.color) {
                   e = e.color;
                   Cache.save("chathistory", e);
@@ -3851,18 +3788,18 @@
               }
               if (e._bold) {
                 t = t.replace(/\*/g, "~");
-                t = "*" + t + "*";
+                t = `*${t}*`;
               }
               return t;
             };
-            if (t.substr(0, 1) == "/") {
+            if (t.substr(0, 1) === "/") {
               r = new RegExp("^\\/(tell|msg)\\s+([^:]+):(.+)$");
               v = t.match(r);
               if (v) {
                 if (e._color) {
-                  t = "/tell " + v[2] + ":/" + e._color + n(v[3]);
+                  t = `/tell ${v[2]}:/${e._color}${n(v[3])}`;
                 } else {
-                  t = "/tell " + v[2] + ":" + n(v[3]);
+                  t = `/tell ${v[2]}:${n(v[3])}`;
                 }
               }
               e.input.val(t);
@@ -3870,14 +3807,14 @@
             }
             t = n(t);
             if (e._color) {
-              t = "/" + e._color + t;
+              t = `/${e._color}${t}`;
             }
             e.input.val(t);
             return;
           };
           var f = function (e) {
             var t = e.mainDiv.find(".TWDBchat");
-            if (t.length == 0) {
+            if (t.length === 0) {
               e.mainDiv
                 .find(".chat_input")
                 .find(".cbg")
@@ -3896,7 +3833,7 @@
               '<span style="padding:3px;display:none;width:160px;position:absolute;bottom:20px;left:-3px;" />'
             );
             for (var s in i) {
-              n = i[s].indexOf(".gif") === -1 ? i[s] + ".png" : i[s];
+              n = i[s].indexOf(".gif") === -1 ? `${i[s]}.png` : i[s];
               r.append(
                 e(
                   '<img src="' +
@@ -3909,6 +3846,7 @@
                 ).click(
                   (function (e) {
                     return function () {
+                      // biome-ignore lint/style/useTemplate: tested
                       t.input.val(t.input.val() + " " + e + " ");
                       t.input.focus();
                       r.hide();
@@ -4150,7 +4088,7 @@
                     )
                   )
                   .click(function () {
-                    if (e(this).css("opacity") == 0.5) {
+                    if (e(this).css("opacity") === 0.5) {
                       p(t, { bold: true });
                       e(this).css("opacity", 1);
                     } else {
@@ -4171,7 +4109,7 @@
                     )
                   )
                   .click(function () {
-                    if (e(this).css("opacity") == 0.5) {
+                    if (e(this).css("opacity") === 0.5) {
                       p(t, { caps: true });
                       e(this).css("opacity", 1);
                     } else {
@@ -4260,19 +4198,19 @@
               h(c(n.css("background-color")))
             );
             var o = function (e, t) {
-              if ((t && r[e] == 9) || (!t && r[e] == 0)) {
+              if ((t && r[e] === 9) || (!t && r[e] === 0)) {
                 return;
               }
               var n = [Number(r[0]), Number(r[1]), Number(r[2])];
               n[e] += t ? 1 : -1;
               r = String(n[0]) + String(n[1]) + String(n[2]);
               i.input.val(r);
-              if (r[e] == 0) {
+              if (r[e] === 0) {
                 i.plusminus[e].children(".butMinus").css("opacity", 0.3);
               } else {
                 i.plusminus[e].children(".butMinus").css("opacity", 1);
               }
-              if (r[e] == 9) {
+              if (r[e] === 9) {
                 i.plusminus[e].children(".butPlus").css("opacity", 0.3);
               } else {
                 i.plusminus[e].children(".butPlus").css("opacity", 1);
@@ -4285,15 +4223,9 @@
             i.plusminus = [];
             for (var a = 0; a < 3; a++) {
               switch (a) {
-                case 0:
-                  var f = "#f00";
-                  break;
-                case 1:
-                  var f = "#0f0";
-                  break;
-                case 2:
-                  var f = "#00f";
-                  break;
+                case 0: f = "#f00"; break;
+                case 1: f = "#0f0"; break;
+                case 2: f = "#00f"; break;
               }
               i.plusminus[a] = e(
                 '<div class="tw2gui_plusminus" style="display:inline-block;background-color:' +
@@ -4314,10 +4246,10 @@
                   };
                 })(a)
               );
-              if (r[a] == 0) {
+              if (r[a] === 0) {
                 i.plusminus[a].children(".butMinus").css("opacity", 0.3);
               }
-              if (r[a] == 9) {
+              if (r[a] === 9) {
                 i.plusminus[a].children(".butPlus").css("opacity", 0.3);
               }
               u.append(i.plusminus[a]);
@@ -4341,12 +4273,12 @@
               }
               r = e;
               for (var t = 0; t < 3; t++) {
-                if (r[t] == 0) {
+                if (r[t] === 0) {
                   i.plusminus[t].children(".butMinus").css("opacity", 0.3);
                 } else {
                   i.plusminus[t].children(".butMinus").css("opacity", 1);
                 }
-                if (r[t] == 9) {
+                if (r[t] === 9) {
                   i.plusminus[t].children(".butPlus").css("opacity", 0.3);
                 } else {
                   i.plusminus[t].children(".butPlus").css("opacity", 1);
@@ -4364,7 +4296,7 @@
               "*έντονα*",
               l.bold ? "tw2gui_checkbox_checked" : "",
               function () {
-                l.bold = l.bold ? false : true;
+                l.bold = !l.bold;
               }
             );
             e(v.getMainDiv()).css("display", "block").css("margin-bottom", "5px");
@@ -4373,7 +4305,7 @@
               "ΚΕΦΑΛΑΙΑ",
               l.caps ? "tw2gui_checkbox_checked" : "",
               function () {
-                l.caps = l.caps ? false : true;
+                l.caps = !l.caps;
               }
             );
             d.append(v.getMainDiv());
@@ -4404,8 +4336,8 @@
               .append(u)
               .append(d)
               .append(m);
-            i.colorBox = new west.gui.Dialog("Χρώμα", y);
-            i.colorBox.addButton("OK", function () {
+            i.colorBox = new west.gui.Dialog(TWDB.lang.color_dialog_title, y);
+            i.colorBox.addButton(TWDB.lang.ok, function () {
               p(t, {
                 color: e(i.customColor).css("background-color"),
                 bold: l.bold,
@@ -4418,7 +4350,7 @@
           return t;
         })(jQuery);
         Debugger.Chat = Chat;
-        var Collector = (function (e) {
+        var Collector = (function (_e) {
           var t = {};
           var n = false;
           var r = {};
@@ -4453,7 +4385,7 @@
             var t = w.ItemManager.get(e);
             var n = w.Bag.getItemsIdsByBaseItemId(t.item_base_id);
             var r = w.Wear.wear[t.type];
-            var i = r && r.obj.item_base_id == t.item_base_id;
+            var i = r && r.obj.item_base_id === t.item_base_id;
             var s = TWDB.ClothCalc.bids[t.item_id];
             var o = TWDB.ClothCalc.recipes[t.item_id];
             if (n.length || i || s || o) {
@@ -4617,8 +4549,8 @@
               var str = showlink.toString();
               str = str.replace("the-west", "tw-db|the-west");
               str = str.replace("|com|", "|com|info|");
-              eval("showlink = " + str);
-            } catch (e) { }
+              eval(`showlink = ${str}`);
+            } catch (_) { }
           };
           var addCloseAllWearButton = function() {
             const addBtn = () => {
@@ -4657,7 +4589,7 @@
                   win.__windowInstance.destroy();
                   return;
                 }
-                win.parentNode && win.parentNode.removeChild(win);
+                win.parentNode?.removeChild(win);
               });
               setTimeout(() => {
                 if (BuildWindow && typeof BuildWindow.open === 'function') {
@@ -4680,7 +4612,7 @@
                     Character.homeTown.town_id,
                     json.allBuildings.market.stage
                   );
-                  if (Wear && Wear.window) { Wear.window.divMain.style.display = "none"; }
+                  if (Wear?.window) { Wear.window.divMain.style.display = "none"; }
                 }
               );
             } else {
@@ -4701,9 +4633,9 @@
             BuildWindow.updateLaborPoints_backup = BuildWindow.updateLaborPoints;
             BuildWindow.updateLaborPoints = function (points) {
               BuildWindow.updateLaborPoints_backup.call(this, points);
-              if (this.building == "church" && points > 0) {
+              if (this.building === "church" && points > 0) {
                 var stageCount = Math.floor(this.window.$("div.build_progress_nfo > span.text_bold").text() / 15);
-                this.window.$("div.build_progress_nfo").append(" (" + (stageCount >= 0 ? "+" : "") + stageCount + " Επίπεδα)");
+                this.window.$("div.build_progress_nfo").append(` (${stageCount >= 0 ? "+" : ""}${stageCount} Επίπεδα)`);
               }
             };
           };
@@ -4717,7 +4649,7 @@
                     '" style="margin:-2px 0 ' + ($('.twir_bestwear').length ? '-24px' : '0') + ' 0;" title="' +
                     "Πρόοδος:&nbsp;Η πρόοδος δείχνει πόσο χτίσιμο χρειάζεται ακόμη το κτίριο για το επόμενο επίπεδο" +
                     '">' +
-                    '<span class="rp_jobdata_label_icon"><img src="https://westgr.innogamescdn.com/images/icons/' +
+                    `<span class="rp_jobdata_label_icon"><img src="${Game.cdnURL}/images/icons/` +
                     "hammer" +
                     '.png" alt="" /></span>' +
                     '<span class="rp_jobdata_label text_bold">' +
@@ -4755,11 +4687,10 @@
                   build_text = r.name;
                   this.table
                     .appendToCell(-1, "building_foreign", build_text)
-                    .appendToCell(-1, "stage", r.stage + " / " + (
-                      r.infinite
-                        ? "<img src='https://westgr.innogamescdn.com/images/xp_inf_000.png' style='padding-bottom: 4px;'/>"
-                        : r.maxStage));
-                } else if (r.stage == r.maxStage && !r.infinite) {
+                    .appendToCell(-1, "stage", `${r.stage} / ${r.infinite
+                        ? `<img src='${Game.cdnURL}/images/xp_inf_000.png' style='padding-bottom: 4px;'/>`
+                        : r.maxStage}`);
+                } else if (r.stage === r.maxStage && !r.infinite) {
                 } else {
                   this.table.appendRow();
                   build_text =
@@ -4776,10 +4707,9 @@
                     "</a></span>";
                   this.table
                     .appendToCell(-1, "building", build_text)
-                    .appendToCell(-1, "stage", r.stage + " / " + (
-                      r.infinite
-                        ? "<img src='https://westgr.innogamescdn.com/images/xp_inf_000.png' style='padding-bottom: 4px;'/>"
-                        : r.maxStage))
+                    .appendToCell(-1, "stage", `${r.stage} / ${r.infinite
+                        ? `<img src='${Game.cdnURL}/images/xp_inf_000.png' style='padding-bottom: 4px;'/>`
+                        : r.maxStage}`)
                     .appendToCell(-1, "progress", new west.gui.Progressbar(r.buildPoints, r.nextStagePoints).getMainDiv());
                 }
               }
@@ -4873,7 +4803,7 @@
                       );
                     }
                     if (n !== null) {
-                      $(".task-queuePos-" + e + " > div.icon", t)
+                      $(`.task-queuePos-${e} > div.icon`, t)
                         .children(".twdb_lp_hint")
                         .remove()
                         .end()
@@ -4889,40 +4819,32 @@
             };
             EventHandler.listen(["taskqueue-updated", "taskqueue-ready"], t);
           };
-          var expBarValues = function () {
-            if (isDefined(w.SlySuite)) {
-              TWDB.Settings.set("exp_bar", false);
-              return;
-            }
-            TWDB.Util.addCss(
-              "div#ui_experience_bar .label {text-shadow: 3px 1px 1px #000, 3px -1px 1px #000, -2px 1px 1px #000, -2px 0px 0px #000;}"
-            );
-            var e = function (e) {
-              return Math.abs(e) >= 1e5
-                ? Math.fround(e / 1e6).toFixed(2) + "m"
-                : Math.abs(e) >= 1e4
-                  ? Math.round(e / 1e3) + "k"
-                  : e;
+          const expBarValues = () => {
+            if (isDefined(w.SlySuite)) return TWDB.Settings.set("exp_bar", false);
+            TWDB.Util.addCss(`div#ui_experience_bar .label {
+              text-shadow: 3px 1px 1px #000,3px -1px 1px #000,-2px 1px 1px #000,-2px 0px 0px #000;}`);
+            const formatNumber = n => {
+                const abs = Math.abs(n);
+                return abs >= 1e6 ? `${(n/1e6).toFixed(2)}m` :
+                abs >= 1e3 ? `${(n/1e3).toFixed(1)}k` :
+                n.toString();
             };
-            var t = function () {
-              var t = $("#ui_experience_bar"),
-                n =
-                  undefined === Character.getTrackingAchievement()
-                    ? WestUi.updateTrackXp(t)
-                    : WestUi.updateTrackAchievement(t);
-              $(".label", t).off("mouseenter mouseleave");
-              $(".label span", t).show();
-              var r = "";
-              if (Character.level < 250) {
-                r = n.percent + "% - " + e(n.current) + " / " + e(n.required);
-                r += " (" + e(n.required - n.current) + ")";
-              } else r = Character.experience.toLocaleString();
-              $(".label span", t).html(r);
+            const updateExpBar = () => {
+                const $bar = $("#ui_experience_bar");
+                const data = Character.getTrackingAchievement() === undefined
+                    ? WestUi.updateTrackXp($bar)
+                    : WestUi.updateTrackAchievement($bar);
+                $(".label", $bar).off("mouseenter mouseleave");
+                $(".label span", $bar).show();
+                const labelText = Character.level < 250
+                    ? `${data.percent}% - ${formatNumber(data.current)} / ${formatNumber(data.required)} (${formatNumber(data.required - data.current)})`
+                    : Character.experience.toLocaleString();
+                $(".label span", $bar).html(labelText);
             };
-            EventHandler.listen("character_exp_changed", t);
-            EventHandler.listen("character_tracking_achievement_changed", t);
-            t();
-          };
+            EventHandler.listen("character_exp_changed", updateExpBar);
+            EventHandler.listen("character_tracking_achievement_changed", updateExpBar);
+            updateExpBar();
+        };
           var suppressOnGoingEntries = function () {
             var e = ["shop_sale"];
             var t = function (e) {
@@ -4936,7 +4858,7 @@
                   if (
                     $(r[n].element)
                       .children()
-                      .is("div.image." + e)
+                      .is(`div.image.${e}`)
                   ) {
                     WestUi.NotiBar.remove(r[n]);
                   }
@@ -4968,7 +4890,7 @@
               TWDB.Util.addCss(
                 "#queuedTasks .buyPremiumTask {background: none!important}"
               );
-              Premium.checkForAutomationPremium = function (e, t) {
+              Premium.checkForAutomationPremium = function (_e, t) {
                 if (typeof t !== "undefined") return t();
               };
             } catch (e) {
@@ -4981,7 +4903,7 @@
                 west.gui.payHandler.prototype.addPayOption;
               west.gui.payHandler.prototype.addPayOption = function (e) {
                 this.__twdb__addPayOption.apply(this, arguments);
-                if (false === e || "nugget" === e || 2 == e || 2 == e.id) {
+                if (false === e || "nugget" === e || 2 === e || 2 === e.id) {
                   return this;
                 }
                 this.setSelectedPayId(e.id || e);
@@ -5028,9 +4950,9 @@
           var enhanceMarketSellDialog = function () {
             var e;
             var t = TWDB.Cache.load("msdsettings");
-            if (typeof t !== "object" || t == null) {
+            if (typeof t !== "object" || t === null) {
               t = { cb: {} };
-            } else if (typeof t.cb !== "object" || t.cb == null) {
+            } else if (typeof t.cb !== "object" || t.cb === null) {
               t.cb = {};
             }
             try {
@@ -5075,7 +4997,7 @@
                   MarketWindow.createMarketOffer;
               }
               MarketWindow.createMarketOffer = function (t) {
-                var n = typeof t == "number" ? t : $(t).data("itemId");
+                var n = typeof t === "number" ? t : $(t).data("itemId");
                 if (n === undefined) {
                   var r = $(this).data("dnd_droppedObj");
                   n = r.data("itemId");
@@ -5091,7 +5013,7 @@
                 return;
               }
               var r = $("div.tw2gui_dialog_content", n.divMain);
-              if (r.find("#auction_item_slot", r).html() == "")
+              if (r.find("#auction_item_slot", r).html() === "")
                 return w.setTimeout(function () {
                   MarketWindow.TWDB_touchUpSellDialog(n);
                 }, 25);
@@ -5125,14 +5047,14 @@
                 .before('<td id="twdb_msd_opt_cc">');
               var s = function () {
                 n.divMain.css({
-                  "margin-top": "-" + n.divMain.height() / 2 + "px",
-                  "margin-left": "-" + n.divMain.width() / 2 + "px",
+                  "margin-top": `-${n.divMain.height() / 2}px`,
+                  "margin-left": `-${n.divMain.width() / 2}px`,
                 });
               };
               var o = function () {
                 var e,
                   n = this.groupClass;
-                $("div.tw2gui_checkbox." + n)
+                $(`div.tw2gui_checkbox.${n}`)
                   .not(this.divMain)
                   .removeClass("tw2gui_checkbox_checked");
                 if (this.isSelected()) {
@@ -5160,8 +5082,8 @@
               var a = function () {
                 var e, n;
                 for (e in t.cb) {
-                  if (!t.cb.hasOwnProperty(e)) continue;
-                  $("div.tw2gui_checkbox." + e).each(function () {
+                  if (!Object.hasOwn(t.cb, e)) continue;
+                  $(`div.tw2gui_checkbox.${e}`).each(function () {
                     n = $(this).guiElement();
                     if (n.getValue() === t.cb[e]) {
                       n.setSelected(true, true);
@@ -5196,7 +5118,7 @@
                 ).click(function () {
                   $("div.tw2gui_checkbox.twdb_msd_bid_fix", r).each(function () {
                     const checkbox = $(this).guiElement();
-                    if (checkbox && checkbox.isSelected()) {
+                    if (checkbox?.isSelected()) {
                       checkbox.setSelected(false, true);
                       o.call(checkbox);
                     }
@@ -5210,7 +5132,7 @@
                 ).click(function () {
                   $("div.tw2gui_checkbox.twdb_msd_buy_fix", r).each(function () {
                     const checkbox = $(this).guiElement();
-                    if (checkbox && checkbox.isSelected()) {
+                    if (checkbox?.isSelected()) {
                       checkbox.setSelected(false, true);
                       o.call(checkbox);
                     }
@@ -5221,7 +5143,7 @@
               $("#twdb_msd_buy_cc", r)
                 .append(
                   new west.gui.Checkbox("", "twdb_msd_buy_fix", o)
-                    .setTitle("Χρήση ως προεπιλεγμένη τιμή")
+                    .setTitle(TWDB.lang.use_as_default_price)
                     .setValue(2).divMain
                 )
                 .append(
@@ -5238,7 +5160,7 @@
                 .append("&nbsp;&nbsp;")
                 .append(
                   new west.gui.Checkbox("", "twdb_msd_buy_fix", o)
-                    .setTitle("Χρήση ως προεπιλεγμένη τιμή")
+                    .setTitle(TWDB.lang.use_as_default_price)
                     .setValue(1).divMain
                 )
                 .append(
@@ -5255,7 +5177,7 @@
               $("#twdb_msd_bid_cc", r)
                 .append(
                   new west.gui.Checkbox("", "twdb_msd_bid_fix", o)
-                    .setTitle("Χρήση ως προεπιλεγμένη τιμή")
+                    .setTitle(TWDB.lang.use_as_default_price)
                     .setValue(2).divMain
                 )
                 .append(
@@ -5272,7 +5194,7 @@
                 .append("&nbsp;&nbsp;")
                 .append(
                   new west.gui.Checkbox("", "twdb_msd_bid_fix", o)
-                    .setTitle("Χρήση ως προεπιλεγμένη τιμή")
+                    .setTitle(TWDB.lang.use_as_default_price)
                     .setValue(1).divMain
                 )
                 .append(
@@ -5340,14 +5262,14 @@
                 $("tr", p).length > 2 ||
                 $("tr:nth-child(2) > td", p).attr("colspan") !== 4
               ) {
-                h.html(h.html() + "&nbsp;(" + ($("tr", p).length - 1) + ")")
+                h.html(`${h.html()}&nbsp;(${$("tr", p).length - 1})`)
                   .click(function () {
                     p.toggle();
                     s();
                   })
                   .css({ cursor: "pointer" });
               } else {
-                h.html(h.html() + "&nbsp;(0)");
+                h.html(`${h.html()}&nbsp;(0)`);
                 p.hide();
               }
               s();
@@ -5412,7 +5334,7 @@
                     return new UserMessage(e.msg).show();
                   }
                   if (
-                    e.hasOwnProperty("recipes_content") &&
+                    Object.hasOwn(e, "recipes_content") &&
                     e.recipes_content.length > 0
                   ) {
                     var n;
@@ -5456,8 +5378,8 @@
               }, 1000);
           };
           var addEnhancedRankings = function () {
+            var rankPlayerCache = `twdb_${Character.playerId}_playercategory`;
             var playerChars = JSON.parse(localStorage.getItem(rankPlayerCache) || '{}');
-            var rankPlayerCache = 'twdb_' + Character.playerId + '_playercategory';
             var charClass = [null, 'greenhorn', 'duelist', 'adventurer', 'worker', 'soldier'];
             var playerNameSelectors = [
               '.exp_playername',
@@ -5480,7 +5402,7 @@
                 Game.InfoHandler.getLocalString4Charclass(charC) + '"> '
               );
             }
-            function getCharClass(pId, callback) {
+            function getCharClass(_pId, callback) {
               Ajax.remoteCallMode('ranking', 'get_data', {
                 tab: 'experience',
                 entries_per_page: 9999
@@ -5514,7 +5436,7 @@
             `);
             function customRankingColumns(selectors) {
               selectors.forEach(sel => {
-                var elements = $(sel.selector + `:not(${sel.skip})`);
+                var elements = $(`${sel.selector}:not(${sel.skip})`);
                 for (var i = 0; i < elements.length; i++) {
                   if (sel.hidden) {
                     $(elements[i]).hide();
@@ -5591,27 +5513,27 @@
               PlayerProfileMain.setProfileInfo_backup = PlayerProfileMain.setProfileInfo_backup || PlayerProfileMain.setProfileInfo;
               PlayerProfileMain.setProfileInfo = function () {
                 PlayerProfileMain.setProfileInfo_backup.apply(this, arguments);
-                var clvl = this.resp.level,
-                dlvl = this.resp.duelLevel,
-                target = $('.playerprofile-' + this.playerid + ' .profileinfo-duellevel .profileinfo-value'),
+                var char_lvl = this.resp.level,
+                duel_lvl = this.resp.duelLevel,
+                target = $(`.playerprofile-${this.playerid} .profileinfo-duellevel .profileinfo-value`),
                 dLvlRange = function (dl) {
                     return {
                       min: Math.ceil(dl / 1.4 + 0.01),
                       max: Math.min(450, Math.floor(dl * 1.4 - 0.01))
                     };
                   },
-                range = dLvlRange(dlvl),
+                range = dLvlRange(duel_lvl),
                 getXp = function (lvl) {
-                  return Math.ceil(Math.pow(lvl * 10, 1 / 0.6));
+                  return Math.ceil((lvl * 10) ** (1 / 0.6));
                 },
-                getLvl = function (xp, perc) {
-                  return clvl + Math.floor(Math.pow(xp * (perc || 1), 0.6) / 10);
+                getLvl = function (xp, percent) {
+                  return char_lvl + Math.floor((xp * (percent || 1)) ** 0.6 / 10);
                 },
-                minXp = getXp(dlvl - clvl),
-                maxXp = dlvl == '450' ? '<b>∞</b>' : getXp(dlvl + 1 - clvl),
+                minXp = getXp(duel_lvl - char_lvl),
+                maxXp = duel_lvl === '450' ? '<b>∞</b>' : getXp(duel_lvl + 1 - char_lvl),
                 minLvl = getLvl(minXp, 0.9),
-                maxLvl = dlvl == '450' ? '450' : getLvl(maxXp, 0.9);
-                target.append(' <div class="tw2gui-iconset tw2gui-icon-question-priority-4" title="<span>Επίπεδα μονομαχίας που μπορείς να μονομαχήσεις: ' + range.min + ' - ' + range.max + '<br><br>Τρέχουσα εμπειρία μονομαχίας που θα κερδίσεις: ' + minXp + ' - ' + maxXp + '<br>Μυστηριώδες φίλτρο -10% ⇒ Επίπεδο Μονομαχίας ' + minLvl + (maxLvl > minLvl ? ' - ' + maxLvl : '') + '</span>" style="display:inline-block;vertical-align:top;cursor:pointer;"></div>');
+                maxLvl = duel_lvl === '450' ? '450' : getLvl(maxXp, 0.9);
+                target.append(` <div class="tw2gui-iconset tw2gui-icon-question-priority-4" title="<span>Επίπεδα μονομαχίας που μπορείς να μονομαχήσεις: ${range.min} - ${range.max}<br><br>Τρέχουσα εμπειρία μονομαχίας που θα κερδίσεις: ${minXp} - ${maxXp}<br>Μυστηριώδες φίλτρο -10% ⇒ Επίπεδο Μονομαχίας ${minLvl}${maxLvl > minLvl ? ` - ${maxLvl}` : ''}</span>" style="display:inline-block;vertical-align:top;cursor:pointer;"></div>`);
               };
           };
           var addRegenTimers = function () {
@@ -5743,7 +5665,7 @@
                 var row = img.parentNode.parentNode;
                 var offerMsgImg = row.querySelector(".cell_8").querySelector("img");
                 if (offerMsgImg !== null) {
-                  img.src = "https://westgr.innogamescdn.com/images/icons/warn_circle.png";
+                  img.src = `${Game.cdnURL}/images/icons/warn_circle.png`;
                   img.height = 16;
                   offerMsgImg.parentNode.insertBefore(img, offerMsgImg);
                 }
@@ -5781,7 +5703,7 @@
                       for (var i = 0; i < results.length; i++) {
                         var jsr = results[i];
                         if (jsr.seller_name === Character.name) {
-                          $('.marketSellsData_' + jsr.market_offer_id + ' .mps_pickup')
+                          $(`.marketSellsData_${jsr.market_offer_id} .mps_pickup`)
                             .prepend('<img src="images/icons/' +
                               MarketWindow.sellRights[jsr.sell_rights].i +
                               '.png" title="' +
@@ -5803,7 +5725,7 @@
                     MarketWindow.Buy.updateTable_backup.call(this, data);
                     if (Character.homeTown.town_id) {
                       for (var i = 0; i < data.length; i++) {
-                        $('#mpb_vendor_' + data[i].market_offer_id)
+                        $(`#mpb_vendor_${data[i].market_offer_id}`)
                           .before('<img src="images/icons/' +
                             MarketWindow.sellRights[data[i].sell_rights].i +
                             '.png" title="' +
@@ -5832,7 +5754,7 @@
           };
           var improvedWhisper = function () {
             try {
-              var soundBaseURL = Script.protocol + "://" + Script.folder_url + "whispers/";
+              var soundBaseURL = `${Script.protocol}://${Script.folder_url}whispers/`;
               var soundOptions = [
                 "tw",
                 "bum",
@@ -5849,7 +5771,7 @@
               var eventContext = {};
               var enableKey = "improved_whisper";
               var soundKey = "beeperSound";
-              var currentSound = soundBaseURL + soundOptions[soundID] + ".mp3";
+              var currentSound = `${soundBaseURL + soundOptions[soundID]}.mp3`;
               var normalizeStoredSound = function (value) {
                 if (typeof value === "string" && value !== "" && /^-?\d+$/.test(value)) {
                   return parseInt(value, 10);
@@ -5866,11 +5788,11 @@
               var updateSound = function () {
                 var soundSetting = getStoredSound();
                 if (typeof soundSetting === "number" && soundOptions[soundSetting]) {
-                  currentSound = soundBaseURL + soundOptions[soundSetting] + ".mp3";
+                  currentSound = `${soundBaseURL + soundOptions[soundSetting]}.mp3`;
                 } else if (typeof soundSetting === "string" && soundSetting) {
                   currentSound = soundSetting;
                 } else {
-                  currentSound = soundBaseURL + soundOptions[soundID] + ".mp3";
+                  currentSound = `${soundBaseURL + soundOptions[soundID]}.mp3`;
                 }
               };
               var playSound = function () {
@@ -5915,7 +5837,7 @@
               JobWindow.prototype.initView = function () {
                 var t = JobWindow.prototype.__twdb__initView.apply(this, arguments);
                 if (this.job && typeof this.currSkillpoints === "number") {
-                  var n = "&nbsp;&nbsp;(" + (this.currSkillpoints - this.job.workpoints) + "&nbsp;Π.Ε.)";
+                  var n = `&nbsp;&nbsp;(${this.currSkillpoints - this.job.workpoints}&nbsp;Π.Ε.)`;
                   $("div.tw2gui_inner_window_title > .textart_title", this.window.divMain).append(n);
                 }
                 return t;
@@ -6107,7 +6029,7 @@
             var n = 0;
             var r = null;
             t.add = function (t) {
-              if (n == 0) {
+              if (n === 0) {
                 var i =
                   "div#twdb_characbut {width:36px; height:35px; position:absolute; left:141px; top:131px; border-bottom-left-radius:8px;" +
                   "background:url(" +
@@ -6119,8 +6041,8 @@
               }
               n++;
               r.css({
-                height: 10 + 26 * n + "px",
-                "background-position": "-141px " + (26 * n - 131) + "px",
+                height: `${10 + 26 * n}px`,
+                "background-position": `-141px ${26 * n - 131}px`,
               });
               var s = e(
                 '<div class="char_links" style="top:' +
@@ -6174,10 +6096,10 @@
               Error.report(t, "manipulate existing Job tasks");
             }
           };
-          _self.ChatLayout = (function (e) {
+          _self.ChatLayout = (function (_e) {
             var t = [];
             return function (e) {
-              if (t.length == 0) {
+              if (t.length === 0) {
                 try {
                   save["window.Chat.Layout.Tab.prototype.getMainDiv"] =
                     window.Chat.Layout.Tab.prototype.getMainDiv;
@@ -6200,10 +6122,10 @@
               t.push(e);
             };
           })($);
-          _self.ChatSend = (function (e) {
+          _self.ChatSend = (function (_e) {
             var t = [];
             return function (e) {
-              if (t.length == 0) {
+              if (t.length === 0) {
                 try {
                   window.Chat.Layout.Tab.prototype.twdb_send =
                     window.Chat.Layout.Tab.prototype.send;
@@ -6226,10 +6148,10 @@
               t.push(e);
             };
           })($);
-          _self.MarketOfferTable = (function (e) {
+          _self.MarketOfferTable = (function (_e) {
             var t = [];
             return function (e) {
-              if (t.length == 0) {
+              if (t.length === 0) {
                 try {
                   save["MarketWindow.Offer.updateTable"] =
                     MarketWindow.Offer.updateTable;
@@ -6252,10 +6174,10 @@
               t.push(e);
             };
           })($);
-          _self.MarketWatchlistTable = (function (e) {
+          _self.MarketWatchlistTable = (function (_e) {
             var t = [];
             return function (e) {
-              if (t.length == 0) {
+              if (t.length === 0) {
                 try {
                   save["MarketWindow.Watchlist.updateTable"] =
                     MarketWindow.Watchlist.updateTable;
@@ -6278,10 +6200,10 @@
               t.push(e);
             };
           })($);
-          _self.MarketWhatIsHotTable = (function (e) {
+          _self.MarketWhatIsHotTable = (function (_e) {
             var t = [];
             return function (e) {
-              if (t.length == 0) {
+              if (t.length === 0) {
                 try {
                   save["MarketWindow.WhatIsHot.updateTable"] =
                     MarketWindow.WhatIsHot.updateTable;
@@ -6304,10 +6226,10 @@
               t.push(e);
             };
           })($);
-          _self.injectSetDuelMotivation = (function (e) {
+          _self.injectSetDuelMotivation = (function (_e) {
             var t = [];
             return function (e) {
-              if (t.length == 0) {
+              if (t.length === 0) {
                 try {
                   Character.twdb_setDuelMotivation = Character.setDuelMotivation;
                   Character.setDuelMotivation = function (e) {
@@ -6328,10 +6250,10 @@
               t.push(e);
             };
           })($);
-          _self.ItemUse = (function ($) {
+          _self.ItemUse = (function (_$) {
             var callbacks = [];
             return function (callback) {
-              if (callbacks.length == 0) {
+              if (callbacks.length === 0) {
                 ItemUse.twdb = function (e, t) {
                   for (var n = 0; n < callbacks.length; n++) {
                     try {
@@ -6350,7 +6272,7 @@
                       str.substr(0, pos) +
                       "ItemUse.twdb(itemId,res);" +
                       str.substr(pos);
-                  eval("ItemUse." + toolkit + " = " + inject);
+                  eval(`ItemUse.${toolkit} = ${inject}`);
                 } catch (e) {
                   ItemUse.doIt = save["ItemUse.doIt"];
                   Error.report(e, "manipulate ItemUse");
@@ -6360,57 +6282,57 @@
             };
           })($);
           _self.injectItem = function (type, name, callback) {
-            var item = type + "Item";
-            if (typeof save[item] == "undefined") {
+            var item = `${type}Item`;
+            if (typeof save[item] === "undefined") {
               save[item] = tw2widget[item].prototype.getMainDiv;
             }
             try {
-              tw2widget[item].prototype["TWDB" + name] = function (e) {
+              tw2widget[item].prototype[`TWDB${name}`] = function (e) {
                 try {
                   return callback(e);
                 } catch (t) {
-                  Error.report(t, "injected " + e + " function: " + name);
+                  Error.report(t, `injected ${e} function: ${name}`);
                   return "";
                 }
               };
             } catch (e) {
-              Error.report(e, "inject " + item + " function: " + name);
+              Error.report(e, `inject ${item} function: ${name}`);
             }
             try {
-              var inject = "this.TWDB" + name + "(this);";
+              var inject = `this.TWDB${name}(this);`;
               inject.replace(/ /g, "");
               var newfunction = tw2widget[item].prototype.getMainDiv
                 .toString()
-                .replace("return", inject + "\n return");
+                .replace("return", `${inject}\n return`);
               eval(
-                "tw2widget['" + item + "'].prototype.getMainDiv = " + newfunction
+                `tw2widget['${item}'].prototype.getMainDiv = ${newfunction}`
               );
             } catch (e) {
-              Error.report(e, "manipulate " + item + ".prototype.getMainDiv");
+              Error.report(e, `manipulate ${item}.prototype.getMainDiv`);
               tw2widget[item].prototype.getMainDiv = save[item];
             }
           };
           _self.injectTrader = function (name, callback) {
             if (
-              typeof save["west.game.shop.item.view.prototype.render"] ==
+              typeof save["west.game.shop.item.view.prototype.render"] ===
               "undefined"
             ) {
               save["west.game.shop.item.view.prototype.render"] =
                 west.game.shop.item.view.prototype.render;
             }
             try {
-              west.game.shop.item.view.prototype["TWDB" + name] = function (e) {
+              west.game.shop.item.view.prototype[`TWDB${name}`] = function (e) {
                 try {
                   return callback(e);
                 } catch (t) {
-                  Error.report(t, "callback on injectTrader, function: " + name);
+                  Error.report(t, `callback on injectTrader, function: ${name}`);
                   return "";
                 }
               };
             } catch (e) {
               Error.report(
                 e,
-                "injectTrader, creating callback function: " + name
+                `injectTrader, creating callback function: ${name}`
               );
             }
             try {
@@ -6422,9 +6344,9 @@
               inject.replace(/ /g, "");
               var newfunction = str.replace(
                 "return $item",
-                inject + "\n return $item"
+                `${inject}\n return $item`
               );
-              eval("west.game.shop.item.view.prototype.render = " + newfunction);
+              eval(`west.game.shop.item.view.prototype.render = ${newfunction}`);
             } catch (e) {
               Error.report(
                 e,
@@ -6435,40 +6357,40 @@
             }
           };
           _self.injectMarket = function (name, callback) {
-            if (typeof save.MarketWindow == "undefined") {
+            if (typeof save.MarketWindow === "undefined") {
               save.MarketWindow = MarketWindow.getClearName.toString();
             }
             try {
-              MarketWindow["TWDB" + name] = function (e) {
+              MarketWindow[`TWDB${name}`] = function (e) {
                 try {
                   return callback(e);
                 } catch (t) {
-                  Error.report(t, "injected MarketWindow function:" + name);
+                  Error.report(t, `injected MarketWindow function:${name}`);
                 }
                 return "";
               };
             } catch (e) {
-              Error.report(e, "inject MarketWindow function:" + name);
+              Error.report(e, `inject MarketWindow function:${name}`);
             }
             try {
               var str = MarketWindow.getClearName.toString();
-              var inject = "this.TWDB" + name + "(obj.item_id)";
+              var inject = `this.TWDB${name}(obj.item_id)`;
               inject.replace(/ /g, "");
               var newfunction = "";
               while (str.indexOf("return") !== -1) {
                 var pos = str.indexOf("return");
                 newfunction +=
-                  str.slice(0, pos + 6) + " " + inject + " + String(";
+                  `${str.slice(0, pos + 6)} ${inject} + String(`;
                 str = str.substr(pos + 7);
                 var pos = str.indexOf(";");
-                newfunction += str.slice(0, pos) + ");";
+                newfunction += `${str.slice(0, pos)});`;
                 str = str.substr(pos + 1);
               }
               newfunction += str;
-              eval("MarketWindow.getClearName = " + newfunction);
+              eval(`MarketWindow.getClearName = ${newfunction}`);
             } catch (e) {
               Error.report(e, "manipulate MarketWindow.getClearName");
-              eval("MarketWindow.getClearName = " + save.MarketWindow);
+              eval(`MarketWindow.getClearName = ${save.MarketWindow}`);
             }
           };
           _self.injectGetBids = function () {
@@ -6484,7 +6406,7 @@
             }
           };
           _self.addTabOnMessagesWindow = function (name, shortname, callback) {
-            if (typeof save.MessagesWindowOpen == "undefined") {
+            if (typeof save.MessagesWindowOpen === "undefined") {
               save.MessagesWindowOpen = MessagesWindow.open.toString();
               save.MessagesWindowTab = MessagesWindow.showTab.toString();
             }
@@ -6501,7 +6423,7 @@
                 .toString()
                 .replace(
                   /MessagesWindow.Telegram.DOM/g,
-                  inject + "MessagesWindow.Telegram.DOM"
+                  `${inject}MessagesWindow.Telegram.DOM`
                 );
               eval(
                 "(function ($) {" +
@@ -6519,7 +6441,7 @@
               );
             }
             try {
-              MessagesWindow["TWDB-" + shortname] = function () {
+              MessagesWindow[`TWDB-${shortname}`] = function () {
                 callback();
               };
             } catch (e) {
@@ -6534,7 +6456,7 @@
                 "']();break;";
               var newfunction = MessagesWindow.showTab
                 .toString()
-                .replace(/switch(\s)*\(id\)(\s)*{/g, "switch (id) { " + inject);
+                .replace(/switch(\s)*\(id\)(\s)*{/g, `switch (id) { ${inject}`);
               eval(
                 "(function ($) {" +
                 "MessagesWindow.showTab = " +
@@ -6552,13 +6474,13 @@
             }
           };
           _self.addTabOnMarketWindow = function (e, t, n) {
-            var r = function (e, n) {
+            var r = function (_e, n) {
               if (!MarketWindow.window) return;
               MarketWindow.window
                 .activateTab(n)
                 .$("div.tw2gui_window_content_pane > *", MarketWindow.DOM)
-                .each(function (e, t) {
-                  if ($(t).hasClass("marketplace-" + n)) {
+                .each(function (_e, t) {
+                  if ($(t).hasClass(`marketplace-${n}`)) {
                     $(t).children().fadeIn();
                     $(t).show();
                   } else {
@@ -6566,7 +6488,7 @@
                     $(t).hide();
                   }
                 });
-              MarketWindow["TWDB-" + t]();
+              MarketWindow[`TWDB-${t}`]();
             };
             try {
               MarketWindow.twdb_open =
@@ -6575,13 +6497,13 @@
                 this.twdb_open.apply(this, arguments);
                 MarketWindow.window
                   .addTab(e, t, r)
-                  .appendToContentPane($('<div class="marketplace-' + t + '"/>'));
+                  .appendToContentPane($(`<div class="marketplace-${t}"/>`));
               };
             } catch (i) {
               Error.report(i, "manipulate MarketWindow.open");
             }
             try {
-              MarketWindow["TWDB-" + t] = function () {
+              MarketWindow[`TWDB-${t}`] = function () {
                 n();
               };
             } catch (i) {
@@ -6598,7 +6520,7 @@
               Error.report(i, "manipulate MarketWindow.showTab (1)");
             }
           };
-          var waitForMinimap = function (e) {
+          var waitForMinimap = function (_e) {
             if (interval) {
               window.clearInterval(timeout);
               window.clearInterval(interval);
@@ -6606,7 +6528,7 @@
             var t = function () {
               if (
                 !MinimapWindow.window ||
-                $(MinimapWindow.window.divMain).find(".mmap_jobs").length == 0
+                $(MinimapWindow.window.divMain).find(".mmap_jobs").length === 0
               ) {
                 return;
               }
@@ -6741,231 +6663,187 @@
             }
           };
           _self.injectReportReceivedEntry = function (callback) {
-            try {
-              if (_reportreceived.length == 0) {
+            if (_reportreceived.length === 0 && typeof OnGoingReportReceivedEntry === "function") {
                 try {
-                  var inject = "this._TWDB(msg);";
-                  var newfunction = OnGoingReportReceivedEntry.toString().replace(
-                    "{",
-                    "{\n" + inject + "\n"
-                  );
-                  eval("OnGoingReportReceivedEntry = " + newfunction);
-                  OnGoingReportReceivedEntry.prototype = new OnGoingEntry();
-                  OnGoingReportReceivedEntry.prototype._TWDB = function (e) {
-                    try {
-                      for (var t = 0; t < _reportreceived.length; t++) {
-                        _reportreceived[t](e);
-                      }
-                    } catch (n) {
-                      Error.report(n, "OnGoingReportReceivedEntry");
-                    }
-                  };
-                } catch (e) {
-                  Error.report(e, "manipulate " + item + ".prototype.getMainDiv");
-                  eval(item + ".prototype.getMainDiv = " + save[item]);
+                    const Original = OnGoingReportReceivedEntry;
+                    OnGoingReportReceivedEntry = function (...args) {
+                        Original.apply(this, args);
+                        if (typeof this._TWDB === "function") this._TWDB(args[0]);
+                    };
+                    OnGoingReportReceivedEntry.prototype = Object.create(OnGoingEntry.prototype);
+                    OnGoingReportReceivedEntry.prototype.constructor = OnGoingReportReceivedEntry;
+                    OnGoingReportReceivedEntry.prototype._TWDB = function (msg) {
+                        try {
+                            _reportreceived.forEach(fn => {fn(msg)});
+                        } catch (err) {
+                            Error.report(err, "OnGoingReportReceivedEntry._TWDB");
+                        }
+                    };
+                } catch (err) {
+                    Error.report(err, "patch OnGoingReportReceivedEntry");
                 }
-              }
-            } catch (e) {
-              Error.report(e, "manipulate OnGoingReportReceivedEntry");
             }
-            _reportreceived.push(function (e) {
-              callback(e);
-            });
+            _reportreceived.push(callback);
           };
           _self.injectInventoryAddItemsPinItems = function () {
             try {
-              Inventory.__CCPI__addItems =
-                Inventory.__CCPI__addItems || Inventory.addItems;
-              Inventory.addItems = function (e, t) {
-                Inventory.__CCPI__addItems.apply(this, arguments);
-                if (!$("#CC_pin_items").length) {
-                  Inventory.DOM.children(".actions").append(
-                    $('<div id="CC_pin_items" class="tw2gui_iconbutton" />')
-                      .attr({
-                        title:
-                          "Εναλλαγή λειτουργίας καρφιτσώματος".twdb_twiceHTMLUnescape(),
-                      })
-                      .toggleClass("pinact", TWDB.Settings.itemPinningMode === 1)
-                  );
-                }
-                $("#CC_pin_items")
-                  .off("click")
-                  .click(function () {
-                    TWDB.Settings.itemPinningMode ^= true;
-                    $(this).toggleClass(
-                      "pinact",
-                      TWDB.Settings.itemPinningMode === 1
-                    );
-                    Inventory.addItems(e, t);
-                  });
-                if ((e || Inventory.defaultCategory) == "new") {
-                  $.each(
-                    (TWDB.Settings.get("pinnedItems") || []).slice().reverse(),
-                    function (e, t) {
-                      var n = Bag.getItemByItemId(t);
-                      if (n) Inventory.addItemDivToInv(n, true);
+                Inventory.__CCPI__addItems = Inventory.__CCPI__addItems || Inventory.addItems;
+                Inventory.addItems = function (...args) {
+                    Inventory.__CCPI__addItems.apply(this, args);
+                    const [category, t] = args;
+                    const dom = Inventory.DOM instanceof jQuery ? Inventory.DOM[0] : Inventory.DOM;
+                    if (!dom) return;
+                    if (!document.getElementById("CC_pin_items")) {
+                        const actions = dom.querySelector(".actions");
+                        if (!actions) return;
+                        const pinBtn = document.createElement("div");
+                        pinBtn.id = "CC_pin_items";
+                        pinBtn.className = "tw2gui_iconbutton";
+                        pinBtn.title = "Εναλλαγή λειτουργίας καρφιτσώματος";
+                        if (TWDB.Settings.itemPinningMode === 1) pinBtn.classList.add("pinact");
+                        actions.appendChild(pinBtn);
+                        pinBtn.addEventListener("click", () => {
+                            TWDB.Settings.itemPinningMode ^= true;
+                            pinBtn.classList.toggle("pinact", TWDB.Settings.itemPinningMode === 1);
+                            Inventory.addItems(category, t);
+                        });
                     }
-                  );
-                }
-              };
-              var e =
-                "div#CC_pin_items {" +
-                'background-image: url("' +
-                Images.pinItems +
-                '");' +
-                "background-position: top;" +
-                "width: 34px;" +
-                "height: 36px;" +
-                "position: absolute;" +
-                "left: 0px!important; }" +
-                "div#CC_pin_items.pinact { background-position: bottom; }" +
-                "div.actions:has(.bag_resize) div#CC_pin_items {" +
-                "left: 34px!important; position: absolute !important;}";
-              TWDB.Util.addCss(e, "pinning");
-            } catch (t) {
-              Error.report(t, "manipulate Inventory.addItems (pin items)");
+                    if ((category || Inventory.defaultCategory) === "new") {
+                        const pinned = (TWDB.Settings.get("pinnedItems") || []).slice().reverse();
+                        pinned.forEach(id => {
+                            const item = Bag.getItemByItemId(id);
+                            if (item) Inventory.addItemDivToInv(item, true);
+                        });
+                    }
+                };
+                const css = `
+                    div#CC_pin_items {background-image: url("${Images.pinItems}"); background-position: top; width: 34px; height: 36px; position: absolute; left: 0px !important;}
+                    div#CC_pin_items.pinact {background-position: bottom;}
+                    div.actions:has(.bag_resize) div#CC_pin_items {left: 34px !important; position: absolute !important;}
+                `;
+                TWDB.Util.addCss(css, "pinning");
+            } catch (err) {
+                console.error("Error manipulating Inventory.addItems (pin items):", err);
             }
           };
           _self.injectInventoryAddItemDivToInvPinItems = function () {
             try {
-              Inventory.__CCPI__addItemDivToInv =
-                Inventory.__CCPI__addItemDivToInv || Inventory.addItemDivToInv;
-              Inventory.addItemDivToInv = function (e, t) {
-                if (!TWDB.Settings.itemPinningMode && !t)
-                  Inventory.__CCPI__addItemDivToInv.apply(this, arguments);
-                else {
-                  var n = TWDB.Settings.get("pinnedItems") || [],
-                    r = e.getId();
-                  var i = $("<div>").append(
-                    e.getMainDiv().data("itemId", e.getId())
-                  );
-                  i.find("img")
-                    .off("click")
-                    .click(
-                      TWDB.Settings.itemPinningMode
-                        ? function (e) {
-                          var t = n.indexOf(r);
-                          if (t < 0) {
-                            if (n.length >= Inventory.latestSize) return;
-                            n.push(r);
-                          } else n.splice(t, 1);
-                          $(this).parent().parent().toggleClass("opacity05");
-                          TWDB.Settings.set("pinnedItems", n);
-                        }
-                        : function (t) {
-                          Inventory.clickHandler(e.getId(), t);
-                        }
-                    );
-                  if (TWDB.Settings.itemPinningMode)
-                    i.addClass(n.indexOf(r) < 0 ? "opacity05" : "");
-                  else
-                    i.find("img").setDraggable(
-                      Inventory.announceDragStart,
-                      Inventory.announceDragStop
-                    );
-                  if (t) {
-                    i.addClass("pinned").prependTo($("#bag", Inventory.DOM));
-                    $("#bag > div:empty", Inventory.DOM).remove();
-                    if ($("#bag > div").length > Inventory.latestSize)
-                      $("#bag > div:not(.pinned):first", Inventory.DOM).detach();
-                  } else i.appendTo($("#bag", Inventory.DOM));
-                }
-              };
-              var e =
-                "#bag > .pinned > .item {" +
-                'background: rgba(134, 93, 39, 0.4) url("' +
-                Images.pinMini +
-                '") -1px -1px no-repeat;' +
-                "border-radius: 4px;" +
-                "-webkit-box-shadow: inset 0px 0px 2px 1px #852;" +
-                "-moz-box-shadow: inset 0px 0px 2px 1px #852;" +
-                "box-shadow: inset 0px 0px 2px 1px #852; }" +
-                "#bag > .pinned > .item span.count { bottom: -1px; left: 1px; }" +
-                "#bag > .pinned > .item span.usable { right: -1px; }" +
-                "#bag > .pinned > .item span.item_level { opacity: 0.4; top: 1px; left: initial; right: 1px; background-color: rgba(0, 0, 0, 0); }" +
-                "#bag > .pinned > .item span.cooldown { top: 2px; left: 15px; }";
-              TWDB.Util.addCss(e, "pinning");
-            } catch (t) {
-              Error.report(t, "manipulate Inventory.addItemDivToInv (pin items)");
+                Inventory.__CCPI__addItemDivToInv = Inventory.__CCPI__addItemDivToInv || Inventory.addItemDivToInv;
+                Inventory.addItemDivToInv = function (item, pinnedFlag) {
+                    const pinnedMode = TWDB.Settings.itemPinningMode;
+                    if (!pinnedMode && !pinnedFlag) {
+                        Inventory.__CCPI__addItemDivToInv.apply(this, [item, pinnedFlag]);
+                        return;
+                    }
+                    const pinnedItems = TWDB.Settings.get("pinnedItems") || [];
+                    const itemId = item.getId();
+                    const container = document.createElement("div");
+                    let mainDiv = item.getMainDiv();
+                    if (mainDiv instanceof jQuery) mainDiv = mainDiv[0];
+                    if (!mainDiv) return;
+                    mainDiv.dataset.itemId = itemId;
+                    container.appendChild(mainDiv);
+                    const img = container.querySelector("img");
+                    if (!img) return;
+                    img.onclick = pinnedMode
+                        ? () => {
+                              const index = pinnedItems.indexOf(itemId);
+                              if (index < 0) {
+                                  if (pinnedItems.length >= Inventory.latestSize) return;
+                                  pinnedItems.push(itemId);
+                              } else pinnedItems.splice(index, 1);
+                              container.classList.toggle("opacity05", pinnedItems.indexOf(itemId) < 0);
+                              TWDB.Settings.set("pinnedItems", pinnedItems);
+                          }
+                        : (event) => Inventory.clickHandler(itemId, event);
+                    if (pinnedMode && !pinnedItems.includes(itemId)) container.classList.add("opacity05");
+                    else if (!pinnedMode) img.setDraggable?.(Inventory.announceDragStart, Inventory.announceDragStop);
+                    let bag;
+                    const dom = Inventory.DOM instanceof jQuery ? Inventory.DOM[0] : Inventory.DOM;
+                    if (dom) bag = dom.querySelector("#bag");
+                    if (!bag) return;
+                    if (pinnedFlag) {
+                        container.classList.add("pinned");
+                        bag.prepend(container);
+                        Array.from(bag.children)
+                            .filter(div => div.tagName === "DIV" && div.children.length === 0)
+                            .forEach(div => {div.remove()});
+                        const nonPinned = Array.from(bag.children).filter(div => !div.classList.contains("pinned"));
+                        if (bag.children.length > Inventory.latestSize && nonPinned.length > 0) nonPinned[0].remove();
+                    } else {
+                        bag.appendChild(container);
+                    }
+                };
+                const css = `
+                    #bag > .pinned > .item {background: rgba(134, 93, 39, 0.4) url("${Images.pinMini}") -1px -1px no-repeat; border-radius: 4px; box-shadow: inset 0px 0px 2px 1px #852;}
+                    #bag > .pinned > .item span.count {bottom: -1px; left: 1px;}
+                    #bag > .pinned > .item span.usable {right: -1px;}
+                    #bag > .pinned > .item span.item_level {opacity: 0.4; top: 1px; left: initial; right: 1px; background-color: rgba(0,0,0,0);}
+                    #bag > .pinned > .item span.cooldown {top: 2px; left: 15px;}
+                `;
+                TWDB.Util.addCss(css, "pinning");
+            } catch (err) {
+                console.error("Error manipulating Inventory.addItemDivToInv (pin items):", err);
             }
           };
-          _self.injectTelegramWindowAppendTelegramDisplaySource = function (e) {
+          _self.injectTelegramWindowAppendTelegramDisplaySource = function (_e) {
             try {
-              TelegramWindow.__CCDTS__appendTelegram =
-                TelegramWindow.__CCDTS__appendTelegram ||
-                TelegramWindow.appendTelegram;
-              TelegramWindow.appendTelegram = function (e, t) {
-                TelegramWindow.__CCDTS__appendTelegram.apply(this, arguments);
-                t.contentPane
-                  .find(".telegram-head:last .author")
-                  .css({
-                    left: "81px",
-                    width: "140px",
-                    background:
-                      "url(/images/window/messages/post-head.jpg) -16px 0",
-                  })
-                  .before(
-                    $('<div class="telegram-source"><div>BB</div></div>')
-                      .attr(
-                        "title",
-                        "Εναλλαγή μεταξύ μη μορφοποιημένου μηνύματος και του αρχικού"
-                      )
-                      .click(function () {
-                        var t = $(this).toggleClass("active").hasClass("active");
-                        $(this)
-                          .closest(".telegram-head")
-                          .next(".telegram-post")
-                          .html(
-                            t
-                              ? e.text
+                TelegramWindow.__CCDTS__appendTelegram = TelegramWindow.__CCDTS__appendTelegram || TelegramWindow.appendTelegram;
+                TelegramWindow.appendTelegram = function (...args) {
+                    TelegramWindow.__CCDTS__appendTelegram.apply(this, args);
+                    const [msgData, t] = args;
+                    const contentPane = t.contentPane instanceof jQuery ? t.contentPane[0] : t.contentPane;
+                    if (!contentPane) return;
+                    const telegramHeads = contentPane.querySelectorAll(".telegram-head");
+                    if (telegramHeads.length === 0) return;
+                    const lastHead = telegramHeads[telegramHeads.length - 1];
+                    const authorEl = lastHead.querySelector(".author");
+                    if (!authorEl) return;
+                    Object.assign(authorEl.style, {
+                        left: "81px",
+                        width: "140px",
+                        background: "url(/images/window/messages/post-head.jpg) -16px 0"
+                    });
+                    const sourceBtn = document.createElement("div");
+                    sourceBtn.className = "telegram-source";
+                    sourceBtn.title = "Εναλλαγή μεταξύ μη μορφοποιημένου μηνύματος και του αρχικού";
+                    const innerDiv = document.createElement("div");
+                    innerDiv.textContent = "BB";
+                    sourceBtn.appendChild(innerDiv);
+                    sourceBtn.addEventListener("click", function () {
+                        const isActive = sourceBtn.classList.toggle("active");
+                        const postEl = lastHead.nextElementSibling;
+                        if (!postEl) return;
+                        if (isActive) {
+                            // Convert HTML to BBCode-like format
+                            const rawText = msgData.text
                                 .replace(/<(\/?(b|i|u|del))>/g, "[$1]")
-                                .replace(
-                                  /<a href="[^"]+PlayerProfileWindow[^"]+">([^<]+)<\/a>/g,
-                                  "[player]$1[/player]"
-                                )
-                                .replace(
-                                  /<a href="[^"]+TownWindow[^"]+">([^<]+)<\/a>/g,
-                                  "[town]$1[/town]"
-                                )
-                                .replace(
-                                  /<a href="[^"]+FortWindow[^"]+">([^<]+)<\/a>/g,
-                                  "[fort]$1[/fort]"
-                                )
-                                .replace(
-                                  /<a href="[^"]+AllianceWindow[^"]+">([^<]+)<\/a>/g,
-                                  "[alliance]$1[/alliance]"
-                                )
-                                .replace(
-                                  /<a class="external_link" href="[^=]+=redirect[^=]+=([^"]+)" target="_blank">([^<]+)<\/a>/g,
-                                  function (e, t, n) {
-                                    return (
-                                      "[url=" +
-                                      decodeURIComponent(t) +
-                                      "]" +
-                                      n +
-                                      "[/url]"
-                                    );
-                                  }
-                                )
-                              : Game.TextHandler.parse(e.text)
-                          );
-                      })
-                  );
-              };
-              TWDB.Util.addCss(
-                ".telegram-source { position: absolute; width: 24px; height: 24px; cursor: pointer; " +
-                "background: url(/images/window/messages/icons.png) 72px -3px; " +
-                "left: 52px; }\n" +
-                ".telegram-source div { display: inline-block; width: 14px; height: 11px; color: white; " +
-                "background: #523F30; font-size: 10px; margin: 4px; padding: 0px 0 5px 2px; line-height: 16px; " +
-                "font-family: Impact, sans-serif; font-weight: 300; }\n" +
-                ".telegram-source.active div { background: blue; }\n"
-              );
-            } catch (t) {
-              Error.report(
-                t,
-                "manipulate TelegramWindow.appendTelegram (display telegram source)"
-              );
+                                .replace(/<a href="[^"]+PlayerProfileWindow[^"]+">([^<]+)<\/a>/g, "[player]$1[/player]")
+                                .replace(/<a href="[^"]+TownWindow[^"]+">([^<]+)<\/a>/g, "[town]$1[/town]")
+                                .replace(/<a href="[^"]+FortWindow[^"]+">([^<]+)<\/a>/g, "[fort]$1[/fort]")
+                                .replace(/<a href="[^"]+AllianceWindow[^"]+">([^<]+)<\/a>/g, "[alliance]$1[/alliance]")
+                                .replace(/<a class="external_link" href="[^=]+=redirect[^=]+=([^"]+)" target="_blank">([^<]+)<\/a>/g,
+                                    (_, url, text) => `[url=${decodeURIComponent(url)}]${text}[/url]`)
+                                .replace(/<a class="public_report_link" href="[^"]+ReportWindow\.open\((\d+), '([0-9a-f]+)'\);">([^<]+)<\/a>/g, (_, id, hash, text) => `[report=${id}${hash}]${text.replace(/^\[|\]$/g, "")}[/report]`);
+                            postEl.innerHTML = rawText;
+                        } else {
+                            postEl.innerHTML = Game.TextHandler.parse(msgData.text);
+                        }
+                    });
+                    authorEl.parentNode.insertBefore(sourceBtn, authorEl);
+                };
+                if (!document.getElementById("telegram-source-style")) {
+                    const styleEl = document.createElement("style");
+                    styleEl.id = "telegram-source-style";
+                    styleEl.textContent = `
+                        .telegram-source {position: absolute; width: 24px; height: 24px; cursor: pointer; background: url(/images/window/messages/icons.png) 72px -3px; left: 52px;}
+                        .telegram-source div {display: inline-block; width: 14px; height: 11px; color: white; background: #523F30; font-size: 10px; margin: 4px; padding: 0 0 5px 2px; line-height: 16px; font-family: Impact, sans-serif; font-weight: 300;}
+                        .telegram-source.active div {background: blue;}
+                    `;
+                    document.head.appendChild(styleEl);
+                }
+            } catch (err) {
+                console.error("Error manipulating TelegramWindow.appendTelegram:", err);
             }
           };
           _self.injectWanderingTraderSellDialog = function () {
@@ -6981,10 +6859,10 @@
                     if (r < 3) {
                         return;
                     }
-                    i = $("div.tw2gui_dialog").has("div.textart_title:contains(" + n.getName() + ")");
+                    i = $("div.tw2gui_dialog").has(`div.textart_title:contains(${n.getName()})`);
                     if (i.length === 1) {
                         r--;
-                        s = "Max-1 (" + r + "x = $ " + r * n.getSellPrice() + ")";
+                        s = `Max-1 (${r}x = $ ${r * n.getSellPrice()})`;
                         i.children("div.tw2gui_dialog_actions").prepend(
                             new west.gui.Button(
                                 s,
@@ -6999,12 +6877,12 @@
             } catch (e) {
                 Error.report(e, "manipulate .showSellDialog (wandering trader - sell all but one)");
             }
-        };
+          };
           _self.MenuButton = function (image, title, onclick) {
             var onClick = onclick || function(){};
-            var $obj = $('<div class="menulink" title="' + title + '">')
+            var $obj = $(`<div class="menulink" title="${title}">`)
               .css({
-                'background-image': 'url(' + image + ')',
+                'background-image': `url(${image})`,
                 'background-repeat': 'no-repeat',
                 'background-position': '0px 0px',
               });
@@ -7021,7 +6899,7 @@
           return _self;
         })($);
         Debugger.GameInject = GameInject;
-        var Quests = (function (e) {
+        var Quests = (function (_e) {
           var t = {};
           var n = {};
           var r = function () {
@@ -7039,22 +6917,22 @@
               var e = QuestWindow.cancelQuest;
               QuestWindow.cancelQuest = function (t) {
                 new west.gui.Dialog(
-                  "Ακύρωση Αποστολής;",
-                  "Είστε βέβαιοι ότι επιθυμείτε να ακυρώσετε αυτή την αποστολή;"
+                  TWDB.lang.cancel_quest_title,
+                  TWDB.lang.cancel_quest_message
                 )
                   .setIcon(west.gui.Dialog.SYS_QUESTION)
                   .setModal(true, false, {
-                    bg: Game.cdnURL + "/images/curtain_bg.png",
+                    bg: `${Game.cdnURL}/images/curtain_bg.png`,
                     opacity: 0.4,
                   })
-                  .addButton("Ναι", function () {
+                  .addButton(TWDB.lang.yes, function () {
                     e(t);
                   })
-                  .addButton("Όχι", function () { })
+                  .addButton(TWDB.lang.no, function () { })
                   .show();
               };
             } catch (t) {
-              Error.report(t, "inject " + item + " function: " + name);
+              Error.report(t, `inject ${item} function: ${name}`);
             }
           };
           return t;
@@ -7083,7 +6961,7 @@
             if (
               Character.setDuelProtection
                 .toString()
-                .search("duelprotection_changed") == -1
+                .search("duelprotection_changed") === -1
             ) {
               Character.twdb_setDuelProtection = Character.setDuelProtection;
               Character.setDuelProtection = function (e) {
@@ -7098,7 +6976,7 @@
               };
             } else if (TWDB.script.isDev()) {
               console.log("setDuelProtection changed");
-              new UserMessage("setDuelProtection changed").show();
+              new UserMessage(TWDB.lang.setDuelProtection_changed).show();
             }
             var t =
               "div#ui_character_container .twdb_charcont_ext {background-image:" +
@@ -7200,8 +7078,8 @@
             o = Character.duelMotivation;
             var t = Math.round(Character.duelMotivation * 100);
             d(
-              t + "%",
-              "Κίνητρο μονομαχίας:&nbsp;" + t + "%",
+              `${t}%`,
+              `Κίνητρο μονομαχίας:&nbsp;${t}%`,
               e ? "duelmot_dim" : ""
             );
           };
@@ -7321,18 +7199,18 @@
               .addButton("Ναι", function () {
                 a(1);
               })
-              .addButton("Όχι")
+              .addButton(TWDB.lang.no)
               .show();
           };
           var u = function () {
             try {
-              if (w.Character.homeTown.town_id == 0 || w.Character.money <= 10) {
+              if (w.Character.homeTown.town_id === 0 || w.Character.money <= 10) {
                 n = true;
                 return;
               }
               if (
-                w.Character.position.x == w.Character.homeTown.x &&
-                w.Character.position.y == w.Character.homeTown.y
+                w.Character.position.x === w.Character.homeTown.x &&
+                w.Character.position.y === w.Character.homeTown.y
               ) {
                 if (n) {
                   n = false;
@@ -7350,7 +7228,7 @@
                       n = true;
                       a(w.Character.homeTown.town_id);
                     })
-                    .addButton("Όχι")
+                    .addButton(TWDB.lang.no)
                     .show();
                 }
               } else {
@@ -7366,7 +7244,7 @@
             }
             w.BankWindow.townid = e;
             w.BankWindow.DOM = new west.gui.Textfield(
-              "tb_balance_input_" + w.BankWindow.townid
+              `tb_balance_input_${w.BankWindow.townid}`
             )
               .setSize(10)
               .setValue(w.Character.money)
@@ -7419,7 +7297,7 @@
               var i = e('<div class="mpo_alert" />');
               e(MarketWindow.offerTable.getMainDiv())
                 .children()
-                .find(".marketBidsData_" + r.market_offer_id)
+                .find(`.marketBidsData_${r.market_offer_id}`)
                 .append(i);
               if (!r.isFinished) {
                 i.append(f(r));
@@ -7432,7 +7310,7 @@
               var i = e('<div class="mpo_alert" />');
               e(MarketWindow.watchlistTable.getMainDiv())
                 .children()
-                .find(".marketWatchData_" + r.market_offer_id)
+                .find(`.marketWatchData_${r.market_offer_id}`)
                 .append(i);
               if (!r.isFinished) {
                 i.append(f(r));
@@ -7440,7 +7318,7 @@
             }
           };
           var f = function (t) {
-            var n = e('<img src="' + Images.iconAlarm + '" />').css({
+            var n = e(`<img src="${Images.iconAlarm}" />`).css({
               cursor: "pointer",
             });
             n.click(
@@ -7474,7 +7352,7 @@
             var i = function (e) {
               var t = n[e],
                 r = Math.max(
-                  t.ends * 1e3 - new Date().getTime() - t.reminder * 60 * 1e3,
+                  t.ends * 1e3 - Date.now() - t.reminder * 60 * 1e3,
                   100
                 );
               t.timer = setTimeout(
@@ -7488,12 +7366,12 @@
             };
             var s = function (e, r, s) {
               var o = parseInt(r.getValue(), 10);
-              if (isNaN(o) || o < 1) {
+              if (Number.isNaN(o) || o < 1) {
                 t.create(e, s);
                 return;
               }
-              if (new Date().getTime() / 1e3 + o * 60 >= e.auction_end_date) {
-                new UserMessage("?remindertoolate").show();
+              if (Date.now()/ 1e3 + o * 60 >= e.auction_end_date) {
+                new UserMessage(TWDB.lang.reminder_toolate).show();
                 t.create(e, s);
                 return;
               }
@@ -7524,17 +7402,17 @@
                 i.name +
                 ", Τέλος: " +
                 Number(
-                  r.ends - new Date().getTime() / 1e3
+                  r.ends - Date.now() / 1e3
                 ).getTimeString4Timestamp()
               );
-              s.setImage(e('<img src="' + Images.notiBell + '" />'));
+              s.setImage(e(`<img src="${Images.notiBell}" />`));
               WestUi.NotiBar.add(s);
               TitleTicker.setNotifyMessage(
                 "Δημοπρασία: " +
                 i.name +
                 ", Τέλος: " +
                 Number(
-                  r.ends - new Date().getTime() / 1e3
+                  r.ends - Date.now() / 1e3
                 ).getTimeString4Timestamp()
               );
               AudioController.play(AudioController.SOUND_NEWMSG);
@@ -7561,7 +7439,7 @@
               var f = new west.gui.Dialog("Υπενθύμιση αγοράς", u)
                 .setIcon(west.gui.Dialog.SYS_QUESTION)
                 .setModal(true, false, {
-                  bg: w.Game.cdnURL + "/images/curtain_bg.png",
+                  bg: `${w.Game.cdnURL}/images/curtain_bg.png`,
                   opacity: 0.4,
                 })
                 .addButton("ΟΚ", function () {
@@ -7569,12 +7447,12 @@
                   s(r, a, i);
                 });
               if (t.exists(r.market_offer_id)) {
-                f.addButton("Διαγραφή", function () {
+                f.addButton(TWDB.lang.delete, function () {
                   o(r.market_offer_id);
                   i.css("opacity", 0.5);
                 });
               }
-              f.addButton("Ακύρωση", function () { }).show();
+              f.addButton(TWDB.lang.cancel, function () { }).show();
             };
             return t;
           })(e);
@@ -7582,7 +7460,7 @@
             try {
               window.MarketWindow.window.showLoader();
               window.MarketWindow.window
-                .setTitle("Χάρτης Αγοράς")
+                .setTitle(TWDB.lang.market_map_title)
                 .setSize(840, 655)
                 .addClass("premium-buy");
               var t = -111,
@@ -7591,7 +7469,7 @@
                 '<div style="position:relative;display:block;margin:10px 9px 10px 9px;width:770px;height:338px;" />'
               );
               for (var o = 1; o < 16; o++) {
-                if (o == 8) {
+                if (o === 8) {
                   s += 169;
                   t = -111;
                 }
@@ -7607,13 +7485,13 @@
                   o +
                   '.jpg" />'
                 );
-                if (o == 4) {
+                if (o === 4) {
                   u.css({ height: "114px" });
                 } else {
-                  if (o == 11) {
-                    u.css({ height: "114px", top: s + 55 + "px" });
+                  if (o === 11) {
+                    u.css({ height: "114px", top: `${s + 55}px` });
                   } else {
-                    if (o == 15) {
+                    if (o === 15) {
                       u.css({
                         height: "108px",
                         width: "109px",
@@ -7685,7 +7563,7 @@
               for (var n = 0; n < t.length; n++) {
                 if (
                   t[n].auction_ends_in < 0 ||
-                  t[n].current_bid == t[n].max_price
+                  t[n].current_bid === t[n].max_price
                 ) {
                   var r = {
                     item_id: t[n].item_id,
@@ -7750,18 +7628,18 @@
                 '<div style="max-width: 305px;"><b>' +
                 n.name +
                 "</b>" +
-                (n["money"] == 0 ? "" : " " + n["money"] + "$") +
+                (n.money === 0 ? "" : ` ${n.money}$`) +
                 "<br/>";
               var o = 0,
                 u;
-              for (var a in n["offers_end"]) {
+              for (var a in n.offers_end) {
                 o++;
                 if (o > 19) {
                   s += " ... ";
                   break;
                 }
-                u = n["offers_end"][a];
-                if (n["offers_end"][a] !== 0) {
+                u = n.offers_end[a];
+                if (n.offers_end[a] !== 0) {
                   s +=
                     '<div class="item item_inventory"><img width="53" height="53" src="' +
                     ItemManager.get(a).image +
@@ -7770,14 +7648,14 @@
                     "</p></span></div>";
                 }
               }
-              for (a in n["offers_unend"]) {
+              for (a in n.offers_unend) {
                 o++;
                 if (o > 19) {
                   s += " ... ";
                   break;
                 }
-                u = n["offers_unend"][a];
-                if (n["offers_unend"][a] !== 0) {
+                u = n.offers_unend[a];
+                if (n.offers_unend[a] !== 0) {
                   s +=
                     '<div style="opacity:0.35" class="item item_inventory"><img width="53" height="53" src="' +
                     ItemManager.get(a).image +
@@ -7789,8 +7667,8 @@
               s += "</div>";
               e("<div />")
                 .css({
-                  left: (n.x / (181 * window.GameMap.tileSize)) * 770 - 5 + "px",
-                  top: (n.y / (79 * window.GameMap.tileSize)) * 338 - 5 + "px",
+                  left: `${(n.x / (181 * window.GameMap.tileSize)) * 770 - 5}px`,
+                  top: `${(n.y / (79 * window.GameMap.tileSize)) * 338 - 5}px`,
                 })
                 .attr({ class: "twdb_mmap_point", id: t, title: s })
                 .click(
@@ -7837,7 +7715,7 @@
                 t.push({ id: r, distance: i[r].distance });
               }
               t.sort(function (e, t) {
-                return e.distance == t.distance
+                return e.distance === t.distance
                   ? 0
                   : e.distance > t.distance
                     ? 1
@@ -7855,24 +7733,24 @@
                   a.name +
                   "</a>" +
                   ' <a title="Ένδειξη πόλης στον χάρτη" onclick="GameMap.center(' +
-                  a["x"] +
+                  a.x +
                   ", " +
-                  a["y"] +
+                  a.y +
                   ')"><img src="' +
                   Game.cdnURL +
                   '/images/icons/center.png" /></a>' +
                   " Απόσταση: " +
-                  a["distance"] +
+                  a.distance +
                   ' <a title="Μετακίνηση στην πόλη" onclick="TaskQueue.add(new TaskWalk(' +
                   a.town_id +
                   ",'town'))\"><img src=\"" +
                   Game.cdnURL +
                   '/images/map/icons/instantwork.png"></a>' +
-                  (a["money"] == 0 ? "" : " " + a["money"] + "$") +
+                  (a.money === 0 ? "" : ` ${a.money}$`) +
                   "<br />";
-                for (s in a["offers_end"]) {
-                  var f = a["offers_end"][s];
-                  if (a["offers_end"][s] !== 0) {
+                for (s in a.offers_end) {
+                  var f = a.offers_end[s];
+                  if (a.offers_end[s] !== 0) {
                     var l = new ItemPopup(ItemManager.get(s));
                     o +=
                       '<div class="item item_inventory" title="' +
@@ -7884,9 +7762,9 @@
                       "</p></span></div>";
                   }
                 }
-                for (s in a["offers_unend"]) {
-                  var f = a["offers_unend"][s];
-                  if (a["offers_unend"][s] !== 0) {
+                for (s in a.offers_unend) {
+                  var f = a.offers_unend[s];
+                  if (a.offers_unend[s] !== 0) {
                     var l = new ItemPopup(ItemManager.get(s));
                     o +=
                       '<div style="opacity:0.35" class="item item_inventory" title="' +
@@ -7900,7 +7778,7 @@
                 }
                 o += "</div>";
                 for (var c = 0; c <= (a.count - (a.count % 12)) / 12; c++) {
-                  o += a.count == 0 ? "<br/>" : "<br/><br/><br/><br/>";
+                  o += a.count === 0 ? "<br/>" : "<br/><br/><br/><br/>";
                 }
               }
               var h = new west.gui.Scrollpane();
@@ -7947,7 +7825,27 @@
             loader.ready = true;
           };
           loader = Loader.add("Fort", "tw-db Fort", init, { Settings: true });
+          var getFortBattleLang = function() {
+            var lang = TWDB.lang || {};
+            return {
+              sortByHealth: lang.sort_by_health,
+              healthPoints: lang.health_points,
+              sortAscCurrentHealth: lang.sort_asc_current_health,
+              sortDescCurrentHealth: lang.sort_desc_current_health,
+              sortAscMaxHealth: lang.sort_asc_max_health,
+              sortDescMaxHealth: lang.sort_desc_max_health,
+              sortAscDistance: lang.sort_asc_distance,
+              sortDescDistance: lang.sort_desc_distance,
+              showPlayersAtFort: lang.show_players_at_fort,
+              hidePlayersAtFort: lang.hide_players_at_fort,
+              showPlayersNearFort: lang.show_players_near_fort,
+              hidePlayersNearFort: lang.hide_players_near_fort,
+              showPlayersAwayFort: lang.show_players_away_fort,
+              hidePlayersAwayFort: lang.hide_players_away_fort
+            };
+          };
           var inject = function () {
+            var fortLang = getFortBattleLang();
             TWDB.Util.addCss(`
               .fortbattle .trows .status {text-align: center;}
               .fortbattle .trows .health_points {width: 90px; text-align: center; margin-left: -8px;}
@@ -7966,7 +7864,7 @@
               window.gradeNames = { "-2":"traitor", "-1":"reservist", 0:"recruit", 1:"private", 2:"sergeant", 3:"captain", 4:"major_general", 5:"general" };
               window.getGradeImg = function (e, t, n, r) {
                 try {
-                  return ('<img class="' + (n || "") + '" src="' + window.Game.cdnURL + "/images/chat/servicegrade_" + gradeNames[e] + '.png" title="' + (t ? window.Chat.rankTitles[gradeNames[e]].escapeHTML() : "") + (isDefined(r) && r !== "" ? " (" + r + ")" : "") + '" />' );
+                  return (`<img class="${n || ""}" src="${window.Game.cdnURL}/images/chat/servicegrade_${gradeNames[e]}.png" title="${t ? window.Chat.rankTitles[gradeNames[e]].escapeHTML() : ""}${isDefined(r) && r !== "" ? ` (${r})` : ""}" />` );
                 } catch (i) {
                   Error.report(i, "getGradeImg");
                 }
@@ -7986,7 +7884,7 @@
                   [/\.addColumns\(\s*\[\s*'count'\s*,\s*'name'\s*,\s*'town'\s*,\s*'rank'\s*,\s*'class'\s*,\s*'status'\s*,\s*'evaluated'\s*\]\s*\)/,
                     ".addColumns(['count','name','town','rank','class','status','health_points'])"],
                   [/\.appendToThCell\(\s*'head'\s*,\s*'evaluated'\s*,[\s\S]*?\);/,
-                    ".appendToThCell('head','health_points','Ταξινόμηση κατά Yγεία','<span class=\"sort sort-health_points\">'+'Πόντοι Υγείας'+'</span>');"],
+                    `.appendToThCell('head','health_points','${fortLang.sortByHealth}','<span class="sort sort-health_points">'+'${fortLang.healthPoints}'+'</span>');`],
                   [/evaluated\s*:\s*list\[i\]\.officername\s*\|\|\s*''/,
                     "health_points:'<p style=\"font-weight:700;color:'+((this.preBattle.battleData.fortCoords.x-list[i].coords.x==0&&this.preBattle.battleData.fortCoords.y-list[i].coords.y==0)?'rgb(0,153,0)':((Math.abs(this.preBattle.battleData.fortCoords.x-list[i].coords.x)<=500&&Math.abs(this.preBattle.battleData.fortCoords.y-list[i].coords.y)<=500)?'rgb(255,119,0)':'rgb(255,0,0)'))+'\">'+(list[i].currhealth===list[i].maxhealth?format_number(list[i].maxhealth):format_number(list[i].currhealth)+'&boxv;'+format_number(list[i].maxhealth))+'</p>'"]
                 ]],
@@ -7995,7 +7893,7 @@
                   [/var hidden ?= ?function\(classKey, ?privKey\) ?{ ?return that\.preBattle\.isHidden\(classKey, ?'rank_'\+ ?privKey\); ?};/,
                     "{var hidden=function(classKey,privKey,location){return that.preBattle.isHidden(classKey,'rank_'+privKey,null,null,location);};}"],
                   [/return ?{message: ?sorting, ?title: ?title};/,
-                    "else if(key=='health_points'){title='Ταξινόμηση κατά Yγεία';sorting.append(getSortLink('Αύξουσα τρέχουσα Yγεία','>currhealth'));sorting.append(getSortLink('Φθίνουσα τρέχουσα Yγεία','<currhealth'));sorting.append(getSortLink('Αύξουσα μέγιστη Υγεία','>maxhealth'));sorting.append(getSortLink('Φθίνουσα μέγιστη Υγεία','<maxhealth'));sorting.append('<br />');sorting.append(getSortLink('Αύξουσα Απόσταση','>distance'));sorting.append(getSortLink('Φθίνουσα Απόσταση','<distance'));sorting.append(getVisLink(hidden(null,'-3','atfort')?'Εμφάνιση παικτών στο οχυρό':'Απόκρυψη παικτών στο οχυρό','atfort'));sorting.append(getVisLink(hidden(null,'-3','nearbyfort')?'Εμφάνιση παικτών κοντά στο οχυρό':'Απόκρυψη παικτών κοντά στο οχυρό','nearbyfort'));sorting.append(getVisLink(hidden(null,'-3','notatfort')?'Εμφάνιση παικτών μακρυά από το οχυρό':'Απόκρυψη παικτών μακρυά από το οχυρό','notatfort'));}return{message:sorting,title:title};"]
+                    `else if(key=='health_points'){title='${fortLang.sortByHealth}';sorting.append(getSortLink('${fortLang.sortAscCurrentHealth}','>currhealth'));sorting.append(getSortLink('${fortLang.sortDescCurrentHealth}','<currhealth'));sorting.append(getSortLink('${fortLang.sortAscMaxHealth}','>maxhealth'));sorting.append(getSortLink('${fortLang.sortDescMaxHealth}','<maxhealth'));sorting.append('<br />');sorting.append(getSortLink('${fortLang.sortAscDistance}','>distance'));sorting.append(getSortLink('${fortLang.sortDescDistance}','<distance'));sorting.append(getVisLink(hidden(null,'-3','atfort')?'${fortLang.showPlayersAtFort}':'${fortLang.hidePlayersAtFort}','atfort'));sorting.append(getVisLink(hidden(null,'-3','nearbyfort')?'${fortLang.showPlayersNearFort}':'${fortLang.hidePlayersNearFort}','nearbyfort'));sorting.append(getVisLink(hidden(null,'-3','notatfort')?'${fortLang.showPlayersAwayFort}':'${fortLang.hidePlayersAwayFort}','notatfort'));}return{message:sorting,title:title};`]
                 ]]
               ]
               .forEach(([fn,preserve,repls])=>{
@@ -8003,16 +7901,16 @@
                   if(!original||original.__hp_patched) return;
                   let src=String(original);
                   repls.forEach(([p,r])=>{src=src.replace(p,r);});
-                  const wrapped= preserve ? "(function(){var lastStamp;return "+src+"})();" : "(function(){return "+src+"})();";
-                  const compiled=new Function("return "+wrapped)();
+                  const wrapped= preserve ? `(function(){var lastStamp;return ${src}})();` : `(function(){return ${src}})();`;
+                  const compiled=new Function(`return ${wrapped}`)();
                   window.FortBattleWindow[fn] = function (...a) {
                     const r = compiled.apply(this, a);
                     if (fn === 'updateRecruitlist') try {
                       const root = this.infoareaEl?.[0];
                       const th1 = TWDS.q1(".cell_4 .sort-class", root);
                       const th2 = TWDS.q1(".cell_5 .sort-status", root);
-                      if (th1) th1.textContent = 'Κατηγορία';
-                      if (th2) th2.innerHTML = '<img src="' + window.Game.cdnURL + '/images/chat/servicegrade_general.png" alt="Βαθμός" style="pointer-events:none;">';
+                      if (th1) th1.textContent = TWDB.lang.category;
+                      if (th2) th2.innerHTML = `<img src="${window.Game.cdnURL}/images/chat/servicegrade_general.png" alt="${TWDB.lang.rank}" style="pointer-events:none;">`;
                     } catch {}
                     return r;
                   };
@@ -8021,19 +7919,19 @@
               });
               PreBattle.recruitSorting.currhealth = function (e, t, n) {
                 return n
-                  ? e.currhealth == t.currhealth
+                  ? e.currhealth === t.currhealth
                   : e.currhealth < t.currhealth;
               };
               PreBattle.recruitSorting.maxhealth = function (e, t, n) {
-                return n ? e.maxhealth == t.maxhealth : e.maxhealth < t.maxhealth;
+                return n ? e.maxhealth === t.maxhealth : e.maxhealth < t.maxhealth;
               };
-              PreBattle.recruitSorting.distance = function (e, t, n, r, i, s) { };
+              PreBattle.recruitSorting.distance = function (_e, _t, _n, _r, _i, _s) { };
               PreBattle.isHidden = function (e, t, n, r, i) {
-                if (i == null) {
+                if (i === null) {
                   var s = this.battleData.fortCoords.x - n;
                   var o = this.battleData.fortCoords.y - r;
                   var u = "notatfort";
-                  if (s == 0 && o == 0) {
+                  if (s === 0 && o === 0) {
                     u = "atfort";
                   } else if (Math.abs(s) <= 500 && Math.abs(o) <= 500) {
                     u = "nearbyfort";
@@ -8069,7 +7967,7 @@
                     for (var i in json) {
                       var fort = json[i];
                       if (fort && fort.name === fortName) {
-                        $("#rp_report-" + reportId + " .fort_muster a:first-child").replaceWith('<a href="javascript:void(FortWindow.open(' + fort.fort_id + ", " + fort.fort_x + ", " + fort.fort_y + '));">' + fort.name + "</a>" );
+                        $(`#rp_report-${reportId} .fort_muster a:first-child`).replaceWith(`<a href="javascript:void(FortWindow.open(${fort.fort_id}, ${fort.fort_x}, ${fort.fort_y}));">${fort.name}</a>` );
                         break;
                       }
                     }
@@ -8081,9 +7979,9 @@
           var ownedForts = function () {
             var data = {};
             var lang = {
-              forts: "Οχυρά",
-              fort_size: "Μέγεθος",
-              fort_sizes: { 0: "Μικρό", 1: "Μεσαίο", 2: "Μεγάλο" },
+              forts: TWDB.lang.forts,
+              fort_size: TWDB.lang.fort_size,
+              fort_sizes: TWDB.lang.fort_sizes,
             };
             $(document).on("click", ".tow_profileheader img", function () {
               var windowEl = $(this).closest(".tw2gui_window");
@@ -8199,9 +8097,9 @@
             };
           };
           var setupCemeteryCritHits = function () {
-            document.styleSheets[0].insertRule('.cemetery .fancytable .row_head .battle_cri span {background: url("' + Images.iconCritical + '");height:17px;width:16px;}');
+            document.styleSheets[0].insertRule(`.cemetery .fancytable .row_head .battle_cri span {background: url("${Images.iconCritical}");height:17px;width:16px;}`);
             document.styleSheets[0].insertRule(".cemetery .fancytable .battle_cri, .cemetery .fancytable .battle_gho {width:18px;}");
-            document.styleSheets[0].insertRule('.cemetery .fancytable .row_head .battle_gho span {background: url("' + Images.iconPhantom +'");height:17px;width:16px;}');
+            document.styleSheets[0].insertRule(`.cemetery .fancytable .row_head .battle_gho span {background: url("${Images.iconPhantom}");height:17px;width:16px;}`);
             document.styleSheets[0].insertRule(".cemetery #battle_stat.fancytable div.battle_tow {width:60px!important;}");
             var patchedInit = CemeteryWindow.showStatInit.toString().replace(
               "$('div.cemetery-content',",
@@ -8257,8 +8155,8 @@
                 FortBattle.flashShowCharacterInfo = function () {
                   FortBattle.flashShowCharacterInfo_backup.apply(FortBattle, arguments);
                   var args = arguments;
-                  $("div.recruitlist_name", "#fort_battle_" + args[0] + "_infoarea").html(
-                    '<span onclick="PlayerProfileWindow.open(' + args[1] + ');" style="cursor:pointer;">' + $("div.recruitlist_name").text() + "</span>"
+                  $("div.recruitlist_name", `#fort_battle_${args[0]}_infoarea`).html(
+                    `<span onclick="PlayerProfileWindow.open(${args[1]});" style="cursor:pointer;">${$("div.recruitlist_name").text()}</span>`
                   );
                 };
               }
@@ -8306,10 +8204,7 @@
                 if (queue.length !== 0) {
                   FortBattle.showMessage(
                     fortId,
-                    "<strong>Σύνολο | Εύστοχα χτυπήματα : </strong>" + stats.hit +
-                      "<strong> | Άστοχες βολές : </strong>" + stats.missed +
-                      "<strong> | Λαμβανόμενα χτυπήματα : </strong>" + stats.gotshot +
-                      "<strong> | Αποφυγή βολών : </strong>" + stats.dodge
+                    `<strong>Σύνολο | Εύστοχα χτυπήματα : </strong>"${stats.hit}"<strong> | Άστοχες βολές : </strong>"${stats.missed}"<strong> | Λαμβανόμενα χτυπήματα : </strong>"${stats.gotshot}"<strong> | Αποφυγή βολών : </strong>"${stats.dodge}`
                   );
                 }
               };
@@ -8325,7 +8220,7 @@
           return _self;
         })($);
         Debugger.Fort = Fort;
-        var CCstarter = (function (e) {
+        var CCstarter = (function (_e) {
           var t = {};
           var n = {};
           var r = function () {
