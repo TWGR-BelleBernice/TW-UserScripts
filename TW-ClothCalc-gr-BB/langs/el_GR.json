@@ -51,7 +51,6 @@
 	"construction": "Κατασκευή",
 	"cancel_quest_title": "Ακύρωση Αποστολής;",
 	"cancel_quest_message": "Είστε βέβαιοι ότι επιθυμείτε να ακυρώσετε αυτή την αποστολή;",
-	"color_dialog_title": "Χρώμα",
 	"use_as_default_price": "Χρήση ως προεπιλεγμένη τιμή",
 	"market_map_title": "Χάρτης Αγοράς",
 	"reminder_toolate": "?remindertoolate",
@@ -101,5 +100,9 @@
 	"reset_jobs_bonus_confirm": "Διαλέξτε ποια κατηγοριά από δουλειών θέλετε να επαναφέρετε ή ακυρώστε την επαναφορά.",
 	"reset_all_jobs_bonus": "Όλες",
 	"reset_silver_jobs_bonus": "Ασημένιες",
-	"reset_gold_jobs_bonus": "Χρυσές"
+	"reset_gold_jobs_bonus": "Χρυσές",
+	"color_dialog_bold": "έντονα",
+	"color_dialog_caps": "ΚΕΦΑΛΑΙΑ",
+	"color_dialog_history": "Ιστορικό",
+	"color_dialog_title": "Χρώμα"
 }

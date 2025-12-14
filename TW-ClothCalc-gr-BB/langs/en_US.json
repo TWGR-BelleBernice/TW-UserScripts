@@ -51,7 +51,6 @@
 	"construction": "Construction",
 	"cancel_quest_title": "Cancel Quest?",
 	"cancel_quest_message": "Are you sure you want to cancel this quest?",
-	"color_dialog_title": "Color",
 	"use_as_default_price": "Use as default price",
 	"market_map_title": "Market Map",
 	"reminder_toolate": "?remindertoolate",
@@ -101,5 +100,9 @@
 	"reset_jobs_bonus_confirm": "Choose which category of jobs you want to reset or cancel the reset.",
 	"reset_all_jobs_bonus": "All",
 	"reset_silver_jobs_bonus": "Silver",
-	"reset_gold_jobs_bonus": "Gold"
+	"reset_gold_jobs_bonus": "Gold",
+	"color_dialog_bold": "bold",
+	"color_dialog_caps": "CAPS",
+	"color_dialog_history": "History",
+	"color_dialog_title": "Color"
 }
