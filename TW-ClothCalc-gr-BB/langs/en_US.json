@@ -95,5 +95,6 @@
 	"gold": "Gold",
 	"silver": "Silver",
 	"setDuelProtection_changed": "setDuelProtection changed",
-	"script_lang": "Language:"
+	"script_lang": "Language:",
+	"country": "Country"
 }
