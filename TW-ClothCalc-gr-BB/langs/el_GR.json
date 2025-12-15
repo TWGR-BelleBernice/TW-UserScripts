@@ -283,5 +283,18 @@
 	"westforts_close_import": "Κλείσιμο εισαγωγής μαχών στο West Forts",
 	"banking_deposit_message": "Έχετε φτάσει στην πόλη σας. Μήπως θέλετε να καταθέσετε τα χρήματα σας; <br />Χρήματα: ",
 	"market_auction_ends": ", Τέλος: ",
-	"market_auction_ends_label": "Τέλος δημοπρασίας: "
+	"market_auction_ends_label": "Τέλος δημοπρασίας: ",
+	"error_language_file_loading": "Φόρτωση αρχείου γλώσσας",
+	"error_deadlock_detected": "Εντοπίστηκε αδιέξοδο",
+	"error_failed_load_module": "Αποτυχία φόρτωσης module: =1=",
+	"error_load_from_cache": "Φόρτωση =1= από cache",
+	"error_save_to_cache": "Αποθήκευση =1= στο cache",
+	"error_cache_reset": "Επαναφορά cache",
+	"error_worker": "Worker",
+	"error_setup_whisper_sound": "Σφάλμα στη ρύθμιση επιλογών ήχου ψιθύρου",
+	"error_enable_selectable_text": "Σφάλμα στην ενεργοποίηση επιλογής κειμένου",
+	"error_enable_night_mode": "Σφάλμα στην ενεργοποίηση Νυχτερινής Λειτουργίας",
+	"error_inventory_additems_pin": "Σφάλμα στη χειραγώγηση Inventory.addItems (pin items)",
+	"error_inventory_additemdiv_pin": "Σφάλμα στη χειραγώγηση Inventory.addItemDivToInv (pin items)",
+	"error_telegram_append": "Σφάλμα στη χειραγώγηση TelegramWindow.appendTelegram"
 }

@@ -283,5 +283,18 @@
 	"westforts_close_import": "Close battle import in West Forts",
 	"banking_deposit_message": "You have arrived in your town. Would you like to deposit your money? <br />Money: ",
 	"market_auction_ends": ", Ends: ",
-	"market_auction_ends_label": "Auction ends: "
+	"market_auction_ends_label": "Auction ends: ",
+	"error_language_file_loading": "Language file loading",
+	"error_deadlock_detected": "Deadlock detected",
+	"error_failed_load_module": "Failed to load module: =1=",
+	"error_load_from_cache": "Load =1= from cache",
+	"error_save_to_cache": "Save =1= to cache",
+	"error_cache_reset": "Cache reset",
+	"error_worker": "Worker",
+	"error_setup_whisper_sound": "Error setting up whisper sound options",
+	"error_enable_selectable_text": "Error enabling selectable text",
+	"error_enable_night_mode": "Error enabling Night Mode",
+	"error_inventory_additems_pin": "Error manipulating Inventory.addItems (pin items)",
+	"error_inventory_additemdiv_pin": "Error manipulating Inventory.addItemDivToInv (pin items)",
+	"error_telegram_append": "Error manipulating TelegramWindow.appendTelegram"
 }
