@@ -271,12 +271,11 @@
 	},
 	"building": {
 		"progress": "Show construction progress in a building window",
-		"progress_tooltip": "Progress:&nbsp;Progress shows how much building is still needed for the building for the next level",
+		"progress_tooltip": "Progress shows how much building is still needed for the building for the next level",
 		"progress_label": "Progress",
-		"church_levels": "Show additional church levels you can build",
+		"church_levels": "Levels",
 		"improved_ch_tab": "Show only buildings that are not fully constructed",
-		"construction": "Construction",
-		"church_levels_label": "Levels"
+		"construction": "Construction"
 	},
 	"map": {
 		"coordinates_tooltip": "Show coordinates on map",
