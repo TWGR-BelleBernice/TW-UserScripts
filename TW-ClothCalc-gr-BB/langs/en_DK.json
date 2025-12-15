@@ -7,9 +7,9 @@
 		"not_now": "Not now",
 		"close": "Close",
 		"delete": "Delete",
-		"select_file": "Select file:",
+		"select_file": "Select file",
 		"listen": "Listen",
-		"save_error": "?save_error",
+		"save_error": "Unsuccessful save",
 		"save_success": "Save successful",
 		"save": "Save",
 		"preview": "Preview",
@@ -320,10 +320,6 @@
 	"collector": {
 		"item_not_owned": "You don't have this item yet"
 	},
-	"whisper": {
-		"sound_default": "Default sound",
-		"sound_select_file": "Select file..."
-	},
 	"regen": {
 		"timer_full_health": "Time for full health: <b>%1</b><br>",
 		"timer_full_energy": "Time for full energy: <b>%1</b><br>",
@@ -356,6 +352,7 @@
 		"sort_by_name": "Sort by Name",
 		"sort_by_county": "Sort by Country",
 		"country": "Country",
+		"sound_default": "Default sound",
 		"sleep_button_tooltip": "Sleep"
 	}
 }

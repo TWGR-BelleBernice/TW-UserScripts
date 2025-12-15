@@ -7,7 +7,7 @@
 		"not_now": "Όχι τώρα",
 		"close": "Κλείσιμο",
 		"delete": "Διαγραφή",
-		"select_file": "Επιλέξτε αρχείο:",
+		"select_file": "Επιλέξτε αρχείο",
 		"listen": "Ακούστε",
 		"save_error": "Αποτυχία αποθήκευσης",
 		"save_success": "Αποθήκευση επιτυχής",
@@ -313,10 +313,6 @@
 	"collector": {
 		"item_not_owned": "Δεν έχετε ακόμα αυτό το αντικείμενο"
 	},
-	"whisper": {
-		"sound_default": "Προεπιλεγμένος ήχος",
-		"sound_select_file": "Επιλέξτε αρχείο..."
-	},
 	"regen": {
 		"timer_full_health": "Χρόνος για την πλήρη υγεία: <b>%1</b><br>",
 		"timer_full_energy": "Χρόνος για την πλήρη ενέργεια: <b>%1</b><br>",
@@ -349,6 +345,7 @@
 		"sort_by_name": "Ταξινόμηση κατά Όνομα",
 		"sort_by_county": "Ταξινόμηση κατά Κομητεία",
 		"country": "Κομητεία",
+		"sound_default": "Προεπιλεγμένος ήχος",
 		"sleep_button_tooltip": "Ύπνος"
 	}
 }
