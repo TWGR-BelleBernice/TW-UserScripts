@@ -348,7 +348,7 @@
 		"button_market_title": "Open Market",
 		"pin_toggle_tooltip": "Toggle item pinning mode",
 		"telegram_toggle_tooltip": "Toggle between unformatted message and original",
-		"close_all_wear_tooltip": "<b>Close only your inventory windows</b>",
+		"close_all_wear_tooltip": "Close only your inventory windows",
 		"sort_by_name": "Sort by Name",
 		"sort_by_county": "Sort by Country",
 		"country": "Country",
