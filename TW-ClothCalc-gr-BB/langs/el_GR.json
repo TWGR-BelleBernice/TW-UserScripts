@@ -115,7 +115,9 @@
 		"enable_night_mode": "Σφάλμα στην ενεργοποίηση Νυχτερινής Λειτουργίας",
 		"inventory_additems_pin": "Σφάλμα στη χειραγώγηση Inventory.addItems (pin items)",
 		"inventory_additemdiv_pin": "Σφάλμα στη χειραγώγηση Inventory.addItemDivToInv (pin items)",
-		"telegram_append": "Σφάλμα στη χειραγώγηση TelegramWindow.appendTelegram"
+		"telegram_append": "Σφάλμα στη χειραγώγηση TelegramWindow.appendTelegram",
+		"images_load_retry": "Αποτυχία φόρτωσης images.json, επανάληψη...",
+		"images_load_failed_retry": "Αποτυχία φόρτωσης εικόνων μετά την επανάληψη"
 	},
 	"cache": {
 		"reset_title": "Επαναφορά Cache tw-db",
