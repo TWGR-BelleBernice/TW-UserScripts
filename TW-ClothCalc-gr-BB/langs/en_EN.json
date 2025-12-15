@@ -272,5 +272,16 @@
 	"crafting_notification": "Crafting",
 	"deposit_confirm_yes": "Yes",
 	"map_your_position": "Your position",
-	"battle_total_damage_tooltip": "Damage dealt"
+	"battle_total_damage_tooltip": "Damage dealt",
+	"error_clipboard_not_supported": "Clipboard API read not supported in your Browser.",
+	"error_empty_server_response": "empty Server Response",
+	"sleep_button_tooltip": "Sleep",
+	"map_show_town_tooltip": "Show town on map",
+	"collector_item_not_owned": "You don't have this item yet",
+	"crafting_can_craft_again": "You can craft again!",
+	"westforts_open_import": "Open battle import in West Forts",
+	"westforts_close_import": "Close battle import in West Forts",
+	"banking_deposit_message": "You have arrived in your town. Would you like to deposit your money? <br />Money: ",
+	"market_auction_ends": ", Ends: ",
+	"market_auction_ends_label": "Auction ends: "
 }

@@ -272,5 +272,16 @@
 	"crafting_notification": "Δημιουργία",
 	"deposit_confirm_yes": "Ναι",
 	"map_your_position": "Η θέση σου",
-	"battle_total_damage_tooltip": "Προκαλούμενη ζημιά"
+	"battle_total_damage_tooltip": "Προκαλούμενη ζημιά",
+	"error_clipboard_not_supported": "Η ανάγνωση του API προχείρου δεν υποστηρίζεται στον περιηγητή σας.",
+	"error_empty_server_response": "Κενή απάντηση διακομιστή",
+	"sleep_button_tooltip": "Ύπνος",
+	"map_show_town_tooltip": "Ένδειξη πόλης στον χάρτη",
+	"collector_item_not_owned": "Δεν έχετε ακόμα αυτό το αντικείμενο",
+	"crafting_can_craft_again": "Μπορείς να δημιουργήσεις ξανά!",
+	"westforts_open_import": "Άνοιγμα εισαγωγής μαχών στο West Forts",
+	"westforts_close_import": "Κλείσιμο εισαγωγής μαχών στο West Forts",
+	"banking_deposit_message": "Έχετε φτάσει στην πόλη σας. Μήπως θέλετε να καταθέσετε τα χρήματα σας; <br />Χρήματα: ",
+	"market_auction_ends": ", Τέλος: ",
+	"market_auction_ends_label": "Τέλος δημοπρασίας: "
 }
