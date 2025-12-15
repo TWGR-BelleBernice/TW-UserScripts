@@ -30,6 +30,7 @@
 		"api_registration_failed": "Registration of the TW-DB.info UserScript with TheWestApi failed."
 	},
 	"settings": {
+		"save_to_reload": "By pressing 'Ok' the page will automatically refresh to apply your changes.",
 		"title": "Settings",
 		"category_inventory": "Inventory",
 		"category_quests": "Quests",
