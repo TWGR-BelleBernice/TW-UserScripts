@@ -1,0 +1,214 @@
+[
+  {
+    "version": "0.28.0",
+    "notes": [
+      "[feature] Añadida funcionalidad \"temporal\" de cambio de idioma",
+      "[feature] Limpieza de código de la pestaña Configuración",
+      "[feature] Limpieza de código de la funcionalidad de color en el Saloon (chat)",
+      "[feature] Limpieza de código de la funcionalidad de Trabajos con bonificaciones en el Mini Mapa",
+      "[feature] Limpieza de código de la funcionalidad de Seguimiento de Trabajos/Misiones",
+      "[feature] Actualización de varias funcionalidades del código del UserScript"
+    ]
+  },
+  {
+    "version": "0.27.0",
+    "notes": [
+      "[feature] Añadida funcionalidad de Importar/Exportar Configuración"
+    ]
+  },
+  {
+    "version": "0.26.0",
+    "notes": [
+      "[feature] Añadida la importación de batallas de fuerte a la base de datos del sitio web (westforts.com)",
+      "[feature] Añadida funcionalidad de cambio de sonido de Susurros",
+      "[feature] Añadido el daño causado a cada jugador durante una batalla de fuerte",
+      "[feature] Añadidos los disparos por ronda durante una batalla de fuerte",
+      "[feature] Añadido color a las misiones que pueden completarse",
+      "[feature] Añadido botón para aceptación y finalización automática de misiones que pueden completarse",
+      "[bugfix] Restaurado el código para vender todo excepto un objeto seleccionado al Comerciante",
+      "[bugfix] Corregido el código antiguo de la opción que muestra los puntos de trabajo en la ventana de trabajos",
+      "[bugfix] Corregido el código de la opción de apertura automática del Mercado, para que la ventana de ropa se minimice",
+      "[bugfix] Corregido el código en la pestaña de construcción si TWIR está presente",
+      "[main] Reorganización de las categorías en la pestaña Configuración"
+    ]
+  },
+  {
+    "version": "0.25.0",
+    "notes": [
+      "[feature] Añadida opción de Tema Oscuro para el Mapa de The-West",
+      "[feature] Mejorado el icono de informe de venta en la ventana de compra del edificio Mercado",
+      "[feature] Añadido icono para indicar si las ofertas del mercado son públicas, solo para miembros de la alianza o de la ciudad",
+      "[feature] Añadido un nuevo botón para abrir fácilmente la ventana del Mercado"
+    ]
+  },
+  {
+    "version": "0.24.0",
+    "notes": [
+      "[feature] Añadidos los Tiempos de Resurrección al retrato del jugador",
+      "[feature] Añadido resaltado de texto en los Foros de Ciudad",
+      "[feature] Añadida opción para fijar la barra de Menú, Experiencia y UserScript en la pantalla",
+      "[feature] Añadida experiencia de duelo al perfil del jugador",
+      "[bugfix] Corregida la pestaña de Reclutamiento",
+      "[bugfix] Desactivada la activación automática de algunas funcionalidades"
+    ]
+  },
+  {
+    "version": "0.23.0",
+    "notes": [
+      "[bugfix] Corregidos algunos mensajes de configuración",
+      "[bugfix] Corregida la pestaña de Reclutamiento"
+    ]
+  },
+  {
+    "version": "0.22.0",
+    "notes": [
+      "[feature] Añadidos golpes críticos y rondas fantasma en el cementerio del fuerte",
+      "[feature] Añadida ventana para fuertes propios y de alianza en la ventana de ciudades",
+      "[feature] Añadida apertura automática del fuerte de excavación de tomahawk desde su informe",
+      "[feature] Mejoradas todas las tablas de Clasificación",
+      "[feature] Mejorada la ventana de Reclutamiento antes de una batalla de fuerte",
+      "[feature] Eliminado el parpadeo del botón Ciudad si hay un nuevo mensaje en el Foro de Ciudad"
+    ]
+  },
+  {
+    "version": "0.21.0",
+    "notes": [
+      "[feature] Añadido progreso del edificio en la pestaña de construcción",
+      "[feature] Añadidos niveles adicionales de iglesia",
+      "[feature] Añadida funcionalidad para mostrar solo edificios que no están completamente construidos en el Ayuntamiento",
+      "[feature] Añadido un nuevo botón para abrir fácilmente la pestaña de construcción de la Iglesia",
+      "[feature] Añadido un botón para cerrar solo las ventanas de Inventario"
+    ]
+  },
+  {
+    "version": "0.20.0",
+    "notes": [
+      "[bugfix] ¡Ups! Corregido el código de versión"
+    ]
+  },
+  {
+    "version": "0.19.0",
+    "notes": [
+      "[bugfix] Corregido el enlace de nueva versión"
+    ]
+  },
+  {
+    "version": "0.18.0",
+    "notes": [
+      "[bugfix] Corregida la versión en algunos lugares, ¡esperemos!"
+    ]
+  },
+  {
+    "version": "0.17.1",
+    "notes": [
+      "[bugfix] Corregida la versión en algunos lugares"
+    ]
+  },
+  {
+    "version": "0.17.0",
+    "notes": [
+      "[main] Eliminada la revisión"
+    ]
+  },
+  {
+    "version": "0.16.0",
+    "notes": [
+      "[bugfix] Cambiado el enlace de características de nueva versión"
+    ]
+  },
+  {
+    "version": "0.15.0",
+    "notes": [
+      "[bugfix] Corregido el código obsoleto que el UserScript estaba usando"
+    ]
+  },
+  {
+    "version": "0.14.0",
+    "notes": [
+      "[main] Eliminado código redundante",
+      "[main] Cambiados los detalles en la ventana de Reclutamiento"
+    ]
+  },
+  {
+    "version": "0.13.0",
+    "notes": [
+      "[bugfix] ¡Ups! Corregido el UserScript"
+    ]
+  },
+  {
+    "version": "0.12.0",
+    "notes": [
+      "[bugfix] Corregida la versión incorrecta"
+    ]
+  },
+  {
+    "version": "0.11.0",
+    "notes": [
+      "[main] Eliminado código redundante en la ventana de Reclutamiento",
+      "[main] Cambiado el Actualizador"
+    ]
+  },
+  {
+    "version": "0.10.0",
+    "notes": [
+      "[bugfix] Corregida la fijación de objetos para mostrar correctamente en la ventana de Inventario vanilla y TWIR",
+      "[bugfix] Corregidos los errores ortográficos de la palabra bugfix en las Características de Versión"
+    ]
+  },
+  {
+    "version": "0.9.0",
+    "notes": [
+      "[main] Limpieza de código - parte 2",
+      "[main] Cambiados algunos hipervínculos"
+    ]
+  },
+  {
+    "version": "0.8.0",
+    "notes": [
+      "[main] Limpieza de código - parte 1"
+    ]
+  },
+  {
+    "version": "0.7.0",
+    "notes": [
+      "[bugfix] Actualizados los enlaces para actualización automática"
+    ]
+  },
+  {
+    "version": "0.6.0",
+    "notes": [
+      "[bugfix] Cambiados algunos hipervínculos"
+    ]
+  },
+  {
+    "version": "0.5.0",
+    "notes": [
+      "[bugfix] ¡Ups! Corregido el UserScript"
+    ]
+  },
+  {
+    "version": "0.4.0",
+    "notes": [
+      "[bugfix] Corregido para la eliminación de características"
+    ]
+  },
+  {
+    "version": "0.3.0",
+    "notes": [
+      "[main] Eliminadas muchas características inútiles"
+    ]
+  },
+  {
+    "version": "0.2.0",
+    "notes": [
+      "[bugfix] Corregidos algunos errores ortográficos",
+      "[main] Cambiada la fórmula de versión"
+    ]
+  },
+  {
+    "version": "0.1.0",
+    "notes": [
+      "** Creación del UserScript a partir de clothcalc_sk **"
+    ]
+  }
+]

@@ -1,0 +1,214 @@
+[
+  {
+    "version": "0.28.0",
+    "notes": [
+      "[feature] Hinzufügen einer \"temporären\" Sprachwechsel-Funktion",
+      "[feature] Code-Bereinigung für den Einstellungen-Tab",
+      "[feature] Code-Bereinigung für Farbfunktion im Saloon (Chat)",
+      "[feature] Code-Bereinigung für Jobs mit Boni auf der Mini-Karte",
+      "[feature] Code-Bereinigung für Job/Quest-Tracker-Funktion",
+      "[feature] Aktualisierung verschiedener UserScript-Code-Funktionen"
+    ]
+  },
+  {
+    "version": "0.27.0",
+    "notes": [
+      "[feature] Hinzufügen einer Einstellungen-Import/Export-Funktion"
+    ]
+  },
+  {
+    "version": "0.26.0",
+    "notes": [
+      "[feature] Hinzufügen des Fort-Kampf-Imports zur Website-Datenbank (westforts.com)",
+      "[feature] Hinzufügen einer Flüster-Sound-Änderungsfunktion",
+      "[feature] Hinzufügen des verursachten Schadens für jeden Spieler während einer Fort-Kampf",
+      "[feature] Hinzufügen der Schüsse pro Runde während einer Fort-Kampf",
+      "[feature] Hinzufügen von Farbe zu Quests, die abgeschlossen werden können",
+      "[feature] Hinzufügen einer Schaltfläche für automatische Annahme und Abschluss von Quests, die abgeschlossen werden können",
+      "[bugfix] Wiederherstellung des Codes zum Verkauf aller außer einem ausgewählten Gegenstand an den Händler",
+      "[bugfix] Korrektur des alten Codes für die Option, die Arbeitspunkte im Jobs-Fenster anzeigt",
+      "[bugfix] Korrektur des Codes für die automatische Markt-Öffnungsoption, sodass das Kleidungsfenster minimiert wird",
+      "[bugfix] Korrektur des Codes im Konstruktions-Tab, wenn TWIR vorhanden ist",
+      "[main] Neuorganisation der Kategorien im Einstellungen-Tab"
+    ]
+  },
+  {
+    "version": "0.25.0",
+    "notes": [
+      "[feature] Hinzufügen einer Dunkles-Theme-Option für die The-West-Karte",
+      "[feature] Verbesserung des Verkaufsbericht-Icons im Kauf-Fenster des Markt-Gebäudes",
+      "[feature] Hinzufügen eines Icons dafür, ob Marktangebote öffentlich, nur für Allianz oder nur für Stadt sind",
+      "[feature] Hinzufügen einer neuen Schaltfläche zum einfachen Öffnen des Markt-Fensters"
+    ]
+  },
+  {
+    "version": "0.24.0",
+    "notes": [
+      "[feature] Hinzufügen von Wiederbelebungszeiten zum Spielerporträt",
+      "[feature] Hinzufügen von Textmarkierung in Stadt-Foren",
+      "[feature] Hinzufügen einer Option zum Anheften der Menü-, Erfahrungs- und UserScript-Leiste am Bildschirm",
+      "[feature] Hinzufügen von Duell-Erfahrung zum Spielerprofil",
+      "[bugfix] Korrektur des Rekrutierungs-Tabs",
+      "[bugfix] Deaktivierung der automatischen Aktivierung einiger Funktionen"
+    ]
+  },
+  {
+    "version": "0.23.0",
+    "notes": [
+      "[bugfix] Korrektur einiger Einstellungsnachrichten",
+      "[bugfix] Korrektur des Rekrutierungs-Tabs"
+    ]
+  },
+  {
+    "version": "0.22.0",
+    "notes": [
+      "[feature] Hinzufügen von kritischen Treffern und Geister-Runden im Fort-Friedhof",
+      "[feature] Hinzufügen eines Fensters für eigene und Allianz-Forts im Städte-Fenster",
+      "[feature] Hinzufügen des automatischen Öffnens des Tomahawk-Grabungs-Forts aus seinem Bericht",
+      "[feature] Verbesserung aller Ranglisten-Tabellen",
+      "[feature] Verbesserung des Rekrutierungs-Fensters vor einer Fort-Kampf",
+      "[feature] Entfernung des Blinkens der Stadt-Schaltfläche, wenn eine neue Nachricht im Stadt-Forum vorhanden ist"
+    ]
+  },
+  {
+    "version": "0.21.0",
+    "notes": [
+      "[feature] Hinzufügen des Gebäudefortschritts im Konstruktions-Tab",
+      "[feature] Hinzufügen zusätzlicher Kirchenstufen",
+      "[feature] Hinzufügen einer Funktion zum Anzeigen nur von Gebäuden, die nicht vollständig im Rathaus konstruiert sind",
+      "[feature] Hinzufügen einer neuen Schaltfläche zum einfachen Öffnen des Kirchen-Konstruktions-Tabs",
+      "[feature] Hinzufügen einer Schaltfläche zum Schließen nur der Inventar-Fenster"
+    ]
+  },
+  {
+    "version": "0.20.0",
+    "notes": [
+      "[bugfix] Ups! Korrektur des Versionscodes"
+    ]
+  },
+  {
+    "version": "0.19.0",
+    "notes": [
+      "[bugfix] Korrektur des neuen Versionslinks"
+    ]
+  },
+  {
+    "version": "0.18.0",
+    "notes": [
+      "[bugfix] Korrektur der Version an einigen Stellen, hoffentlich!"
+    ]
+  },
+  {
+    "version": "0.17.1",
+    "notes": [
+      "[bugfix] Korrektur der Version an einigen Stellen"
+    ]
+  },
+  {
+    "version": "0.17.0",
+    "notes": [
+      "[main] Entfernung der Revision"
+    ]
+  },
+  {
+    "version": "0.16.0",
+    "notes": [
+      "[bugfix] Änderung des neuen Versions-Features-Links"
+    ]
+  },
+  {
+    "version": "0.15.0",
+    "notes": [
+      "[bugfix] Korrektur des veralteten Codes, den das UserScript verwendete"
+    ]
+  },
+  {
+    "version": "0.14.0",
+    "notes": [
+      "[main] Entfernung von redundantem Code",
+      "[main] Änderung der Details im Rekrutierungs-Fenster"
+    ]
+  },
+  {
+    "version": "0.13.0",
+    "notes": [
+      "[bugfix] Ups! Korrektur des UserScripts"
+    ]
+  },
+  {
+    "version": "0.12.0",
+    "notes": [
+      "[bugfix] Korrektur der falschen Version"
+    ]
+  },
+  {
+    "version": "0.11.0",
+    "notes": [
+      "[main] Entfernung von redundantem Code im Rekrutierungs-Fenster",
+      "[main] Änderung des Updaters"
+    ]
+  },
+  {
+    "version": "0.10.0",
+    "notes": [
+      "[bugfix] Korrektur der Gegenstands-Anheftung für korrekte Anzeige im Vanilla- und TWIR-Inventar-Fenster",
+      "[bugfix] Korrektur der Rechtschreibfehler des Wortes bugfix in Versions-Features"
+    ]
+  },
+  {
+    "version": "0.9.0",
+    "notes": [
+      "[main] Code-Bereinigung - Teil 2",
+      "[main] Änderung einiger Hyperlinks"
+    ]
+  },
+  {
+    "version": "0.8.0",
+    "notes": [
+      "[main] Code-Bereinigung - Teil 1"
+    ]
+  },
+  {
+    "version": "0.7.0",
+    "notes": [
+      "[bugfix] Aktualisierung der Links für automatische Updates"
+    ]
+  },
+  {
+    "version": "0.6.0",
+    "notes": [
+      "[bugfix] Änderung einiger Hyperlinks"
+    ]
+  },
+  {
+    "version": "0.5.0",
+    "notes": [
+      "[bugfix] Ups! Korrektur des UserScripts"
+    ]
+  },
+  {
+    "version": "0.4.0",
+    "notes": [
+      "[bugfix] Korrektur für Feature-Entfernung"
+    ]
+  },
+  {
+    "version": "0.3.0",
+    "notes": [
+      "[main] Entfernung vieler nutzloser Features"
+    ]
+  },
+  {
+    "version": "0.2.0",
+    "notes": [
+      "[bugfix] Korrektur einiger Rechtschreibfehler",
+      "[main] Änderung der Versionsformel"
+    ]
+  },
+  {
+    "version": "0.1.0",
+    "notes": [
+      "** UserScript-Erstellung aus clothcalc_sk **"
+    ]
+  }
+]

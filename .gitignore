@@ -5,3 +5,6 @@
 /testing
 /TW-clothcache-BB
 /TW-Toolkit-BB
+
+generate-changelogs.js
+sDoAllianceImport.js

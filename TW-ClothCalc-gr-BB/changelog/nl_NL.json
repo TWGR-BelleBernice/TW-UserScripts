@@ -1,0 +1,214 @@
+[
+  {
+    "version": "0.28.0",
+    "notes": [
+      "[feature] Toegevoegd \"tijdelijke\" functionaliteit voor taalwisseling",
+      "[feature] Code-opruiming voor het tabblad Instellingen",
+      "[feature] Code-opruiming voor kleurfunctie in de Saloon (chat)",
+      "[feature] Code-opruiming voor Banen met bonussen op de Mini Kaart",
+      "[feature] Code-opruiming voor Baan/Quest Tracker functionaliteit",
+      "[feature] Update van verschillende UserScript code functionaliteiten"
+    ]
+  },
+  {
+    "version": "0.27.0",
+    "notes": [
+      "[feature] Toegevoegd functionaliteit voor Importeren/Exporteren van Instellingen"
+    ]
+  },
+  {
+    "version": "0.26.0",
+    "notes": [
+      "[feature] Toegevoegd import van fortgevechten naar de website database (westforts.com)",
+      "[feature] Toegevoegd functionaliteit voor het wijzigen van Fluistergeluid",
+      "[feature] Toegevoegd schade toegebracht aan elke speler tijdens een fortgevecht",
+      "[feature] Toegevoegd schoten per ronde tijdens een fortgevecht",
+      "[feature] Toegevoegd kleur aan quests die voltooid kunnen worden",
+      "[feature] Toegevoegd knop voor automatische acceptatie en voltooiing van quests die voltooid kunnen worden",
+      "[bugfix] Hersteld code voor het verkopen van alles behalve één geselecteerd item aan de Handelaar",
+      "[bugfix] Gecorrigeerd oude code voor de optie die werkpunten toont in het banenvenster",
+      "[bugfix] Gecorrigeerd code voor de automatische Markt openen optie, zodat het kledingvenster wordt geminimaliseerd",
+      "[bugfix] Gecorrigeerd code in het constructietabblad als TWIR aanwezig is",
+      "[main] Herorganisatie van categorieën in het tabblad Instellingen"
+    ]
+  },
+  {
+    "version": "0.25.0",
+    "notes": [
+      "[feature] Toegevoegd optie voor Donker thema voor de The-West Kaart",
+      "[feature] Verbeterd verkooprapport icoon in het aankoopvenster van het Markt gebouw",
+      "[feature] Toegevoegd icoon voor of marktaanbiedingen openbaar zijn, alleen voor alliantieleden of stadsleden",
+      "[feature] Toegevoegd een nieuwe knop voor eenvoudig openen van het Marktvenster"
+    ]
+  },
+  {
+    "version": "0.24.0",
+    "notes": [
+      "[feature] Toegevoegd Herrijzenis Tijden aan het spelerportret",
+      "[feature] Toegevoegd tekstmarkering in Stads Forums",
+      "[feature] Toegevoegd optie om de Menu, Ervaring en UserScript balk aan het scherm vast te zetten",
+      "[feature] Toegevoegd duelervaring aan het spelerprofiel",
+      "[bugfix] Gecorrigeerd Werving tabblad",
+      "[bugfix] Uitgeschakeld automatische activering van sommige functionaliteiten"
+    ]
+  },
+  {
+    "version": "0.23.0",
+    "notes": [
+      "[bugfix] Gecorrigeerd enkele instellingsberichten",
+      "[bugfix] Gecorrigeerd Werving tabblad"
+    ]
+  },
+  {
+    "version": "0.22.0",
+    "notes": [
+      "[feature] Toegevoegd kritieke treffers en spookrondes in het fortkerkhof",
+      "[feature] Toegevoegd venster voor eigendom en alliantie forten in het stedenvenster",
+      "[feature] Toegevoegd automatisch openen van tomahawk graaf fort vanuit zijn rapport",
+      "[feature] Verbeterd alle Ranglijst tabellen",
+      "[feature] Verbeterd Werving venster voor een fortgevecht",
+      "[feature] Verwijderd knipperen van Stad knop als er een nieuw bericht is in het Stads Forum"
+    ]
+  },
+  {
+    "version": "0.21.0",
+    "notes": [
+      "[feature] Toegevoegd gebouwvoortgang in het constructietabblad",
+      "[feature] Toegevoegd extra kerkniveaus",
+      "[feature] Toegevoegd functionaliteit om alleen gebouwen te tonen die niet volledig zijn gebouwd in het Stadhuis",
+      "[feature] Toegevoegd een nieuwe knop voor eenvoudig openen van het Kerk constructietabblad",
+      "[feature] Toegevoegd een knop om alleen Inventaris vensters te sluiten"
+    ]
+  },
+  {
+    "version": "0.20.0",
+    "notes": [
+      "[bugfix] Oeps! Gecorrigeerd versiecode"
+    ]
+  },
+  {
+    "version": "0.19.0",
+    "notes": [
+      "[bugfix] Gecorrigeerd nieuwe versie link"
+    ]
+  },
+  {
+    "version": "0.18.0",
+    "notes": [
+      "[bugfix] Gecorrigeerd versie op enkele plaatsen, hopelijk!"
+    ]
+  },
+  {
+    "version": "0.17.1",
+    "notes": [
+      "[bugfix] Gecorrigeerd versie op enkele plaatsen"
+    ]
+  },
+  {
+    "version": "0.17.0",
+    "notes": [
+      "[main] Verwijderd revisie"
+    ]
+  },
+  {
+    "version": "0.16.0",
+    "notes": [
+      "[bugfix] Gewijzigd nieuwe versie functies link"
+    ]
+  },
+  {
+    "version": "0.15.0",
+    "notes": [
+      "[bugfix] Gecorrigeerd verouderde code die de UserScript gebruikte"
+    ]
+  },
+  {
+    "version": "0.14.0",
+    "notes": [
+      "[main] Verwijderd redundante code",
+      "[main] Gewijzigd details in het Werving venster"
+    ]
+  },
+  {
+    "version": "0.13.0",
+    "notes": [
+      "[bugfix] Oeps! Gecorrigeerd de UserScript"
+    ]
+  },
+  {
+    "version": "0.12.0",
+    "notes": [
+      "[bugfix] Gecorrigeerd incorrecte versie"
+    ]
+  },
+  {
+    "version": "0.11.0",
+    "notes": [
+      "[main] Verwijderd redundante code in het Werving venster",
+      "[main] Gewijzigd Updater"
+    ]
+  },
+  {
+    "version": "0.10.0",
+    "notes": [
+      "[bugfix] Gecorrigeerd item vastzetten voor correcte weergave in vanilla en TWIR Inventaris venster",
+      "[bugfix] Gecorrigeerd spelfouten van het woord bugfix in Versie Functies"
+    ]
+  },
+  {
+    "version": "0.9.0",
+    "notes": [
+      "[main] Code-opruiming - deel 2",
+      "[main] Gewijzigd enkele hyperlinks"
+    ]
+  },
+  {
+    "version": "0.8.0",
+    "notes": [
+      "[main] Code-opruiming - deel 1"
+    ]
+  },
+  {
+    "version": "0.7.0",
+    "notes": [
+      "[bugfix] Bijgewerkt links voor automatische update"
+    ]
+  },
+  {
+    "version": "0.6.0",
+    "notes": [
+      "[bugfix] Gewijzigd enkele hyperlinks"
+    ]
+  },
+  {
+    "version": "0.5.0",
+    "notes": [
+      "[bugfix] Oeps! Gecorrigeerd de UserScript"
+    ]
+  },
+  {
+    "version": "0.4.0",
+    "notes": [
+      "[bugfix] Gecorrigeerd voor functieverwijdering"
+    ]
+  },
+  {
+    "version": "0.3.0",
+    "notes": [
+      "[main] Verwijderd veel nutteloze functies"
+    ]
+  },
+  {
+    "version": "0.2.0",
+    "notes": [
+      "[bugfix] Gecorrigeerd enkele spelfouten",
+      "[main] Gewijzigd versieformule"
+    ]
+  },
+  {
+    "version": "0.1.0",
+    "notes": [
+      "** UserScript creatie van clothcalc_sk **"
+    ]
+  }
+]

@@ -1,0 +1,214 @@
+[
+  {
+    "version": "0.28.0",
+    "notes": [
+      "[feature] Dodano \"tymczasową\" funkcjonalność zmiany języka",
+      "[feature] Czyszczenie kodu zakładki Ustawienia",
+      "[feature] Czyszczenie kodu funkcjonalności koloru w Saloonie (czat)",
+      "[feature] Czyszczenie kodu funkcjonalności Prac z bonusami na Mini Mapie",
+      "[feature] Czyszczenie kodu funkcjonalności Śledzenia Prac/Questów",
+      "[feature] Aktualizacja różnych funkcjonalności kodu UserScriptu"
+    ]
+  },
+  {
+    "version": "0.27.0",
+    "notes": [
+      "[feature] Dodano funkcjonalność Importu/Eksportu Ustawień"
+    ]
+  },
+  {
+    "version": "0.26.0",
+    "notes": [
+      "[feature] Dodano import bitew fortu do bazy danych strony (westforts.com)",
+      "[feature] Dodano funkcjonalność zmiany dźwięku Szeptów",
+      "[feature] Dodano obrażenia zadane każdemu graczowi podczas bitwy fortu",
+      "[feature] Dodano strzały na rundę podczas bitwy fortu",
+      "[feature] Dodano kolor do questów, które mogą być ukończone",
+      "[feature] Dodano przycisk do automatycznej akceptacji i ukończenia questów, które mogą być ukończone",
+      "[bugfix] Przywrócono kod do sprzedaży wszystkiego oprócz jednego wybranego przedmiotu Kupcowi",
+      "[bugfix] Naprawiono stary kod opcji, która wyświetla punkty pracy w oknie prac",
+      "[bugfix] Naprawiono kod opcji automatycznego otwierania Rynku, aby okno ubrań było zminimalizowane",
+      "[bugfix] Naprawiono kod w zakładce budowy, jeśli TWIR jest obecny",
+      "[main] Reorganizacja kategorii w zakładce Ustawienia"
+    ]
+  },
+  {
+    "version": "0.25.0",
+    "notes": [
+      "[feature] Dodano opcję Ciemnego motywu dla Mapy The-West",
+      "[feature] Ulepszono ikonę raportu sprzedaży w oknie zakupów budynku Rynku",
+      "[feature] Dodano ikonę wskazującą, czy oferty rynku są publiczne, tylko dla członków sojuszu lub miasta",
+      "[feature] Dodano nowy przycisk do łatwego otwierania okna Rynku"
+    ]
+  },
+  {
+    "version": "0.24.0",
+    "notes": [
+      "[feature] Dodano Czasy Zmartwychwstania do portretu gracza",
+      "[feature] Dodano podświetlanie tekstu w Forumach Miasta",
+      "[feature] Dodano opcję przypięcia paska Menu, Doświadczenia i UserScriptu do ekranu",
+      "[feature] Dodano doświadczenie z pojedynku do profilu gracza",
+      "[bugfix] Naprawiono zakładkę Rekrutacji",
+      "[bugfix] Wyłączono automatyczną aktywację niektórych funkcjonalności"
+    ]
+  },
+  {
+    "version": "0.23.0",
+    "notes": [
+      "[bugfix] Naprawiono niektóre wiadomości ustawień",
+      "[bugfix] Naprawiono zakładkę Rekrutacji"
+    ]
+  },
+  {
+    "version": "0.22.0",
+    "notes": [
+      "[feature] Dodano krytyczne trafienia i rundy z duchem na cmentarzu fortu",
+      "[feature] Dodano okno dla własnych i sojuszniczych fortów w oknie miast",
+      "[feature] Dodano automatyczne otwieranie fortu kopania tomahawka z jego raportu",
+      "[feature] Ulepszono wszystkie tabele Rankingu",
+      "[feature] Ulepszono okno Rekrutacji przed bitwą fortu",
+      "[feature] Usunięto miganie przycisku Miasto, jeśli jest nowa wiadomość w Forum Miasta"
+    ]
+  },
+  {
+    "version": "0.21.0",
+    "notes": [
+      "[feature] Dodano postęp budowy w zakładce budowy",
+      "[feature] Dodano dodatkowe poziomy kościoła",
+      "[feature] Dodano funkcjonalność wyświetlania tylko budynków, które nie są w pełni zbudowane w Ratuszu",
+      "[feature] Dodano nowy przycisk do łatwego otwierania zakładki budowy Kościoła",
+      "[feature] Dodano przycisk do zamykania tylko okien Ekwipunku"
+    ]
+  },
+  {
+    "version": "0.20.0",
+    "notes": [
+      "[bugfix] Ups! Naprawiono kod wersji"
+    ]
+  },
+  {
+    "version": "0.19.0",
+    "notes": [
+      "[bugfix] Naprawiono link nowej wersji"
+    ]
+  },
+  {
+    "version": "0.18.0",
+    "notes": [
+      "[bugfix] Naprawiono wersję w niektórych miejscach, miejmy nadzieję!"
+    ]
+  },
+  {
+    "version": "0.17.1",
+    "notes": [
+      "[bugfix] Naprawiono wersję w niektórych miejscach"
+    ]
+  },
+  {
+    "version": "0.17.0",
+    "notes": [
+      "[main] Usunięto rewizję"
+    ]
+  },
+  {
+    "version": "0.16.0",
+    "notes": [
+      "[bugfix] Zmieniono link funkcji nowej wersji"
+    ]
+  },
+  {
+    "version": "0.15.0",
+    "notes": [
+      "[bugfix] Naprawiono przestarzały kod, którego używał UserScript"
+    ]
+  },
+  {
+    "version": "0.14.0",
+    "notes": [
+      "[main] Usunięto zbędny kod",
+      "[main] Zmieniono szczegóły w oknie Rekrutacji"
+    ]
+  },
+  {
+    "version": "0.13.0",
+    "notes": [
+      "[bugfix] Ups! Naprawiono UserScript"
+    ]
+  },
+  {
+    "version": "0.12.0",
+    "notes": [
+      "[bugfix] Naprawiono nieprawidłową wersję"
+    ]
+  },
+  {
+    "version": "0.11.0",
+    "notes": [
+      "[main] Usunięto zbędny kod w oknie Rekrutacji",
+      "[main] Zmieniono Aktualizator"
+    ]
+  },
+  {
+    "version": "0.10.0",
+    "notes": [
+      "[bugfix] Naprawiono przypinanie przedmiotu dla prawidłowego wyświetlania w oknie Ekwipunku vanilla i TWIR",
+      "[bugfix] Naprawiono błędy ortograficzne słowa bugfix w Funkcjach Wersji"
+    ]
+  },
+  {
+    "version": "0.9.0",
+    "notes": [
+      "[main] Czyszczenie kodu - część 2",
+      "[main] Zmieniono niektóre hiperlinki"
+    ]
+  },
+  {
+    "version": "0.8.0",
+    "notes": [
+      "[main] Czyszczenie kodu - część 1"
+    ]
+  },
+  {
+    "version": "0.7.0",
+    "notes": [
+      "[bugfix] Zaktualizowano linki do automatycznej aktualizacji"
+    ]
+  },
+  {
+    "version": "0.6.0",
+    "notes": [
+      "[bugfix] Zmieniono niektóre hiperlinki"
+    ]
+  },
+  {
+    "version": "0.5.0",
+    "notes": [
+      "[bugfix] Ups! Naprawiono UserScript"
+    ]
+  },
+  {
+    "version": "0.4.0",
+    "notes": [
+      "[bugfix] Naprawiono dla usunięcia funkcji"
+    ]
+  },
+  {
+    "version": "0.3.0",
+    "notes": [
+      "[main] Usunięto wiele bezużytecznych funkcji"
+    ]
+  },
+  {
+    "version": "0.2.0",
+    "notes": [
+      "[bugfix] Naprawiono niektóre błędy ortograficzne",
+      "[main] Zmieniono formułę wersji"
+    ]
+  },
+  {
+    "version": "0.1.0",
+    "notes": [
+      "** Utworzenie UserScriptu z clothcalc_sk **"
+    ]
+  }
+]
