@@ -30,7 +30,7 @@
 		"api_registration_failed": "Η εγγραφή του UserScript TW-DB.info στο TheWestApi απέτυχε."
 	},
 	"settings": {
-		"save_to_reload": "Πατώντας το 'Ok' θα γίνει αυτόματη ανανέωση της σελίδας για να εφαρμοστούν οι αλλαγές σας.",
+		"save_to_reload": "Πατώντας το \"Ok\" θα γίνει αυτόματη ανανέωση της σελίδας για να εφαρμοστούν οι αλλαγές σας.",
 		"title": "Ρυθμίσεις",
 		"category_inventory": "Αποθέματα",
 		"category_quests": "Αποστολές",
