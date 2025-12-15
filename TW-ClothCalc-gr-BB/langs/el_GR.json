@@ -20,6 +20,10 @@
 		"script_lang": "Γλώσσα",
 		"errorlog_title": "TW-DB.info - Errorlog",
 		"errorlog_minititle": "TWDB Errorlog",
+		"errorlog_table_header_message": "Μήνυμα",
+		"errorlog_table_header_error": "Σφάλμα",
+		"errorlog_copy_button": "Αντιγραφή",
+		"errorlog_copied": "Αντιγράφηκε!",
 		"api_registration_failed": "Η εγγραφή του UserScript TW-DB.info στο TheWestApi απέτυχε."
 	},
 	"settings": {

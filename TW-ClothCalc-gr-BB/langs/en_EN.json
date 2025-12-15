@@ -20,6 +20,10 @@
 		"script_lang": "Language",
 		"errorlog_title": "TW-DB.info - Errorlog",
 		"errorlog_minititle": "TWDB Errorlog",
+		"errorlog_table_header_message": "Message",
+		"errorlog_table_header_error": "Error",
+		"errorlog_copy_button": "Copy",
+		"errorlog_copied": "Copied!",
 		"api_registration_failed": "Registration of the TW-DB.info UserScript with TheWestApi failed."
 	},
 	"settings": {
