@@ -1,9 +1,12 @@
 {
 	"scripts": {
+		"extract-strings": "bun tools/extract-strings.mjs",
 		"lint-format": "biome check --write"
 	},
 	"devDependencies": {
-		"@biomejs/biome": "2.3.6"
+		"@biomejs/biome": "2.3.6",
+		"acorn": "^8.15.0",
+		"acorn-walk": "^8.3.4"
 	},
 	"dependencies": {}
 }
