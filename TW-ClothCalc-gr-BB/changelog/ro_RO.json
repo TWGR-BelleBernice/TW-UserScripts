@@ -1,214 +1,168 @@
 [
-  {
-    "version": "0.28.0",
-    "notes": [
-      "[feature] Adăugată funcționalitate \"temporară\" de schimbare a limbii",
-      "[feature] Curățare cod pentru fila Setări",
-      "[feature] Curățare cod pentru funcționalitatea de culoare în Saloon (chat)",
-      "[feature] Curățare cod pentru funcționalitatea Joburi cu bonusuri pe Harta Mini",
-      "[feature] Curățare cod pentru funcționalitatea Urmărire Joburi/Questuri",
-      "[feature] Actualizare a diferitelor funcționalități ale codului UserScript"
-    ]
-  },
-  {
-    "version": "0.27.0",
-    "notes": [
-      "[feature] Adăugată funcționalitate de Import/Export Setări"
-    ]
-  },
-  {
-    "version": "0.26.0",
-    "notes": [
-      "[feature] Adăugată importarea bătăliilor de fort în baza de date a site-ului (westforts.com)",
-      "[feature] Adăugată funcționalitate de schimbare sunet Șoapte",
-      "[feature] Adăugat daune provocate fiecărui jucător în timpul unei bătălii de fort",
-      "[feature] Adăugate lovituri pe rundă în timpul unei bătălii de fort",
-      "[feature] Adăugată culoare la questurile care pot fi completate",
-      "[feature] Adăugat buton pentru acceptare și completare automată a questurilor care pot fi completate",
-      "[bugfix] Restaurat cod pentru vânzarea tuturor cu excepția unui obiect selectat către Comerciant",
-      "[bugfix] Corectat cod vechi pentru opțiunea care afișează punctele de muncă în fereastra joburilor",
-      "[bugfix] Corectat codul opțiunii de deschidere automată a Pieței, astfel încât fereastra de haine să fie minimizată",
-      "[bugfix] Corectat cod în fila de construcție dacă TWIR este prezent",
-      "[main] Reorganizare a categoriilor în fila Setări"
-    ]
-  },
-  {
-    "version": "0.25.0",
-    "notes": [
-      "[feature] Adăugată opțiune Temă Întunecată pentru Harta The-West",
-      "[feature] Îmbunătățită iconița raportului de vânzare în fereastra de cumpărături a clădirii Piață",
-      "[feature] Adăugată iconiță pentru dacă ofertele pieței sunt publice, doar pentru membrii alianței sau orașului",
-      "[feature] Adăugat un nou buton pentru deschiderea ușoară a ferestrei Pieței"
-    ]
-  },
-  {
-    "version": "0.24.0",
-    "notes": [
-      "[feature] Adăugate Timpuri de Reînviere la portretul jucătorului",
-      "[feature] Adăugată evidențiere text în Forumurile Orașului",
-      "[feature] Adăugată opțiune pentru fixarea barei de Meniu, Experiență și UserScript pe ecran",
-      "[feature] Adăugată experiență duel la profilul jucătorului",
-      "[bugfix] Corectată fila de Recrutare",
-      "[bugfix] Dezactivată activarea automată a unor funcționalități"
-    ]
-  },
-  {
-    "version": "0.23.0",
-    "notes": [
-      "[bugfix] Corectate unele mesaje de setări",
-      "[bugfix] Corectată fila de Recrutare"
-    ]
-  },
-  {
-    "version": "0.22.0",
-    "notes": [
-      "[feature] Adăugate lovituri critice și runde fantomă în cimitirul fortului",
-      "[feature] Adăugată fereastră pentru forturile deținute și de alianță în fereastra orașelor",
-      "[feature] Adăugată deschiderea automată a fortului de săpare tomahawk din raportul său",
-      "[feature] Îmbunătățite toate tabelele de Clasament",
-      "[feature] Îmbunătățită fereastra de Recrutare înainte de o bătălie de fort",
-      "[feature] Eliminată clipirea butonului Oraș dacă există un mesaj nou în Forumul Orașului"
-    ]
-  },
-  {
-    "version": "0.21.0",
-    "notes": [
-      "[feature] Adăugat progres clădire în fila de construcție",
-      "[feature] Adăugate niveluri suplimentare de biserică",
-      "[feature] Adăugată funcționalitate pentru afișarea doar a clădirilor care nu sunt complet construite în Primărie",
-      "[feature] Adăugat un nou buton pentru deschiderea ușoară a filei de construcție Biserică",
-      "[feature] Adăugat un buton pentru închiderea doar a ferestrelor de Inventar"
-    ]
-  },
-  {
-    "version": "0.20.0",
-    "notes": [
-      "[bugfix] Ups! Corectat cod versiune"
-    ]
-  },
-  {
-    "version": "0.19.0",
-    "notes": [
-      "[bugfix] Corectat link nouă versiune"
-    ]
-  },
-  {
-    "version": "0.18.0",
-    "notes": [
-      "[bugfix] Corectată versiunea în unele locuri, să sperăm!"
-    ]
-  },
-  {
-    "version": "0.17.1",
-    "notes": [
-      "[bugfix] Corectată versiunea în unele locuri"
-    ]
-  },
-  {
-    "version": "0.17.0",
-    "notes": [
-      "[main] Eliminată revizie"
-    ]
-  },
-  {
-    "version": "0.16.0",
-    "notes": [
-      "[bugfix] Schimbat link funcționalități nouă versiune"
-    ]
-  },
-  {
-    "version": "0.15.0",
-    "notes": [
-      "[bugfix] Corectat cod învechit pe care UserScript-ul îl folosea"
-    ]
-  },
-  {
-    "version": "0.14.0",
-    "notes": [
-      "[main] Eliminat cod redundant",
-      "[main] Schimbate detalii în fereastra de Recrutare"
-    ]
-  },
-  {
-    "version": "0.13.0",
-    "notes": [
-      "[bugfix] Ups! Corectat UserScript-ul"
-    ]
-  },
-  {
-    "version": "0.12.0",
-    "notes": [
-      "[bugfix] Corectată versiune incorectă"
-    ]
-  },
-  {
-    "version": "0.11.0",
-    "notes": [
-      "[main] Eliminat cod redundant în fereastra de Recrutare",
-      "[main] Schimbat Actualizator"
-    ]
-  },
-  {
-    "version": "0.10.0",
-    "notes": [
-      "[bugfix] Corectată fixarea obiectelor pentru afișare corectă în fereastra de Inventar vanilla și TWIR",
-      "[bugfix] Corectate erori ortografice ale cuvântului bugfix în Funcționalitățile Versiunii"
-    ]
-  },
-  {
-    "version": "0.9.0",
-    "notes": [
-      "[main] Curățare cod - partea 2",
-      "[main] Schimbate unele hiperlinkuri"
-    ]
-  },
-  {
-    "version": "0.8.0",
-    "notes": [
-      "[main] Curățare cod - partea 1"
-    ]
-  },
-  {
-    "version": "0.7.0",
-    "notes": [
-      "[bugfix] Actualizate linkuri pentru actualizare automată"
-    ]
-  },
-  {
-    "version": "0.6.0",
-    "notes": [
-      "[bugfix] Schimbate unele hiperlinkuri"
-    ]
-  },
-  {
-    "version": "0.5.0",
-    "notes": [
-      "[bugfix] Ups! Corectat UserScript-ul"
-    ]
-  },
-  {
-    "version": "0.4.0",
-    "notes": [
-      "[bugfix] Corectat pentru eliminarea funcționalității"
-    ]
-  },
-  {
-    "version": "0.3.0",
-    "notes": [
-      "[main] Eliminate multe funcționalități inutile"
-    ]
-  },
-  {
-    "version": "0.2.0",
-    "notes": [
-      "[bugfix] Corectate unele erori ortografice",
-      "[main] Schimbată formula versiunii"
-    ]
-  },
-  {
-    "version": "0.1.0",
-    "notes": [
-      "** Crearea UserScript-ului din clothcalc_sk **"
-    ]
-  }
+	{
+		"version": "0.28.0",
+		"notes": [
+			"[feature] Adăugată funcționalitate \"temporară\" de schimbare a limbii",
+			"[feature] Curățare cod pentru fila Setări",
+			"[feature] Curățare cod pentru funcționalitatea de culoare în Saloon (chat)",
+			"[feature] Curățare cod pentru funcționalitatea Joburi cu bonusuri pe Harta Mini",
+			"[feature] Curățare cod pentru funcționalitatea Urmărire Joburi/Questuri",
+			"[feature] Actualizare a diferitelor funcționalități ale codului UserScript"
+		]
+	},
+	{
+		"version": "0.27.0",
+		"notes": ["[feature] Adăugată funcționalitate de Import/Export Setări"]
+	},
+	{
+		"version": "0.26.0",
+		"notes": [
+			"[feature] Adăugată importarea bătăliilor de fort în baza de date a site-ului (westforts.com)",
+			"[feature] Adăugată funcționalitate de schimbare sunet Șoapte",
+			"[feature] Adăugat daune provocate fiecărui jucător în timpul unei bătălii de fort",
+			"[feature] Adăugate lovituri pe rundă în timpul unei bătălii de fort",
+			"[feature] Adăugată culoare la questurile care pot fi completate",
+			"[feature] Adăugat buton pentru acceptare și completare automată a questurilor care pot fi completate",
+			"[bugfix] Restaurat cod pentru vânzarea tuturor cu excepția unui obiect selectat către Comerciant",
+			"[bugfix] Corectat cod vechi pentru opțiunea care afișează punctele de muncă în fereastra joburilor",
+			"[bugfix] Corectat codul opțiunii de deschidere automată a Pieței, astfel încât fereastra de haine să fie minimizată",
+			"[bugfix] Corectat cod în fila de construcție dacă TWIR este prezent",
+			"[main] Reorganizare a categoriilor în fila Setări"
+		]
+	},
+	{
+		"version": "0.25.0",
+		"notes": [
+			"[feature] Adăugată opțiune Temă Întunecată pentru Harta The-West",
+			"[feature] Îmbunătățită iconița raportului de vânzare în fereastra de cumpărături a clădirii Piață",
+			"[feature] Adăugată iconiță pentru dacă ofertele pieței sunt publice, doar pentru membrii alianței sau orașului",
+			"[feature] Adăugat un nou buton pentru deschiderea ușoară a ferestrei Pieței"
+		]
+	},
+	{
+		"version": "0.24.0",
+		"notes": [
+			"[feature] Adăugate Timpuri de Reînviere la portretul jucătorului",
+			"[feature] Adăugată evidențiere text în Forumurile Orașului",
+			"[feature] Adăugată opțiune pentru fixarea barei de Meniu, Experiență și UserScript pe ecran",
+			"[feature] Adăugată experiență duel la profilul jucătorului",
+			"[bugfix] Corectată fila de Recrutare",
+			"[bugfix] Dezactivată activarea automată a unor funcționalități"
+		]
+	},
+	{
+		"version": "0.23.0",
+		"notes": ["[bugfix] Corectate unele mesaje de setări", "[bugfix] Corectată fila de Recrutare"]
+	},
+	{
+		"version": "0.22.0",
+		"notes": [
+			"[feature] Adăugate lovituri critice și runde fantomă în cimitirul fortului",
+			"[feature] Adăugată fereastră pentru forturile deținute și de alianță în fereastra orașelor",
+			"[feature] Adăugată deschiderea automată a fortului de săpare tomahawk din raportul său",
+			"[feature] Îmbunătățite toate tabelele de Clasament",
+			"[feature] Îmbunătățită fereastra de Recrutare înainte de o bătălie de fort",
+			"[feature] Eliminată clipirea butonului Oraș dacă există un mesaj nou în Forumul Orașului"
+		]
+	},
+	{
+		"version": "0.21.0",
+		"notes": [
+			"[feature] Adăugat progres clădire în fila de construcție",
+			"[feature] Adăugate niveluri suplimentare de biserică",
+			"[feature] Adăugată funcționalitate pentru afișarea doar a clădirilor care nu sunt complet construite în Primărie",
+			"[feature] Adăugat un nou buton pentru deschiderea ușoară a filei de construcție Biserică",
+			"[feature] Adăugat un buton pentru închiderea doar a ferestrelor de Inventar"
+		]
+	},
+	{
+		"version": "0.20.0",
+		"notes": ["[bugfix] Ups! Corectat cod versiune"]
+	},
+	{
+		"version": "0.19.0",
+		"notes": ["[bugfix] Corectat link nouă versiune"]
+	},
+	{
+		"version": "0.18.0",
+		"notes": ["[bugfix] Corectată versiunea în unele locuri, să sperăm!"]
+	},
+	{
+		"version": "0.17.1",
+		"notes": ["[bugfix] Corectată versiunea în unele locuri"]
+	},
+	{
+		"version": "0.17.0",
+		"notes": ["[main] Eliminată revizie"]
+	},
+	{
+		"version": "0.16.0",
+		"notes": ["[bugfix] Schimbat link funcționalități nouă versiune"]
+	},
+	{
+		"version": "0.15.0",
+		"notes": ["[bugfix] Corectat cod învechit pe care UserScript-ul îl folosea"]
+	},
+	{
+		"version": "0.14.0",
+		"notes": ["[main] Eliminat cod redundant", "[main] Schimbate detalii în fereastra de Recrutare"]
+	},
+	{
+		"version": "0.13.0",
+		"notes": ["[bugfix] Ups! Corectat UserScript-ul"]
+	},
+	{
+		"version": "0.12.0",
+		"notes": ["[bugfix] Corectată versiune incorectă"]
+	},
+	{
+		"version": "0.11.0",
+		"notes": [
+			"[main] Eliminat cod redundant în fereastra de Recrutare",
+			"[main] Schimbat Actualizator"
+		]
+	},
+	{
+		"version": "0.10.0",
+		"notes": [
+			"[bugfix] Corectată fixarea obiectelor pentru afișare corectă în fereastra de Inventar vanilla și TWIR",
+			"[bugfix] Corectate erori ortografice ale cuvântului bugfix în Funcționalitățile Versiunii"
+		]
+	},
+	{
+		"version": "0.9.0",
+		"notes": ["[main] Curățare cod - partea 2", "[main] Schimbate unele hiperlinkuri"]
+	},
+	{
+		"version": "0.8.0",
+		"notes": ["[main] Curățare cod - partea 1"]
+	},
+	{
+		"version": "0.7.0",
+		"notes": ["[bugfix] Actualizate linkuri pentru actualizare automată"]
+	},
+	{
+		"version": "0.6.0",
+		"notes": ["[bugfix] Schimbate unele hiperlinkuri"]
+	},
+	{
+		"version": "0.5.0",
+		"notes": ["[bugfix] Ups! Corectat UserScript-ul"]
+	},
+	{
+		"version": "0.4.0",
+		"notes": ["[bugfix] Corectat pentru eliminarea funcționalității"]
+	},
+	{
+		"version": "0.3.0",
+		"notes": ["[main] Eliminate multe funcționalități inutile"]
+	},
+	{
+		"version": "0.2.0",
+		"notes": ["[bugfix] Corectate unele erori ortografice", "[main] Schimbată formula versiunii"]
+	},
+	{
+		"version": "0.1.0",
+		"notes": ["** Crearea UserScript-ului din clothcalc_sk **"]
+	}
 ]

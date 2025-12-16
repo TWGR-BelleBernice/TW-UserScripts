@@ -1,214 +1,177 @@
 [
-  {
-    "version": "0.28.0",
-    "notes": [
-      "[feature] Ajout d'une fonctionnalité \"temporaire\" de changement de langue",
-      "[feature] Nettoyage du code de l'onglet Paramètres",
-      "[feature] Nettoyage du code de la fonctionnalité de couleur dans le Saloon (chat)",
-      "[feature] Nettoyage du code de la fonctionnalité des Jobs avec bonus sur la Mini Carte",
-      "[feature] Nettoyage du code de la fonctionnalité du Suivi des Jobs/Quêtes",
-      "[feature] Mise à jour de diverses fonctionnalités du code du UserScript"
-    ]
-  },
-  {
-    "version": "0.27.0",
-    "notes": [
-      "[feature] Ajout d'une fonctionnalité d'Import/Export des Paramètres"
-    ]
-  },
-  {
-    "version": "0.26.0",
-    "notes": [
-      "[feature] Ajout de l'importation des batailles de fort dans la base de données du site web (westforts.com)",
-      "[feature] Ajout d'une fonctionnalité de changement de son des Chuchotements",
-      "[feature] Ajout des dégâts infligés à chaque joueur pendant une bataille de fort",
-      "[feature] Ajout des tirs par round pendant une bataille de fort",
-      "[feature] Ajout de couleur aux quêtes qui peuvent être complétées",
-      "[feature] Ajout d'un bouton pour l'acceptation et la complétion automatiques des quêtes qui peuvent être complétées",
-      "[bugfix] Restauration du code pour vendre tout sauf un objet sélectionné au Marchand",
-      "[bugfix] Correction de l'ancien code de l'option qui affiche les points de travail dans la fenêtre des jobs",
-      "[bugfix] Correction du code de l'option d'ouverture automatique du Marché, afin que la fenêtre de vêtements soit minimisée",
-      "[bugfix] Correction du code dans l'onglet de construction si TWIR est présent",
-      "[main] Réorganisation des catégories dans l'onglet Paramètres"
-    ]
-  },
-  {
-    "version": "0.25.0",
-    "notes": [
-      "[feature] Ajout d'une option de thème Sombre pour la Carte de The-West",
-      "[feature] Amélioration de l'icône de rapport de vente dans la fenêtre d'achat du bâtiment Marché",
-      "[feature] Ajout d'une icône pour indiquer si les offres du marché sont publiques, uniquement pour les membres de l'alliance ou de la ville",
-      "[feature] Ajout d'un nouveau bouton pour ouvrir facilement la fenêtre du Marché"
-    ]
-  },
-  {
-    "version": "0.24.0",
-    "notes": [
-      "[feature] Ajout des Temps de Résurrection au portrait du joueur",
-      "[feature] Ajout du surlignage de texte dans les Forums de Ville",
-      "[feature] Ajout d'une option pour épingler la barre Menu, Expérience et UserScript à l'écran",
-      "[feature] Ajout de l'expérience de duel au profil du joueur",
-      "[bugfix] Correction de l'onglet Recrutement",
-      "[bugfix] Désactivation de l'activation automatique de certaines fonctionnalités"
-    ]
-  },
-  {
-    "version": "0.23.0",
-    "notes": [
-      "[bugfix] Correction de certains messages de paramètres",
-      "[bugfix] Correction de l'onglet Recrutement"
-    ]
-  },
-  {
-    "version": "0.22.0",
-    "notes": [
-      "[feature] Ajout des coups critiques et des rounds fantômes dans le cimetière du fort",
-      "[feature] Ajout d'une fenêtre pour les forts possédés et d'alliance dans la fenêtre des villes",
-      "[feature] Ajout de l'ouverture automatique du fort de creusage de tomahawk depuis son rapport",
-      "[feature] Amélioration de tous les tableaux de Classement",
-      "[feature] Amélioration de la fenêtre de Recrutement avant une bataille de fort",
-      "[feature] Suppression du clignotement du bouton Ville s'il y a un nouveau message dans le Forum de Ville"
-    ]
-  },
-  {
-    "version": "0.21.0",
-    "notes": [
-      "[feature] Ajout de la progression du bâtiment dans l'onglet de construction",
-      "[feature] Ajout de niveaux d'église supplémentaires",
-      "[feature] Ajout d'une fonctionnalité pour afficher uniquement les bâtiments qui ne sont pas entièrement construits dans l'Hôtel de Ville",
-      "[feature] Ajout d'un nouveau bouton pour ouvrir facilement l'onglet de construction de l'Église",
-      "[feature] Ajout d'un bouton pour fermer uniquement les fenêtres d'Inventaire"
-    ]
-  },
-  {
-    "version": "0.20.0",
-    "notes": [
-      "[bugfix] Oups ! Correction du code de version"
-    ]
-  },
-  {
-    "version": "0.19.0",
-    "notes": [
-      "[bugfix] Correction du lien de nouvelle version"
-    ]
-  },
-  {
-    "version": "0.18.0",
-    "notes": [
-      "[bugfix] Correction de la version à certains endroits, espérons-le !"
-    ]
-  },
-  {
-    "version": "0.17.1",
-    "notes": [
-      "[bugfix] Correction de la version à certains endroits"
-    ]
-  },
-  {
-    "version": "0.17.0",
-    "notes": [
-      "[main] Suppression de la révision"
-    ]
-  },
-  {
-    "version": "0.16.0",
-    "notes": [
-      "[bugfix] Changement du lien des fonctionnalités de nouvelle version"
-    ]
-  },
-  {
-    "version": "0.15.0",
-    "notes": [
-      "[bugfix] Correction du code obsolète que le UserScript utilisait"
-    ]
-  },
-  {
-    "version": "0.14.0",
-    "notes": [
-      "[main] Suppression du code redondant",
-      "[main] Changement des détails dans la fenêtre de Recrutement"
-    ]
-  },
-  {
-    "version": "0.13.0",
-    "notes": [
-      "[bugfix] Oups ! Correction du UserScript"
-    ]
-  },
-  {
-    "version": "0.12.0",
-    "notes": [
-      "[bugfix] Correction de la version incorrecte"
-    ]
-  },
-  {
-    "version": "0.11.0",
-    "notes": [
-      "[main] Suppression du code redondant dans la fenêtre de Recrutement",
-      "[main] Changement du Mise à jour"
-    ]
-  },
-  {
-    "version": "0.10.0",
-    "notes": [
-      "[bugfix] Correction de l'épinglage d'objet pour un affichage correct dans la fenêtre d'Inventaire vanilla et TWIR",
-      "[bugfix] Correction des erreurs d'orthographe du mot bugfix dans les Fonctionnalités de Version"
-    ]
-  },
-  {
-    "version": "0.9.0",
-    "notes": [
-      "[main] Nettoyage du code - partie 2",
-      "[main] Changement de certains hyperliens"
-    ]
-  },
-  {
-    "version": "0.8.0",
-    "notes": [
-      "[main] Nettoyage du code - partie 1"
-    ]
-  },
-  {
-    "version": "0.7.0",
-    "notes": [
-      "[bugfix] Mise à jour des liens pour la mise à jour automatique"
-    ]
-  },
-  {
-    "version": "0.6.0",
-    "notes": [
-      "[bugfix] Changement de certains hyperliens"
-    ]
-  },
-  {
-    "version": "0.5.0",
-    "notes": [
-      "[bugfix] Oups ! Correction du UserScript"
-    ]
-  },
-  {
-    "version": "0.4.0",
-    "notes": [
-      "[bugfix] Correction pour la suppression de fonctionnalité"
-    ]
-  },
-  {
-    "version": "0.3.0",
-    "notes": [
-      "[main] Suppression de nombreuses fonctionnalités inutiles"
-    ]
-  },
-  {
-    "version": "0.2.0",
-    "notes": [
-      "[bugfix] Correction de certaines erreurs d'orthographe",
-      "[main] Changement de la formule de version"
-    ]
-  },
-  {
-    "version": "0.1.0",
-    "notes": [
-      "** Création du UserScript à partir de clothcalc_sk **"
-    ]
-  }
+	{
+		"version": "0.28.0",
+		"notes": [
+			"[feature] Ajout d'une fonctionnalité \"temporaire\" de changement de langue",
+			"[feature] Nettoyage du code de l'onglet Paramètres",
+			"[feature] Nettoyage du code de la fonctionnalité de couleur dans le Saloon (chat)",
+			"[feature] Nettoyage du code de la fonctionnalité des Jobs avec bonus sur la Mini Carte",
+			"[feature] Nettoyage du code de la fonctionnalité du Suivi des Jobs/Quêtes",
+			"[feature] Mise à jour de diverses fonctionnalités du code du UserScript"
+		]
+	},
+	{
+		"version": "0.27.0",
+		"notes": ["[feature] Ajout d'une fonctionnalité d'Import/Export des Paramètres"]
+	},
+	{
+		"version": "0.26.0",
+		"notes": [
+			"[feature] Ajout de l'importation des batailles de fort dans la base de données du site web (westforts.com)",
+			"[feature] Ajout d'une fonctionnalité de changement de son des Chuchotements",
+			"[feature] Ajout des dégâts infligés à chaque joueur pendant une bataille de fort",
+			"[feature] Ajout des tirs par round pendant une bataille de fort",
+			"[feature] Ajout de couleur aux quêtes qui peuvent être complétées",
+			"[feature] Ajout d'un bouton pour l'acceptation et la complétion automatiques des quêtes qui peuvent être complétées",
+			"[bugfix] Restauration du code pour vendre tout sauf un objet sélectionné au Marchand",
+			"[bugfix] Correction de l'ancien code de l'option qui affiche les points de travail dans la fenêtre des jobs",
+			"[bugfix] Correction du code de l'option d'ouverture automatique du Marché, afin que la fenêtre de vêtements soit minimisée",
+			"[bugfix] Correction du code dans l'onglet de construction si TWIR est présent",
+			"[main] Réorganisation des catégories dans l'onglet Paramètres"
+		]
+	},
+	{
+		"version": "0.25.0",
+		"notes": [
+			"[feature] Ajout d'une option de thème Sombre pour la Carte de The-West",
+			"[feature] Amélioration de l'icône de rapport de vente dans la fenêtre d'achat du bâtiment Marché",
+			"[feature] Ajout d'une icône pour indiquer si les offres du marché sont publiques, uniquement pour les membres de l'alliance ou de la ville",
+			"[feature] Ajout d'un nouveau bouton pour ouvrir facilement la fenêtre du Marché"
+		]
+	},
+	{
+		"version": "0.24.0",
+		"notes": [
+			"[feature] Ajout des Temps de Résurrection au portrait du joueur",
+			"[feature] Ajout du surlignage de texte dans les Forums de Ville",
+			"[feature] Ajout d'une option pour épingler la barre Menu, Expérience et UserScript à l'écran",
+			"[feature] Ajout de l'expérience de duel au profil du joueur",
+			"[bugfix] Correction de l'onglet Recrutement",
+			"[bugfix] Désactivation de l'activation automatique de certaines fonctionnalités"
+		]
+	},
+	{
+		"version": "0.23.0",
+		"notes": [
+			"[bugfix] Correction de certains messages de paramètres",
+			"[bugfix] Correction de l'onglet Recrutement"
+		]
+	},
+	{
+		"version": "0.22.0",
+		"notes": [
+			"[feature] Ajout des coups critiques et des rounds fantômes dans le cimetière du fort",
+			"[feature] Ajout d'une fenêtre pour les forts possédés et d'alliance dans la fenêtre des villes",
+			"[feature] Ajout de l'ouverture automatique du fort de creusage de tomahawk depuis son rapport",
+			"[feature] Amélioration de tous les tableaux de Classement",
+			"[feature] Amélioration de la fenêtre de Recrutement avant une bataille de fort",
+			"[feature] Suppression du clignotement du bouton Ville s'il y a un nouveau message dans le Forum de Ville"
+		]
+	},
+	{
+		"version": "0.21.0",
+		"notes": [
+			"[feature] Ajout de la progression du bâtiment dans l'onglet de construction",
+			"[feature] Ajout de niveaux d'église supplémentaires",
+			"[feature] Ajout d'une fonctionnalité pour afficher uniquement les bâtiments qui ne sont pas entièrement construits dans l'Hôtel de Ville",
+			"[feature] Ajout d'un nouveau bouton pour ouvrir facilement l'onglet de construction de l'Église",
+			"[feature] Ajout d'un bouton pour fermer uniquement les fenêtres d'Inventaire"
+		]
+	},
+	{
+		"version": "0.20.0",
+		"notes": ["[bugfix] Oups ! Correction du code de version"]
+	},
+	{
+		"version": "0.19.0",
+		"notes": ["[bugfix] Correction du lien de nouvelle version"]
+	},
+	{
+		"version": "0.18.0",
+		"notes": ["[bugfix] Correction de la version à certains endroits, espérons-le !"]
+	},
+	{
+		"version": "0.17.1",
+		"notes": ["[bugfix] Correction de la version à certains endroits"]
+	},
+	{
+		"version": "0.17.0",
+		"notes": ["[main] Suppression de la révision"]
+	},
+	{
+		"version": "0.16.0",
+		"notes": ["[bugfix] Changement du lien des fonctionnalités de nouvelle version"]
+	},
+	{
+		"version": "0.15.0",
+		"notes": ["[bugfix] Correction du code obsolète que le UserScript utilisait"]
+	},
+	{
+		"version": "0.14.0",
+		"notes": [
+			"[main] Suppression du code redondant",
+			"[main] Changement des détails dans la fenêtre de Recrutement"
+		]
+	},
+	{
+		"version": "0.13.0",
+		"notes": ["[bugfix] Oups ! Correction du UserScript"]
+	},
+	{
+		"version": "0.12.0",
+		"notes": ["[bugfix] Correction de la version incorrecte"]
+	},
+	{
+		"version": "0.11.0",
+		"notes": [
+			"[main] Suppression du code redondant dans la fenêtre de Recrutement",
+			"[main] Changement du Mise à jour"
+		]
+	},
+	{
+		"version": "0.10.0",
+		"notes": [
+			"[bugfix] Correction de l'épinglage d'objet pour un affichage correct dans la fenêtre d'Inventaire vanilla et TWIR",
+			"[bugfix] Correction des erreurs d'orthographe du mot bugfix dans les Fonctionnalités de Version"
+		]
+	},
+	{
+		"version": "0.9.0",
+		"notes": ["[main] Nettoyage du code - partie 2", "[main] Changement de certains hyperliens"]
+	},
+	{
+		"version": "0.8.0",
+		"notes": ["[main] Nettoyage du code - partie 1"]
+	},
+	{
+		"version": "0.7.0",
+		"notes": ["[bugfix] Mise à jour des liens pour la mise à jour automatique"]
+	},
+	{
+		"version": "0.6.0",
+		"notes": ["[bugfix] Changement de certains hyperliens"]
+	},
+	{
+		"version": "0.5.0",
+		"notes": ["[bugfix] Oups ! Correction du UserScript"]
+	},
+	{
+		"version": "0.4.0",
+		"notes": ["[bugfix] Correction pour la suppression de fonctionnalité"]
+	},
+	{
+		"version": "0.3.0",
+		"notes": ["[main] Suppression de nombreuses fonctionnalités inutiles"]
+	},
+	{
+		"version": "0.2.0",
+		"notes": [
+			"[bugfix] Correction de certaines erreurs d'orthographe",
+			"[main] Changement de la formule de version"
+		]
+	},
+	{
+		"version": "0.1.0",
+		"notes": ["** Création du UserScript à partir de clothcalc_sk **"]
+	}
 ]

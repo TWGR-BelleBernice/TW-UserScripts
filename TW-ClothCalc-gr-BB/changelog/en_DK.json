@@ -1,214 +1,165 @@
 [
-  {
-    "version": "0.28.0",
-    "notes": [
-      "[feature] Added \"temporary\" language switching functionality",
-      "[feature] Code cleanup for Settings tab",
-      "[feature] Code cleanup for color functionality in Saloon (chat)",
-      "[feature] Code cleanup for Jobs with bonuses on Mini Map",
-      "[feature] Code cleanup for Job/Quest Tracker functionality",
-      "[feature] Update of various UserScript code functionalities"
-    ]
-  },
-  {
-    "version": "0.27.0",
-    "notes": [
-      "[feature] Added Settings Import/Export functionality"
-    ]
-  },
-  {
-    "version": "0.26.0",
-    "notes": [
-      "[feature] Added fort battle import to website database (westforts.com)",
-      "[feature] Added Whisper sound change functionality",
-      "[feature] Added damage dealt to each player during a fort battle",
-      "[feature] Added shots per round during a fort battle",
-      "[feature] Added color to quests that can be completed",
-      "[feature] Added button for automatic acceptance and completion of quests that can be completed",
-      "[bugfix] Restored code for selling all except one selected item to the Merchant",
-      "[bugfix] Fixed old code for the option that displays work points in the jobs window",
-      "[bugfix] Fixed the code for the automatic Market opening option, so the clothing window is minimized",
-      "[bugfix] Fixed code in the construction tab if TWIR is present",
-      "[main] Reorganization of categories in the Settings tab"
-    ]
-  },
-  {
-    "version": "0.25.0",
-    "notes": [
-      "[feature] Added Dark theme option for The-West Map",
-      "[feature] Improved sale report icon in the Market building purchase window",
-      "[feature] Added icon for whether market offers are public, alliance-only, or town-only",
-      "[feature] Added a new button for easy opening of the Market window"
-    ]
-  },
-  {
-    "version": "0.24.0",
-    "notes": [
-      "[feature] Added Resurrection Times to player portrait",
-      "[feature] Added text highlighting in Town Forums",
-      "[feature] Added option to pin Menu, Experience, and UserScript bar to screen",
-      "[feature] Added duel experience to player profile",
-      "[bugfix] Fixed Recruitment tab",
-      "[bugfix] Disabled automatic activation of some features"
-    ]
-  },
-  {
-    "version": "0.23.0",
-    "notes": [
-      "[bugfix] Fixed some settings messages",
-      "[bugfix] Fixed Recruitment tab"
-    ]
-  },
-  {
-    "version": "0.22.0",
-    "notes": [
-      "[feature] Added critical hits and ghost rounds in fort cemetery",
-      "[feature] Added window for owned and alliance forts in the towns window",
-      "[feature] Added automatic opening of tomahawk digging fort from its report",
-      "[feature] Improved all Ranking tables",
-      "[feature] Improved Recruitment window before fort battle",
-      "[feature] Removed City button blinking if there is a new message in Town Forum"
-    ]
-  },
-  {
-    "version": "0.21.0",
-    "notes": [
-      "[feature] Added building progress in construction tab",
-      "[feature] Added additional church levels",
-      "[feature] Added functionality to show only buildings that are not fully constructed in Town Hall",
-      "[feature] Added a new button for easy opening of Church construction tab",
-      "[feature] Added a button to close only Inventory windows"
-    ]
-  },
-  {
-    "version": "0.20.0",
-    "notes": [
-      "[bugfix] Oops! Fixed version code"
-    ]
-  },
-  {
-    "version": "0.19.0",
-    "notes": [
-      "[bugfix] Fixed new version link"
-    ]
-  },
-  {
-    "version": "0.18.0",
-    "notes": [
-      "[bugfix] Fixed version in some places, hopefully!"
-    ]
-  },
-  {
-    "version": "0.17.1",
-    "notes": [
-      "[bugfix] Fixed version in some places"
-    ]
-  },
-  {
-    "version": "0.17.0",
-    "notes": [
-      "[main] Removed revision"
-    ]
-  },
-  {
-    "version": "0.16.0",
-    "notes": [
-      "[bugfix] Changed new version features link"
-    ]
-  },
-  {
-    "version": "0.15.0",
-    "notes": [
-      "[bugfix] Fixed deprecated code that the UserScript was using"
-    ]
-  },
-  {
-    "version": "0.14.0",
-    "notes": [
-      "[main] Removed redundant code",
-      "[main] Changed details in Recruitment window"
-    ]
-  },
-  {
-    "version": "0.13.0",
-    "notes": [
-      "[bugfix] Oops! Fixed the UserScript"
-    ]
-  },
-  {
-    "version": "0.12.0",
-    "notes": [
-      "[bugfix] Fixed incorrect version"
-    ]
-  },
-  {
-    "version": "0.11.0",
-    "notes": [
-      "[main] Removed redundant code in Recruitment window",
-      "[main] Changed Updater"
-    ]
-  },
-  {
-    "version": "0.10.0",
-    "notes": [
-      "[bugfix] Fixed item pinning for proper display in vanilla and TWIR Inventory window",
-      "[bugfix] Fixed spelling errors of the word bugfix in Version Features"
-    ]
-  },
-  {
-    "version": "0.9.0",
-    "notes": [
-      "[main] Code cleanup - part 2",
-      "[main] Changed some hyperlinks"
-    ]
-  },
-  {
-    "version": "0.8.0",
-    "notes": [
-      "[main] Code cleanup - part 1"
-    ]
-  },
-  {
-    "version": "0.7.0",
-    "notes": [
-      "[bugfix] Updated links for automatic update"
-    ]
-  },
-  {
-    "version": "0.6.0",
-    "notes": [
-      "[bugfix] Changed some hyperlinks"
-    ]
-  },
-  {
-    "version": "0.5.0",
-    "notes": [
-      "[bugfix] Oops! Fixed the UserScript"
-    ]
-  },
-  {
-    "version": "0.4.0",
-    "notes": [
-      "[bugfix] Fixed for feature removal"
-    ]
-  },
-  {
-    "version": "0.3.0",
-    "notes": [
-      "[main] Removed many useless features"
-    ]
-  },
-  {
-    "version": "0.2.0",
-    "notes": [
-      "[bugfix] Fixed some spelling errors",
-      "[main] Changed version formula"
-    ]
-  },
-  {
-    "version": "0.1.0",
-    "notes": [
-      "** UserScript creation from clothcalc_sk **"
-    ]
-  }
+	{
+		"version": "0.28.0",
+		"notes": [
+			"[feature] Added \"temporary\" language switching functionality",
+			"[feature] Code cleanup for Settings tab",
+			"[feature] Code cleanup for color functionality in Saloon (chat)",
+			"[feature] Code cleanup for Jobs with bonuses on Mini Map",
+			"[feature] Code cleanup for Job/Quest Tracker functionality",
+			"[feature] Update of various UserScript code functionalities"
+		]
+	},
+	{
+		"version": "0.27.0",
+		"notes": ["[feature] Added Settings Import/Export functionality"]
+	},
+	{
+		"version": "0.26.0",
+		"notes": [
+			"[feature] Added fort battle import to website database (westforts.com)",
+			"[feature] Added Whisper sound change functionality",
+			"[feature] Added damage dealt to each player during a fort battle",
+			"[feature] Added shots per round during a fort battle",
+			"[feature] Added color to quests that can be completed",
+			"[feature] Added button for automatic acceptance and completion of quests that can be completed",
+			"[bugfix] Restored code for selling all except one selected item to the Merchant",
+			"[bugfix] Fixed old code for the option that displays work points in the jobs window",
+			"[bugfix] Fixed the code for the automatic Market opening option, so the clothing window is minimized",
+			"[bugfix] Fixed code in the construction tab if TWIR is present",
+			"[main] Reorganization of categories in the Settings tab"
+		]
+	},
+	{
+		"version": "0.25.0",
+		"notes": [
+			"[feature] Added Dark theme option for The-West Map",
+			"[feature] Improved sale report icon in the Market building purchase window",
+			"[feature] Added icon for whether market offers are public, alliance-only, or town-only",
+			"[feature] Added a new button for easy opening of the Market window"
+		]
+	},
+	{
+		"version": "0.24.0",
+		"notes": [
+			"[feature] Added Resurrection Times to player portrait",
+			"[feature] Added text highlighting in Town Forums",
+			"[feature] Added option to pin Menu, Experience, and UserScript bar to screen",
+			"[feature] Added duel experience to player profile",
+			"[bugfix] Fixed Recruitment tab",
+			"[bugfix] Disabled automatic activation of some features"
+		]
+	},
+	{
+		"version": "0.23.0",
+		"notes": ["[bugfix] Fixed some settings messages", "[bugfix] Fixed Recruitment tab"]
+	},
+	{
+		"version": "0.22.0",
+		"notes": [
+			"[feature] Added critical hits and ghost rounds in fort cemetery",
+			"[feature] Added window for owned and alliance forts in the towns window",
+			"[feature] Added automatic opening of tomahawk digging fort from its report",
+			"[feature] Improved all Ranking tables",
+			"[feature] Improved Recruitment window before fort battle",
+			"[feature] Removed City button blinking if there is a new message in Town Forum"
+		]
+	},
+	{
+		"version": "0.21.0",
+		"notes": [
+			"[feature] Added building progress in construction tab",
+			"[feature] Added additional church levels",
+			"[feature] Added functionality to show only buildings that are not fully constructed in Town Hall",
+			"[feature] Added a new button for easy opening of Church construction tab",
+			"[feature] Added a button to close only Inventory windows"
+		]
+	},
+	{
+		"version": "0.20.0",
+		"notes": ["[bugfix] Oops! Fixed version code"]
+	},
+	{
+		"version": "0.19.0",
+		"notes": ["[bugfix] Fixed new version link"]
+	},
+	{
+		"version": "0.18.0",
+		"notes": ["[bugfix] Fixed version in some places, hopefully!"]
+	},
+	{
+		"version": "0.17.1",
+		"notes": ["[bugfix] Fixed version in some places"]
+	},
+	{
+		"version": "0.17.0",
+		"notes": ["[main] Removed revision"]
+	},
+	{
+		"version": "0.16.0",
+		"notes": ["[bugfix] Changed new version features link"]
+	},
+	{
+		"version": "0.15.0",
+		"notes": ["[bugfix] Fixed deprecated code that the UserScript was using"]
+	},
+	{
+		"version": "0.14.0",
+		"notes": ["[main] Removed redundant code", "[main] Changed details in Recruitment window"]
+	},
+	{
+		"version": "0.13.0",
+		"notes": ["[bugfix] Oops! Fixed the UserScript"]
+	},
+	{
+		"version": "0.12.0",
+		"notes": ["[bugfix] Fixed incorrect version"]
+	},
+	{
+		"version": "0.11.0",
+		"notes": ["[main] Removed redundant code in Recruitment window", "[main] Changed Updater"]
+	},
+	{
+		"version": "0.10.0",
+		"notes": [
+			"[bugfix] Fixed item pinning for proper display in vanilla and TWIR Inventory window",
+			"[bugfix] Fixed spelling errors of the word bugfix in Version Features"
+		]
+	},
+	{
+		"version": "0.9.0",
+		"notes": ["[main] Code cleanup - part 2", "[main] Changed some hyperlinks"]
+	},
+	{
+		"version": "0.8.0",
+		"notes": ["[main] Code cleanup - part 1"]
+	},
+	{
+		"version": "0.7.0",
+		"notes": ["[bugfix] Updated links for automatic update"]
+	},
+	{
+		"version": "0.6.0",
+		"notes": ["[bugfix] Changed some hyperlinks"]
+	},
+	{
+		"version": "0.5.0",
+		"notes": ["[bugfix] Oops! Fixed the UserScript"]
+	},
+	{
+		"version": "0.4.0",
+		"notes": ["[bugfix] Fixed for feature removal"]
+	},
+	{
+		"version": "0.3.0",
+		"notes": ["[main] Removed many useless features"]
+	},
+	{
+		"version": "0.2.0",
+		"notes": ["[bugfix] Fixed some spelling errors", "[main] Changed version formula"]
+	},
+	{
+		"version": "0.1.0",
+		"notes": ["** UserScript creation from clothcalc_sk **"]
+	}
 ]

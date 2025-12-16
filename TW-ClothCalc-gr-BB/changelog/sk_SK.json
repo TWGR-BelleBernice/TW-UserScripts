@@ -1,214 +1,165 @@
 [
-  {
-    "version": "0.28.0",
-    "notes": [
-      "[feature] Pridaná \"dočasná\" funkcia zmeny jazyka",
-      "[feature] Vyčistenie kódu záložky Nastavenia",
-      "[feature] Vyčistenie kódu funkcie farby v Salóne (chat)",
-      "[feature] Vyčistenie kódu funkcie Práce s bonusmi na Mini Mape",
-      "[feature] Vyčistenie kódu funkcie Sledovač Práce/Úloh",
-      "[feature] Aktualizácia rôznych funkcií kódu UserScriptu"
-    ]
-  },
-  {
-    "version": "0.27.0",
-    "notes": [
-      "[feature] Pridaná funkcia Import/Export Nastavení"
-    ]
-  },
-  {
-    "version": "0.26.0",
-    "notes": [
-      "[feature] Pridaný import bitiek pevnosti do databázy webu (westforts.com)",
-      "[feature] Pridaná funkcia zmeny zvuku Šepotu",
-      "[feature] Pridané poškodenie spôsobené každému hráčovi počas bitky pevnosti",
-      "[feature] Pridané výstrely na kolo počas bitky pevnosti",
-      "[feature] Pridaná farba úlohám, ktoré môžu byť dokončené",
-      "[feature] Pridané tlačidlo pre automatické prijatie a dokončenie úloh, ktoré môžu byť dokončené",
-      "[bugfix] Obnovený kód pre predaj všetkého okrem jedného vybraného predmetu Obchodníkovi",
-      "[bugfix] Opravený starý kód pre možnosť, ktorá zobrazuje pracovné body v okne prác",
-      "[bugfix] Opravený kód pre možnosť automatického otvorenia Trhu, aby sa okno oblečenia minimalizovalo",
-      "[bugfix] Opravený kód na záložke stavby, ak je prítomný TWIR",
-      "[main] Reorganizácia kategórií na záložke Nastavenia"
-    ]
-  },
-  {
-    "version": "0.25.0",
-    "notes": [
-      "[feature] Pridaná možnosť Tmavého motívu pre Mapu The-West",
-      "[feature] Vylepšená ikona správy o predaji v okne nákupu budovy Trhu",
-      "[feature] Pridaná ikona pre to, či sú ponuky trhu verejné, len pre členov aliancie alebo mesta",
-      "[feature] Pridané nové tlačidlo pre ľahké otvorenie okna Trhu"
-    ]
-  },
-  {
-    "version": "0.24.0",
-    "notes": [
-      "[feature] Pridané Časy Vzkriesenia k portrétu hráča",
-      "[feature] Pridané zvýraznenie textu vo Fórach Mesta",
-      "[feature] Pridaná možnosť pripnutia lišty Menu, Skúsenosti a UserScriptu na obrazovku",
-      "[feature] Pridaná skúsenosť z duelu do profilu hráča",
-      "[bugfix] Opravená záložka Náboru",
-      "[bugfix] Deaktivovaná automatická aktivácia niektorých funkcií"
-    ]
-  },
-  {
-    "version": "0.23.0",
-    "notes": [
-      "[bugfix] Opravené niektoré správy nastavení",
-      "[bugfix] Opravená záložka Náboru"
-    ]
-  },
-  {
-    "version": "0.22.0",
-    "notes": [
-      "[feature] Pridané kritické zásahy a kolá s duchom na cintoríne pevnosti",
-      "[feature] Pridané okno pre vlastné a aliančné pevnosti v okne miest",
-      "[feature] Pridané automatické otvorenie pevnosti kopania tomahawku z jeho správy",
-      "[feature] Vylepšené všetky tabuľky Rebríčka",
-      "[feature] Vylepšené okno Náboru pred bitkou pevnosti",
-      "[feature] Odstránené blikanie tlačidla Mesto, ak je nová správa vo Fóre Mesta"
-    ]
-  },
-  {
-    "version": "0.21.0",
-    "notes": [
-      "[feature] Pridaný pokrok budovy na záložke stavby",
-      "[feature] Pridané ďalšie úrovne kostola",
-      "[feature] Pridaná funkcia pre zobrazenie len budov, ktoré nie sú plne postavené na Radnici",
-      "[feature] Pridané nové tlačidlo pre ľahké otvorenie záložky stavby Kostola",
-      "[feature] Pridané tlačidlo pre zatvorenie len okien Inventára"
-    ]
-  },
-  {
-    "version": "0.20.0",
-    "notes": [
-      "[bugfix] Ups! Opravený kód verzie"
-    ]
-  },
-  {
-    "version": "0.19.0",
-    "notes": [
-      "[bugfix] Opravený odkaz na novú verziu"
-    ]
-  },
-  {
-    "version": "0.18.0",
-    "notes": [
-      "[bugfix] Opravená verzia na niektorých miestach, dúfajme!"
-    ]
-  },
-  {
-    "version": "0.17.1",
-    "notes": [
-      "[bugfix] Opravená verzia na niektorých miestach"
-    ]
-  },
-  {
-    "version": "0.17.0",
-    "notes": [
-      "[main] Odstránená revízia"
-    ]
-  },
-  {
-    "version": "0.16.0",
-    "notes": [
-      "[bugfix] Zmenený odkaz na funkcie novej verzie"
-    ]
-  },
-  {
-    "version": "0.15.0",
-    "notes": [
-      "[bugfix] Opravený zastaralý kód, ktorý UserScript používal"
-    ]
-  },
-  {
-    "version": "0.14.0",
-    "notes": [
-      "[main] Odstránený redundantný kód",
-      "[main] Zmenené detaily v okne Náboru"
-    ]
-  },
-  {
-    "version": "0.13.0",
-    "notes": [
-      "[bugfix] Ups! Opravený UserScript"
-    ]
-  },
-  {
-    "version": "0.12.0",
-    "notes": [
-      "[bugfix] Opravená nesprávna verzia"
-    ]
-  },
-  {
-    "version": "0.11.0",
-    "notes": [
-      "[main] Odstránený redundantný kód v okne Náboru",
-      "[main] Zmenený Aktualizátor"
-    ]
-  },
-  {
-    "version": "0.10.0",
-    "notes": [
-      "[bugfix] Opravené pripnutie predmetu pre správne zobrazenie v okne Inventára vanilla a TWIR",
-      "[bugfix] Opravené pravopisné chyby slova bugfix vo Funkciách Verzie"
-    ]
-  },
-  {
-    "version": "0.9.0",
-    "notes": [
-      "[main] Vyčistenie kódu - časť 2",
-      "[main] Zmenené niektoré hyperlinky"
-    ]
-  },
-  {
-    "version": "0.8.0",
-    "notes": [
-      "[main] Vyčistenie kódu - časť 1"
-    ]
-  },
-  {
-    "version": "0.7.0",
-    "notes": [
-      "[bugfix] Aktualizované odkazy pre automatickú aktualizáciu"
-    ]
-  },
-  {
-    "version": "0.6.0",
-    "notes": [
-      "[bugfix] Zmenené niektoré hyperlinky"
-    ]
-  },
-  {
-    "version": "0.5.0",
-    "notes": [
-      "[bugfix] Ups! Opravený UserScript"
-    ]
-  },
-  {
-    "version": "0.4.0",
-    "notes": [
-      "[bugfix] Opravené pre odstránenie funkcie"
-    ]
-  },
-  {
-    "version": "0.3.0",
-    "notes": [
-      "[main] Odstránené veľa zbytočných funkcií"
-    ]
-  },
-  {
-    "version": "0.2.0",
-    "notes": [
-      "[bugfix] Opravené niektoré pravopisné chyby",
-      "[main] Zmenený vzorec verzie"
-    ]
-  },
-  {
-    "version": "0.1.0",
-    "notes": [
-      "** Vytvorenie UserScriptu z clothcalc_sk **"
-    ]
-  }
+	{
+		"version": "0.28.0",
+		"notes": [
+			"[feature] Pridaná \"dočasná\" funkcia zmeny jazyka",
+			"[feature] Vyčistenie kódu záložky Nastavenia",
+			"[feature] Vyčistenie kódu funkcie farby v Salóne (chat)",
+			"[feature] Vyčistenie kódu funkcie Práce s bonusmi na Mini Mape",
+			"[feature] Vyčistenie kódu funkcie Sledovač Práce/Úloh",
+			"[feature] Aktualizácia rôznych funkcií kódu UserScriptu"
+		]
+	},
+	{
+		"version": "0.27.0",
+		"notes": ["[feature] Pridaná funkcia Import/Export Nastavení"]
+	},
+	{
+		"version": "0.26.0",
+		"notes": [
+			"[feature] Pridaný import bitiek pevnosti do databázy webu (westforts.com)",
+			"[feature] Pridaná funkcia zmeny zvuku Šepotu",
+			"[feature] Pridané poškodenie spôsobené každému hráčovi počas bitky pevnosti",
+			"[feature] Pridané výstrely na kolo počas bitky pevnosti",
+			"[feature] Pridaná farba úlohám, ktoré môžu byť dokončené",
+			"[feature] Pridané tlačidlo pre automatické prijatie a dokončenie úloh, ktoré môžu byť dokončené",
+			"[bugfix] Obnovený kód pre predaj všetkého okrem jedného vybraného predmetu Obchodníkovi",
+			"[bugfix] Opravený starý kód pre možnosť, ktorá zobrazuje pracovné body v okne prác",
+			"[bugfix] Opravený kód pre možnosť automatického otvorenia Trhu, aby sa okno oblečenia minimalizovalo",
+			"[bugfix] Opravený kód na záložke stavby, ak je prítomný TWIR",
+			"[main] Reorganizácia kategórií na záložke Nastavenia"
+		]
+	},
+	{
+		"version": "0.25.0",
+		"notes": [
+			"[feature] Pridaná možnosť Tmavého motívu pre Mapu The-West",
+			"[feature] Vylepšená ikona správy o predaji v okne nákupu budovy Trhu",
+			"[feature] Pridaná ikona pre to, či sú ponuky trhu verejné, len pre členov aliancie alebo mesta",
+			"[feature] Pridané nové tlačidlo pre ľahké otvorenie okna Trhu"
+		]
+	},
+	{
+		"version": "0.24.0",
+		"notes": [
+			"[feature] Pridané Časy Vzkriesenia k portrétu hráča",
+			"[feature] Pridané zvýraznenie textu vo Fórach Mesta",
+			"[feature] Pridaná možnosť pripnutia lišty Menu, Skúsenosti a UserScriptu na obrazovku",
+			"[feature] Pridaná skúsenosť z duelu do profilu hráča",
+			"[bugfix] Opravená záložka Náboru",
+			"[bugfix] Deaktivovaná automatická aktivácia niektorých funkcií"
+		]
+	},
+	{
+		"version": "0.23.0",
+		"notes": ["[bugfix] Opravené niektoré správy nastavení", "[bugfix] Opravená záložka Náboru"]
+	},
+	{
+		"version": "0.22.0",
+		"notes": [
+			"[feature] Pridané kritické zásahy a kolá s duchom na cintoríne pevnosti",
+			"[feature] Pridané okno pre vlastné a aliančné pevnosti v okne miest",
+			"[feature] Pridané automatické otvorenie pevnosti kopania tomahawku z jeho správy",
+			"[feature] Vylepšené všetky tabuľky Rebríčka",
+			"[feature] Vylepšené okno Náboru pred bitkou pevnosti",
+			"[feature] Odstránené blikanie tlačidla Mesto, ak je nová správa vo Fóre Mesta"
+		]
+	},
+	{
+		"version": "0.21.0",
+		"notes": [
+			"[feature] Pridaný pokrok budovy na záložke stavby",
+			"[feature] Pridané ďalšie úrovne kostola",
+			"[feature] Pridaná funkcia pre zobrazenie len budov, ktoré nie sú plne postavené na Radnici",
+			"[feature] Pridané nové tlačidlo pre ľahké otvorenie záložky stavby Kostola",
+			"[feature] Pridané tlačidlo pre zatvorenie len okien Inventára"
+		]
+	},
+	{
+		"version": "0.20.0",
+		"notes": ["[bugfix] Ups! Opravený kód verzie"]
+	},
+	{
+		"version": "0.19.0",
+		"notes": ["[bugfix] Opravený odkaz na novú verziu"]
+	},
+	{
+		"version": "0.18.0",
+		"notes": ["[bugfix] Opravená verzia na niektorých miestach, dúfajme!"]
+	},
+	{
+		"version": "0.17.1",
+		"notes": ["[bugfix] Opravená verzia na niektorých miestach"]
+	},
+	{
+		"version": "0.17.0",
+		"notes": ["[main] Odstránená revízia"]
+	},
+	{
+		"version": "0.16.0",
+		"notes": ["[bugfix] Zmenený odkaz na funkcie novej verzie"]
+	},
+	{
+		"version": "0.15.0",
+		"notes": ["[bugfix] Opravený zastaralý kód, ktorý UserScript používal"]
+	},
+	{
+		"version": "0.14.0",
+		"notes": ["[main] Odstránený redundantný kód", "[main] Zmenené detaily v okne Náboru"]
+	},
+	{
+		"version": "0.13.0",
+		"notes": ["[bugfix] Ups! Opravený UserScript"]
+	},
+	{
+		"version": "0.12.0",
+		"notes": ["[bugfix] Opravená nesprávna verzia"]
+	},
+	{
+		"version": "0.11.0",
+		"notes": ["[main] Odstránený redundantný kód v okne Náboru", "[main] Zmenený Aktualizátor"]
+	},
+	{
+		"version": "0.10.0",
+		"notes": [
+			"[bugfix] Opravené pripnutie predmetu pre správne zobrazenie v okne Inventára vanilla a TWIR",
+			"[bugfix] Opravené pravopisné chyby slova bugfix vo Funkciách Verzie"
+		]
+	},
+	{
+		"version": "0.9.0",
+		"notes": ["[main] Vyčistenie kódu - časť 2", "[main] Zmenené niektoré hyperlinky"]
+	},
+	{
+		"version": "0.8.0",
+		"notes": ["[main] Vyčistenie kódu - časť 1"]
+	},
+	{
+		"version": "0.7.0",
+		"notes": ["[bugfix] Aktualizované odkazy pre automatickú aktualizáciu"]
+	},
+	{
+		"version": "0.6.0",
+		"notes": ["[bugfix] Zmenené niektoré hyperlinky"]
+	},
+	{
+		"version": "0.5.0",
+		"notes": ["[bugfix] Ups! Opravený UserScript"]
+	},
+	{
+		"version": "0.4.0",
+		"notes": ["[bugfix] Opravené pre odstránenie funkcie"]
+	},
+	{
+		"version": "0.3.0",
+		"notes": ["[main] Odstránené veľa zbytočných funkcií"]
+	},
+	{
+		"version": "0.2.0",
+		"notes": ["[bugfix] Opravené niektoré pravopisné chyby", "[main] Zmenený vzorec verzie"]
+	},
+	{
+		"version": "0.1.0",
+		"notes": ["** Vytvorenie UserScriptu z clothcalc_sk **"]
+	}
 ]

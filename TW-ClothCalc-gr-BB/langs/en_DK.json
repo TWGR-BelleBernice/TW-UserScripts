@@ -28,7 +28,12 @@
 		"error_type": "Error",
 		"error_copy": "Copy",
 		"error_copied": "Copied!",
-		"api_registration_failed": "Registration of the TW-DB.info UserScript with TheWestApi failed."
+		"api_registration_failed": "Registration of the TW-DB.info UserScript with TheWestApi failed.",
+		"footer_copyright_html": ".:powered by TW-DB Team:. | <a href=\"https://tw-db.info\" style=\"font-weight:normal;color:#000000;\" target=\"_blank\">.:TW-DB.info:.</a> | .:$version$ - BB:.",
+		"footer_window_html": ".:powered by TW-DB Team:. | <a href=\"https://tw-db.info\" style=\"font-weight:normal;color:#000000;\" target=\"_blank\">.:TW-DB.info:.</a> | $version$ | BB",
+		"menu_button_tooltip": "TW-DB.info | BB",
+		"twdb_title": "TW-DB.info",
+		"twdb_title_with": "TW-DB.info - $title$"
 	},
 	"settings": {
 		"save_to_reload": "By pressing \"Ok\" the page will automatically refresh to apply your changes.",
@@ -104,27 +109,37 @@
 	},
 	"errors": {
 		"occurred": "TW-DB.info: An error occurred",
-		"language_file_not_found": "Language file \"=1=\" for locale \"=2=\" not found in langs folder. Please ensure the file \"=1=\" exists.",
-		"language_file_not_found_console": "Language file \"=1=\" for locale \"=2=\" not found in langs folder.",
+		"language_file_not_found": "Language file \"$filename$\" for locale \"$locale$\" not found in langs folder. Please ensure the file \"$filename$\" exists.",
+		"language_file_not_found_console": "Language file \"$filename$\" for locale \"$locale$\" not found in langs folder.",
 		"not_town_member": "You are not a member of a town!",
 		"clipboard_not_supported": "Clipboard API read not supported in your Browser.",
 		"empty_server_response": "empty Server Response",
 		"language_file_loading": "Language file loading",
 		"deadlock_detected": "Deadlock detected",
-		"failed_load_module": "Failed to load module: =1=",
-		"load_from_cache": "Load =1= from cache",
-		"save_to_cache": "Save =1= to cache",
+		"failed_load_module": "Failed to load module: $module$",
+		"load_from_cache": "Load $key$ from cache",
+		"save_to_cache": "Save $key$ to cache",
 		"cache_reset": "Cache reset",
 		"worker": "Worker",
 		"setup_whisper_sound": "Error setting up whisper sound options",
-		"enable_selectable_text": "Error enabling selectable text",
 		"enable_night_mode": "Error enabling Night Mode",
 		"remove_blinking_events": "Error removing blinking events from Events and Traveling Fair",
 		"inventory_additems_pin": "Error manipulating Inventory.addItems (pin items)",
 		"inventory_additemdiv_pin": "Error manipulating Inventory.addItemDivToInv (pin items)",
 		"telegram_append": "Error manipulating TelegramWindow.appendTelegram",
 		"images_load_retry": "Failed to load images.json, retrying...",
-		"images_load_failed_retry": "Images failed to load after retry"
+		"images_load_failed_retry": "Images failed to load after retry",
+		"failed_add_error": "Failed to add error",
+		"images_json_load_error": "Failed to load images.json"
+	},
+	"debug": {
+		"failed_to_copy": "Failed to copy:",
+		"key_saved": "key $key$ saved.",
+		"needs": "needs",
+		"current_statistic_data": "Current Statistic Data:",
+		"current_sort_display_state": "Current Sort/Display State:",
+		"report_queue": "Report Queue:",
+		"failed_report_ids": "Failed Report IDs:"
 	},
 	"cache": {
 		"reset": "Reset Cache tw-db",
@@ -339,7 +354,8 @@
 	},
 	"westforts": {
 		"open_import": "Open battle import in West Forts",
-		"close_import": "Close battle import in West Forts"
+		"close_import": "Close battle import in West Forts",
+		"button_label": "West Forts"
 	},
 	"misc": {
 		"notes_title": "Notes",

@@ -28,7 +28,12 @@
 		"error_type": "Σφάλμα",
 		"error_copy": "Αντιγραφή",
 		"error_copied": "Αντιγράφηκε!",
-		"api_registration_failed": "Η εγγραφή του UserScript TW-DB.info στο TheWestApi απέτυχε."
+		"api_registration_failed": "Η εγγραφή του UserScript TW-DB.info στο TheWestApi απέτυχε.",
+		"footer_copyright_html": ".:powered by TW-DB Team:. | <a href=\"https://tw-db.info\" style=\"font-weight:normal;color:#000000;\" target=\"_blank\">.:TW-DB.info:.</a> | .:$version$ - BB:.",
+		"footer_window_html": ".:powered by TW-DB Team:. | <a href=\"https://tw-db.info\" style=\"font-weight:normal;color:#000000;\" target=\"_blank\">.:TW-DB.info:.</a> | $version$ | BB",
+		"menu_button_tooltip": "TW-DB.info | BB",
+		"twdb_title": "TW-DB.info",
+		"twdb_title_with": "TW-DB.info - $title$"
 	},
 	"settings": {
 		"save_to_reload": "Πατώντας το \"Ok\" θα γίνει αυτόματη ανανέωση της σελίδας για να εφαρμοστούν οι αλλαγές σας.",
@@ -104,27 +109,37 @@
 	},
 	"errors": {
 		"occurred": "TW-DB.info: Παρουσιάστηκε σφάλμα",
-		"language_file_not_found": "Language file \"=1=\" for locale \"=2=\" not found in langs folder. Please ensure the file \"=1=\" exists.",
-		"language_file_not_found_console": "Language file \"=1=\" for locale \"=2=\" not found in langs folder.",
+		"language_file_not_found": "Language file \"$filename$\" for locale \"$locale$\" not found in langs folder. Please ensure the file \"$filename$\" exists.",
+		"language_file_not_found_console": "Language file \"$filename$\" for locale \"$locale$\" not found in langs folder.",
 		"not_town_member": "Δεν είσαι μέλος μιας πόλης!",
 		"clipboard_not_supported": "Η ανάγνωση του API προχείρου δεν υποστηρίζεται στον περιηγητή σας.",
 		"empty_server_response": "Κενή απάντηση διακομιστή",
 		"language_file_loading": "Φόρτωση αρχείου γλώσσας",
 		"deadlock_detected": "Εντοπίστηκε αδιέξοδο",
-		"failed_load_module": "Αποτυχία φόρτωσης module: =1=",
-		"load_from_cache": "Φόρτωση =1= από cache",
-		"save_to_cache": "Αποθήκευση =1= στο cache",
+		"failed_load_module": "Αποτυχία φόρτωσης module: $module$",
+		"load_from_cache": "Φόρτωση $key$ από cache",
+		"save_to_cache": "Αποθήκευση $key$ στο cache",
 		"cache_reset": "Επαναφορά cache",
 		"worker": "Worker",
 		"setup_whisper_sound": "Σφάλμα στη ρύθμιση επιλογών ήχου ψιθύρου",
-		"enable_selectable_text": "Σφάλμα στην ενεργοποίηση επιλογής κειμένου",
 		"enable_night_mode": "Σφάλμα στην ενεργοποίηση Νυχτερινής Λειτουργίας",
 		"remove_blinking_events": "Σφάλμα στην απενεργοποίηση της αναλαμπής των Εκδηλώσεων και του Λούνα Παρκ",
 		"inventory_additems_pin": "Σφάλμα στη χειραγώγηση Inventory.addItems (pin items)",
 		"inventory_additemdiv_pin": "Σφάλμα στη χειραγώγηση Inventory.addItemDivToInv (pin items)",
 		"telegram_append": "Σφάλμα στη χειραγώγηση TelegramWindow.appendTelegram",
 		"images_load_retry": "Αποτυχία φόρτωσης images.json, επανάληψη...",
-		"images_load_failed_retry": "Αποτυχία φόρτωσης εικόνων μετά την επανάληψη"
+		"images_load_failed_retry": "Αποτυχία φόρτωσης εικόνων μετά την επανάληψη",
+		"failed_add_error": "Αποτυχία προσθήκης σφάλματος",
+		"images_json_load_error": "Αποτυχία φόρτωσης images.json"
+	},
+	"debug": {
+		"failed_to_copy": "Αποτυχία αντιγραφής:",
+		"key_saved": "Το key $key$ αποθηκεύτηκε.",
+		"needs": "χρειάζεται",
+		"current_statistic_data": "Τρέχοντα δεδομένα στατιστικών:",
+		"current_sort_display_state": "Τρέχουσα κατάσταση ταξινόμησης/εμφάνισης:",
+		"report_queue": "Ουρά αναφορών:",
+		"failed_report_ids": "Αποτυχημένα IDs αναφορών:"
 	},
 	"cache": {
 		"reset": "Επαναφορά Cache tw-db",
@@ -332,7 +347,8 @@
 	},
 	"westforts": {
 		"open_import": "Άνοιγμα εισαγωγής μαχών στο West Forts",
-		"close_import": "Κλείσιμο εισαγωγής μαχών στο West Forts"
+		"close_import": "Κλείσιμο εισαγωγής μαχών στο West Forts",
+		"button_label": "West Forts"
 	},
 	"misc": {
 		"notes_title": "Σημειώσεις",
