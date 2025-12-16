@@ -13,7 +13,8 @@
 		"save_success": "Save successful",
 		"save": "Save",
 		"preview": "Preview",
-		"edit": "Edit"
+		"edit": "Edit",
+		"search": "Search"
 	},
 	"script": {
 		"duplicate": "The ClothCalc UserScript has been installed twice, with two different languages. You should disable one of the two languages for the UserScript to work properly.",
@@ -21,7 +22,7 @@
 		"thank_you": "Thank you!",
 		"paypal_alt": "PayPal - The safest and easiest way to pay online!",
 		"lang": "Language",
-		"error_title": "TW-DB - Errorlog",
+		"error_title": "TW-DB.info - Errorlog",
 		"error_minititle": "TWDB Errorlog",
 		"error_message": "Message",
 		"error_type": "Error",

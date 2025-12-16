@@ -13,7 +13,8 @@
 		"save_success": "Αποθήκευση επιτυχής",
 		"save": "Αποθήκευση",
 		"preview": "Προεπισκόπηση",
-		"edit": "Επεξεργασία"
+		"edit": "Επεξεργασία",
+		"search": "Αναζήτηση"
 	},
 	"script": {
 		"duplicate": "Το UserScript ClothCalc έχει εγκατασταθεί δυο φορές, με δυο διαφορετικές γλώσσες. Θα πρέπει να απενεργοποιήσετε μία από τις δυο γλώσσες για να λειτουργήσει το UserScript κανονικά.",
@@ -21,7 +22,7 @@
 		"thank_you": "Ευχαριστούμε!",
 		"paypal_alt": "PayPal - Ο ασφαλέστερος και ευκολότερος τρόπος για να πληρώνετε online!",
 		"lang": "Γλώσσα",
-		"error_title": "TW-DB - Errorlog",
+		"error_title": "TW-DB.info - Errorlog",
 		"error_minititle": "TWDB Errorlog",
 		"error_message": "Μήνυμα",
 		"error_type": "Σφάλμα",
