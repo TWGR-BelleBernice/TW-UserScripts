@@ -100,6 +100,7 @@
 		"weekly_crafting": "Add notification for crafting waiting period expiration",
 		"telegram_bb_codes": "Add a button to change to unformatted text in telegrams",
 		"enhanced_rankings": "Enhance Ranking tabs and add player difference",
+		"translation_texts": "Translation of specific incorrect text strings",
 		"forum_select": "Text selection in Town Forum",
 		"pin_important": "Keep Menu, Experience and script line always at the top",
 		"fortbattle_reminder": "Disable the fort battle reminder at the left side",
