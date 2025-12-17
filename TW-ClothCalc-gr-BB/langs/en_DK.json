@@ -123,7 +123,17 @@
 		"cache_reset": "Cache reset",
 		"worker": "Worker",
 		"setup_whisper_sound": "Error setting up whisper sound options",
+		"duel_xp_profile": "Error adding duel experience in player profiles",
+		"regen_timers": "Error enabling regeneration timers",
+		"enable_selectable_text": "Error enabling selectable text",
 		"enable_night_mode": "Error enabling Night Mode",
+		"rework_market_report": "Error reworking market icon report",
+		"improved_market": "Error improving market",
+		"improved_whisper": "Error improving whisper sound",
+		"job_window_lp": "Error showing labor points in job windows",
+		"add_instant_quests": "Error adding instant quests option",
+		"add_colored_quests": "Error adding colored quests option",
+		"import_westforts": "Error importing fort battles to the West Forts website",
 		"remove_blinking_events": "Error removing blinking events from Events and Traveling Fair",
 		"inventory_additems_pin": "Error manipulating Inventory.addItems (pin items)",
 		"inventory_additemdiv_pin": "Error manipulating Inventory.addItemDivToInv (pin items)",
@@ -277,13 +287,12 @@
 		"table_header_reset": "Reset",
 		"table_sum_tooltip": "Change to &Oslash; average",
 		"table_avg_tooltip": "Change to &sum; total",
-		"table_stage": "Stage&nbsp;",
 		"toggle_rewards_items": "Toggle between rewards and items found",
 		"hours": "hours",
 		"jobs_count": "Jobs",
 		"reset_report_analyzer": "Reset Analyzer reports",
 		"report_link_label": "Report-Link:",
-		"use_all_reports": "or use all reports&nbsp;&nbsp;",
+		"use_all_reports": "or use all reports",
 		"use_future_reports": "or use only future reports"
 	},
 	"quests": {
@@ -302,18 +311,20 @@
 	"map": {
 		"coordinates_tooltip": "Show coordinates on map",
 		"coordinates_button": "Move the map to the given coordinates",
-		"hotel_label": "Hotel&nbsp;",
+		"hotel_label": "Hotel",
+		"stage_label": "Stage",
 		"your_position": "Your position",
 		"show_town_tooltip": "Show town on map",
 		"show_coordinates": "Show coordinates on map"
 	},
 	"duel": {
-		"levels_tooltip": "Duel levels you can duel: %1 - %2<br><br>Current duel experience you will gain: %3 - %4<br>Mysterious filter -10% ⇒ Duel Level %5%6",
-		"levels_tooltip_range": " - %1",
-		"motivation_label": "Duel motivation:&nbsp;%1%",
-		"ko_time_label": "KO time<br />",
-		"ko_suspension": "KO - Duel suspension until&nbsp;%1<br />",
-		"ko_protection": "KO - Duel protection until&nbsp;%1",
+		"levels_duel": "Duel levels you can duel: $min$ - $max$",
+		"levels_exp": "Current duel experience you will gain: $min$ - $max$",
+		"levels_potion": "Mysterious filter -10% ⇒ Duel Level $min$$max$",
+		"motivation": "Duel motivation",
+		"ko_time": "KO time",
+		"ko_suspension": "KO - Duel suspension until $time$",
+		"ko_protection": "KO - Duel protection until $time$",
 		"profile_duel_exp": "Show duel experience in player profiles",
 		"setDuelProtection_changed": "setDuelProtection changed"
 	},
@@ -328,8 +339,8 @@
 		"move_tooltip": "Move to town"
 	},
 	"banking": {
-		"money_label": "Money: %1",
-		"deposit_message": "You have arrived in your town. Would you like to deposit your money? <br />Money: ",
+		"money": "Money",
+		"deposit_message": "You have arrived in your town. Would you like to deposit your money?",
 		"deposit_money": "Deposit money"
 	},
 	"crafting": {
@@ -340,12 +351,12 @@
 		"item_not_owned": "You don't have this item yet"
 	},
 	"regen": {
-		"timer_full_health": "Time for full health: <b>%1</b><br>",
-		"timer_full_energy": "Time for full energy: <b>%1</b><br>",
-		"timer_missing": "Missing: <b>%4%</b>&boxv;",
-		"timer_per_hour": "Regeneration per hour: <b>%2</b><br>",
-		"timer_next_health": "Next health point in: <b>%3</b><br>",
-		"timer_next_energy": "Next energy point in: <b>%3</b><br>"
+		"full_health": "Time for full health",
+		"full_energy": "Time for full energy",
+		"missing": "Missing",
+		"per_hour": "Regeneration per hour",
+		"next_health": "Next health point in",
+		"next_energy": "Next energy point in"
 	},
 	"task": {
 		"queue_negative_lp": "negative labor points",

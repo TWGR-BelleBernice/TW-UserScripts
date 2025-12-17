@@ -123,7 +123,17 @@
 		"cache_reset": "Επαναφορά cache",
 		"worker": "Worker",
 		"setup_whisper_sound": "Σφάλμα στη ρύθμιση επιλογών ήχου ψιθύρου",
+		"duel_xp_profile": "Σφάλμα στην προσθήκη εμπειρίας μονομαχίας στα προφίλ παικτών",
+		"regen_timers": "Σφάλμα στην ενεργοποίηση των χρόνων αναγέννησης",
+		"enable_selectable_text": "Σφάλμα στην ενεργοποίηση επιλογής κειμένου",
 		"enable_night_mode": "Σφάλμα στην ενεργοποίηση Νυχτερινής Λειτουργίας",
+		"rework_market_report": "Σφάλμα στην αναδιάρθρωση της εικόνας αναφοράς αγοράς",
+		"improved_market": "Σφάλμα στην βελτίωση της αγοράς",
+		"improved_whisper": "Σφάλμα στην βελτίωση του ήχου ψιθύρου",
+		"job_window_lp": "Σφάλμα στην εμφάνιση πόντων εργασίας στα παράθυρα Δουλειών",
+		"add_instant_quests": "Σφάλμα στην προσθήκη επιλογής για την άμεση ολοκλήρωση αποστολών",
+		"add_colored_quests": "Σφάλμα στην προσθήκη επιλογής για τις χρωματισμένες αποστολές",
+		"import_westforts": "Σφάλμα στην προσθήκη κουμπιού εισαγωγής μαχών οχυρού στην ιστοσελίδα West Forts",
 		"remove_blinking_events": "Σφάλμα στην απενεργοποίηση της αναλαμπής των Εκδηλώσεων και του Λούνα Παρκ",
 		"inventory_additems_pin": "Σφάλμα στη χειραγώγηση Inventory.addItems (pin items)",
 		"inventory_additemdiv_pin": "Σφάλμα στη χειραγώγηση Inventory.addItemDivToInv (pin items)",
@@ -254,7 +264,7 @@
 		"reset_all_jobs_bonus": "Όλες",
 		"reset_silver_jobs_bonus": "Ασημένιες",
 		"reset_gold_jobs_bonus": "Χρυσές",
-		"lp_remaining": "&nbsp;&nbsp;(%1&nbsp;Π.Ε.)"
+		"lp_remaining": "$lp$ Π.Ε."
 	},
 	"analyzer": {
 		"reset_confirm_title": "Θέλετε πραγματικά να επαναφέρετε τα στατιστικά του Αναλυτή Δουλειών;",
@@ -277,13 +287,12 @@
 		"table_header_reset": "Επαναφορά",
 		"table_sum_tooltip": "Αλλαγή σε &Oslash; μέσο όρο",
 		"table_avg_tooltip": "Αλλαγή σε &sum; σύνολο",
-		"table_stage": "Στάδιο&nbsp;",
 		"toggle_rewards_items": "Εναλλαγή μεταξύ ανταμοιβών και αντικειμένων που έχουν βρεθεί",
 		"hours": "ώρες",
 		"jobs_count": "Δουλειές",
 		"reset_report_analyzer": "Επαναφορά αναφορών Αναλυτή",
 		"report_link_label": "Σύνδεσμος-Αναφοράς:",
-		"use_all_reports": "ή χρησιμοποιήστε όλες τις αναφορές&nbsp;&nbsp;",
+		"use_all_reports": "ή χρησιμοποιήστε όλες τις αναφορές",
 		"use_future_reports": "ή χρησιμοποιήστε μόνο μελλοντικές αναφορές"
 	},
 	"quests": {
@@ -302,18 +311,21 @@
 	"map": {
 		"coordinates_tooltip": "Εμφάνιση συντεταγμένων στον χάρτη",
 		"coordinates_button": "Μετακινήστε τον χάρτη στις δεδομένες συντεταγμένες",
-		"hotel_label": "Ξενοδοχείο&nbsp;",
+		"hotel_label": "Ξενοδοχείο",
+		"stage_label": "Στάδιο",
 		"your_position": "Η θέση σου",
 		"show_town_tooltip": "Ένδειξη πόλης στον χάρτη",
 		"show_coordinates": "Εμφάνιση συντεταγμένων στον χάρτη"
 	},
 	"duel": {
-		"levels_tooltip": "Επίπεδα μονομαχίας που μπορείς να μονομαχήσεις: %1 - %2<br><br>Τρέχουσα εμπειρία μονομαχίας που θα κερδίσεις: %3 - %4<br>Μυστηριώδες φίλτρο -10% ⇒ Επίπεδο Μονομαχίας %5%6",
-		"levels_tooltip_range": " - %1",
-		"motivation_label": "Κίνητρο μονομαχίας:&nbsp;%1%",
-		"ko_time_label": "Ώρα λιποθυμίας<br />",
-		"ko_suspension": "ΚΟ - Αναστολή μονομαχίας μέχρι&nbsp;%1<br />",
-		"ko_protection": "ΚΟ - Προστασία μονομαχίας μέχρι&nbsp;%1",
+		"levels_duel": "Επίπεδα μονομαχίας που μπορείς να μονομαχήσεις: $min$ - $max$",
+		"levels_exp": "Τρέχουσα εμπειρία μονομαχίας που θα κερδίσεις: $min$ - $max$",
+		"potion_label": "Μυστηριώδες φίλτρο",
+		"levels_potion": "Επίπεδο Μονομαχίας $min$$max$",
+		"motivation": "Κίνητρο μονομαχίας",
+		"ko_time": "Ώρα λιποθυμίας",
+		"ko_suspension": "ΚΟ - Αναστολή μονομαχίας μέχρι $time$",
+		"ko_protection": "ΚΟ - Προστασία μονομαχίας μέχρι $time$",
 		"profile_duel_exp": "Εμφάνιση της εμπειρία μονομαχίας στα προφίλ παικτών",
 		"setDuelProtection_changed": "setDuelProtection changed"
 	},
@@ -321,8 +333,8 @@
 		"move_tooltip": "Μετακίνηση στην πόλη"
 	},
 	"banking": {
-		"money_label": "Χρήματα: %1",
-		"deposit_message": "Έχετε φτάσει στην πόλη σας. Μήπως θέλετε να καταθέσετε τα χρήματα σας; <br />Χρήματα: ",
+		"money": "Χρήματα",
+		"deposit_message": "Έχετε φτάσει στην πόλη σας. Μήπως θέλετε να καταθέσετε τα χρήματα σας;",
 		"deposit_money": "Κατάθεση χρημάτων"
 	},
 	"crafting": {
@@ -333,12 +345,12 @@
 		"item_not_owned": "Δεν έχετε ακόμα αυτό το αντικείμενο"
 	},
 	"regen": {
-		"timer_full_health": "Χρόνος για την πλήρη υγεία: <b>%1</b><br>",
-		"timer_full_energy": "Χρόνος για την πλήρη ενέργεια: <b>%1</b><br>",
-		"timer_missing": "Λείπει: <b>%4%</b>&boxv;",
-		"timer_per_hour": "Αναγέννηση ανά ώρα: <b>%2</b><br>",
-		"timer_next_health": "Επόμενος πόντος υγείας σε: <b>%3</b><br>",
-		"timer_next_energy": "Επόμενος πόντος ενέργειας σε: <b>%3</b><br>"
+		"full_health": "Χρόνος για την πλήρη υγεία",
+		"full_energy": "Χρόνος για την πλήρη ενέργεια",
+		"missing": "Λείπει",
+		"per_hour": "Αναγέννηση ανά ώρα",
+		"next_health": "Επόμενος πόντος υγείας σε",
+		"next_energy": "Επόμενος πόντος ενέργειας σε"
 	},
 	"task": {
 		"queue_negative_lp": "αρνητικοί πόντοι εργασίας",
