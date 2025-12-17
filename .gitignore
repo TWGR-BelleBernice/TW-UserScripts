@@ -3,6 +3,8 @@
 /node_modules
 /dumps
 /tools
+/package.json
+biome.json
 
 /testing
 /TW-clothcache-BB
