@@ -17,5 +17,4 @@ _Κάντε κλικ στους παρακάτω συνδέσμους για ν�
 το `userscript` που επιθυμείτε για το The-West._
 
 1. [TW-DB.info Cloth Calc [gr] - BB](https://greasyfork.org/scripts/547843)
-2. [TW-westernblumis Toolkit [gr] - BB](https://greasyfork.org/scripts/550500)
-3. soon™
+2. soon™

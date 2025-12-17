@@ -1,15 +1,9 @@
 .env
 /build
 /node_modules
-/dumps
-/tools
-/package.json
-biome.json
 
 /testing
-/TW-clothcache-BB
-/TW-Toolkit-BB
-/TW-westernblumis-Toolkit-gr-BB
-/TW-ClothCalc-gr-BB/sDoAllianceImport.js
 
-generate-changelogs.js
+/TW-ClothCalc-gr-BB/.gen
+/TW-ClothCalc-gr-BB/.dumps
+/TW-ClothCalc-gr-BB/sDoAllianceImport.js
