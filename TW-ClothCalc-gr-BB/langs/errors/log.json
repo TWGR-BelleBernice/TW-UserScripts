@@ -1,5 +1,7 @@
 {
 	"errors": {
+		"title": "TW-DB.info - Errorlog",
+		"mini_title": "TWDB Errorlog",
 		"occurred": "TW-DB.info: An error occurred",
 		"language_file_not_found": "Language file \"$filename$\" for locale \"$locale$\" not found in langs folder. Please ensure the file \"$filename$\" exists.",
 		"language_file_not_found_console": "Language file \"$filename$\" for locale \"$locale$\" not found in langs folder.",

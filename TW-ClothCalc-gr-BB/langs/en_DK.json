@@ -286,7 +286,8 @@
 	"duel": {
 		"levels_duel": "Duel levels you can duel: $min$ - $max$",
 		"levels_exp": "Current duel experience you will gain: $min$ - $max$",
-		"levels_potion": "Mysterious filter -10% ⇒ Duel Level $min$$max$",
+		"potion_label": "Mysterious filter",
+		"levels_potion": "Duel Level $min$$max$",
 		"motivation": "Duel motivation",
 		"ko_time": "KO time",
 		"ko_suspension": "KO - Duel suspension until $time$",
