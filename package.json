@@ -4,7 +4,9 @@
 		"lint-format": "biome check --write",
 		"twdb": "bun TW-ClothCalc-gr-BB/src/build.js",
 		"twdb:prod": "bun TW-ClothCalc-gr-BB/src/build.js --minify",
-		"twdb:twopass": "bun TW-ClothCalc-gr-BB/src/build.js --minify --minify=two-pass"
+		"twdb:twopass": "bun TW-ClothCalc-gr-BB/src/build.js --minify --minify=two-pass",
+		"twdb:changelogs": "bun TW-ClothCalc-gr-BB/src/.gen/generate-changelogs.js",
+		"twdb:languages": "bun TW-ClothCalc-gr-BB/src/.gen/generate-languages.js"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.3.6",
