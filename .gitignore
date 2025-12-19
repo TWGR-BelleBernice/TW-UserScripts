@@ -4,6 +4,6 @@
 
 /testing
 
-/TW-ClothCalc-gr-BB/.gen
-/TW-ClothCalc-gr-BB/.dumps
+/TW-ClothCalc-gr-BB/src
+/TW-ClothCalc-gr-BB/node_modules
 /TW-ClothCalc-gr-BB/sDoAllianceImport.js

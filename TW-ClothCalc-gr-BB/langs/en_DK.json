@@ -86,7 +86,7 @@
 		"profile_duel_exp": "Show duel experience in player profiles",
 		"regen_timers": "Add regeneration timers to player portrait",
 		"button_church": "Add a button for easier opening of Church building window",
-		"market_button": "Add a button for easier opening of Market window",
+		"button_market": "Add a button for easier opening of Market window",
 		"automation_buttons": "Automation buttons on the right",
 		"bonus_jobs": "Add option to show bonus jobs",
 		"coordinates_input": "Add option to move to specified coordinates",
